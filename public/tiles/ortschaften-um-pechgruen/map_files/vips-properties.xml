@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2025-12-20T10:20:34.180095-05" version="8.17.3">
+<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2025-12-26T16:50:23.980075-05" version="8.17.3">
   <properties>
     <property>
       <name>width</name>
@@ -67,7 +67,7 @@
     </property>
     <property>
       <name>exif-ifd0-DateTime</name>
-      <value type="VipsRefString">2025:12:20 08:56:55 (2025:12:20 08:56:55, ASCII, 20 components, 20 bytes)</value>
+      <value type="VipsRefString">2025:12:26 16:48:29 (2025:12:26 16:48:29, ASCII, 20 components, 20 bytes)</value>
     </property>
     <property>
       <name>exif-ifd1-Compression</name>

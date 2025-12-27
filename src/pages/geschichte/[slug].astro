@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("geschichte");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const displayDate = (data.updated ?? data.date)!;
+---
+
+<BaseLayout title={data.title}>
+  <article>
+    <header>
+      <h1>{data.title}</h1>
+
+      {data.subtitle && (
+        <p class="subtitle">{data.subtitle}</p>
+      )}
+
+      <p class="meta">
+        {displayDate.toLocaleDateString("sv-SE", {
+          timeZone: "America/Toronto",
+        })}
+      </p>
+    </header>
+
+    <Content />
+  </article>
+</BaseLayout>
+
+<style>
+  header {
+    margin-bottom: 1.8rem;
+  }
+
+  .subtitle {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 1.05rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.45);
+  }
+</style>

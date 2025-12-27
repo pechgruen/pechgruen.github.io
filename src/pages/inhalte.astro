@@ -4,11 +4,12 @@ import { getCollection } from "astro:content";
 
 // Collections
 const landschaften = await getCollection("landschaft");
+const geschichte = await getCollection("geschichte");
 const orte = await getCollection("stellen");
 const ortschaften = await getCollection("ortschaften");
 
 // Spezielle Seiten
-import { chronik as luftbild1946 } from "./luftbild-1946.astro";
+import { chronik as stellenIndex } from "./stellen/index.astro";
 import { chronik as ortschaftenUmPechgruen } from "./ortschaften/um-pechgruen.astro";
 
 // Personen
@@ -19,6 +20,7 @@ import { chronik as personenStammbaum } from "./personen-stammbaum.astro";
 import { chronik as aHooch } from "./a-hooch-aaf-unna-dorf.astro";
 import { chronik as meineErinnerungen } from "./meine-erinnerungen-heimatdorf-pechgruen.astro";
 import { chronik as texteUebersicht } from "./texte.astro";
+import { chronik as egerlaenderMundart } from "./egerlaendermundart.astro";
 
 // Redelbach
 import { chronik as redelbachIndex } from "./redelbach/index.astro";
@@ -47,6 +49,19 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
   const ob = Number(b.data.order ?? 0);
   return oa - ob;
 });
+
+// ---------- Geschichte: Sortierung ältester Eintrag oben ----------
+// Primär: date (aufsteigend)
+// Sekundär (bei gleichem Tag): order (aufsteigend, kleinere Zahl = älter)
+const geschichteSorted = [...geschichte].sort((a, b) => {
+  const da = new Date(a.data.date).getTime();
+  const db = new Date(b.data.date).getTime();
+  if (da !== db) return da - db;
+
+  const oa = Number(a.data.order ?? 0);
+  const ob = Number(b.data.order ?? 0);
+  return oa - ob;
+});
 ---
 
 <BaseLayout title="Einstieg">
@@ -63,7 +78,7 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
 
     <p>
       Diese Seite ist der Einstieg in die Website. Die Bereiche darunter zeigen
-      verschiedene Spuren, die zu Pechgrün führen: über Landschaft, Stellen & Gebäude,
+      verschiedene Spuren, die zu Pechgrün führen: über Landschaft, Stellen &amp; Gebäude,
       Dokumente, Texte, Bilder und Menschen.
     </p>
 
@@ -104,13 +119,13 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
       </div>
     </section>
 
-    <!-- Stellen & Gebäude -->
+    <!-- Geschichte -->
     <section class="acc">
       <button class="acc-head" type="button" aria-expanded="true">
-        <span class="acc-title">Stellen & Gebäude</span>
+        <span class="acc-title">Geschichte</span>
         <span class="acc-right">
           <span class="acc-meta">
-            {(orte.length + 1).toLocaleString("de-DE")} Einträge
+            {geschichteSorted.length.toLocaleString("de-DE")} Einträge
           </span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
@@ -118,16 +133,48 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
 
       <div class="acc-body">
         <ul>
+          {geschichteSorted.map((e) => (
+            <li>
+              <a href={`/geschichte/${e.slug}`}>{e.data.title}</a>
+              {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Stellen & Gebäude -->
+    <section class="acc">
+      <button class="acc-head" type="button" aria-expanded="true">
+        <span class="acc-title">Stellen &amp; Gebäude</span>
+        <span class="acc-right">
+          <span class="acc-meta">
+            {(orte.length + 2).toLocaleString("de-DE")} Einträge
+          </span>
+          <span class="acc-arrow" aria-hidden="true">▲</span>
+        </span>
+      </button>
+
+      <div class="acc-body">
+        <ul>
+          <!-- Einstieg (Luftbild) -->
           <li>
-            <a href={luftbild1946.href}>{luftbild1946.title}</a>
-            {luftbild1946.subtitle ? <span> — {luftbild1946.subtitle}</span> : null}
+            <a href={stellenIndex.href}>{stellenIndex.title}</a>
+            {stellenIndex.subtitle ? <span> — {stellenIndex.subtitle}</span> : null}
           </li>
 
+          <!-- Galerie (gleichrangig, kein Unterpunkt) -->
+          <li>
+            <a href="/stellen/gallery">Galerie – Stellen &amp; Gebäude</a>
+            <span> — Übersicht</span>
+          </li>
+
+          <!-- Detailseiten -->
           {orte
             .sort((a, b) => a.data.title.localeCompare(b.data.title, "de"))
             .map((e) => (
               <li>
-                <a href={`/stellen/`}>{e.data.title}</a>
+                <a href={`/stellen/${e.slug}`}>{e.data.title}</a>
                 {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
               </li>
             ))}
@@ -191,7 +238,7 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
       <button class="acc-head" type="button" aria-expanded="true">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
-          <span class="acc-meta">3 Einträge</span>
+          <span class="acc-meta">4 Einträge</span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
       </button>
@@ -199,6 +246,7 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
       <div class="acc-body">
         <ul>
           <li><a href={texteUebersicht.href}>{texteUebersicht.title}</a></li>
+          <li><a href={egerlaenderMundart.href}>{egerlaenderMundart.title}</a></li>
           <li><a href={meineErinnerungen.href}>{meineErinnerungen.title}</a></li>
           <li><a href={aHooch.href}>{aHooch.title}</a></li>
         </ul>

@@ -12,7 +12,7 @@ export const chronik = {
   order: 3,
 };
 
-const PORTRAIT_H = 520;   // fixe Höhe nur Portrait
+const PORTRAIT_H = 520; // fixe Höhe nur Portrait
 
 const descriptorsById = rawDescriptorsById as Record<string, string>;
 const housesByPhoto = rawHousesByPhoto as Record<string, string[]>;
@@ -81,22 +81,39 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
 
     <section class="intro">
       <p>
-        Diese Galerie versammelt alle mir bekannten Fotografien und Karten, die die ehemalige Ortschaft Pechgrün und ihre Häuser zeigen. Das Bildmaterial stammt aus den drei Pechgrün-Bänden sowie aus einer privaten Sammlung; ein wesentlicher Teil der Farbfotografien wurde mir von Miloš Bělohlávek, dem früheren Historiker der Kreisstadt Chodau, zur Verfügung gestellt. Die Aufnahmen entstanden zu einer Zeit, als Pechgrün bereits nicht mehr bewohnt war, vermutlich kurz vor dem Abriss Ende der 1960er-Jahre, und zeigen den Ort in seinem letzten, vielfach ungepflegten Zustand. Die Bildqualität ist oft eingeschränkt, dennoch vermitteln die Fotografien – ergänzt um Karten zur Orientierung – einen Eindruck der Häuser, in denen Menschen gelebt haben. Wo mehrere Gebäude erkennbar sind, wurden die Hausnummern auf Grundlage historischer Karten und Luftbilder recherchiert und ergänzt; der Filter ermöglicht es, die wenigen vorhandenen Bilder einzelner Häuser gezielt aufzufinden.
+        Diese Galerie versammelt alle mir bekannten Fotografien und Karten, die
+        die ehemalige Ortschaft Pechgrün und ihre Häuser zeigen. Das Bildmaterial
+        stammt aus den drei Pechgrün-Bänden sowie aus einer privaten Sammlung; ein
+        wesentlicher Teil der Farbfotografien wurde mir von Miloš Bělohlávek, dem
+        früheren Historiker der Kreisstadt Chodau, zur Verfügung gestellt. Die
+        Aufnahmen entstanden zu einer Zeit, als Pechgrün bereits nicht mehr bewohnt
+        war, vermutlich kurz vor dem Abriss Ende der 1960er-Jahre, und zeigen den
+        Ort in seinem letzten, vielfach ungepflegten Zustand. Die Bildqualität ist
+        oft eingeschränkt, dennoch vermitteln die Fotografien – ergänzt um Karten
+        zur Orientierung – einen Eindruck der Häuser, in denen Menschen gelebt
+        haben. Wo mehrere Gebäude erkennbar sind, wurden die Hausnummern auf
+        Grundlage historischer Karten und Luftbilder recherchiert und ergänzt; der
+        Filter ermöglicht es, die wenigen vorhandenen Bilder einzelner Häuser
+        gezielt aufzufinden.
       </p>
       <p class="hint">
-        Tipp: Mit den Pfeiltasten ← / → wechseln oder über die Thumbnails oben direkt springen.
+        Tipp: Mit den Pfeiltasten ← / → wechseln oder über die Thumbnails oben
+        direkt springen.
       </p>
     </section>
 
     {items.length === 0 ? (
-      <p>Keine Bilder gefunden. Prüfe bitte <code>src/assets/haeuser/</code>.</p>
+      <p>
+        Keine Bilder gefunden. Prüfe bitte <code>src/assets/haeuser/</code>.
+      </p>
     ) : (
       <section class="viewer viewer-wrap" data-gallery>
         <div class="frame">
-
           {/* Filter + Hinweise + Treffer: eine Zeile */}
           <div class="filterbar" aria-label="Filter">
-            <label class="filterlabel" for="houseFilter">Hausnummer-Filter:</label>
+            <label class="filterlabel" for="houseFilter">
+              Hausnummer-Filter:
+            </label>
 
             <input
               id="houseFilter"
@@ -146,7 +163,12 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
               title="In neuem Tab (volle Größe) öffnen"
             >
               <div class="hero-frame is-landscape" data-hero-frame>
-                <img src={items[0].small} alt={items[0].title} loading="eager" data-hero-img />
+                <img
+                  src={items[0].small}
+                  alt={items[0].title}
+                  loading="eager"
+                  data-hero-img
+                />
               </div>
             </button>
 
@@ -174,6 +196,9 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
             const heroImg = root.querySelector("[data-hero-img]");
             const caption = root.querySelector("[data-caption]");
             const thumbs = Array.from(root.querySelectorAll("[data-thumb]"));
+
+            // ✅ Scroll-Container für Thumbnails (für Wrap-Around Sprünge)
+            const stripScroll = root.querySelector(".strip-scroll");
 
             const openFullBtn = root.querySelector("[data-open-full]");
 
@@ -209,7 +234,11 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
                   const w = probe.naturalWidth || 1;
                   const h = probe.naturalHeight || 1;
                   const ratio = w / h;
-                  const targetW = clamp(Math.round(THUMB_H * ratio), THUMB_MIN_W, THUMB_MAX_W);
+                  const targetW = clamp(
+                    Math.round(THUMB_H * ratio),
+                    THUMB_MIN_W,
+                    THUMB_MAX_W
+                  );
                   btn.style.width = `${targetW}px`;
                   btn.style.height = `${THUMB_H}px`;
                 };
@@ -217,18 +246,34 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
               });
             };
 
-            const setActiveThumb = (i) => {
+            // ✅ Modell A: Wrap-Around -> Thumbnail-Leiste springt an den Rand
+            const setActiveThumb = (i, wrapped = false) => {
               thumbs.forEach((t, k) => t.classList.toggle("is-active", k === i));
-              thumbs[i]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+
+              if (wrapped && stripScroll instanceof HTMLElement) {
+                // harter Sprung (kein "endlos weiter nach rechts/links")
+                stripScroll.scrollLeft =
+                  i === 0 ? 0 : stripScroll.scrollWidth;
+                return;
+              }
+
+              thumbs[i]?.scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+                block: "nearest",
+              });
             };
 
             const renderCaption = (text) => {
               caption.innerHTML = "";
               if (!text) return;
-              String(text).split(/\r?\n/).forEach((line, i) => {
-                if (i > 0) caption.appendChild(document.createElement("br"));
-                caption.appendChild(document.createTextNode(line));
-              });
+              String(text)
+                .split(/\r?\n/)
+                .forEach((line, i) => {
+                  if (i > 0)
+                    caption.appendChild(document.createElement("br"));
+                  caption.appendChild(document.createTextNode(line));
+                });
             };
 
             const applyOrientationFor = (src) => {
@@ -247,7 +292,7 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
               window.open(it.full, "_blank", "noopener");
             };
 
-            const render = (i) => {
+            const render = (i, wrapped = false) => {
               const it = items[i];
               if (!it) return;
               index = i;
@@ -259,7 +304,7 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
 
               renderCaption(it.desc);
 
-              setActiveThumb(i);
+              setActiveThumb(i, wrapped);
             };
 
             thumbs.forEach((btn) =>
@@ -288,8 +333,8 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
                   qRaw === ""
                     ? true
                     : wantNoHouse
-                      ? houses.length === 0
-                      : houses.includes(qRaw);
+                    ? houses.length === 0
+                    : houses.includes(qRaw);
 
                 thumbs[i].style.display = ok ? "" : "none";
                 if (ok) filtered.push(i);
@@ -298,7 +343,7 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
               if (hitCountEl) hitCountEl.textContent = String(filtered.length);
 
               if (filtered.length > 0) {
-                if (!filtered.includes(index)) render(filtered[0]);
+                if (!filtered.includes(index)) render(filtered[0], true);
               } else {
                 thumbs.forEach((t) => t.classList.remove("is-active"));
               }
@@ -314,11 +359,13 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
               const curPos = pos >= 0 ? pos : 0;
 
               if (e.key === "ArrowLeft") {
+                const wrapped = curPos === 0;
                 const nextPos = clampInFiltered(curPos - 1);
-                render(filtered[nextPos]);
+                render(filtered[nextPos], wrapped);
               } else if (e.key === "ArrowRight") {
+                const wrapped = curPos === filtered.length - 1;
                 const nextPos = clampInFiltered(curPos + 1);
-                render(filtered[nextPos]);
+                render(filtered[nextPos], wrapped);
               }
             };
 
@@ -338,12 +385,27 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
 </BaseLayout>
 
 <style>
-  .page { width: 100%; margin: 0; }
-  .head .subtitle { margin: 0.25rem 0 0.75rem; opacity: 0.85; }
+  .page {
+    width: 100%;
+    margin: 0;
+  }
+  .head .subtitle {
+    margin: 0.25rem 0 0.75rem;
+    opacity: 0.85;
+  }
 
-  .intro, .intro p, .hint { max-width: 800px; }
-  .intro { margin: 0 0 1rem; }
-  .hint { opacity: 0.75; margin-top: -0.25rem; }
+  .intro,
+  .intro p,
+  .hint {
+    max-width: 800px;
+  }
+  .intro {
+    margin: 0 0 1rem;
+  }
+  .hint {
+    opacity: 0.75;
+    margin-top: -0.25rem;
+  }
 
   .viewer-wrap {
     max-width: 800px;
@@ -352,7 +414,9 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     padding: 0;
   }
 
-  .frame { width: 100%; }
+  .frame {
+    width: 100%;
+  }
 
   .filterbar {
     width: 100%;
@@ -369,10 +433,10 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
   }
 
   .filterinput {
-    width: 170px;          /* etwas kürzer, damit Hint Platz hat */
+    width: 170px; /* etwas kürzer, damit Hint Platz hat */
     max-width: 45vw;
     padding: 8px 10px;
-    border: 1px solid rgba(0,0,0,0.18);
+    border: 1px solid rgba(0, 0, 0, 0.18);
     border-radius: 10px;
     background: #fff;
     outline: none;
@@ -384,17 +448,20 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
   .filterinput:focus-visible {
     outline: none;
     box-shadow: none;
-    border-color: rgba(0,0,0,0.25);
+    border-color: rgba(0, 0, 0, 0.25);
   }
 
   /* ✅ exakt wie Treffer */
   .filtersyntax {
-    opacity: 0.75;        /* wie .filtercount */
-    font-size: 0.95rem;   /* wie .filtercount */
+    opacity: 0.75; /* wie .filtercount */
+    font-size: 0.95rem; /* wie .filtercount */
     white-space: nowrap;
   }
 
-  .spacer { flex: 1 1 auto; min-width: 0; }
+  .spacer {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 
   .filtercount {
     opacity: 0.75;
@@ -430,7 +497,7 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     border-radius: 10px;
     overflow: hidden;
     border: none;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.03);
   }
 
   .thumb img {
@@ -441,7 +508,9 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     max-width: none;
   }
 
-  .thumb.is-active { border: none; }
+  .thumb.is-active {
+    border: none;
+  }
 
   .thumb:focus,
   .thumb:focus-visible {
@@ -449,7 +518,9 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     box-shadow: none;
   }
 
-  .hero { margin: 0; }
+  .hero {
+    margin: 0;
+  }
   .hero-btn {
     all: unset;
     display: block;
@@ -458,7 +529,10 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     background: transparent;
   }
 
-  .hero-frame { width: 100%; background: transparent; }
+  .hero-frame {
+    width: 100%;
+    background: transparent;
+  }
 
   .hero-frame.is-landscape img {
     display: block;
@@ -486,7 +560,11 @@ const splitLines = (s: string) => String(s || "").split(/\r?\n/);
     font-size: 0.95rem;
     opacity: 0.85;
     line-height: 1.4;
-    height: 5.6em;
+
+    /* du hattest das zuletzt extrem groß gesetzt – lasse ich unverändert,
+       falls du bewusst "immer alles" sehen willst: */
+    height: 50em;
+
     overflow-y: auto;
     padding-right: 0.25rem;
   }

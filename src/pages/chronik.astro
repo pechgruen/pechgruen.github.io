@@ -31,12 +31,12 @@ const orteItems = entriesOrte.map((e) => {
     date: d,
     isUpdated: Boolean(e.data.updated),
     bereich: "Stellen & Gebäude",
-    href: `/stellen/`,
+    href: `/stellen/${e.slug}`, // ✅ FIX
     order: typeof e.data.order === "number" ? e.data.order : 0,
   };
 });
 
-// 3) Ortschaften (NEU)
+// 3) Ortschaften
 const entriesOrtschaften = await getCollection("ortschaften");
 const ortschaftenItems = entriesOrtschaften.map((e) => {
   const d = (e.data.updated ?? e.data.date) as Date;
@@ -52,8 +52,23 @@ const ortschaftenItems = entriesOrtschaften.map((e) => {
   };
 });
 
-// 4) Astro-Seiten mit export const chronik = {...}
-// ✅ WICHTIG: rekursiv, damit auch /pages/stellen/... gefunden wird
+// 4) Geschichte (Content Collection)
+const entriesGeschichte = await getCollection("geschichte");
+const geschichteItems = entriesGeschichte.map((e) => {
+  const d = (e.data.updated ?? e.data.date) as Date;
+  return {
+    kind: "content" as const,
+    title: e.data.title as string,
+    subtitle: (e.data.subtitle as string | undefined) ?? "",
+    date: d,
+    isUpdated: Boolean(e.data.updated),
+    bereich: "Geschichte",
+    href: `/geschichte/${e.slug}`,
+    order: typeof e.data.order === "number" ? e.data.order : 0,
+  };
+});
+
+// 5) Astro-Seiten mit export const chronik = {...}
 const pageModules = import.meta.glob("./**/*.astro", { eager: true }) as Record<
   string,
   any
@@ -77,11 +92,12 @@ const astroItems = Object.entries(pageModules)
   }))
   .filter((x) => x.title && x.href && !Number.isNaN(x.date.getTime()));
 
-// 5) Merge + Sort
+// 6) Merge + Sort
 const items = [
   ...landschaftItems,
   ...orteItems,
   ...ortschaftenItems,
+  ...geschichteItems,
   ...astroItems,
 ]
   .slice()
@@ -98,7 +114,9 @@ const items = [
   <main class="chronik-page">
     <div class="chronik-top">
       <h1>Entstehung</h1>
-      <p class="subtitle">Eine lebende Website – neueste Seiten oben, alle gezielt auffindbar</p>
+      <p class="subtitle">
+        Eine lebende Website – neueste Seiten oben, alle gezielt auffindbar
+      </p>
 
       <section class="intro">
         <p>
@@ -111,36 +129,38 @@ const items = [
           und zugleich auch ältere Inhalte wiederfinden. Da die Liste mit der
           Zeit lang werden kann, gibt es den Filter: Er durchsucht Titel und
           Untertitel und hilft dir, die Einträge einzugrenzen – zum Beispiel
-          nach einem Bereich wie „Landschaft“, „Stellen & Gebäude“ oder „Ortschaften“, oder
-          nach einem Stichwort, das du im Titel oder Untertitel erwartest.
+          nach einem Bereich wie „Landschaft“, „Stellen & Gebäude“,
+          „Ortschaften“ oder „Geschichte“, oder nach einem Stichwort, das du im
+          Titel oder Untertitel erwartest.
         </p>
       </section>
+    </div>
 
-      <div class="filterbar" role="search">
-        <label class="filterlabel" for="chronikFilter">Filtern</label>
+    <!-- ✅ Sticky: bleibt stehen, aber Intro kann wegscrollen -->
+    <div class="filterbar" role="search">
+      <label class="filterlabel" for="chronikFilter">Filtern</label>
 
-        <div class="filterfield">
-          <input
-            id="chronikFilter"
-            type="search"
-            placeholder="Titel oder Untertitel …"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button
-            id="chronikClear"
-            class="clear"
-            type="button"
-            aria-label="Filter zurücksetzen"
-          >
-            ×
-          </button>
-        </div>
+      <div class="filterfield">
+        <input
+          id="chronikFilter"
+          type="search"
+          placeholder="Titel oder Untertitel …"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button
+          id="chronikClear"
+          class="clear"
+          type="button"
+          aria-label="Filter zurücksetzen"
+        >
+          ×
+        </button>
       </div>
     </div>
 
-    <!-- Nur dieser Bereich scrollt -->
-    <div class="scrollpane" aria-label="Chronik-Liste">
+    <!-- kein eigener Scroll-Container mehr; die ganze Seite scrollt -->
+    <div class="listwrap" aria-label="Chronik-Liste">
       <table class="chronik">
         <colgroup>
           <col class="c-title" />
@@ -163,10 +183,7 @@ const items = [
               return (
                 <tr data-q={q}>
                   <td>
-                    <a class="title-link" href={e.href}>
-                      {e.title}
-                    </a>
-
+                    <a class="title-link" href={e.href}>{e.title}</a>
                     {e.subtitle ? (
                       <div class="subtitle-inline">{e.subtitle}</div>
                     ) : null}
@@ -177,9 +194,7 @@ const items = [
                   <td class="date-cell">
                     <span class="date-text">{fmtDate(e.date)}</span>
                     {e.isUpdated ? (
-                      <span class="badge" title="Updated">
-                        ↻
-                      </span>
+                      <span class="badge" title="Updated">↻</span>
                     ) : null}
                   </td>
                 </tr>
@@ -191,16 +206,8 @@ const items = [
     </div>
 
     <script>
-      // ---------------- Filter / Reset (TypeScript-friendly) ----------------
       const inputEl = document.querySelector("#chronikFilter");
       const clearEl = document.querySelector("#chronikClear");
-
-      if (!(inputEl instanceof HTMLInputElement)) {
-        console.warn("chronikFilter not found or not an input");
-      }
-      if (!(clearEl instanceof HTMLButtonElement)) {
-        console.warn("chronikClear not found or not a button");
-      }
 
       if (
         inputEl instanceof HTMLInputElement &&
@@ -208,9 +215,7 @@ const items = [
       ) {
         const rows = Array.from(
           document.querySelectorAll("table.chronik tbody tr"),
-        ).filter(
-          (el): el is HTMLTableRowElement => el instanceof HTMLTableRowElement,
-        );
+        ).filter((el) => el instanceof HTMLTableRowElement);
 
         const setClearVisible = () => {
           clearEl.style.visibility = inputEl.value ? "visible" : "hidden";
@@ -250,75 +255,26 @@ const items = [
 
         setClearVisible();
       }
-
-      // ---------------- Robust Scroll: immer die Liste scrollen ----------------
-      const paneEl = document.querySelector(".scrollpane");
-      const pageEl = document.querySelector(".chronik-page");
-
-      if (paneEl instanceof HTMLElement && pageEl instanceof HTMLElement) {
-        // Body/HTML scroll auf dieser Seite ausschalten (sonst "verschwindet" der Kopfbereich)
-        const htmlEl = document.documentElement;
-        const bodyEl = document.body;
-
-        const prevHtmlOverflow = htmlEl.style.overflow;
-        const prevBodyOverflow = bodyEl.style.overflow;
-
-        htmlEl.style.overflow = "hidden";
-        bodyEl.style.overflow = "hidden";
-
-        const wheelHandler = (e: WheelEvent) => {
-          // nur wenn wir tatsächlich auf der Chronik-Seite sind
-          if (!document.body.contains(pageEl)) return;
-          if (paneEl.scrollHeight <= paneEl.clientHeight) return;
-
-          // Trackpad/Wheel: wir übernehmen den Scroll und leiten ihn an paneEl weiter
-          e.preventDefault();
-          paneEl.scrollTop += e.deltaY;
-        };
-
-        // Capture + passive:false, damit preventDefault greift
-        window.addEventListener("wheel", wheelHandler, {
-          passive: false,
-          capture: true,
-        });
-
-        // ✅ WICHTIG: Cleanup muss auch bei Astro client-side Navigation passieren
-        const cleanup = () => {
-          window.removeEventListener("wheel", wheelHandler, true);
-          htmlEl.style.overflow = prevHtmlOverflow;
-          bodyEl.style.overflow = prevBodyOverflow;
-        };
-
-        window.addEventListener("pagehide", cleanup, { once: true });
-        document.addEventListener("astro:before-swap", cleanup, { once: true });
-      }
     </script>
   </main>
 </BaseLayout>
 
 <style>
+  /* ✅ Jetzt scrollt die ganze Chronik-Seite */
   .chronik-page {
     max-width: 980px;
     margin: 0 auto;
+    padding: 0 0.25rem;
 
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-
-  .chronik-top {
-    flex: 0 0 auto;
-  }
-
-  .scrollpane {
-    flex: 1 1 auto;
-    min-height: 0;
     overflow: auto;
 
     /* macOS Overlay-Scrollbar kann Inhalte überdecken -> etwas Luft rechts */
     padding-right: 14px;
     scrollbar-gutter: stable;
+
+    /* Luft unten, damit das Ende nicht "abgeschnitten" wirkt */
+    padding-bottom: 1.25rem;
   }
 
   h1 {
@@ -333,14 +289,23 @@ const items = [
 
   .intro {
     max-width: 860px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
+  /* ✅ Hier soll es "stehen bleiben" */
   .filterbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
     margin: 0 0 0.9rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .filterlabel {
@@ -362,7 +327,6 @@ const items = [
     font-size: 0.98rem;
   }
 
-  /* Native WebKit "clear" X ausblenden, damit nur unser Button erscheint */
   #chronikFilter::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
@@ -407,16 +371,11 @@ const items = [
     font-size: 0.98rem;
   }
 
-  col.c-title {
-    width: auto;
-  }
-  col.c-bereich {
-    width: 10%;
-  }
-  col.c-date {
-    width: 10ch;
-  }
+  col.c-title { width: auto; }
+  col.c-bereich { width: 10%; }
+  col.c-date { width: 10ch; }
 
+  /* ✅ Tabellenkopf bleibt beim Scrollen sichtbar (innerhalb .chronik-page) */
   thead th {
     text-align: left;
     font-weight: 600;
@@ -425,7 +384,7 @@ const items = [
     white-space: nowrap;
 
     position: sticky;
-    top: 0;
+    top: 3.15rem; /* ungefähr Höhe der Filterbar inkl. Padding */
     background: #fff;
     z-index: 2;
   }

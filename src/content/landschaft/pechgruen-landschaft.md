@@ -91,7 +91,7 @@ hinunter in den Pechgrüner Kessel.
     dem auffälligen Spitzberg floß der Schwarzebach ins Tal. Es folgten der Kahlhau, Fuchsberg und
     der Håmmerrång. Der Wölfling, schon etwas weiter entfernt, schloß diesen Rahmen ab.
     Vor diesen gewaltigen Bergrücken erhob sich der wesentlich niedrigere unbewaldete Vulkankegel
-    des Voitsgrüner Berges. Bei guter Sicht konnte man den Keilberg sehen, mit 1244 m die höchste
+    des Voigtsgrüner Berges. Bei guter Sicht konnte man den Keilberg sehen, mit 1244 m die höchste
     Erhebung im Erzgebirge. Im Norden erblickte man weit hinter dem Håmmerång den Peindlturm.
   </p>
 

@@ -1,15 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 // Damit es in der Chronik auftaucht:
 export const chronik = {
-  title: "Luftbild 1946",
-  subtitle: "Deep Zoom – Marker führen zu Stellen & Gebäuden",
+  title: "Stellen & Gebäude",
+  subtitle: "Einstieg über das Luftbild 1946",
   date: "2025-12-18",
   order: 1,
   bereich: "Stellen & Gebäude",
-  href: "/luftbild-1946",
+  href: "/stellen",
 };
 
 const tileSource = "/tiles/luftbild-1946/1946.dzi";
@@ -26,15 +26,16 @@ const points = entries.map((e) => ({
   label: String((e.data as any).label ?? ""), // Textlabel, z.B. "10A"
   x: (e.data as any).x as number,
   y: (e.data as any).y as number,
-  href: `/stellen/`,
+  // WICHTIG: Marker müssen zur Detailseite führen, nicht nur zur Übersicht
+  href: `/stellen/${e.slug}`,
 }));
 ---
 
-<BaseLayout title="Luftbild 1946">
+<BaseLayout title="Stellen &amp; Gebäude">
   <main style="max-width:980px;margin:0 auto;">
-    <h1 style="margin:0 0 0.35rem;">Luftbild Pechgrün 1946</h1>
+    <h1 style="margin:0 0 0.35rem;">Stellen &amp; Gebäude</h1>
     <p style="margin:0 0 1rem; opacity:0.8;">
-      Deep Zoom – nummerierte Häuser als Zugang zur Dorfgeschichte
+      Einstieg über das Luftbild von Mai 1946 – Marker führen zu Detailseiten.
     </p>
 
     <!-- EINORDNUNG -->
@@ -145,7 +146,7 @@ const points = entries.map((e) => ({
 
       <p>
         Zusätzlich gibt es <strong>Marker</strong>, die du über den Button rechts unten
-        <strong>explizit einschalten</strong> kannst. Diese Marker kennzeichnen Punkte im Raum, zu
+        <strong>explizit einschalten</strong> kannst. Diese Marker kennzeichnen Stellen und Gebäude, zu
         denen bereits <strong>Detailseiten mit Zusatzinformationen</strong> existieren
         (z.&nbsp;B. aus Erinnerungsbüchern, Einwohnermeldebuch und Kirchenbüchern). Ein Klick auf
         einen Marker führt direkt zur entsprechenden Detailseite.

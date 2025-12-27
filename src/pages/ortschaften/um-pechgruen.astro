@@ -31,9 +31,9 @@ const markers = entries.map((e) => ({
     <h1 style="margin:0 0 0.35rem;">Ortschaften um Pechgrün</h1>
 
     <p style="margin:0 0 1rem; opacity:0.8;">
-      Diese Karte zeigt die Ortschaften rund um Pechgrün im historischen Kontext.
-      Die Marker lassen sich ein- und ausblenden und führen zu Detailseiten
-      der jeweiligen Orte.
+      Diese Karte zeigt die Ortschaften rund um Pechgrün im historischen Kontext
+      sowie ausgewählte markante Punkte der Landschaft. Die Marker lassen sich
+      ein- und ausblenden und führen zu Detailseiten der jeweiligen Orte.
     </p>
 
     <DeepZoomMap {...ortschaftenUmPechgruen} markers={markers} height={640} />
@@ -42,11 +42,17 @@ const markers = entries.map((e) => ({
       <h2>Hinweis zur Bedienung</h2>
       <ul>
         <li><strong>Zoomen:</strong> Mausrad oder Trackpad-Geste</li>
-        <li><strong>Verschieben:</strong> klicken / gedrückt halten und ziehen</li>
-        <li><strong>Marker:</strong> über den Button rechts unten ein- und ausblenden</li>
+        <li>
+          <strong>Verschieben:</strong> klicken / gedrückt halten und ziehen
+        </li>
+        <li>
+          <strong>Marker:</strong> über den Button rechts unten ein- und ausblenden
+        </li>
         <li>
           <strong>Autor-Funktion:</strong>
-          <span style="white-space:nowrap;">Option&nbsp;/&nbsp;Alt&nbsp;+&nbsp;Klick</span>
+          <span style="white-space:nowrap;"
+            >Option&nbsp;/&nbsp;Alt&nbsp;+&nbsp;Klick</span
+          >
           zeigt die Bildkoordinaten an (werden ins Clipboard kopiert)
         </li>
       </ul>

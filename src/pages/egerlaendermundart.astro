@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const chronik = {
+    title: "Egerländer Mundart",
+    subtitle: "So hat es geklungen",
+    date: "2025-12-26",
+    bereich: "Texte, Stimmen und Erinnerungen",
+    href: "/egerlaendermundart",
+    order: 3,
+};
+
+const intro =
+    "Diese Aufnahme vermittelt einen unmittelbaren Eindruck davon, wie die Egerländer Mundart im Alltag geklungen hat. Es geht nicht um das Verstehen einzelner Wörter, sondern um Klang, Rhythmus und Tonfall einer gesprochenen Erinnerung.";
+
+const videoId = "Nn7ZV5UL1F8";
+
+/**
+ * YouTube params:
+ * - cc_load_policy=0  -> captions off by default
+ * - rel=0             -> don't show related videos from other channels at end (best-effort)
+ * - modestbranding=1  -> minimal branding (best-effort)
+ */
+const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?cc_load_policy=0&rel=0&modestbranding=1`;
+---
+
+<BaseLayout title={chronik.title}>
+    <article class="text-ort">
+        <header class="head">
+            <h1>{chronik.title}</h1>
+            <p class="subtitle">{chronik.subtitle}</p>
+
+            <p class="intro">{intro}</p>
+        </header>
+
+        <section
+            class="content"
+            lang="de"
+            aria-label="Video: Egerländer Mundart"
+        >
+            <figure class="video">
+                <div class="video-frame">
+                    <iframe
+                        src={embedUrl}
+                        title="Egerländer Mundart – So hat es geklungen"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <figcaption>
+                    Dokumentarisches Kurzporträt aus dem Projekt <span class="q"
+                        >„mundArt“</span
+                    >:
+                    <strong>Elfriede Šulková</strong>, geb. <strong
+                        >Peindl</strong
+                    > (geb. 1940) aus Plachtin (Plachtín) im Egerland, die bis heute
+                    in ihrem Geburtshaus lebt.
+                </figcaption>
+            </figure>
+
+            <div class="credit" aria-label="Projekt- und Quellenangaben">
+                <p>
+                    Filmautoren: Sebastian Löffler und Simon Römer. Ein Film im
+                    Auftrag der Landesversammlung der deutschen Vereine in der
+                    Tschechischen Republik e.V.
+                </p>
+                <p class="links">
+                    <a
+                        href="https://www.mundart.landesversammlung.cz"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        mundart.landesversammlung.cz
+                    </a>
+                    <span class="dot">·</span>
+                    <a
+                        href="https://www.landesversammlung.cz"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        landesversammlung.cz
+                    </a>
+                </p>
+            </div>
+        </section>
+    </article>
+</BaseLayout>
+
+<style>
+    /* ===== Grundlayout ===== */
+    .text-ort {
+        width: min(860px, 100%);
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    /* ===== Kopf ===== */
+    .head {
+        margin-bottom: 1.6rem;
+    }
+
+    .subtitle {
+        margin: -0.35rem 0 0.9rem 0;
+        font-size: 1.15rem;
+        line-height: 1.35;
+        color: rgba(0, 0, 0, 0.72);
+    }
+
+    .intro {
+        margin-top: 0.4rem;
+        margin-bottom: 1.4rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: rgba(0, 0, 0, 0.55);
+    }
+
+    /* ===== Content ===== */
+    .content {
+        margin-top: 1.2rem;
+    }
+
+    /* ===== Video ===== */
+    figure.video {
+        margin: 0;
+    }
+
+    .video-frame {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        /* responsive aspect ratio */
+        aspect-ratio: 16 / 9;
+    }
+
+    .video-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+    figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .q {
+        font-style: normal;
+    }
+
+    /* ===== Credits ===== */
+    .credit {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 0.92rem;
+        line-height: 1.5;
+    }
+
+    .credit p {
+        margin: 0 0 0.6rem 0;
+    }
+
+    .links {
+        margin: 0;
+    }
+
+    .dot {
+        margin: 0 0.35rem;
+        opacity: 0.6;
+    }
+
+    .credit a {
+        text-decoration: none;
+    }
+
+    .credit a:hover {
+        text-decoration: underline;
+    }
+</style>

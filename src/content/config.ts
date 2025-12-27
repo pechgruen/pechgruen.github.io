@@ -1,3 +1,4 @@
+// src/content/config.ts
 import { defineCollection, z } from "astro:content";
 
 /**
@@ -11,6 +12,7 @@ const base = z.object({
   updated: z.coerce.date().optional(),
   order: z.number().int().optional(),
 
+  // tags sind optional, du nutzt sie nicht aktiv
   tags: z.array(z.string()).default([]),
   heroImage: z.string().optional(),
 });
@@ -42,6 +44,11 @@ const ortschaften = base.extend({
  */
 export const collections = {
   landschaft: defineCollection({
+    type: "content",
+    schema: base,
+  }),
+
+  geschichte: defineCollection({
     type: "content",
     schema: base,
   }),
