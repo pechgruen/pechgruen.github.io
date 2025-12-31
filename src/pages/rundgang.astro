@@ -1,0 +1,378 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Rundgang";
+---
+
+<BaseLayout title={title}>
+  <article class="rundgang">
+    <h1>Rundgang</h1>
+
+    <p class="intro">
+      Wenn du zum ersten Mal hier bist, kann diese Website auf den ersten Blick
+      überwältigend wirken. Es gibt Karten, Luftbilder, Texte, Namen, Bilder und
+      Querverweise – und vieles davon erschließt sich erst beim Benutzen.
+    </p>
+
+    <p class="intro">
+      Dieser Rundgang führt dich Schritt für Schritt durch sieben Stationen. Du
+      musst nichts wissen, nichts vorbereiten und nichts „richtig“ machen. Folge
+      einfach der Reihenfolge. Danach weißt du, wie diese Website funktioniert –
+      und kannst frei weiterstöbern.
+    </p>
+
+    <!-- Station 1 -->
+    <a class="step-link" href="/stellen">
+      <section class="step" aria-label="Station 1: Das Dorf von oben">
+        <div class="num">1</div>
+        <div class="content">
+          <h2>Das Dorf von oben</h2>
+
+          <p>Wir beginnen mit einem Blick von oben.</p>
+
+          <p>
+            Auf dieser Seite siehst du ein historisches Luftbild von Pechgrün.
+            Du kannst hineinzoomen, dich bewegen und das Gelände erkunden – fast
+            so, als würdest du darüber schweben.
+          </p>
+
+          <p>
+            Zunächst wirken die Zahlen im Bild vielleicht verwirrend: Das sind
+            Hausnummern. Wichtig ist:
+            <strong
+              >Erst wenn du die Marker einschaltest, werden diese Häuser
+              anklickbar.</strong
+            >
+          </p>
+
+          <p>
+            Schalte die Marker ein und klicke dann auf ein Haus – zum Beispiel
+            Haus Nr. 24. Du springst damit direkt von der Übersicht zu einem
+            konkreten Ort im Dorf.
+          </p>
+
+          <p>
+            Du hast jetzt gesehen, wie Karten und Luftbilder auf dieser Website
+            funktionieren – und dass man sich aktiv darin bewegen kann.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 2 -->
+    <a class="step-link" href="/stellen/haus-24">
+      <section class="step" aria-label="Station 2: Ein einzelnes Haus">
+        <div class="num">2</div>
+        <div class="content">
+          <h2>Ein einzelnes Haus</h2>
+
+          <p>Jetzt bist du nicht mehr „über“ dem Dorf, sondern mitten darin.</p>
+
+          <p>
+            Diese Seite zeigt ein einzelnes Haus: Bilder, kurze Texte,
+            historische Hinweise. Es geht nicht um Architektur, sondern um
+            Alltag – wer hier lebte, was hier war, warum dieser Ort Bedeutung
+            hatte.
+          </p>
+
+          <p class="note">
+            <strong>Von hier aus führt kein automatischer Weg weiter.</strong>
+            Wenn du zurück möchtest, hast du zwei einfache Möglichkeiten:
+          </p>
+
+          <ul>
+            <li>den Zurück-Button deines Browsers</li>
+            <li>oder oben im Menü wieder auf <em>Rundgang</em> klicken</li>
+          </ul>
+
+          <p>
+            Das ist kein Fehler, sondern Absicht: Diese Seiten sind
+            eigenständige Räume, aus denen man bewusst wieder herausgeht.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 3 -->
+    <a class="step-link" href="/landschaft/flurnamen">
+      <section class="step" aria-label="Station 3: Namen in der Landschaft">
+        <div class="num">3</div>
+        <div class="content">
+          <h2>Namen in der Landschaft</h2>
+
+          <p>Jetzt wechseln wir die Perspektive.</p>
+
+          <p>
+            Auf dieser Seite geht es um Flurnamen: alte Bezeichnungen für
+            Wiesen, Bäche, Hügel und Wege. Du siehst eine Karte mit markierten
+            Punkten – und darunter eine Liste aller Namen.
+          </p>
+
+          <p>
+            Du kannst die Namen in der Liste anklicken. Die Karte bewegt sich
+            dann selbstständig zu genau diesem Ort – sie zoomt, verschiebt sich
+            und kommt zur Ruhe.
+          </p>
+
+          <p>
+            Hier geht es um Orientierung: Namen werden wieder zu Orten im Raum.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 4 -->
+    <a class="step-link" href="/landschaft/pechgruen-teiche">
+      <section class="step" aria-label="Station 4: Die Pechgrüner Teiche">
+        <div class="num">4</div>
+        <div class="content">
+          <h2>Die Pechgrüner Teiche</h2>
+
+          <p>
+            Nun kommen wir zu einer Landschaft, die es heute nicht mehr gibt.
+          </p>
+
+          <p>
+            Diese Seite beschreibt die Teiche von Pechgrün: wo sie lagen, wie
+            sie hießen, wie sie entstanden sind – mit Karten und historischen
+            Quellen.
+          </p>
+
+          <p>
+            Beim Lesen stößt du <em>innerhalb des Textes</em> auf einen Hinweis, der
+            auf eine andere Perspektive verweist. Dort wird dieselbe Landschaft nicht
+            erklärt, sondern erinnert.
+          </p>
+
+          <p>
+            Du kannst diesem Querverweis folgen – oder auf dieser Seite bleiben.
+            Beides ist richtig.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 5 -->
+    <a class="step-link" href="/redelbach-teich">
+      <section
+        class="step"
+        aria-label="Station 5: Erinnerung statt Beschreibung"
+      >
+        <div class="num">5</div>
+        <div class="content">
+          <h2>Erinnerung statt Beschreibung</h2>
+
+          <p>Hier liest du denselben Ort aus einer ganz anderen Sicht.</p>
+
+          <p>
+            Karl Redelbach beschreibt die Teiche nicht als Landschaft, sondern
+            als gelebten Alltag seiner Jugend. Es geht um Wege, Wasser, Sommer,
+            Geräusche und Bewegungen.
+          </p>
+
+          <p>
+            Du musst nichts vergleichen und nichts zuordnen. Lies den Text
+            einfach als Erinnerung – und nimm wahr, wie sich derselbe Ort anders
+            anfühlen kann.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 6 -->
+    <a class="step-link" href="/redelbach/gallery">
+      <section class="step" aria-label="Station 6: Bilder als eigener Zugang">
+        <div class="num">6</div>
+        <div class="content">
+          <h2>Bilder als eigener Zugang</h2>
+
+          <p>Diese Station zeigt einen weiteren Zugang: über Bilder.</p>
+
+          <p>
+            Hier geht es nicht um Information, sondern um Eindruck. Du kannst
+            die Bilder einzeln betrachten oder einfach wirken lassen.
+          </p>
+
+          <p>
+            Karl Redelbachs Malerei steht dabei gleichberechtigt neben seinem
+            Erzählen. Seine Aquarelle sind keine Illustrationen zu Texten,
+            sondern eine eigene, künstlerische Form des Erinnerns – poetisch,
+            ruhig und sehr genau beobachtet.
+          </p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Station 7 -->
+    <a class="step-link" href="/personen-einwohnermeldebuch">
+      <section class="step" aria-label="Station 7: Menschen finden">
+        <div class="num">7</div>
+        <div class="content">
+          <h2>Menschen finden</h2>
+
+          <p>Zum Schluss ein ganz anderer Zugang.</p>
+
+          <p>
+            Auf dieser Seite findest du eine Liste der Bewohner von Pechgrün und
+            Neuhäusern in der ersten Hälfte des 20. Jahrhunderts – geordnet nach
+            Häusern.
+          </p>
+
+          <p>
+            Du kannst gezielt nach <strong>Familiennamen</strong> oder
+            <strong>Hausnummern</strong> suchen und die Liste so eingrenzen, dass
+            nur noch passende Einträge sichtbar bleiben.
+          </p>
+
+          <p>
+            Diese Seite zeigt: Die Website ist nicht nur zum Lesen da, sondern
+            auch zum Nachschlagen und Recherchieren.
+          </p>
+        </div>
+      </section>
+    </a>
+
+     <section class="after">
+      <h2>Danach</h2>
+
+      <p>
+        Wenn du diesen Rundgang gegangen bist, kennst du die wichtigsten Zugänge
+        dieser Website. Du weißt, wie Karten, Texte, Bilder, Querverweise und
+        Listen funktionieren.
+      </p>
+
+      <p class="closing">
+        Wenn du danach frei stöbern willst, findest du eine geordnete Übersicht
+        unter <strong><a class="plain-link" href="/inhalte">Inhalt</a></strong>.
+        Dort sind alle Seiten nach Bereichen gegliedert:
+      </p>
+
+      <ul class="areas" aria-label="Bereiche auf der Inhaltsseite">
+        <li>Landschaft</li>
+        <li>Geschichte</li>
+        <li>Stellen &amp; Gebäude</li>
+        <li>Ortschaften</li>
+        <li>Personen</li>
+        <li>Texte, Stimmen und Erinnerungen</li>
+        <li>Karl Redelbach</li>
+      </ul>
+
+      <p class="closing-note">
+        Alternativ kannst du über <strong
+          ><a class="plain-link" href="/chronik">Entstehung</a></strong
+        >
+        chronologisch sehen, was neu dazugekommen ist – dort hilft dir außerdem die
+        Filterfunktion, Seiten schnell wiederzufinden.
+      </p>
+    </section>
+  </article>
+
+  <style>
+    .rundgang {
+      max-width: 860px;
+    }
+
+    .intro {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Ganze Karte klickbar, ohne Link-Optik */
+    .step-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.2rem;
+      padding: 1.25rem 1.4rem;
+      margin: 1.6rem 0;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .step-link:hover .step {
+      background: rgba(0, 0, 0, 0.055);
+    }
+
+    .step-link:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.35);
+      outline-offset: 4px;
+      border-radius: 16px;
+    }
+
+    .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .content h2 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .note {
+      margin-top: 0.8rem;
+    }
+
+    .after {
+      margin-top: 2.2rem;
+    }
+
+    .closing {
+      margin: 0;
+    }
+
+    .areas {
+      margin: 0.6rem 0 0.8rem 0;
+      padding-left: 1.1rem; /* dezente Einrückung */
+    }
+
+    .areas li {
+      margin: 0.25rem 0;
+    }
+
+    .closing-note {
+      margin: 0;
+      opacity: 0.9; /* optional: leicht ruhiger */
+    }
+
+    /* Links im Nachspann: ohne Unterstreichung, aber klar erkennbar */
+    .plain-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .plain-link:hover {
+      opacity: 0.85;
+    }
+
+    .plain-link:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.35);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .num {
+        margin-bottom: 0.4rem;
+      }
+    }
+  </style>
+</BaseLayout>

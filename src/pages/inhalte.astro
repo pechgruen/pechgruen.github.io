@@ -71,10 +71,9 @@ const geschichteSorted = [...geschichte].sort((a, b) => {
    - Ergebnis: eine einzige Landschaft-Liste in "Einstieg".
    ------------------------------------------------------------------ */
 
-const landschaftPageModules = import.meta.glob("./landschaft/*.astro", { eager: true }) as Record<
-  string,
-  any
->;
+const landschaftPageModules = import.meta.glob("./landschaft/*.astro", {
+  eager: true,
+}) as Record<string, any>;
 
 const landschaftPages = Object.entries(landschaftPageModules)
   .map(([, mod]) => mod?.chronik)
@@ -100,41 +99,43 @@ const landschaftContentItems = landschaftenSorted.map((e) => ({
 }));
 
 // Sortierung wie bisher: ältester oben
-const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort((a, b) => {
-  const da = a.date.getTime();
-  const db = b.date.getTime();
-  if (da !== db) return da - db;
-  return (a.order ?? 0) - (b.order ?? 0);
-});
+const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
+  (a, b) => {
+    const da = a.date.getTime();
+    const db = b.date.getTime();
+    if (da !== db) return da - db;
+    return (a.order ?? 0) - (b.order ?? 0);
+  }
+);
 ---
 
-<BaseLayout title="Einstieg">
-  <h1>Einstieg</h1>
-  <p class="subtitle">Spuren, die zu Pechgrün führen</p>
+<BaseLayout title="Inhalt">
+  <h1>Inhalt</h1>
+  <p class="subtitle">Übersicht und Zugang zu allen Bereichen</p>
 
   <section class="intro">
     <p>
       Pechgrün ist verschwunden. Die Häuser sind fort, die Wege von einer
       Abraumhalde überdeckt, die Landschaft über dem Ort neu geformt. Was
-      geblieben ist, sind Spuren – und Erinnerungen. Und selbst diese sind
-      inzwischen selten geworden.
+      geblieben ist, sind Spuren – in Karten, Bildern, Texten und Erinnerungen.
     </p>
 
     <p>
-      Diese Seite ist der Einstieg in die Website. Die Bereiche darunter zeigen
-      verschiedene Spuren, die zu Pechgrün führen: über Landschaft, Stellen &amp; Gebäude,
-      Dokumente, Texte, Bilder und Menschen.
+      Diese Seite bietet eine vollständige Übersicht über die Inhalte dieser
+      Website. Sie führt zu Landschaften, Stellen und Gebäuden, historischen
+      Darstellungen, Texten, Stimmen, Bildern und Personen.
     </p>
 
     <p>
-      Wenn du zum ersten Mal hier bist, beginnt der Weg sinnvollerweise bei der
-      Landschaft. Sie ist das, was heute noch sichtbar ist – auch wenn der Ort
-      selbst verschwunden ist. Von dort führen die Spuren weiter.
+      Anders als der <em>Rundgang</em> folgt diese Seite keiner empfohlenen Reihenfolge.
+      Sie ist als offener Zugang gedacht – zum gezielten Nachschlagen, zum Wiederfinden
+      bestimmter Themen oder zum freien Stöbern.
     </p>
 
     <p>
-      Es gibt keinen festen Weg. Du kannst überall einsteigen und jederzeit
-      zurückkehren. Diese Seite ist ein Wegweiser, kein Ablaufplan.
+      Du kannst hier überall einsteigen, Abschnitte auf- und zuklappen und
+      jederzeit zurückkehren. Diese Seite ist ein Inhaltsverzeichnis – kein
+      vorgeschriebener Weg.
     </p>
   </section>
 
@@ -153,12 +154,14 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
 
       <div class="acc-body">
         <ul>
-          {landschaftCombined.map((e) => (
-            <li>
-              <a href={e.href}>{e.title}</a>
-              {e.subtitle ? <span> — {e.subtitle}</span> : null}
-            </li>
-          ))}
+          {
+            landschaftCombined.map((e) => (
+              <li>
+                <a href={e.href}>{e.title}</a>
+                {e.subtitle ? <span> — {e.subtitle}</span> : null}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
@@ -177,12 +180,14 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
 
       <div class="acc-body">
         <ul>
-          {geschichteSorted.map((e) => (
-            <li>
-              <a href={`/geschichte/${e.slug}`}>{e.data.title}</a>
-              {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
-            </li>
-          ))}
+          {
+            geschichteSorted.map((e) => (
+              <li>
+                <a href={`/geschichte/${e.slug}`}>{e.data.title}</a>
+                {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
@@ -204,7 +209,11 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           <!-- Einstieg (Luftbild) -->
           <li>
             <a href={stellenIndex.href}>{stellenIndex.title}</a>
-            {stellenIndex.subtitle ? <span> — {stellenIndex.subtitle}</span> : null}
+            {
+              stellenIndex.subtitle ? (
+                <span> — {stellenIndex.subtitle}</span>
+              ) : null
+            }
           </li>
 
           <!-- Galerie (gleichrangig, kein Unterpunkt) -->
@@ -214,14 +223,16 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           </li>
 
           <!-- Detailseiten -->
-          {orte
-            .sort((a, b) => a.data.title.localeCompare(b.data.title, "de"))
-            .map((e) => (
-              <li>
-                <a href={`/stellen/${e.slug}`}>{e.data.title}</a>
-                {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
-              </li>
-            ))}
+          {
+            orte
+              .sort((a, b) => a.data.title.localeCompare(b.data.title, "de"))
+              .map((e) => (
+                <li>
+                  <a href={`/stellen/${e.slug}`}>{e.data.title}</a>
+                  {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
+                </li>
+              ))
+          }
         </ul>
       </div>
     </section>
@@ -241,20 +252,26 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
       <div class="acc-body">
         <ul>
           <li>
-            <a href={ortschaftenUmPechgruen.href}>{ortschaftenUmPechgruen.title}</a>
-            {ortschaftenUmPechgruen.subtitle ? (
-              <span> — {ortschaftenUmPechgruen.subtitle}</span>
-            ) : null}
+            <a href={ortschaftenUmPechgruen.href}
+              >{ortschaftenUmPechgruen.title}</a
+            >
+            {
+              ortschaftenUmPechgruen.subtitle ? (
+                <span> — {ortschaftenUmPechgruen.subtitle}</span>
+              ) : null
+            }
           </li>
 
-          {ortschaften
-            .sort((a, b) => a.data.title.localeCompare(b.data.title, "de"))
-            .map((e) => (
-              <li>
-                <a href={`/ortschaften/${e.slug}`}>{e.data.title}</a>
-                {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
-              </li>
-            ))}
+          {
+            ortschaften
+              .sort((a, b) => a.data.title.localeCompare(b.data.title, "de"))
+              .map((e) => (
+                <li>
+                  <a href={`/ortschaften/${e.slug}`}>{e.data.title}</a>
+                  {e.data.subtitle ? <span> — {e.data.subtitle}</span> : null}
+                </li>
+              ))
+          }
         </ul>
       </div>
     </section>
@@ -271,8 +288,13 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
 
       <div class="acc-body">
         <ul>
-          <li><a href={personenEinwohnermeldebuch.href}>{personenEinwohnermeldebuch.title}</a></li>
-          <li><a href={personenStammbaum.href}>{personenStammbaum.title}</a></li>
+          <li>
+            <a href={personenEinwohnermeldebuch.href}
+              >{personenEinwohnermeldebuch.title}</a>
+          </li>
+          <li>
+            <a href={personenStammbaum.href}>{personenStammbaum.title}</a>
+          </li>
         </ul>
       </div>
     </section>
@@ -290,8 +312,12 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
       <div class="acc-body">
         <ul>
           <li><a href={texteUebersicht.href}>{texteUebersicht.title}</a></li>
-          <li><a href={egerlaenderMundart.href}>{egerlaenderMundart.title}</a></li>
-          <li><a href={meineErinnerungen.href}>{meineErinnerungen.title}</a></li>
+          <li>
+            <a href={egerlaenderMundart.href}>{egerlaenderMundart.title}</a>
+          </li>
+          <li>
+            <a href={meineErinnerungen.href}>{meineErinnerungen.title}</a>
+          </li>
           <li><a href={aHooch.href}>{aHooch.title}</a></li>
           <li><a href={redelbachTeich.href}>{redelbachTeich.title}</a></li>
         </ul>
@@ -310,12 +336,14 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
 
       <div class="acc-body">
         <ul>
-          {redelbachEntries.map((e) => (
-            <li>
-              <a href={e.href}>{e.title}</a>
-              {e.subtitle ? <span> — {e.subtitle}</span> : null}
-            </li>
-          ))}
+          {
+            redelbachEntries.map((e) => (
+              <li>
+                <a href={e.href}>{e.title}</a>
+                {e.subtitle ? <span> — {e.subtitle}</span> : null}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
