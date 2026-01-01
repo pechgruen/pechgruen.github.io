@@ -15,6 +15,9 @@ const { Content } = await entry.render();
 const data = entry.data;
 
 const displayDate = (data.updated ?? data.date)!;
+const displayDateText = (displayDate instanceof Date)
+  ? displayDate.toISOString().slice(0, 10)
+  : String(displayDate);
 ---
 
 <BaseLayout title={data.title}>
@@ -22,15 +25,9 @@ const displayDate = (data.updated ?? data.date)!;
     <header>
       <h1>{data.title}</h1>
 
-      {data.subtitle && (
-        <p class="subtitle">{data.subtitle}</p>
-      )}
+      {data.subtitle && <p class="subtitle">{data.subtitle}</p>}
 
-      <p class="meta">
-        {displayDate.toLocaleDateString("sv-SE", {
-          timeZone: "America/Toronto",
-        })}
-      </p>
+      <p class="meta">{displayDateText}</p>
     </header>
 
     <Content />
