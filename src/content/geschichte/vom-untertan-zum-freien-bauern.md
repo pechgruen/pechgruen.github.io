@@ -2,7 +2,7 @@
 title: "Vom Untertan zum freien Bauern"
 subtitle: "Fronarbeit, Herrschaft und Grundentlastung in Pechgrün (bis 1848)"
 date: 2026-01-01
-order: 11
+order: 8
 ---
 
 <style>

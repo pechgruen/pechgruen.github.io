@@ -2,7 +2,7 @@
 title: "Pechgrün im geschichtlichen Rahmen"
 subtitle: "Warum Ahnenlinien ein Wunder sind – und welche Welt dahintersteht"
 date: 2026-01-01
-order: 11
+order: 20
 ---
 
 <style>

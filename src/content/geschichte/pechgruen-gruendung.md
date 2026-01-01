@@ -1,5 +1,5 @@
 ---
-title: "Pechgrün – Gründung und frühe Geschichte"
+title: "Pechgrün 1150-1848"
 subtitle: "Vom klösterlichen Landesausbau zur bäuerlichen Gemeinde"
 date: 2025-12-26
 order: 11
@@ -104,20 +104,3 @@ In den folgenden Jahren regelten Grundentlastungskommissionen die Ablösung der 
 ## Ausblick
 
 Die frühe Geschichte Pechgrüns ist die Geschichte eines Ortes, der unter wechselnden Herren Bestand hatte, von seinen Bewohnern getragen wurde und sich schrittweise behauptete. Landschaft, Arbeit, Überlieferung und Gemeinschaft prägten das Dorf weit über das Ende der Untertänigkeit hinaus.
-
-## Pechgrün im geschichtlichen Umfeld
-
-Die folgende Übersicht zeigt zentrale politische, gesellschaftliche und historische Eckdaten aus der europäischen und mitteleuropäischen Geschichte, innerhalb deren zeitlichen Rahmens Pechgrün bestand.
-
-Sie beschreibt keine einzelnen Ereignisse des Dorfes selbst, sondern macht sichtbar, in welchem historischen Kontext sich das Leben in Pechgrün über Jahrhunderte hinweg vollzog.
-
-<div class="timeline-image">
-  <img 
-    src="/images/pechgruen-historische-zeitleiste.jpg" 
-    alt="Zeitleiste: Pechgrün im historischen Zusammenhang"
-  />
-  <div class="timeline-caption">
-    Zeitleiste aus dem Ahnenbuch von Udo Dengler. Darstellung der historischen Rahmenbedingungen,
-    unter denen die Geschichte Pechgrüns stattfand.
-  </div>
-</div>
