@@ -1,6 +1,6 @@
 ---
 title: "Heinrich Siehr"
-subtitle: "Heinrich, a Pechgraina"
+subtitle: "Erinnerungen an einen Pechgrüner Freund, der im Zweiten Weltkrieg ums Leben kam"
 
 date: 2026-01-02
 order: 1
