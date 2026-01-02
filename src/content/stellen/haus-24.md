@@ -17,6 +17,14 @@ y: 6986
   height: auto;
   display: block;
 }
+
+/* Haus 24 – editorischer Nachsatz */
+.haus24 .editorial-note {
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+  color: rgba(0,0,0,0.65);
+}
+
 </style>
 
 <div class="haus24">
@@ -122,5 +130,9 @@ Haus Nr. 24 war dicht belegt. Man begegnete sich auf der Treppe, im Gang, im Hof
 Der Alltag bestand aus Wiederholung. Türen wurden geöffnet und geschlossen. Dinge wurden aus dem Stodl geholt und wieder zurückgestellt. Kinder spielten vor der Scheune. Erwachsene gingen in den Hof, trugen, lagerten, holten Wasser, kehrten zurück in den Laden oder in die Stuben.
 
 Nichts davon war außergewöhnlich. Gerade deshalb blieb es in Erinnerung.
+
+<p class="editorial-note">
+Zur späteren Geschichte: Der Kolonialwarenladen im Haus Nr. 24 bestand auch nach 1945 noch für einige Jahre. Nach der Vertreibung der deutschen Bevölkerung ging das Haus in tschechische Verwaltung über; der Laden wurde zunächst weitergeführt, jedoch später eingestellt. Das Gebäude wurde in den folgenden Jahrzehnten im Zuge des Tagebaus zerstört.
+</p>
 
 </div>
