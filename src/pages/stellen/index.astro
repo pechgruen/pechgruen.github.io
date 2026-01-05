@@ -27,66 +27,95 @@ const entries = await getCollection("stellen");
 const points = entries.map((e) => ({
   slug: e.slug,
   title: e.data.title as string,
-  subtitle: String((e.data as any).subtitle ?? ""), // <-- NEU: Subtitle aus Frontmatter
-  label: String((e.data as any).label ?? ""), // Textlabel, z.B. "10A"
+  subtitle: String((e.data as any).subtitle ?? ""),
+  label: String((e.data as any).label ?? ""),
   x: (e.data as any).x as number,
   y: (e.data as any).y as number,
-  // WICHTIG: Marker müssen zur Detailseite führen, nicht nur zur Übersicht
   href: `/stellen/${e.slug}`,
 }));
 ---
 
 <BaseLayout title="Stellen & Gebäude">
-  <main style="max-width:980px;margin:0 auto;">
-    <h1 style="margin:0 0 0.35rem;">Stellen &amp; Gebäude</h1>
-    <p style="margin:0 0 1rem; opacity:0.8;">
-      Einstieg über das Luftbild von Mai 1946 – Marker führen zu Detailseiten.
-    </p>
+  <main
+    style="
+      max-width:980px;
+      margin:0 auto;
+      padding-bottom:0;
+    "
+  >
+    <!-- Top: Titel + Untertitel + stille Einstiege -->
+    <header id="stellen-top">
+      <h1 style="margin:0 0 0.35rem;">Stellen &amp; Gebäude</h1>
 
-    <!-- EINORDNUNG -->
-    <section>
-      <h2>Einordnung</h2>
+      <div
+        id="stellen-subrow"
+        style="
+          display:flex;
+          align-items:baseline;
+          justify-content:space-between;
+          gap:1rem;
+          margin:0 0 0.75rem;
+          opacity:0.8;
+        "
+      >
+        <div id="stellen-subtitle" style="margin:0;">
+          Einstieg über das Luftbild von Mai 1946 – Marker führen zu
+          Detailseiten.
+        </div>
 
-      <p>
-        Diese Seite zeigt eine <strong
-          >außergewöhnliche Luftaufnahme des Dorfes Pechgrün</strong
-        >, aufgenommen im <strong>Mai 1946</strong>. Außergewöhnlich ist dieses
-        Bild nicht nur wegen seiner für die Zeit bemerkenswerten technischen
-        Qualität, sondern vor allem wegen des
-        <strong>Zeitpunkts</strong>, zu dem es entstanden ist: nach der
-        Zwangsaussiedlung eines großen Teils der Bevölkerung, aber noch bevor
-        baulicher Verfall, Abriss und spätere Zerstörung einsetzten.
-      </p>
+        <div
+          id="stellen-links"
+          style="
+            display:flex;
+            gap:0.8rem;
+            white-space:nowrap;
+          "
+        >
+          <button
+            id="open-einordnung"
+            type="button"
+            style="
+              font: inherit;
+              color: inherit;
+              background: transparent;
+              border: 0;
+              padding: 0;
+              margin: 0;
+              cursor: pointer;
+            "
+          >
+            Einordnung
+          </button>
+          <button
+            id="open-bedienung"
+            type="button"
+            style="
+              font: inherit;
+              color: inherit;
+              background: transparent;
+              border: 0;
+              padding: 0;
+              margin: 0;
+              cursor: pointer;
+            "
+          >
+            Bedienung
+          </button>
+        </div>
+      </div>
+    </header>
 
-      <p>
-        Frühere Luftaufnahmen dieses Ortes existieren nicht. Erst im Verlauf des
-        Zweiten Weltkriegs begann die systematische Luftbildfotografie. Spätere
-        Aufnahmen hätten Pechgrün bereits verändert gezeigt. Dass ausgerechnet
-        für das Jahr 1946 eine derart detailreiche Aufnahme erhalten ist, stellt
-        einen <strong>seltenen Glücksfall</strong> dar.
-      </p>
-
-      <p>
-        Zusammen mit der ungewöhnlich hohen Bildqualität wird diese Aufnahme zu
-        einem
-        <strong>Schlüsselbild</strong>: Sie erlaubt es, das Dorf konkret zu
-        sehen – so, wie es war, als dort noch Menschen lebten.
-      </p>
-    </section>
-
-    <!-- BILD -->
-    <h2 style="margin-top:2rem;">Luftbild Pechgrün – Mai 1946</h2>
-
+    <!-- Viewer -->
     <div
       id="osd"
       style="
         width:100%;
-        height:640px;
+        height:640px; /* wird per JS dynamisch gesetzt */
         background:#000;
         border-radius:12px;
         overflow:hidden;
         position:relative;
-        margin-bottom:1rem;
+        margin:0;
       "
     >
       <!-- Marker-Toggle direkt im Bild (Start: Marker AUS) -->
@@ -134,6 +163,162 @@ const points = entries.map((e) => ({
       </div>
     </div>
 
+    <!-- Leseebene (Overlay) -->
+    <div
+      id="info-overlay"
+      aria-hidden="true"
+      style="
+        position:fixed;
+        inset:0;
+        z-index:1000;
+        display:none;
+        align-items:stretch;
+        justify-content:center;
+        padding: 18px;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(6px);
+      "
+    >
+      <div
+        id="info-panel"
+        role="dialog"
+        aria-modal="true"
+        style="
+          width: min(980px, 100%);
+          max-height: 100%;
+          overflow: auto;
+          background: rgba(255,255,255,0.98);
+          border: 1px solid rgba(0,0,0,0.12);
+          border-radius: 14px;
+          box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+          padding: 18px 18px 16px;
+          position: relative;
+        "
+      >
+        <button
+          id="close-overlay"
+          type="button"
+          aria-label="Close"
+          style="
+            position:absolute;
+            right:10px;
+            top:10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.18);
+            background: rgba(255,255,255,0.92);
+            cursor: pointer;
+            font: 16px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+          "
+        >
+          ×
+        </button>
+
+        <div id="overlay-body">
+          <!-- wird per JS befüllt -->
+        </div>
+      </div>
+
+      <!-- Inhalte bleiben vollständig erhalten (nur nicht im Seitenfluss) -->
+      <template id="tpl-einordnung">
+        <h2 style="margin:0 0 0.8rem;">Einordnung</h2>
+
+        <p>
+          Diese Seite zeigt eine <strong
+            >außergewöhnliche Luftaufnahme des Dorfes Pechgrün</strong
+          >, aufgenommen im <strong>Mai 1946</strong>. Außergewöhnlich ist
+          dieses Bild nicht nur wegen seiner für die Zeit bemerkenswerten
+          technischen Qualität, sondern vor allem wegen des
+          <strong>Zeitpunkts</strong>, zu dem es entstanden ist: nach der
+          Zwangsaussiedlung eines großen Teils der Bevölkerung, aber noch bevor
+          baulicher Verfall, Abriss und spätere Zerstörung einsetzten.
+        </p>
+
+        <p>
+          Frühere Luftaufnahmen dieses Ortes existieren nicht. Erst im Verlauf
+          des Zweiten Weltkriegs begann die systematische Luftbildfotografie.
+          Spätere Aufnahmen hätten Pechgrün bereits verändert gezeigt. Dass
+          ausgerechnet für das Jahr 1946 eine derart detailreiche Aufnahme
+          erhalten ist, stellt einen <strong>seltenen Glücksfall</strong> dar.
+        </p>
+
+        <p>
+          Zusammen mit der ungewöhnlich hohen Bildqualität wird diese Aufnahme
+          zu einem
+          <strong>Schlüsselbild</strong>: Sie erlaubt es, das Dorf konkret zu
+          sehen – so, wie es war, als dort noch Menschen lebten.
+        </p>
+      </template>
+
+      <template id="tpl-bedienung">
+        <h2 style="margin:0 0 0.8rem;">Bedienung</h2>
+
+        <p style="margin-top:0;">
+          „Bedienung“ beschreibt sowohl die Navigation im Luftbild (Zoomen,
+          Verschieben) als auch den Umgang mit Markern und deren Detailseiten.
+        </p>
+
+        <h3 style="margin:1.25rem 0 0.5rem;">Hausnummern und Marker</h3>
+
+        <p>
+          Die Hausnummern sind <strong>fest in das Luftbild eingetragen</strong
+          >. Sie folgen der historischen Nummerierung des Dorfes und lassen sich
+          nicht ein- oder ausblenden. Grundlage der Zuordnung ist ein
+          <strong>handschriftlicher Ortsplan von Karl Redelbach</strong>, der
+          für die Pechgrüner Erinnerungsbücher angefertigt wurde. Erst dieser
+          Plan macht es möglich, die schriftlichen Quellen räumlich zu verorten.
+        </p>
+
+        <p>
+          Zusätzlich gibt es <strong>Marker</strong>, die du über den Button
+          rechts unten
+          <strong>explizit einschalten</strong> kannst. Diese Marker kennzeichnen
+          Stellen und Gebäude, zu denen bereits <strong
+            >Detailseiten mit Zusatzinformationen</strong
+          > existieren (z.&nbsp;B. aus Erinnerungsbüchern, Einwohnermeldebuch und
+          Kirchenbüchern). Ein Klick auf einen Marker führt direkt zur entsprechenden
+          Detailseite.
+        </p>
+
+        <p>
+          Die Detailseiten entstehen <strong>nach und nach</strong>. Ihre
+          Erstellung erfordert Zeit und sorgfältige Arbeit; deshalb sind bislang
+          nur einige Punkte mit eigenen Seiten versehen. Mit fortschreitender
+          Arbeit werden Schritt für Schritt weitere Detailseiten hinzukommen –
+          und damit auch weitere Marker im Luftbild sichtbar werden.
+        </p>
+
+        <h3 style="margin:1.25rem 0 0.5rem;">Navigation</h3>
+        <ul style="margin-top:0.25rem;">
+          <li>
+            <strong>Zoomen:</strong>
+            mit Trackpad (Zwei-Finger-Geste) oder mit dem Mausrad
+          </li>
+          <li>
+            <strong>Verschieben (Panning):</strong>
+            <span style="white-space:nowrap;">Maus:</span> linke Taste gedrückt halten
+            und ziehen &nbsp;–&nbsp;
+            <span style="white-space:nowrap;">Trackpad:</span> gedrückt halten und
+            ziehen
+          </li>
+          <li>
+            <strong>Doppelklick:</strong>
+            hineinzoomen &nbsp;–&nbsp;
+            <strong>Shift&nbsp;+&nbsp;Doppelklick:</strong> wieder herauszoomen
+          </li>
+          <li>
+            <strong>Marker ein-/ausblenden:</strong>
+            Button rechts unten („Marker einblenden“ / „Marker ausblenden“)
+          </li>
+          <li>
+            <strong>Detailseite öffnen:</strong>
+            Marker anklicken
+          </li>
+        </ul>
+      </template>
+    </div>
+
     <!-- GLOBAL: Overlays klickbar -->
     <style is:global>
       #osd .openseadragon-overlay,
@@ -142,69 +327,6 @@ const points = entries.map((e) => ({
         pointer-events: auto !important;
       }
     </style>
-
-    <!-- HAUSNUMMERN & MARKER -->
-    <section>
-      <h2>Hausnummern und Marker</h2>
-
-      <p>
-        Die Hausnummern sind <strong>fest in das Luftbild eingetragen</strong>.
-        Sie folgen der historischen Nummerierung des Dorfes und lassen sich
-        nicht ein- oder ausblenden. Grundlage der Zuordnung ist ein <strong
-          >handschriftlicher Ortsplan von Karl Redelbach</strong
-        >, der für die Pechgrüner Erinnerungsbücher angefertigt wurde. Erst
-        dieser Plan macht es möglich, die schriftlichen Quellen räumlich zu
-        verorten.
-      </p>
-
-      <p>
-        Zusätzlich gibt es <strong>Marker</strong>, die du über den Button
-        rechts unten
-        <strong>explizit einschalten</strong> kannst. Diese Marker kennzeichnen Stellen
-        und Gebäude, zu denen bereits <strong
-          >Detailseiten mit Zusatzinformationen</strong
-        > existieren (z.&nbsp;B. aus Erinnerungsbüchern, Einwohnermeldebuch und Kirchenbüchern).
-        Ein Klick auf einen Marker führt direkt zur entsprechenden Detailseite.
-      </p>
-
-      <p>
-        Die Detailseiten entstehen <strong>nach und nach</strong>. Ihre
-        Erstellung erfordert Zeit und sorgfältige Arbeit; deshalb sind bislang
-        nur einige Punkte mit eigenen Seiten versehen. Mit fortschreitender
-        Arbeit werden Schritt für Schritt weitere Detailseiten hinzukommen – und
-        damit auch weitere Marker im Luftbild sichtbar werden.
-      </p>
-    </section>
-
-    <!-- BEDIENUNG -->
-    <section>
-      <h2>Bedienung</h2>
-      <ul>
-        <li>
-          <strong>Zoomen:</strong>
-          mit Trackpad (Zwei-Finger-Geste) oder mit dem Mausrad
-        </li>
-        <li>
-          <strong>Verschieben (Panning):</strong>
-          <span style="white-space:nowrap;">Maus:</span> linke Taste gedrückt halten
-          und ziehen &nbsp;–&nbsp;
-          <span style="white-space:nowrap;">Trackpad:</span> gedrückt halten und ziehen
-        </li>
-        <li>
-          <strong>Doppelklick:</strong>
-          hineinzoomen &nbsp;–&nbsp;
-          <strong>Shift&nbsp;+&nbsp;Doppelklick:</strong> wieder herauszoomen
-        </li>
-        <li>
-          <strong>Marker einschalten:</strong>
-          Button rechts unten („Marker einblenden“)
-        </li>
-        <li>
-          <strong>Detailseite öffnen:</strong>
-          Marker anklicken
-        </li>
-      </ul>
-    </section>
   </main>
 
   <!-- base-safe vendor path -->
@@ -213,8 +335,17 @@ const points = entries.map((e) => ({
   <script define:vars={{ tileSource, centerPoint, startZoomFactor, points }}>
     // @ts-ignore
     const OSD = window.OpenSeadragon;
+
     const host = document.getElementById("osd");
     const toast = document.getElementById("coord-toast");
+
+    const overlay = document.getElementById("info-overlay");
+    const overlayBody = document.getElementById("overlay-body");
+    const closeOverlayBtn = document.getElementById("close-overlay");
+    const openEinordnungBtn = document.getElementById("open-einordnung");
+    const openBedienungBtn = document.getElementById("open-bedienung");
+    const tplEinordnung = document.getElementById("tpl-einordnung");
+    const tplBedienung = document.getElementById("tpl-bedienung");
 
     const viewer = OSD({
       element: host,
@@ -232,6 +363,66 @@ const points = entries.map((e) => ({
         pinchToZoom: true,
         flickEnabled: true,
       },
+    });
+
+    function saveView() {
+      try {
+        const c = viewer.viewport.getCenter(true); // viewport coords
+        const z = viewer.viewport.getZoom(true); // absolute zoom
+        sessionStorage.setItem(
+          VIEW_KEY,
+          JSON.stringify({ z, c: { x: c.x, y: c.y } })
+        );
+      } catch (_) {}
+    }
+
+    function loadView() {
+      try {
+        const raw = sessionStorage.getItem(VIEW_KEY);
+        if (!raw) return null;
+        const v = JSON.parse(raw);
+        if (!v || typeof v.z !== "number" || !v.c) return null;
+        if (typeof v.c.x !== "number" || typeof v.c.y !== "number") return null;
+        return v;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    /* -----------------------------------------
+       Dynamische Höhe: messen (nicht rechnen)
+       ----------------------------------------- */
+    let heightRAF = null;
+
+    function updateViewerHeight() {
+      if (!host) return;
+
+      const r = host.getBoundingClientRect();
+      const minH = 200;
+
+      // Robust: messe wirklich, wie viel Platz bis zum Viewport-Bottom übrig ist
+      // und ziehe etwas Safety ab, damit garantiert kein Page-Scroll übrig bleibt.
+      const safety = 80; // <- wenn du "100px Sicherheit" willst: 100
+      const available = window.innerHeight - r.top;
+
+      const h = Math.max(minH, Math.floor(available - safety));
+      host.style.height = `${h}px`;
+
+      try {
+        const size = new OSD.Point(host.clientWidth, host.clientHeight);
+        viewer.viewport.resize(size, true);
+        viewer.viewport.applyConstraints(true);
+        viewer.forceRedraw();
+      } catch (_) {}
+    }
+
+    function scheduleViewerHeightUpdate() {
+      if (heightRAF) cancelAnimationFrame(heightRAF);
+      heightRAF = requestAnimationFrame(updateViewerHeight);
+    }
+
+    window.addEventListener("resize", scheduleViewerHeightUpdate, {
+      passive: true,
     });
 
     /* ---------------------------
@@ -284,7 +475,6 @@ const points = entries.map((e) => ({
 
       tip.style.display = "block";
 
-      // Startposition nahe Cursor
       const pad = 8;
       let x = clientX - r.left + 12;
       let y = clientY - r.top - 12;
@@ -292,7 +482,6 @@ const points = entries.map((e) => ({
       tip.style.left = `${x}px`;
       tip.style.top = `${y}px`;
 
-      // Clamp in Container (nachdem der Inhalt drin ist)
       const tr = tip.getBoundingClientRect();
       const maxX = r.width - tr.width - pad;
       const maxY = r.height - tr.height - pad;
@@ -329,7 +518,6 @@ const points = entries.map((e) => ({
       const aria = subtitle ? `${title} – ${subtitle}` : title;
       wrap.setAttribute("aria-label", aria);
 
-      // Tooltip (Hover)
       wrap.addEventListener("pointerenter", (e) => {
         showTip(title, subtitle, e.clientX, e.clientY);
       });
@@ -345,14 +533,13 @@ const points = entries.map((e) => ({
         e.stopPropagation();
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
         hideTip();
+        saveView();
         window.location.assign(href);
       };
 
-      // capture=true: wir fangen es ab, bevor OSD es verwerten kann
       wrap.addEventListener("pointerdown", go, true);
       wrap.addEventListener("click", go, true);
 
-      // pointer-events:none im SVG: damit Klick immer am Button landet
       wrap.innerHTML = `
         <svg width="30" height="30" viewBox="0 0 30 30" style="pointer-events:none;">
           <circle cx="15" cy="15" r="13" fill="#fff" stroke="#000" stroke-width="1"/>
@@ -363,7 +550,9 @@ const points = entries.map((e) => ({
     }
 
     let item = null;
-    let markersVisible = false;
+    const MARKER_KEY = "stellen_markers_visible";
+    let markersVisible = sessionStorage.getItem(MARKER_KEY) === "1";
+    const VIEW_KEY = "stellen_view_v1"; // zoom + center (viewport coords)
 
     function addMarkers() {
       viewer.clearOverlays();
@@ -380,6 +569,8 @@ const points = entries.map((e) => ({
 
     function setMarkersVisible(v) {
       markersVisible = v;
+      sessionStorage.setItem(MARKER_KEY, v ? "1" : "0");
+
       if (v) addMarkers();
       else {
         viewer.clearOverlays();
@@ -392,7 +583,7 @@ const points = entries.map((e) => ({
 
     const toggleBtn = document.getElementById("toggle-markers");
     toggleBtn.addEventListener("click", () =>
-      setMarkersVisible(!markersVisible),
+      setMarkersVisible(!markersVisible)
     );
 
     // Versteckte Funktion: Option/Alt + Klick -> Bildkoordinaten anzeigen (und kopieren)
@@ -413,9 +604,7 @@ const points = entries.map((e) => ({
         if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(text);
         }
-      } catch (_) {
-        // still fine – Anzeige reicht
-      }
+      } catch (_) {}
     }
 
     viewer.addHandler("canvas-click", (ev) => {
@@ -440,19 +629,84 @@ const points = entries.map((e) => ({
       copyCoordsToClipboard(`${x},${y}`);
     });
 
+    /* -----------------------------------------
+       Overlay: Texte auf Abruf
+       ----------------------------------------- */
+    function openOverlay(which) {
+      if (!overlay || !overlayBody) return;
+
+      overlayBody.innerHTML = "";
+      const tpl = which === "einordnung" ? tplEinordnung : tplBedienung;
+      if (tpl && tpl.content) {
+        overlayBody.appendChild(tpl.content.cloneNode(true));
+      }
+
+      overlay.style.display = "flex";
+      overlay.setAttribute("aria-hidden", "false");
+
+      // Scrollen im Hintergrund unterbinden
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+
+      // Fokus
+      if (closeOverlayBtn && closeOverlayBtn.focus) closeOverlayBtn.focus();
+    }
+
+    function closeOverlay() {
+      if (!overlay) return;
+      overlay.style.display = "none";
+      overlay.setAttribute("aria-hidden", "true");
+
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+
+    openEinordnungBtn.addEventListener("click", () =>
+      openOverlay("einordnung")
+    );
+    openBedienungBtn.addEventListener("click", () => openOverlay("bedienung"));
+    closeOverlayBtn.addEventListener("click", closeOverlay);
+
+    // Klick auf Hintergrund schließt (Panel selbst nicht)
+    overlay.addEventListener("pointerdown", (e) => {
+      if (e.target === overlay) closeOverlay();
+    });
+
+    // ESC schließt
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && overlay && overlay.style.display !== "none") {
+        closeOverlay();
+      }
+    });
+
     viewer.addHandler("open", () => {
       item = viewer.world.getItemAt(0);
+
+      // Höhe nach dem Layout + OSD-open setzen
+      scheduleViewerHeightUpdate();
+
       const home = viewer.viewport.getHomeZoom();
       viewer.viewport.minZoomLevel = home;
       viewer.viewport.maxZoomLevel = home * 32;
 
-      const imgCenter = new OSD.Point(centerPoint.x, centerPoint.y);
-      const vpCenter = item.imageToViewportCoordinates(imgCenter);
-      viewer.viewport.panTo(vpCenter, true);
-      viewer.viewport.zoomTo(home * startZoomFactor, vpCenter, true);
+      const saved = loadView();
 
-      // Initial: Marker AUS
-      viewer.clearOverlays();
+      if (saved) {
+        const vpCenter = new OSD.Point(saved.c.x, saved.c.y);
+        viewer.viewport.panTo(vpCenter, true);
+        viewer.viewport.zoomTo(saved.z, vpCenter, true);
+      } else {
+        const imgCenter = new OSD.Point(centerPoint.x, centerPoint.y);
+        const vpCenter = item.imageToViewportCoordinates(imgCenter);
+        viewer.viewport.panTo(vpCenter, true);
+        viewer.viewport.zoomTo(home * startZoomFactor, vpCenter, true);
+      }
+
+      // Initial: Marker-Zustand wiederherstellen
+      setMarkersVisible(markersVisible);
     });
+
+    // Erstes Layout-Setzen (falls OSD open minimal verzögert ist)
+    scheduleViewerHeightUpdate();
   </script>
 </BaseLayout>
