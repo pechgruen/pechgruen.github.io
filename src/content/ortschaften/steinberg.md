@@ -4,7 +4,7 @@ subtitle: "Der „Vulkankegel“ am Horizont"
 date: 2025-12-26
 order: 50
 
-label: "2"
+label: "St"
 x: 4498
 y: 2397
 ---
