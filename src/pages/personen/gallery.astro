@@ -119,7 +119,20 @@ const THUMB_SIZE = 74;
 
             const onKeyDownEarly = (e) => {
               if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+              // If an input/textarea/contenteditable has focus, do NOT hijack arrow keys.
+              const ae = document.activeElement;
+              if (
+                ae &&
+                (ae.tagName === "INPUT" ||
+                  ae.tagName === "TEXTAREA" ||
+                  ae.isContentEditable)
+              ) {
+                return;
+              }
+
               if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+
               e.preventDefault();
               if (!initialized) pendingDelta += e.key === "ArrowRight" ? 1 : -1;
             };
@@ -273,26 +286,76 @@ const THUMB_SIZE = 74;
 
               openFullBtn?.addEventListener("click", openFullInNewTab);
 
+              // Parse query into OR-groups (comma) of AND-terms (spaces),
+              // while allowing "exact phrases" using quotes or [brackets].
+              const parseQuery = (qRaw) => {
+                const raw = String(qRaw ?? "");
+
+                // collect phrases in original form; placeholders survive normalization
+                const phrases = [];
+
+                const addPhrase = (txt) => {
+                  const key = `§PH${phrases.length}§`;
+                  phrases.push(txt);
+                  return key;
+                };
+
+                let s = raw;
+
+                // 1) Brackets [ ... ]
+                s = s.replace(/\[([^\]]+)\]/g, (_, inner) => addPhrase(inner));
+
+                // 2) Double quotes (straight or smart)
+                s = s.replace(/[“”]/g, '"');
+                s = s.replace(/"([^"]+)"/g, (_, inner) => addPhrase(inner));
+
+                // 3) Single quotes (straight or smart)
+                s = s.replace(/[‘’]/g, "'");
+                s = s.replace(/'([^']+)'/g, (_, inner) => addPhrase(inner));
+
+                // Now normalize the whole string for searching
+                const qNorm = normalizeSearch(s);
+
+                // OR groups by comma
+                const orGroups = qNorm
+                  .split(",")
+                  .map((g) => g.trim())
+                  .filter(Boolean);
+
+                const groups = orGroups.length ? orGroups : [qNorm];
+
+                const resolveTerm = (t) => {
+                  const m = t.match(/^§ph(\d+)§$/i);
+                  if (!m) return t;
+
+                  const idx = Number(m[1]);
+                  const phraseRaw = phrases[idx] ?? "";
+                  return normalizeSearch(phraseRaw);
+                };
+
+                // Each group becomes an array of AND-terms (tokens or phrases)
+                return groups.map((g) =>
+                  g
+                    .split(/\s+/)
+                    .map((t) => t.trim())
+                    .filter(Boolean)
+                    .map(resolveTerm)
+                );
+              };
+
               const matchQuery = (descRaw, qRaw) => {
                 const desc = normalizeSearch(descRaw);
                 const q = normalizeSearch(qRaw);
 
                 if (q === "") return true;
 
-                // OR groups by comma: "anna, müller"
-                const orGroups = q
-                  .split(",")
-                  .map((g) => g.trim())
-                  .filter(Boolean);
+                const parsed = parseQuery(qRaw); // preserves phrases before normalization
 
-                // If user typed no comma, it's a single group
-                const groups = orGroups.length ? orGroups : [q];
-
-                // Space inside group means AND tokens: "anna müller"
-                return groups.some((g) => {
-                  const tokens = g.split(/\s+/).map((t) => t.trim()).filter(Boolean);
-                  if (tokens.length === 0) return false;
-                  return tokens.every((t) => desc.includes(t));
+                // OR over groups
+                return parsed.some((terms) => {
+                  if (terms.length === 0) return false;
+                  // AND over terms
+                  return terms.every((t) => desc.includes(t));
                 });
               };
 
@@ -335,20 +398,36 @@ const THUMB_SIZE = 74;
 
               const onKeyDownMain = (e) => {
                 if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+                const ae = document.activeElement;
+
+                // ESC: leave the filter field (or any input) so gallery arrows work again
+                if (e.key === "Escape") {
+                  if (
+                    ae &&
+                    (ae.tagName === "INPUT" ||
+                      ae.tagName === "TEXTAREA" ||
+                      ae.isContentEditable)
+                  ) {
+                    ae.blur?.();
+                  }
+                  return;
+                }
+
                 if (filtered.length === 0) return;
                 if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
 
-                e.preventDefault();
-
-                const ae = document.activeElement;
+                // If user is typing/editing in an input, do NOT hijack arrow keys.
                 if (
                   ae &&
                   (ae.tagName === "INPUT" ||
                     ae.tagName === "TEXTAREA" ||
                     ae.isContentEditable)
                 ) {
-                  ae.blur?.();
+                  return; // <-- important: no preventDefault
                 }
+
+                e.preventDefault();
 
                 const pos = filtered.indexOf(index);
                 const curPos = pos >= 0 ? pos : 0;
@@ -409,7 +488,7 @@ const THUMB_SIZE = 74;
             />
 
             <div class="filtersyntax" aria-hidden="true">
-              z.B. müller | anna müller | anna, müller | ""
+              z.B. gerber | gerber a. | "gerber a." | [gerber a.] | gerber, heinzel
             </div>
 
             <span class="spacer" aria-hidden="true"></span>
