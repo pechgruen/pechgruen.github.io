@@ -154,8 +154,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
 
   <div class="accordion" data-accordion>
     <!-- Landschaft -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="landschaft">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Landschaft</span>
         <span class="acc-right">
           <span class="acc-meta">
@@ -180,8 +180,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Geschichte -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="geschichte">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Geschichte</span>
         <span class="acc-right">
           <span class="acc-meta">
@@ -206,8 +206,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Stellen & Gebäude -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="stellen">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Stellen &amp; Gebäude</span>
         <span class="acc-right">
           <span class="acc-meta">
@@ -248,8 +248,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Ortschaften -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="ortschaften">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Ortschaften</span>
         <span class="acc-right">
           <span class="acc-meta">
@@ -287,8 +287,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Personen -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="personen">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Personen</span>
         <span class="acc-right">
           <span class="acc-meta">
@@ -331,8 +331,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Texte -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="texte">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
           <span class="acc-meta">5 Einträge</span>
@@ -356,8 +356,8 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     </section>
 
     <!-- Karl Redelbach -->
-    <section class="acc">
-      <button class="acc-head" type="button" aria-expanded="true">
+    <section class="acc" data-acc-id="redelbach">
+      <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Karl Redelbach</span>
         <span class="acc-right">
           <span class="acc-meta">{redelbachEntries.length} Einträge</span>
@@ -386,8 +386,18 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     const root = document.querySelector("[data-accordion]");
     if (!root) return;
 
+    const STORAGE_KEY = "pechgruen_inhalt_accordion_v1";
+
+    let state = {};
+    try {
+      state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    } catch {
+      state = {};
+    }
+
     const sections = root.querySelectorAll(".acc");
     sections.forEach((sec) => {
+      const id = sec.getAttribute("data-acc-id") || "";
       const btn = sec.querySelector(".acc-head");
       const body = sec.querySelector(".acc-body");
       const arrow = sec.querySelector(".acc-arrow");
@@ -399,12 +409,26 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         arrow.textContent = expanded ? "▲" : "▼";
       };
 
-      const expanded = btn.getAttribute("aria-expanded") !== "false";
+      // Default: geschlossen (false). Gespeicherter Zustand überschreibt Default.
+      let expanded = false;
+      if (id && Object.prototype.hasOwnProperty.call(state, id)) {
+        expanded = Boolean(state[id]);
+      }
+
       sync(expanded);
 
       btn.addEventListener("click", () => {
-        const isOpen = btn.getAttribute("aria-expanded") === "true";
-        sync(!isOpen);
+        expanded = !expanded;
+        sync(expanded);
+
+        if (id) {
+          state[id] = expanded;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          } catch {
+            // ignore
+          }
+        }
       });
     });
   })();
