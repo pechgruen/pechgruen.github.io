@@ -108,6 +108,6 @@ Der »Lei(n)berch« am Ortsausgang nach Neurohlau war eine Erhebung, die von zwe
   <hr />
   <p>
     <strong>Autor:</strong> Erich Heinzl ·
-    <strong>Quelle:</strong> Pechgrün – Geschichte und Erinnerungen, Band 3, 1998
+    <strong>Quelle:</strong> Pechgrün – Geschichte und Erinnerungen, Band 2, 1998
   </p>
 </footer>

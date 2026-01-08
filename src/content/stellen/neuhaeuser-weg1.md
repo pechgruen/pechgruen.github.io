@@ -158,6 +158,6 @@ Das Haus hatte natürlich auch eine Vorderseite. Unter zwei Kastanienbäumen sta
   <hr />
   <p>
     <strong>Autor:</strong> Erich Heinzl ·
-    <strong>Quelle:</strong> Pechgrün – Geschichte und Erinnerungen, Band 3, 1998
+    <strong>Quelle:</strong> Pechgrün – Geschichte und Erinnerungen, Band 2, 1998
   </p>
 </footer>
