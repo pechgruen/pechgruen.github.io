@@ -4,7 +4,7 @@ subtitle: "Der verschwundene Berg"
 date: 2025-12-27
 order: 400
 
-label: "Wb"
+label: "WB"
 x: 8257
 y: 4202
 ---
