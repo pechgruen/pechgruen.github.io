@@ -57,7 +57,7 @@ Der Bericht setzt voraus, dass man diese Landschaft kennt oder sich zumindest vo
 Der rechte Weg nach Kösteldorf – über die Spitzseich – wird hier bewusst ausgeklammert und an anderer Stelle behandelt.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-topo.jpg"
     alt="Topografische Karte des oberen Dorfes (1964)"
@@ -118,13 +118,13 @@ In der »Weja«, einem Pechgrüner Ortsteil, verließ der Bach den Wald und durc
     In diesem Bereich liegen mehrere Einfahrten, Hofräume und Wegabzweigungen dicht beieinander. Für die damaligen Bewohner war diese Ordnung selbstverständlich; für heutige Leser ist sie ohne zusätzliche Orientierung schwer nachvollziehbar. Das folgende Luftbild zeigt diesen Raum in seiner Gesamtheit.
   </p>
 
-  <figure style="margin: 1.4rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
     <img
       src="/images/oberesdorf-wehrmuehle-einschub.jpg"
       alt="Luftbild des oberen Dorfes – Bereich oberhalb des Konsumhauses"
       style="display:block; max-width:620px; width:100%; height:auto;"
     >
-    <figcaption style="max-width:620px; margin:.5rem 0 0; font-size:.9rem; line-height:1.35; color:rgba(0,0,0,.6);">
+    <figcaption style="max-width:620px; margin: .4rem 0 0; font-size: .95rem; line-height: 1.35;">
       <strong>Bildlegende – Luftbild „Oberes Dorf / Bereich Wehrmühle“</strong><br>
       1 → Konsumhaus (Haus Nr. 33)<br>
       2 → Läin-Huaf, Wohnhaus (Haus Nr. 20)<br>
@@ -155,7 +155,7 @@ In der »Weja«, einem Pechgrüner Ortsteil, verließ der Bach den Wald und durc
 Vor dem Haus Nr. 33, das man »Konsumhaus« nannte, weil sich in ihm viele Jahre eine Filiale des »Konsumvereins Chodau-Graslitz« befand, endete die Straße und teilte sich in zwei Wege, die beide nach Köstldorf führten. Der linke Weg führte an der »Wejam(ü)hl« vorbei in den unteren Teil von Köstldorf und traf im höhergelegenen »Schwarzawoch« (der Ort Schwarzenbach) auf die Bezirksstraße nach Neudek. Der rechte Weg führte über die »Spitzseich« in das obere Köstldorf und nach Kofl, erreichte in etwa 670 m Höhe nahe der »Schwörkåpelln« ebenfalls die Straße nach Neudek.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-33.jpg"
     alt='Haus #33 der Fam. Karl Forster (vormals "Konsumhaus")'
@@ -170,7 +170,7 @@ Vor dem Haus Nr. 33, das man »Konsumhaus« nannte, weil sich in ihm viele Jahre
 Der linke Weg stieg kräftig an, führte in den »Läi(n)huaf« und weiter an »Matzls Stoo(d)l uu Miesthaffn« vorbei und strebte den Pechgrüner Wahrzeichen, den »Linden«, entgegen. Diese drei wuchtigen, alten Bäume wurden vermutlich während des Dreißigjährigen Krieges oder kurz nach dessen Beendigung gepflanzt. Etwa 330 Jahre später, am 12. Februar 1976, wurden sie von den Tschechen gefällt. Noch vor den Linden, unter denen sich ein Marterl befand, führte ein Abzweig an der Nordseite des »Matzlhauses« entlang und ermöglichte den Zugang zum hinteren Hofbereich. Auf diesem Weg, der sich tief ins Erdreich eingegraben hatte, gelangte man nach dem Passieren des »Matzlhuafs« wieder zurück zum »Läi(n)huaf«. 
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-matzlhof.jpg"
     alt='Blick zurück vom Köstldorfer Weg auf den Matzl-Huaf'
@@ -197,7 +197,7 @@ Am Westabhang vom »Matzles-Büller« lag der »Pfårrteich«, er war ca. 50 Ar 
 Ein Fußsteig führte zwischen dem »Pfårrteich« und »Büllerl« am Rande von Feldern und anschließend durch Wiesen zum Köstldorfer Weg. Bei der Einmündung dieses Steiges begann der Weg zur »Wejam(ü)hl« und nach Kösteldorf anzusteigen. Bevor er jedoch den Wald beim alten »Hiachahaus« erreichte, stand ein neueres Haus, Haus Nr. 98, das nach Form und Größe dem Haus Nr. 95, dem ersten an der Straße von Chodau her, sehr ähnlich war. Einige dickstämmige, hohe Kiefern überragten das Haus. Von dort hatte man eine herrliche Aussicht über das Dorf und das weite Land. Der Ausblick ging über die umliegenden Teiche, Wiesen, Felder, weit über Chodau hinaus und hinüber bis zum »Krudum« dem höchsten Berg im Kaiserwald. Man hatte den Horner- und den Aberg sowie die Freundschaftshöhe mit seinem Aussichtsturm vor sich. Weit im Osten im Tal der Eger ragte der Burgstadl in den Himmel, ein Vulkankegel und höchste Erhebung im Duppauergebirge. Unterhalb des Hauses, in der Nähe der »Låuch« gab es ein »Teichl«, »'s Grejsteichl« war nur wenige Quadratmeter groß. 
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-98.jpg"
     alt='Haus Nr. 98 der Familie August Uhl (erbaut von Richard Strunz)'
@@ -212,7 +212,7 @@ Ein Fußsteig führte zwischen dem »Pfårrteich« und »Büllerl« am Rande von
 Das »Hiachahaus«, Haus Nr. 14, nach seinem letzten Besitzer »Frankschneiderhaisl« genannt, war von Wald umgeben, dennoch konnte man es vom »Stårkåneiateich« aus gut sehen. Es lag einige Meter oberhalb einer Waldwiese auf einer Anhöhe. Der »Köstldorfer Weg« führte im weiten Bogen um diese Wiese herum und stieg in Richtung »Wejam(ü)hl« leicht an, die Scheune stand etwas vom Haus entfernt. An ihrer Rückseite ragte eine imposante Fichte bildbeherrschend in den Himmel. Vor dem Kleinbauerneinheitshaus mit Krüppelwalmdach und einem Erker über der Haustür, die über mehrere Stufen zu erreichen war, lag der Gemüse- und Blumengarten. Er war in Stufen angelegt, weil der Höhenunterschied zum Weg an der Grundstücksgrenze ziemlich beachtlich war. Kurz nach dem »Hiachahaus« zweigte links ein Waldweg zum »Knicker« und nach Neuhäuser ab.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-14.jpg"
     alt='Pechgrün Nr. 14: Das vom Wald umgebene "Hiacha Haus"'
@@ -227,7 +227,7 @@ Das »Hiachahaus«, Haus Nr. 14, nach seinem letzten Besitzer »Frankschneiderha
 Nach der Wiese war der Weg nach Köstldorf auf beiden Seiten bewaldet (Abb. 32). Doch nach wenigen Metern öffnete sich der Wald zu einer fast quadratischen Wiese, die an drei Seiten von Hochwald umgeben war. Nur nach Süden zum »Hiachahaus« hin waren die Bäume noch niedrig. Dort, wo der Weg wieder im Hochwald verschwand, stand zwischen Kirschbäumen die Mühle (Abb. 33). Es war ein idyllischer Platz, besonders im Frühling, wenn die Bäume und die Wiesenblumen blühten. Der »Mühlteich« lag etwas oberhalb im Schatten alter Fichten. An ihm vorbei führte der Fuhrweg steil und beschwerlich zwischen Wildbach und dem Abhang der »Goldana Leitn« ins Nachbardorf.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/oberesdorf-wehrmuehle-wehrmuehle.jpg"
     alt='Die Wehrmühle, Federzeichnung (Tusche) von Karl Redelbach'

@@ -42,12 +42,15 @@ y: 8992
 Die Pechgrüner Straße war mehr als nur der Weg ins Dorf. Sie verband Pechgrün mit Chodau, führte durch Felder, Teiche und offene Landschaft und reichte bis an den Rand des alten Dorfkerns. Die folgende Beschreibung folgt dieser Straße Schritt für Schritt, so wie sie in den Erinnerungen meines Onkels überliefert ist: vom Aufstieg zur Leitn über das Teichgebiet bis ins untere Dorf von Pechgrün, dort, wo der eigentliche Dorfkern begann.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse.jpg"
     alt="Pechgrüner Straße"
     style="display:block; max-width:980px; width:100%; height:auto;"
   >
+  <figcaption style="max-width:980px; margin: .4rem 0 0; font-size: .95rem; line-height: 1.35;">
+    Topografische Übersicht und Luftbildausschnitt zur Pechgrüner Straße.<br>Links ist der Verlauf der Straße von Chodau bis Pechgrün dargestellt; der grau markierte Bereich kennzeichnet den rechts gezeigten Luftbildausschnitt mit den vorgelagerten Häusern am Dorfrand.
+  </figcaption> 
 </figure>
 
 <p>
@@ -58,7 +61,7 @@ Pechgrün war ein schönes Dorf, vielleicht das schönste in der näheren Umgebu
 Die Pechgrüner Straße begann in Chodau bei der Einmündung in die Bezirksstraße nach Neudeck, bzw. nach Heinrichsgrün und führte von 428 m Meereshöhe kurvenreich auf die »Leitn«. Der höchste Punkt der Straße lag bei 465 m. Von dieser Stelle aus hatte man den Kessel von Pechgrün und das ansteigende Erzgebirge vor sich.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-leitn.jpg"
     alt="Blick von der Leitn in Richtung Pechgrün"
@@ -81,7 +84,7 @@ Von der Leitn ging es bergab. Links der Straße ein Riesenacker, das »Huafföö
 Die Steigung der Straße nach Pechgrün war sanft und erreichte an ihrem Ende beim letzten Kilometerstein die Höhe von 460 Meter. Gleich nach der Einmündung der »Ålten Leitn« kamen schon die ersten Teiche, die recht zahlreich dem Dorf vorgelagert waren; sie wurden schon im 14. Jahrhundert angelegt. Zwischen ihnen lagen sumpfige Wiesen, deren Gras nicht verfüttert werden konnte. Das Vieh fraß es nicht. Der erste dieser Teiche, in denen Karpfen und Schleien gezüchtet wurden, war der »Mühlteich«. Die Eichen, die auf den Dämmen wuchsen, waren ganz bestimmt schon sehr alt. Über den Mühlteichdamm führte ein Weg zum »Hirschteich« und weiter zur Schlämmerei »Osmose«. Zwischen Mühlteich und Poschetzauer Weg lag der »Saierteich« (Sauteich). An seinem Ufer gab es nur Sträucher, keine Bäume. Die Straße führte weiter über den Damm des »Kåstenteiches«. Schleudersteine, etwa 1 m hohe Granitsäulen, säumten dort die linke Straßenseite, sie sollten verhindern, daß Fahrzeuge ins Wasser fuhren. Wenige Meter vor dem Kåstenteich stand neben der Straße eine Birke. Sie war noch nicht sehr alt, aber sie paßte wunderschön in das Bild, das sich dort dem Auge bot. Die Teiche waren stufenweise dem Gelände angepaẞt, so daß das Überlaufwasser des einen in den darunterliegenden floẞ. Der »Herrenteich« war einer der Großen. Es schien, als umarmte er den Kåstenteich. Auf seinem Damm standen viele alte Eichen; es folgte der »Frauenteich«, er wurde vom Wasser des größten, dem »Seeteich« gespeist. An all diesen Teichen wuchsen Eichen, nur am »Kleeteich« gab es Birken. Ein Wäldchen, das an dieses Gewässer grenzte, nannte man »Klejbirkla«. Dort beim Seeteich stand unter einer riesigen Pappel das »Teichwewerhaus« (Dotzauer).
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-teich.jpg"
     alt="Pechgrüner Straße, links der Kastenteich"
@@ -96,7 +99,7 @@ Die Steigung der Straße nach Pechgrün war sanft und erreichte an ihrem Ende be
 Zwischen dem »Schoellberchwech« und der Einfahrt zum »Wiezenzen Huaf« lag das Haus der »Hanrich Emma«, Haus Nr. 52. Es soll früher zum »Hanrich Huaf« gehört haben, bevor »Wiezenzens Vooda« Hofbesitzer wurde. Im Garten meiner Tante Emma stand ein Marterl und ein »Wasserbirnbaum«. Längs des »Schoellberchwechs« gab es im Garten Akazien (Robinien). Das Haus war ebenerdig. Von der »Stu(b)m kam man ins »Stüwl«, das an der Längsseite des Hauses zwei kleine Fenster hatte. Parallel zu diesem Stübchen gab es eine Gerätekammer, durch die man in den Stall kam. Die Scheune stand auf der anderen Seite der zweiten Hofeinfahrt. Die Besitzverhältnisse waren sehr verzwickt und es gab ständig Streitereien. Am Haus entlang, im offenen Innenhof lief eine »Stoa(n)bruck« und ein Weg, der die beiden Einfahrten miteinander verband. Der Misthaufen meiner Tante lag vor den Fenstern des »Wiezenzn Hauses« auf der anderen Wegseite. Daneben waren ihre »Schüppla« und ihr »Huulzplåtz«, dieser lag sogar schon zwischen »Hiachas« Geräteschuppen und dem »Wiezenzens Gårtn«.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-95.jpg"
     alt="Haus Nr. 95 der Familie Adolf Heinzl"
@@ -115,7 +118,7 @@ Auf dem nun folgenden Straßenstück konnte man den Anblick der Berge genießen,
 Bis zur »Krimming« (Krümmung, Kurve), einer markanten Stelle auf dem Weg ins Dorf, gab es zur Linken die Wohnhäuser vom Fickert (Haus Nr.74) und Lutz (Schneida) Ferdl (Haus Nr. 90). Zwischen diesen Häusern hindurch konnte man in den Hofraum vom »Lehna Dolfn« sehen. Dieser Hof (Haus Nr. 62) lag nicht an der Straße, er war etwa 40 m von ihr entfernt. Vor Fickerts Haus zweigte ein Weg ab, der zum Lenk führte, so hieß der Besitzer mit Familiennamen. Das Wohn- und Stallgebäude war frontal zur Straße und die Scheune im rechten Winkel dazu erbaut. Einige ältere Obstbäume schlossen den Hofraum ab. Hinter dem Haus standen mehrere Fichten, sie waren bestimmt schon viele Jahrzehnte alt. Bevor man zu diesen Bäumen kam, zweigte ein Fußsteig ab, auf dem man nach weiteren 50 Metern das »Måaliesa Haus« (Haus Nr. 71) erreichte. Es stand zwischen Wiesen und Feldern und war nicht eingezäunt, was in Pechgrün sehr selten war. Etliche Obstbäume gehörten zu diesem Grundstück. Von dort hatte man einen schönen Blick auf das »Intara Dorf« mit seinem Wahrzeichen der »Poopl« (Pappel). Vom »Euin-Huaf« bis zum »Lei(n)berch« lag das Dorf vor einem, dahinter die bewaldeten Berge, ganz auffallend der »Spietzberch«. Unmittelbar in Dorfnähe sah man das »Mitterwallerl« und »s' Neibauern«, abseits davon »d' Earlseich«, ein Waldstück, das den Bergen vorgelagert war.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-62-74.jpg"
     alt="Haus Nr. 74 der Familie Fickert und Haus Nr.62 der Familie Josef Lenk"
@@ -134,7 +137,7 @@ Das Fickerthaus war ein Wohnhaus mit Satteldach und Erker über der Fronttür. D
 Das Haus vom »Schneida Ferdl« war ebenfalls nur Wohnhaus und noch sehr neu. Eigentlich hieß es das Haus von der »Peda Mare«, denn sie hat dem Ferdl ihren Hausnamen vermacht. Bei den älteren Pechgrünern war er der »Schneider Ferdl« vom Schneiderhuaf im »Iawan Dorf«. Im dazugehörenden großen Obstgarten waren viele junge Bäume gepflanzt, sie trugen schon Früchte, als die Vertreibung erfolgte.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-68-90.jpg"
     alt="Straße am Ortseingang, mit Haus Nr. 68 und 90"
@@ -149,7 +152,7 @@ Das Haus vom »Schneida Ferdl« war ebenfalls nur Wohnhaus und noch sehr neu. Ei
 Diesem Anwesen gegenüber war der »Mastahuaf«, Haus Nr. 68, direkt an die Straße gebaut. Der Hof mit Obstgarten war rundum eingezäunt. Am Garten entlang, auf dem Damm eines trockengelegten Teiches, führte ein Feldweg zu den Äckern und Wiesen im »Boouafn«, einem Stück Land auf einem sanften Hügel, der an die Bärnhaut grenzte. Dieser Feldweg vereinigte sich oberhalb des »Saiateichs« mit dem Weg nach Poschetzau. Das Haus war ein reines Wohnhaus mit einer Tür zur Straße und einem durchgehenden Flur, der einen Ausgang zum Hofraum hatte. Der »Stoo(d)l« (Scheune) mit »Stool« (Stall) trennte den Obstgarten vom Hofraum. Ich kann mich nicht erinnern, daß der Masta Dolf, wie früher, ins »Bergluach« zur Arbeit ging. Er lebte mit seiner Familie vom Ertrag seiner Landwirtschaft. Die Hofeinfahrt war nicht durch ein Tor abgeschlossen. Danach gab es entlang der Straße auf beiden Seiten Felder. Vogelbeerbäume säumten die Straße bis zur »Krimming«.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-107.jpg"
     alt="Haus Nr. 107 der Familie Reif"
@@ -172,7 +175,7 @@ An die Äcker zwischen »Mastahuaf« und »Reifhaus« grenzte »s' Loahmwiesl« 
 Dann kam die »Krimming«, dort wo sich die Straße nach Nordwesten wandte, sie war mehr als nur eine Kurve. Dort führte ein Graben unter der Straße hindurch, da bildete sich nach heftigen Regengüssen oder nach der Schneeschmelze ein See, der oft bis an »P(ü)lz Kårls Haus« heranreichte, dort hatte der »Siema Wenzl« weit von seinem Haus entfernt eine Scheune. Zwischen zwei Schleudersteinen war eine Eisentraverse eingebaut, dort wo neben der Einfahrt zur Bärnhaut eine »Staun« (Strauch) eine »Huulerstaun« (Holunderstaude) stand, das war die »Krimming«. Es war ein Flurname wie »d' Luuft« oder »d' Weja«.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-101.jpg"
     alt="Haus Nr. 101, der Familie Ostermann"
@@ -187,7 +190,7 @@ Dann kam die »Krimming«, dort wo sich die Straße nach Nordwesten wandte, sie 
 Von dort bis zu Leo Ostermanns halbem Haus war nur ein Katzensprung. Aus Geldmangel konnte das Haus Nr. 101 nie fertiggebaut werden. An dieser Stelle treffen wir auf den Schwarzebach, der dort seine Laufrichtung verließ; danach floß er ein Stück nach Osten durch die Wiesen der »Bärnhaut« und mündete nach etwas mehr als einem Kilometer in den »Owastteich« (Oberst).
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-54-72.jpg"
     alt="Am »Lei(n)berch«, Haus Nr. 54 des »Hommer Tone« und Haus Nr. 72 der »Schindler Berta«"
@@ -210,7 +213,7 @@ Neben dem Haus und dem unmittelbar angrenzenden Obstgarten vom »Hiacha Richard�
 Der »Lei(n)berch« mit »Mastawenzls Huaf« und dem dahinter gelegenen Wäldchen vervollständigten diesen Rundblick.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-91.jpg"
     alt="Haus Nr. 91, der Familie Karl Schuldes"
@@ -225,7 +228,7 @@ Der »Lei(n)berch« mit »Mastawenzls Huaf« und dem dahinter gelegenen Wäldche
 Von der »Krimming« bis ins Dorf standen am rechten Straßenrand Schleudersteine. Bevor man auf der linken Seite der Straße zur Einfahrt zu »P(ü)lz Kårls Haus«, Haus Nr. 91 kam, standen zwei alte Vogelbeerbäume. Das Haus war etwas von der höherverlaufenden Straße abgesetzt. Es war eingeschoßig und das Satteldach war mit Eternit gedeckt. Weil Kårls Grundstück sehr feucht war, sammelte er Erde und Abraum, und erhöhte damit die Oberfläche seines Gartens, um ihn vor gelegentlichen Überflutungen zu schützen.
 </p>
 
-<figure style="margin: 1.2rem 0;">
+<figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/pechgruener-strasse-77-47.jpg"
     alt="Haus Nr. 77, der Familie Ernst Dotzauer, im Hintergrund Haus Nr. 47, der Aloisia Haberditzl"
