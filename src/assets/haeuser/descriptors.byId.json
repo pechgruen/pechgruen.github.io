@@ -9,7 +9,7 @@
   "h008": "Pechgrün Haus #73 am \"Meiselsberch\"\n\"Meisel Huaf\" der Familie Josef Rossmeißl",
   "h009": "Pechgrün \"am Voglsang\" an der Straße von Neuhäuser und Doglasgrün liegend.\n#86: Fam. Eduard Kraus\n#87: Haus des \"Kla(r)las Kårl, Bejchana Knüppl\" der Fam. Karl Bauer\n#88: Holzhandlung der Fam. Karl Lenk\n#89: Doppelhaus der Familien Ernst und Franz Hahn",
   "h010": "Pechgrün: Unteres Dorf\n#31: \"Tü(l)pl Haus\" Fam. Wenzl Tilp\n#47: Haus der  \"Werdl Luis\" \n#48: \" 's Rasier Haisl\" Frisör Geschäft der Fam. Rudolf Lorenz\n#77: Haus der Fam. Ernst Dotzauer",
-  "h011": "Pechgrün: Unteres Dorf in nördlicher Blickrichtung\n#25: \"Werdl Huaf\" der Fam. Karl Heinzl\n#34: \"Möhl Frank Haus\" der Fam. Frank, später Wohlrab\n#37: \" 's Boochheinzl Haus\" der Fam. Rudolf Lorenz\n#38: \"Strunzens Haus\" der Fam. Josef Strunz\n#69: \"Kohlhaus\" der Fam. Josef Scheitler",
+  "h011": "Pechgrün: Unteres Dorf in nördlicher Blickrichtung\n#34: \"Möhl Frank Haus\" der Fam. Frank, später Wohlrab\n#37: \" 's Boochheinzl Haus\" der Fam. Rudolf Lorenz\n#38: \"Strunzens Haus\" der Fam. Josef Strunz\n#40: Haus der Familie Wenzl Lochschmidt (\"Howara Wenzl\")\n#69: \"Kohlhaus\" der Fam. Josef Scheitler",
   "h012": "Pechgrün #75: das neue Hegerhaus (Forsthaus) \"beim Stowasser\". Es liegt am Ende des Dorfes Richtung Kösteldorf. Das alte Hegerhaus hatte die #14 und lag am Waldrand auf dem Weg zur Wehr-Mühle.",
   "h013": "Pechgrüner Straße (von Chodau kommend), links der Kastenteich. Die Berge im Hintergrund von links nach rechts: Goldene Leitn, Spitzberg, und Kahlhau.",
   "h014": "Straße nach Pechgrün von Chodau aus kommend\n#62: Haus der Familie Josef Lenk\n#68: Hof vom \"Mast Adolf\" der Fam. R. Scherbaum\n#71: \"Måalliesa Haus\" der Fam. Egon Dürrschmidt\n#74: Haus der Fam. Fickert\n#90: \"Schneider Ferdl Haus\" der Fam. Ferdl Lutz\n#95: Haus der Fam. Adolf Heinzl",
@@ -39,7 +39,7 @@
   "h038": "Pechgrün - die letzten Häuser des Dorfes in Richtung Kösteldorf\n#41: \"Krebsn\" Haus der Fam. Robert Fischer\n#43: Haus der Fam. Ernst Scherbaum",
   "h039": "Pechgrün: Haus #33 der Fam. Karl Forster (vormals \"Konsumhaus\")",
   "h040": "Pechgrün: Ortsteil \"am Voglsang\" am Weg gelegen, der sich dort nach Doglasgrün/Neuhäuser und Stelzengrün/Braunsdorf verzweigte\n#79: Haus der Familie Gebhardt.Es wurde in den späten 20er Jahren errichtet und war das erste Haus im Ortsteil \"Vuaglsång\".\n#85: \"Glooseffen\" Haus der Fam. Berta Fischer\n#86: \"Hou Ferdl\" Haus der Fam. Eduard Kraus\n#89: Haus der Fam. Ernst und Franz Hahn",
-  "h041": "Der Pechgrüner \"Fuatzwinkl\"\n#40: \"Howara Wenzl\" Haus der Fam. Lochschmidt\n#80: \"Masta Mare\" Haus der Fam. Marie Lorenz\n#81: \"Howara Tone\" Haus der Fam. J. Langhammer\n#92: \"Masta Ernst und Emma\" Haus der Fam. Anton Lill",
+  "h041": "Der Pechgrüner \"Fuatzwinkl\"\n#80: \"Masta Mare\" Haus der Fam. Marie Lorenz\n#81: \"Howara Tone\" Haus der Fam. J. Langhammer\n#83: \"ban Schouster\", Haus der Familie Wach\n#92: \"Masta Ernst und Emma\" Haus der Fam. Anton Lill",
   "h042": "Pechgrün #30: ein typisches Egerländer Häusler Haus der Familie Brandner mit \"Stu(b)m\", \"Stüwl\", \"Stool\" und \"Sto(d)l\" im Erdgeschoß. Unter dem Dach waren Kammern und \"da Haabuan\". Gedeckt war das Haus mit geteerter Dachpappe. Das Fachwerk des Giebels wurde \"Schöißn\" genannt.",
   "h043": "Pechgrün #9: Gasthaus \"Zum Grünen Baum\", eines von drei Wirtshäusern im Dorf",
   "h044": "Pechgrün #19: Der \"Matzl Huaf\" der Familie Egon Dürrschmidt",
@@ -92,5 +92,7 @@
   "h091": "Pechgrün #56: Haus der Familie Franz Kreuzer",
   "h092": "Pechgrün #57: Haus der Familie Anton Müller (\"Ruas Tone\")",
   "h093": "Pechgrün #56: Haus der Familie Franz Kreuzer",
-  "h094": "Pechgrün #17: Haus der Familie Franz Kraus"
+  "h094": "Pechgrün #17: Haus der Familie Franz Kraus",
+  "h095": "Pechgrün #46: Gemeinde- und Armenhaus, Stiftung des Herrn Karl Pleier",
+  "h096": "Alte Steinbrücke im unteren Dorf. Im Hintergrund Haus Nr. 38 der Familie Josef Strunz."
 }

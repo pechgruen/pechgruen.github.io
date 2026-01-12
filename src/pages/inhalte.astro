@@ -211,7 +211,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <span class="acc-title">Stellen &amp; Gebäude</span>
         <span class="acc-right">
           <span class="acc-meta">
-            {(orte.length + 2).toLocaleString("de-DE")} Einträge
+            {(orte.length + 3).toLocaleString("de-DE")} Einträge
           </span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
@@ -226,6 +226,11 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
                 <span> — {stellenIndex.subtitle}</span>
               ) : null
             }
+          </li>
+
+          <li>
+            <a href="/stellen/wege">Durch Pechgrün gehen</a>
+            <span> — Elf Wegbeschreibungen von Erich Heinzl mit Karten und Bildern</span>
           </li>
 
           <li>
