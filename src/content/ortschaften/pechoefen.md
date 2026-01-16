@@ -4,7 +4,7 @@ subtitle: "Nachbarort von Pechgrün"
 date: 2026-01-15
 order: 70
 
-label: "Pö"
+label: "Pe"
 x: 3917
 y: 2314
 ---

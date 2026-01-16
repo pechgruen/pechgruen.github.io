@@ -4,7 +4,7 @@ subtitle: "Ein Ort, der geblieben ist"
 date: 2026-01-05
 order: 30
 
-label: "B"
+label: "Br"
 x: 1952
 y: 4382
 ---
