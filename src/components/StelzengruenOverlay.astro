@@ -1,0 +1,139 @@
+---
+const {
+  base1956 = "/images/stelzengruen-1956.jpg",
+  aerial2025 = "/images/stelzengruen-2025.jpg",
+  label1956 = "Orthofoto ca. 1956",
+  label2025 = "Luftbild 2025",
+  aspectW = 1600,
+  aspectH = 1062,
+  initial = 0, // START: 0% Overlay
+} = Astro.props;
+---
+
+<section class="sg-section" aria-label="Kartenüberlagerung Stelzengrün" data-sg-initial={String(initial)}>
+  <h2 class="sg-title">Karten-Overlay</h2>
+
+  <div class="sg-stack" style={`aspect-ratio:${aspectW} / ${aspectH}; width:100%;`}>
+    <img class="sg-base" src={base1956} alt={`Basis: ${label1956}`} />
+    <img class="sg-overlay" src={aerial2025} alt={`Overlay: ${label2025}`} style={`opacity:${initial / 100}`} />
+  </div>
+
+  <div class="sg-controls">
+    <div class="sg-toggle" role="group" aria-label="Ansicht umschalten">
+      <span class="sg-btn" role="button" tabindex="0" aria-pressed={initial === 0 ? "true" : "false"} data-sg-set="0">
+        {label1956}
+      </span>
+      <span class="sg-sep" aria-hidden="true">|</span>
+      <span class="sg-btn" role="button" tabindex="0" aria-pressed={initial === 100 ? "true" : "false"} data-sg-set="100">
+        {label2025}
+      </span>
+    </div>
+
+    <label class="sg-label">Überblendung</label>
+    <input class="sg-range" type="range" min="0" max="100" value={initial} />
+    <div class="sg-val">0%</div>
+  </div>
+</section>
+
+<style>
+  .sg-section { margin: 1.6rem 0; max-width: 980px; }
+  .sg-title { margin: 0 0 .6rem; font-size: 1.25rem; }
+
+  .sg-stack{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,.18);
+  }
+
+  .sg-stack img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .sg-overlay{ transition: opacity 80ms linear; }
+
+  .sg-controls{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .sg-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .sg-btn[role="button"]{
+    cursor: pointer;
+    color: rgba(0,0,0,.65);
+    user-select: none;
+  }
+
+  .sg-btn[aria-pressed="true"]{
+    color: rgba(0,0,0,.95);
+    font-weight: 600;
+  }
+
+  .sg-sep{
+    color: rgba(0,0,0,.35);
+    user-select: none;
+  }
+
+  .sg-label{
+    font-size: 14px;
+    color: rgba(0,0,0,.72);
+  }
+
+  .sg-range{
+    flex: 1;
+    min-width: 220px;
+    max-width: 260px;
+    height: 22px;
+    background: transparent;
+    appearance: none;
+  }
+
+  .sg-range::-webkit-slider-runnable-track{
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.18);
+  }
+  .sg-range::-moz-range-track{
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.18);
+  }
+
+  .sg-range::-webkit-slider-thumb{
+    appearance: none;
+    width: 4px;
+    height: 18px;
+    margin-top: -7px;
+    background: rgba(0,0,0,.7);
+    border-radius: 1px;
+  }
+  .sg-range::-moz-range-thumb{
+    width: 4px;
+    height: 18px;
+    background: rgba(0,0,0,.7);
+    border-radius: 1px;
+  }
+
+  .sg-val{
+    width: 48px;
+    text-align: right;
+    font-size: 14px;
+    color: rgba(0,0,0,.65);
+  }
+</style>

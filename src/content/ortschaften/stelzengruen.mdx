@@ -1,0 +1,127 @@
+---
+title: "Stelzengrün"
+subtitle: "Das verschwundene Nachbardorf von Pechgrün"
+date: 2026-01-16
+order: 10
+
+label: "Sg"
+x: 2106
+y: 4093
+---
+
+import StelzengruenOverlay from "../../components/StelzengruenOverlay.astro";
+
+<style></style>
+
+<div class="gemeinde-page">
+
+<p>
+  Stelzengrün war ein deutsches Dorf im Egerland, südlich von Chodau, und über
+  Jahrhunderte Teil einer kleinräumigen Kulturlandschaft, zu der auch Pechgrün
+  und Braunsdorf gehörten. Die Anfänge des Ortes liegen im Zuge der
+  hochmittelalterlichen deutschen Besiedlung Böhmens, wahrscheinlich im 13.
+  Jahrhundert. Schriftliche Gründungsdokumente sind nicht erhalten, doch die
+  Siedlungsstruktur entspricht dem typischen Ausbau der Region in dieser Zeit.
+</p>
+
+<p>
+  Die Landschaft zwischen Stelzengrün, Chodau und Pechgrün war früh durch eine
+  intensive Wasserbewirtschaftung geprägt. In Anlehnung an die von den
+  Zisterziensern entwickelte Technik – wie sie etwa im Stiftland um Waldsassen
+  in großem Maßstab angewandt wurde – entstand hier ein System aus Teichen,
+  Gräben und Dämmen. Auch wenn es sich nicht um hunderte, sondern eher um einige
+  Dutzend Teiche handelte, prägten sie über Jahrhunderte die landwirtschaftliche
+  Nutzung und das Erscheinungsbild der Gegend.
+</p>
+
+<p>
+  Bis ins frühe 20. Jahrhundert war Stelzengrün ein intaktes Dorf mit
+  Bauernhöfen, Handwerk und Gastwirtschaften. Postkarten und Fotografien zeigen
+  einen gewachsenen Ort mit Schule, Wirtshaus und klarer Dorfform. Die Nähe zu
+  Chodau brachte im 19. Jahrhundert erste Berührungspunkte mit Bergbau und
+  Industrie, doch blieb Stelzengrün selbst zunächst landwirtschaftlich geprägt.
+</p>
+
+<figure>
+  <img src="/images/stelzengruen-gasthaus.jpg" alt="Stelzengrün – Gasthaus" />
+  <figcaption>
+    Gasthaus zum Felsenkeller in Stelzengrün.
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="/images/stelzengruen-postkarte.jpg" alt="Stelzengrün – Postkarte" />
+  <figcaption>
+    Stelzengrün vor 1914 in der k. u. k. Monarchie.
+  </figcaption>
+</figure>
+
+<p>
+  Nach dem Zweiten Weltkrieg endete diese Geschichte abrupt. Die
+  deutschsprachige Bevölkerung wurde vertrieben, der Ort verlor seine soziale
+  Grundlage und wurde in der Folge nicht mehr dauerhaft besiedelt. In den 1950er
+  und 1960er Jahren veränderten großindustrielle Anlagen, Abraumkippen und
+  Infrastrukturprojekte die gesamte Umgebung grundlegend. Stelzengrün wurde 
+  eingeebnet, seine zuletzt 29 Gebäude verschwanden; der tschechische Ortsname 
+  Stará Chodovská, ursprünglich für Stelzengrün verwendet, wurde später 
+  administrativ auf den Nachbarort Braunsdorf übertragen.
+</p>
+
+<figure>
+  <img src="/images/stelzengruen-braunsdorf.jpg" alt="Stelzengrün – Braunsdorf" />
+  <figcaption>
+    Braunsdorf: Der einzige Ort der Umgebung, dessen Siedlungsstruktur weitgehend erhalten blieb.
+  </figcaption>
+</figure>
+
+<p>
+  Heute existiert Stelzengrün nur noch in Karten, Fotografien und Erinnerungen – als ein Nachbarort von Pechgrün, der nicht durch langsamen Wandel, sondern durch vollständige Aufgabe und landschaftliche Neuformung aus der Realität verschwunden ist.
+</p>
+
+{" "}
+<StelzengruenOverlay
+  base1956="/images/stelzengruen-1956.jpg"
+  aerial2025="/images/stelzengruen-2025.jpg"
+  label1956="Orthofoto ca. 1956"
+  label2025="Luftbild 2025"
+  initial={0}
+/>
+
+<p>
+  Beim Überblenden der beiden Luftbilder wird deutlich, dass sich die Landschaft
+  nicht nur verändert, sondern grundlegend neu geformt hat. Viele frühere
+  Orientierungspunkte – Wege, Gewässer und Geländestrukturen – existieren heute
+  nicht mehr oder sind vollständig verschwunden. Der Vergleich macht daher
+  weniger das „Wiedererkennen“ möglich als vielmehr das Ausmaß des
+  landschaftlichen Eingriffs sichtbar. Nahezu unverändert geblieben ist
+  lediglich der Ort Braunsdorf.
+</p>
+
+</div>
+
+<style>{`
+  .gemeinde-page figure {
+    max-width: 780px;
+    margin: 1.4rem 0 1.6rem 0;
+  }
+
+  .gemeinde-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gemeinde-page figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: #666;
+    font-style: normal;
+  }
+
+  .gemeinde-page figure + p {
+    margin-top: 0.9rem;
+  }
+`}</style>
+
+<script src="/js/overlay-opacity.js"></script>
