@@ -2,15 +2,15 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DeepZoomMap from "../../components/deepzoom/DeepZoomMap.astro";
 import { getCollection } from "astro:content";
-import { ortschaftenUmPechgruen } from "../../maps/ortschaften-um-pechgruen";
+import { ortschaftenUmPechgruen } from "../../maps/nachbarorte";
 
 // Chronik-Eintrag
 export const chronik = {
-  title: "Ortschaften um Pechgrün",
-  subtitle: "Deep Zoom – Nachbardörfer und umliegende Orte",
+  title: "Nachbarorte von Pechgrün",
+  subtitle: "Dörfer und markante Punkte der Umgebung",
   date: "2025-12-20",
   order: 1,
-  bereich: "Ortschaften",
+  bereich: "Nachbarorte",
   href: "/nachbarorte/um-pechgruen",
 };
 
@@ -33,30 +33,55 @@ const markers = entries.map((e) => {
 });
 ---
 
-<BaseLayout title="Ortschaften um Pechgrün">
+<BaseLayout title="Nachbarorte von Pechgrün">
   <main style="max-width:980px;margin:0 auto;">
-    <h1 style="margin:0 0 0.35rem;">Ortschaften um Pechgrün</h1>
-
-    <p style="margin:0 0 1rem; opacity:0.8;">
-      Diese Karte zeigt die Ortschaften rund um Pechgrün im historischen Kontext
-      sowie ausgewählte markante Punkte der Landschaft. Die Marker lassen sich
-      ein- und ausblenden und führen zu Detailseiten der jeweiligen Orte.
-    </p>
+    <h1 style="margin:0 0 0.35rem;">{chronik.title}</h1>
+    <p class="subtitle">{chronik.subtitle}</p>
 
     <DeepZoomMap {...ortschaftenUmPechgruen} markers={markers} height={640} />
+
+    <p style="margin:1.4rem 0 1rem;">
+      Diese Übersicht zeigt die Umgebung von Pechgrün in einem erweiterten Sinn.
+      Mit Nachbarorten sind dabei nicht nur die umliegenden Dörfer gemeint,
+      sondern auch markante Punkte der Landschaft – etwa Berge, Wälder, Seen
+      oder andere prägende Orte, die im räumlichen und historischen Zusammenhang
+      mit Pechgrün stehen.
+    </p>
+
+    <p>
+      Pechgrün bildet den gedanklichen Mittelpunkt. Die Karte kombiniert eine
+      heutige topografische Darstellung mit historischen Überlagerungen, um auch
+      verschwundene Orte wie Pechgrün oder Stelzengrün sichtbar zu machen. Die
+      Marker verweisen auf ausgewählte Nachbarorte, zu denen eigene Detailseiten
+      existieren. Sie lassen sich bei Bedarf einblenden und auch wieder
+      ausblenden, um den Blick auf die Karte frei zu halten. Weitere Ortsnamen
+      dienen der Orientierung und verdeutlichen den landschaftlichen und
+      geografischen Zusammenhang, ohne im Einzelnen ausgeführt zu werden.
+    </p>
 
     <section style="margin-top:2rem;">
       <h2>Hinweis zur Bedienung</h2>
       <ul>
         <li><strong>Zoomen:</strong> Mausrad oder Trackpad-Geste</li>
-        <li><strong>Verschieben:</strong> klicken / gedrückt halten und ziehen</li>
-        <li><strong>Marker:</strong> über den Button rechts unten ein- und ausblenden</li>
         <li>
-          <strong>Autor-Funktion:</strong>
-          <span style="white-space:nowrap;">Option&nbsp;/&nbsp;Alt&nbsp;+&nbsp;Klick</span>
-          zeigt die Bildkoordinaten an (werden ins Clipboard kopiert)
+          <strong>Verschieben:</strong> klicken / gedrückt halten und ziehen
+        </li>
+        <li>
+          <strong>Marker:</strong> über den Button rechts unten ein- und ausblenden
+        </li>
+        <li>
+          <strong>Mausklick über Marker:</strong> zugehörige Detailseite anzeigen
         </li>
       </ul>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .subtitle {
+    margin: -0.35rem 0 0.9rem 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.72);
+  }
+</style>
