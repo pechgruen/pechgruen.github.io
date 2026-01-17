@@ -1,0 +1,139 @@
+---
+title: "Doglasgrün"
+subtitle: "Industrie statt Dorf"
+date: 2026-01-16
+order: 20
+
+label: "Dg"
+x: 1189
+y: 3722
+---
+
+import DoglasgruenOverlay from "../../components/DoglasgruenOverlay.astro";
+
+<style></style>
+
+<div class="gemeinde-page">
+
+<p>
+Doglasgrün (heute Vřesová) ist kein verschwundener Ort im klassischen Sinn.
+Das Dorf wurde nicht nur aufgegeben und abgetragen, sondern vollständig von
+einem großindustriellen Komplex überformt, der seit den 1960er-Jahren die
+Landschaft im Falkenauer Becken prägt.
+</p>
+
+<p>
+Die heutige topografische Basiskarte zeigt diesen Zustand: Kraftwerksanlagen,
+Kühltürme, Becken, Rohrleitungen und Verkehrsflächen dominieren das Gebiet.
+Das frühere Dorf liegt darunter – nicht mehr sichtbar, aber räumlich weiterhin
+vorhanden.
+</p>
+
+{" "}
+<DoglasgruenOverlay
+  base="/images/doglasgruen-2025.jpg"
+  overlayA="/images/doglasgruen-1842.jpg"
+  overlayB="/images/doglasgruen-1956.jpg"
+  labelBase="Topografische Karte (heute)"
+  labelA="Karte 1842"
+  labelB="Luftbild 1956"
+  initial={0}
+  initialLayer={0}
+/>
+
+<p>
+Nach dem Zweiten Weltkrieg setzte im Gebiet um Falkenau ein tiefgreifender Wandel
+ein. Mit dem Übergang vom untertägigen zum großflächigen Braunkohleabbau entstand
+die Notwendigkeit, die geförderte Kohle vor Ort weiterzuverarbeiten. In
+Doglasgrün wurde ab den 1950er-Jahren ein groß dimensionierter
+Verarbeitungs- und Vergasungskomplex errichtet, der in den 1960er-Jahren
+vollständig in Betrieb ging.
+</p>
+
+<p>
+In dieser frühen Phase war der Standort durch erhebliche Emissionen geprägt.
+Der Betrieb der Kohlevergasung führte zu starker Geruchsbelastung und
+Umweltbeeinträchtigungen, die bei bestimmten Wetterlagen weit über das direkte
+Umland hinaus wahrgenommen wurden – bis ins Vogtland, nach Sachsen und nach
+Oberfranken. Zeitgenössische Berichte sprechen von Waldschäden und dauerhaft
+beeinträchtigter Luftqualität.
+</p>
+
+<figure>
+  <img
+    src="/images/doglasgruen-kraftwerk.jpg"
+    alt="Industriekomplex Vřesová – Kraftwerksanlagen und Kühlturm"
+  />
+  <figcaption>
+    Industriekomplex Vřesová: Blick auf das Gas-und-Dampf-Kombikraftwerk mit
+    Kühlturm und Schornsteinen. Aufnahme vom Straßenraum aus, Juni 2023.
+  </figcaption>
+</figure>
+
+<p>
+Im Laufe der folgenden Jahrzehnte wurde der Industriekomplex technisch
+nachgerüstet. Filteranlagen reduzierten die Emissionen, ohne jedoch den
+grundlegenden Charakter des Standorts als Schwerindustrie zu verändern.
+</p>
+
+<p>
+Seit den 2000er-Jahren wurde der Standort erneut grundlegend umgebaut. Die
+frühere Kohlevergasung wurde schrittweise aufgegeben und durch ein modernes
+Gas-und-Dampf-Kombikraftwerk (GuD-Kraftwerk) ersetzt, das heute mit Erdgas
+betrieben wird. Umfangreiche Investitionen dienen seither der weiteren
+Reduktion von Schadstoff- und CO₂-Emissionen. Der industrielle Charakter des
+Standorts bleibt dabei jedoch prägend.
+</p>
+
+<figure>
+  <img
+    src="/images/doglasgruen-halde.jpg"
+    alt="Blick von der Halde bei Pechgrün auf den Industriekomplex Vřesová"
+  />
+  <figcaption>
+    Blick auf das Kraftwerk Vřesová von der bis zu 180&nbsp;Meter hohen 
+    Abraumhalde, unter der Pechgrün begraben liegt. Aufnahme vom Mai 2025.
+  </figcaption>
+</figure>
+
+<p>
+Die Überblendung der historischen Karten zeigt, welche Siedlungsstruktur hier
+einst vorhanden war. Die heutige topografische Basiskarte macht hingegen
+sichtbar, wie vollständig diese Struktur durch industrielle Nutzung ersetzt
+wurde.
+</p>
+
+<p>
+Doglasgrün existiert nicht mehr als Dorf, wohl aber als Schicht unter einer
+technischen Landschaft, deren Maßstab und Funktion die Region dauerhaft
+verändert haben.
+</p>
+
+</div>
+
+<style>{`
+  .gemeinde-page figure {
+    max-width: 780px;
+    margin: 1.4rem 0 1.6rem 0;
+  }
+
+  .gemeinde-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gemeinde-page figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: #666;
+    font-style: normal;
+  }
+
+  .gemeinde-page figure + p {
+    margin-top: 0.9rem;
+  }
+`}</style>
+
+<script src="/js/overlay-opacity.js"></script>
