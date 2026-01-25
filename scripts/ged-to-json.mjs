@@ -60,17 +60,6 @@ function normalizePlace(s) {
 }
 
 // --- ADDITIVE: GEDCOM date normalization (display-only) ---
-// Goal:
-//   "28 FEB 1924"      -> "28.02.1924"
-//   "FEB 1924"         -> "02.1924"
-//   "1924"             -> "1924"
-//   "ABT 1924"         -> "ca. 1924"
-//   "BEF FEB 1924"     -> "vor 02.1924"
-//   "ABT 28 FEB 1924"  -> "ca. 28.02.1924"
-//
-// Supported qualifiers (as per your data reality): ABT, BEF
-// Everything else: return original trimmed string unchanged.
-
 const GED_MONTH = {
   JAN: "01",
   FEB: "02",
@@ -104,7 +93,6 @@ function normalizeGedcomDateDisplay(dateStr) {
   }
 
   // Try to parse: [DD] MON YYYY  (DD optional)
-  // Examples: "28 FEB 1924", "FEB 1924"
   const m = s.match(/^(?:(\d{1,2})\s+)?([A-Z]{3})\s+(\d{4})$/i);
   if (m) {
     const dayRaw = m[1] ? Number(m[1]) : null;
@@ -112,27 +100,23 @@ function normalizeGedcomDateDisplay(dateStr) {
     const year = m[3];
 
     const mm = GED_MONTH[monKey];
-    if (!mm) return prefix ? prefix + s : s0; // unexpected month token
+    if (!mm) return prefix ? prefix + s : s0;
 
     if (dayRaw != null && Number.isFinite(dayRaw) && dayRaw >= 1 && dayRaw <= 31) {
       const dd = String(dayRaw).padStart(2, "0");
       return `${prefix}${dd}.${mm}.${year}`;
     }
-    // Month + year only
     return `${prefix}${mm}.${year}`;
   }
 
-  // Year only: "1924"
   const y = s.match(/^(\d{4})$/);
   if (y) return `${prefix}${y[1]}`;
 
-  // Fallback: unchanged (but keep qualifier prefix if we recognized one)
   return prefix ? prefix + s : s0;
 }
 // --- END ADDITIVE ---
 
 function extractYear(dateStr) {
-  // GRAMPS export uses e.g. "28 FEB 1924"
   const m = dateStr.match(/(\d{4})/);
   return m ? Number(m[1]) : null;
 }
@@ -145,7 +129,6 @@ function pickPrimaryName(names) {
 }
 
 function localeCompareDE(a, b) {
-  // German-friendly sorting; falls back fine in most environments
   return a.localeCompare(b, "de", { sensitivity: "base" });
 }
 
@@ -159,7 +142,7 @@ async function main() {
     inputFile: INPUT,
     outputDir: OUTDIR,
     counts: { individuals: 0, families: 0 },
-    ignoredTagsTop: {}, // filled later
+    ignoredTagsTop: {},
     warnings: {
       brokenRefs: 0,
       externalRefs: 0,
@@ -184,7 +167,31 @@ async function main() {
   let currentEvent = null; // "BIRT" | "DEAT" | "MARR" | null
   let currentName = null;
 
+  // NEW: capture custom facts/events inside INDI, for Hausname etc.
+  let currentCustom = null; // { tag: "EVEN"|"FACT", rawValue, type, data }
+
+  function finalizeCustomForPerson() {
+    if (!currentPerson || !currentCustom) return;
+
+    const type = (currentCustom.type || "").trim();
+    if (/^hausname$/i.test(type)) {
+      // In your GED export, Hausname is stored as: 1 EVEN Brüln / 2 TYPE Hausname
+      // But be robust: sometimes the actual value is in VALUE/NOTE instead.
+      const val =
+        (currentCustom.data && String(currentCustom.data).trim()) ||
+        (currentCustom.rawValue && String(currentCustom.rawValue).trim()) ||
+        "";
+
+      if (val) currentPerson.houseName = val;
+    }
+
+    currentCustom = null;
+  }
+
   function flushCurrent() {
+    // finalize any pending custom event
+    finalizeCustomForPerson();
+
     if (currentType === "INDI" && currentPerson && currentId) {
       people.set(currentId, currentPerson);
       report.counts.individuals += 1;
@@ -198,6 +205,7 @@ async function main() {
     currentFamily = null;
     currentEvent = null;
     currentName = null;
+    currentCustom = null;
   }
 
   const rl = readline.createInterface({
@@ -234,6 +242,9 @@ async function main() {
           occupation: null,
           famc: [],
           fams: [],
+          // NEW:
+          nickname: null,   // from NAME.NICK or NICK tag
+          houseName: null,  // from custom fact/event TYPE Hausname
         };
       } else if (rec.tag === "FAM" && rec.xref) {
         currentType = "FAM";
@@ -246,18 +257,21 @@ async function main() {
           marriage: { date: null, place: null, year: null },
         };
       } else {
-        // HEAD, SUBM, etc. ignore
         currentType = null;
         currentId = null;
       }
       continue;
     }
 
-    // If we're not inside INDI or FAM, ignore
     if (!currentType) continue;
 
     // --- INDI parsing (whitelist) ---
     if (currentType === "INDI") {
+      // If we hit any new level-1 tag, a pending custom event should be finalized
+      if (rec.level === 1 && currentCustom && rec.tag !== "TYPE" && rec.tag !== "NOTE" && rec.tag !== "VALUE") {
+        finalizeCustomForPerson();
+      }
+
       // Begin new NAME at level 1
       if (rec.level === 1 && rec.tag === "NAME") {
         if (currentName) currentPerson.names.push(currentName);
@@ -266,15 +280,23 @@ async function main() {
           givn: null,
           surn: null,
           type: null,
+          // NEW:
+          nick: null,
         };
         currentEvent = null;
+        currentCustom = null;
         continue;
       }
 
       // If we see any new level-1 tag (BIRT/DEAT/FAMC/...), the NAME block is finished.
-      // Otherwise level-2 DATE/PLAC lines would be wrongly swallowed as NAME subfields.
       if (rec.level === 1 && currentName && rec.tag !== "NAME") {
         currentPerson.names.push(currentName);
+
+        // NEW: persist nickname (prefer NICK from the primary NAME if present)
+        if (currentName.nick && !currentPerson.nickname) {
+          currentPerson.nickname = currentName.nick;
+        }
+
         currentName = null;
       }
 
@@ -283,6 +305,40 @@ async function main() {
         if (rec.tag === "GIVN") currentName.givn = rec.value || null;
         else if (rec.tag === "SURN") currentName.surn = rec.value || null;
         else if (rec.tag === "TYPE") currentName.type = rec.value || null;
+        // NEW: NICK inside NAME (as in your test.ged)
+        else if (rec.tag === "NICK") {
+          currentName.nick = rec.value || null;
+          if (rec.value && !currentPerson.nickname) currentPerson.nickname = rec.value;
+        } else {
+          ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
+        }
+        continue;
+      }
+
+      // Also accept top-level NICK (some exporters use it)
+      if (rec.level === 1 && rec.tag === "NICK") {
+        currentPerson.nickname = rec.value || currentPerson.nickname;
+        currentEvent = null;
+        currentCustom = null;
+        continue;
+      }
+
+      // NEW: capture custom facts/events (Hausname)
+      if (rec.level === 1 && (rec.tag === "EVEN" || rec.tag === "FACT")) {
+        // start a new custom record; value may be on the same line (as in "1 EVEN Brüln")
+        currentCustom = {
+          tag: rec.tag,
+          rawValue: rec.value || "",
+          type: null,
+          data: null, // VALUE/NOTE (if present)
+        };
+        currentEvent = null;
+        continue;
+      }
+      if (rec.level === 2 && currentCustom) {
+        if (rec.tag === "TYPE") currentCustom.type = rec.value || null;
+        else if (rec.tag === "VALUE") currentCustom.data = rec.value || null;
+        else if (rec.tag === "NOTE") currentCustom.data = rec.value || null;
         else {
           ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
         }
@@ -293,37 +349,40 @@ async function main() {
       if (rec.level === 1 && rec.tag === "SEX") {
         currentPerson.sex = rec.value || null;
         currentEvent = null;
+        currentCustom = null;
         continue;
       }
       if (rec.level === 1 && rec.tag === "OCCU") {
         currentPerson.occupation = rec.value || null;
         currentEvent = null;
+        currentCustom = null;
         continue;
       }
       if (rec.level === 1 && rec.tag === "FAMC") {
         currentPerson.famc.push(stripXref(rec.value));
         currentEvent = null;
+        currentCustom = null;
         continue;
       }
       if (rec.level === 1 && rec.tag === "FAMS") {
         currentPerson.fams.push(stripXref(rec.value));
         currentEvent = null;
+        currentCustom = null;
         continue;
       }
 
       // Events
       if (rec.level === 1 && (rec.tag === "BIRT" || rec.tag === "DEAT")) {
         currentEvent = rec.tag;
+        currentCustom = null;
         continue;
       }
       if (rec.level === 2 && currentEvent) {
         if (rec.tag === "DATE") {
           if (currentEvent === "BIRT") {
-            // CHANGED (minimal): normalize display date at import-time
             currentPerson.birth.date = normalizeGedcomDateDisplay(rec.value) || null;
             currentPerson.birth.year = extractYear(rec.value);
           } else if (currentEvent === "DEAT") {
-            // CHANGED (minimal): normalize display date at import-time
             currentPerson.death.date = normalizeGedcomDateDisplay(rec.value) || null;
             currentPerson.death.year = extractYear(rec.value);
           }
@@ -331,13 +390,11 @@ async function main() {
           if (currentEvent === "BIRT") currentPerson.birth.place = normalizePlace(rec.value);
           else if (currentEvent === "DEAT") currentPerson.death.place = normalizePlace(rec.value);
         } else {
-          // Ignore event sub-tags
           ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
         }
         continue;
       }
 
-      // Everything else in INDI ignored (CHAN, FACT, SOUR, NOTE, etc.)
       ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
       continue;
     }
@@ -365,7 +422,6 @@ async function main() {
       }
       if (rec.level === 2 && currentEvent === "MARR") {
         if (rec.tag === "DATE") {
-          // CHANGED (minimal): normalize display date at import-time
           currentFamily.marriage.date = normalizeGedcomDateDisplay(rec.value) || null;
           currentFamily.marriage.year = extractYear(rec.value);
         } else if (rec.tag === "PLAC") {
@@ -384,6 +440,7 @@ async function main() {
   // Flush last record
   if (currentType === "INDI" && currentPerson && currentName) {
     currentPerson.names.push(currentName);
+    if (currentName.nick && !currentPerson.nickname) currentPerson.nickname = currentName.nick;
     currentName = null;
   }
   flushCurrent();
@@ -392,7 +449,6 @@ async function main() {
   const peopleOut = {};
   const familiesOut = {};
 
-  // Build a quick set for ref checks
   const personIds = new Set(people.keys());
   const familyIds = new Set(families.keys());
 
@@ -403,23 +459,19 @@ async function main() {
 
     const surnRaw = primary?.surn || null;
 
-    let surnameIndex = surnRaw; // what we store as "surname" (used for indexing)
-    let displaySurname = surnRaw; // what we show in UI
-    let legBirthSurname = null; // left side before ", leg."
-    let legNewSurname = null; // right side after ", leg."
+    let surnameIndex = surnRaw;
+    let displaySurname = surnRaw;
+    let legBirthSurname = null;
+    let legNewSurname = null;
 
     if (typeof surnRaw === "string") {
-      // EXACT convention: "<birthSurname>, leg. <newSurname>"
       const m = surnRaw.match(/^\s*(.+?)\s*,\s*leg\.\s*(.+?)\s*$/i);
       if (m) {
         legBirthSurname = (m[1] || "").trim();
         legNewSurname = (m[2] || "").trim();
         if (legNewSurname) {
-          // Your requested behavior:
-          surnameIndex = legNewSurname; // index under the legitimating surname
-          displaySurname = `${legNewSurname} (leg.)`; // simplest UI marker
-          // If you ever prefer Variant B instead, swap the previous line for:
-          // displaySurname = `${legNewSurname} (geb. ${legBirthSurname})`;
+          surnameIndex = legNewSurname;
+          displaySurname = `${legNewSurname} (leg.)`;
         }
       }
     }
@@ -431,27 +483,22 @@ async function main() {
           ? primary.raw.replace(/\//g, "").trim()
           : id;
 
-    // Check refs; treat missing as external (expected)
     for (const f of p.famc) {
       if (!f) continue;
-      if (!familyIds.has(f)) {
-        report.warnings.externalRefs += 1;
-      }
+      if (!familyIds.has(f)) report.warnings.externalRefs += 1;
     }
     for (const f of p.fams) {
       if (!f) continue;
-      if (!familyIds.has(f)) {
-        report.warnings.externalRefs += 1;
-      }
+      if (!familyIds.has(f)) report.warnings.externalRefs += 1;
     }
 
     peopleOut[id] = {
       id,
       name: {
         given,
-        surname: surnameIndex || null, // used for index keys like Heinzl / Kneiss(l)
+        surname: surnameIndex || null,
         display: displayName,
-        ...(legBirthSurname ? { legBirthSurname } : {}), // optional, harmless
+        ...(legBirthSurname ? { legBirthSurname } : {}),
         ...(legNewSurname ? { legNewSurname } : {}),
         ...(surnRaw ? { surnameRaw: surnRaw } : {}),
       },
@@ -461,18 +508,18 @@ async function main() {
       occupation: p.occupation,
       famc: p.famc.filter(Boolean),
       fams: p.fams.filter(Boolean),
+
+      // NEW: export these for the website / GED-browser
+      nickname: p.nickname || null,
+      houseName: p.houseName || null,
     };
   }
 
   // Convert families
   for (const [id, f] of families.entries()) {
-    // Validate refs
     for (const pid of [f.husband, f.wife, ...(f.children || [])]) {
       if (!pid) continue;
-      if (!personIds.has(pid)) {
-        // This should be rare if it's truly a subset; treat as external, not broken.
-        report.warnings.externalRefs += 1;
-      }
+      if (!personIds.has(pid)) report.warnings.externalRefs += 1;
     }
 
     familiesOut[id] = {
@@ -484,10 +531,9 @@ async function main() {
     };
   }
 
-  // Build surname index:
-  // group by KEY (uppercase) but OUTPUT DISPLAY (original case)
-  const keyToIds = new Map(); // KEY -> [personId]
-  const keyToDisplay = new Map(); // KEY -> first-seen DISPLAY label
+  // Build surname index
+  const keyToIds = new Map();
+  const keyToDisplay = new Map();
 
   for (const [id, p] of Object.entries(peopleOut)) {
     const disp = surnameDisplay(p.name.surname || "");
@@ -519,7 +565,6 @@ async function main() {
     });
   }
 
-  // Sort surname list by DISPLAY labels
   const surnames = Array.from(keyToIds.keys())
     .map((k) => {
       if (k === "(UNKNOWN)") return "(UNKNOWN)";
@@ -527,7 +572,6 @@ async function main() {
     })
     .sort(localeCompareDE);
 
-  // Build surnameToPersons with DISPLAY labels as keys
   const surnameToPersons = {};
   for (const disp of surnames) {
     if (disp === "(UNKNOWN)") {
@@ -538,7 +582,6 @@ async function main() {
     surnameToPersons[disp] = keyToIds.get(k) || [];
   }
 
-  // Write outputs
   fs.writeFileSync(path.join(OUTDIR, "people.json"), JSON.stringify(peopleOut, null, 2), "utf8");
   fs.writeFileSync(path.join(OUTDIR, "families.json"), JSON.stringify(familiesOut, null, 2), "utf8");
   fs.writeFileSync(path.join(OUTDIR, "surnames.json"), JSON.stringify(surnames, null, 2), "utf8");
@@ -548,7 +591,6 @@ async function main() {
     "utf8"
   );
 
-  // ignored tags top list
   const ignoredArr = Array.from(ignoredTags.entries()).sort((a, b) => b[1] - a[1]);
   report.ignoredTagsTop = Object.fromEntries(ignoredArr.slice(0, 30));
 
