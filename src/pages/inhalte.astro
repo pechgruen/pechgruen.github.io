@@ -351,12 +351,12 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <ul>
           <!-- Werkzeuge -->
           <li>
-            <a href={personenEinwohnermeldebuch.href}
-              >{personenEinwohnermeldebuch.title}</a
-            >
+            <a href={personenEinwohnermeldebuch.href}>{personenEinwohnermeldebuch.title}</a>
+            {personenEinwohnermeldebuch.subtitle ? <span> — {personenEinwohnermeldebuch.subtitle}</span> : null}
           </li>
           <li>
             <a href={personenStammbaum.href}>{personenStammbaum.title}</a>
+            {personenStammbaum.subtitle ? <span> — {personenStammbaum.subtitle}</span> : null}
           </li>
           <li>
             <a href={gedNamen.href}>{gedNamen.title}</a>

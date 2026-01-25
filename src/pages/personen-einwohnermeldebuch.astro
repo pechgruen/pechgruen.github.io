@@ -3,9 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonenRecherche from "../components/PersonenRecherche.astro";
 
 export const chronik = {
-  title: "Personen-Einwohnermeldebuch",
-  subtitle: "Recherche-Werkzeug (Einwohnermeldebuch)",
+  title: "Einwohnermeldebuch",
+  subtitle: "Amtliche Personenliste mit Filterfunktionen",
   date: "2025-12-22",
+  updated: "2026-01-25",
   bereich: "Recherche",
   href: "/personen-einwohnermeldebuch",
   order: 0,
@@ -13,8 +14,15 @@ export const chronik = {
 ---
 
 <BaseLayout title="Personen-Einwohnermeldebuch">
+<BaseLayout title=chronik.title>
+  <header class="head">
+    <h1>{chronik.title}</h1>
+    <p class="subtitle">{chronik.subtitle}</p>
+    <p class="meta">{chronik.date}</p>
+  </header>
+
   <PersonenRecherche
-    pageTitle="Personen-Einwohnermeldebuch"
+    pageTitle=chronik.title
     personsUrl="/data/einwohnermeldebuch.csv"
     housesUrl="/data/haeuser.csv"
   >
@@ -50,4 +58,28 @@ export const chronik = {
       Hauskennung öffnet das Haus-Popup, ein Klick in die Zeile das Personen-Popup.
     </p>
   </PersonenRecherche>
+
+  <!-- IMPORTANT: global so dynamically injected <a> also match (no Astro scoping) -->
+  <style is:global>
+    /* --- page header --- */
+    .{chronik.title} .head {
+      margin-bottom: 1.6rem; /* Header → Body */
+    }
+
+    .{chronik.title} .head h1 {
+      margin-bottom: 0.25rem; /* Titel → Subtitle */
+    }
+
+    .{chronik.title} .head .subtitle {
+      margin-top: 0;
+      margin-bottom: 0.4rem; /* Subtitle → Meta */
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    .{chronik.title} .head .meta {
+      margin: 0; /* Meta → nichts extra */
+      font-size: 0.85rem;
+      color: rgba(0, 0, 0, 0.45);
+    }
+  </style>
 </BaseLayout>
