@@ -74,6 +74,14 @@ export const chronik = {
       margin: 0 auto 0.9rem auto;
       padding: 0;
       color: rgba(0,0,0,0.81);
+      font-size: 1rem;   /* shared base size for head + lines */
+    }
+
+    /* inherit visual style from personLines */
+    .ged-page .legInline {
+      font-size: 1rem;              /* same size as content below */
+      font-weight: 400;
+      color: rgba(0,0,0,0.81);
     }
 
     .ged-page .personName {
@@ -271,9 +279,11 @@ export const chronik = {
       const href = linkToPerson(pid, sn, az);
       const life = fmtLifeInline(p, { useShortPlace });
 
+      const leg = p?.name?.legitimized ? `<span class="legInline"> (leg.)</span>` : "";
+
       return `
         <a class="plink" href="${href}">
-          <span class="pname">${p.name.display}</span>, ${life}
+          <span class="pname">${p.name.display}</span>${leg}, ${life}
         </a>
       `.trim();
     }
@@ -381,6 +391,14 @@ export const chronik = {
         }
       } else {
         personNameEl.textContent = p.name.display;
+      }
+
+      // NEW: show (leg.) as non-bold suffix via flag (robust)
+      if (p?.name?.legitimized) {
+        const leg = document.createElement("span");
+        leg.className = "legInline";
+        leg.textContent = " (leg.)";
+        personNameEl.appendChild(leg);
       }
 
       const bLine = fmtEvent("*", p.birth, { useShortPlace: false });

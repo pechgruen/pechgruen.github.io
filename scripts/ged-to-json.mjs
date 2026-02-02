@@ -513,7 +513,7 @@ async function main() {
         legNewSurname = (m[2] || "").trim();
         if (legNewSurname) {
           surnameIndex = legNewSurname;
-          displaySurname = `${legNewSurname} (leg.)`;
+          displaySurname = `${legNewSurname}`;
         }
       }
     }
@@ -534,12 +534,15 @@ async function main() {
       if (!familyIds.has(f)) report.warnings.externalRefs += 1;
     }
 
+    const legitimized = Boolean(legBirthSurname && legNewSurname);
+
     peopleOut[id] = {
       id,
       name: {
         given,
         surname: surnameIndex || null,
         display: displayName,
+        legitimized, // NEW: robust flag instead of "(leg.)" inside display
         ...(legBirthSurname ? { legBirthSurname } : {}),
         ...(legNewSurname ? { legNewSurname } : {}),
         ...(surnRaw ? { surnameRaw: surnRaw } : {}),
@@ -551,10 +554,10 @@ async function main() {
       famc: p.famc.filter(Boolean),
       fams: p.fams.filter(Boolean),
 
-      // NEW: export these for the website / GED-browser
       nickname: p.nickname || null,
       houseName: p.houseName || null,
     };
+
   }
 
   // Convert families

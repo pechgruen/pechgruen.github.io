@@ -151,6 +151,10 @@ export const chronik = {
       color: rgba(0, 0, 0, 0.55);
     }
 
+    .ged-liste .sortGroup {
+      white-space: nowrap;
+    }
+
     .hint {
       margin: 0.7rem 0 0 0;
       font-size: 13px;
@@ -249,6 +253,24 @@ export const chronik = {
       return String(a || "").localeCompare(String(b || ""), "de", { sensitivity: "base" });
     }
 
+    // Display name including nickname, like detail page:
+    // Given "Nick" Surname (display already contains given+surname formatting)
+    function displayNameWithNick(p) {
+      const nick = String(p?.nickname || "").trim();
+      if (!nick) return String(p?.name?.display || "").trim();
+
+      const given = String(p?.name?.given || "").trim();
+      const display = String(p?.name?.display || "").trim();
+
+      // If display starts with "<given> ", insert nickname after given
+      if (given && display.startsWith(given + " ")) {
+        return `${given} "${nick}"${display.slice(given.length)}`;
+      }
+
+      // Fallback: append nickname at end
+      return `${display} "${nick}"`.trim();
+    }
+
     function birthSortKey(p) {
       const d = p?.birth?.date;
       if (!d) return 99999999;
@@ -274,8 +296,12 @@ export const chronik = {
     function renderToolbar(sortMode) {
       const bar = $("toolbar");
       bar.innerHTML = `
-        <a href="#" class="sortLink ${sortMode === "az" ? "active" : ""}" data-mode="az">A–Z</a>
-        <a href="#" class="sortLink ${sortMode === "year" ? "active" : ""}" data-mode="year">Geburtsdatum</a>
+        <span class="sortGroup">
+          <span class="sortLabel">Sortierung:</span>
+          <a href="#" class="sortLink ${sortMode === "az" ? "active" : ""}" data-mode="az">A–Z</a>
+          <span class="sep">·</span>
+          <a href="#" class="sortLink ${sortMode === "year" ? "active" : ""}" data-mode="year">Geburtsdatum</a>
+        </span>
       `;
 
       bar.querySelectorAll("a.sortLink").forEach((a) => {
@@ -316,14 +342,17 @@ export const chronik = {
 
       // Sort (do NOT rely on JSON pre-sort)
       persons.sort((pa, pb) => {
+        const da = displayNameWithNick(pa);
+        const db = displayNameWithNick(pb);
+
         if (sortMode === "year") {
           const ka = birthSortKey(pa);
           const kb = birthSortKey(pb);
           if (ka !== kb) return ka - kb;
-          return localeCompareDE(pa?.name?.display || "", pb?.name?.display || "");
+          return localeCompareDE(da, db);
         }
         // default: alphabetical
-        return localeCompareDE(pa?.name?.display || "", pb?.name?.display || "");
+        return localeCompareDE(da, db);
       });
 
       for (const p of persons) {
@@ -337,6 +366,7 @@ export const chronik = {
         const born = showBorn(p);
         const died = showDied(p);
 
+        // Build meta parts (* and optional †) exactly once
         const infoParts = [
           `<span class="metaText"><span class="light">*</span>${born}</span>`,
         ];
@@ -346,10 +376,16 @@ export const chronik = {
           infoParts.push(`<span class="metaText"><span class="light">†</span>${died}</span>`);
         }
 
+        // Name (with nickname) + (leg.) + house name in parentheses before the comma
+        const nameText = displayNameWithNick(p);
+        const legHtml = p?.name?.legitimized ? ` <span class="metaText">(leg.)</span>` : "";
+        const house = String(p?.houseName || "").trim();
+        const houseHtml = house ? ` <span class="metaText">(${house})</span>` : "";
+
         const row = document.createElement("div");
         row.className = "row";
         row.innerHTML = `
-          <a class="nameLink" href="${href}">${p.name.display}</a><span class="sep">, </span>
+          <a class="nameLink" href="${href}">${nameText}</a>${legHtml}${houseHtml}<span class="sep">, </span>
           ${infoParts.join(`<span class="sep">, </span>`)}
         `;
         list.appendChild(row);
