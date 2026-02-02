@@ -216,9 +216,23 @@ export const chronik = {
       return pp ? `${prefix} ${d} in ${pp}` : `${prefix} ${d}`;
     }
 
+    function isDead(p) {
+      return Boolean(
+        p?.death?.known ||
+        p?.death?.date ||
+        p?.death?.place ||
+        p?.death?.year
+      );
+    }
+
     // One-line combined life text for lists: "* ... , † ..."
     function fmtLifeInline(p, { useShortPlace = true } = {}) {
       const b = fmtEvent("*", p?.birth, { useShortPlace });
+
+      if (!isDead(p)) {
+        return b; // lebend -> kein Kreuzzeichen
+      }
+
       const d = fmtEvent("†", p?.death, { useShortPlace });
       return `${b}, ${d}`;
     }
@@ -344,18 +358,32 @@ export const chronik = {
       }
 
       const bLine = fmtEvent("*", p.birth, { useShortPlace: false });
-      const dLine = fmtEvent("†", p.death, { useShortPlace: false });
+
+      let dLine = "";
+      const isDead = Boolean(
+        p.death?.known ||   // NEW: catches "1 DEAT Y"
+        p.death?.date ||
+        p.death?.place ||
+        p.death?.year
+      );
+
+      if (isDead) {
+        // If we only know "DEAT Y" (no date/place), show "† ?"
+        const hasDetails = Boolean(p.death?.date || p.death?.place);
+        dLine = hasDetails ? fmtEvent("†", p.death, { useShortPlace: false }) : "† ?";
+      }
 
       const houseLine = p.houseName ? `Hausname: ${p.houseName}` : "";
       const occLine = p.occupation ? `Beruf: ${p.occupation}` : "";
 
       personLinesEl.innerHTML = `
         <div class="line">${bLine}</div>
-        <div class="line">${dLine}</div>
+        ${dLine ? `<div class="line">${dLine}</div>` : ``}
         ${houseLine ? `<div class="line">${houseLine}</div>` : ``}
         ${occLine ? `<div class="line">${occLine}</div>` : ``}
       `;
 
+      
       // --- UNIONS: build + sort per your priority rules ---
       const rawFams = (p.fams || []).map(fid => families[fid]).filter(Boolean);
 
@@ -392,7 +420,14 @@ export const chronik = {
         const fams = decorated.map(x => x.f);
 
         // --- render (Variant B, no separator line) ---
-        const unionsHtml = fams.map((f, i) => {
+        // count marriages (only those with actual marriage info)
+        const isMarriedUnion = (f) => Boolean(f?.marriage?.date || f?.marriage?.place);
+        const marriedTotal = fams.filter(isMarriedUnion).length;
+
+        // numbering ONLY for real marriages
+        let marriedSeen = 0;
+
+        const unionsHtml = fams.map((f) => {
           const partnerId = (f.husband === id) ? f.wife : f.husband;
 
           const partnerHtml = partnerId
@@ -407,11 +442,20 @@ export const chronik = {
               </ul>`
             : `<div class="muted">keine</div>`;
 
-          const multiple = fams.length > 1;
+          const married = isMarriedUnion(f);
 
-          const heading = multiple
-            ? `${ordinalDE(i + 1)} Ehegatte`
-            : `Ehegatte`;
+          // Heading rules:
+          // - Married unions: "Ehepartner" and ordinal if there are multiple marriages
+          // - Non-married unions: "Partner (nicht verheiratet)" and NO ordinal
+          let heading = "";
+          if (married) {
+            marriedSeen += 1;
+            heading = (marriedTotal > 1)
+              ? `${ordinalDE(marriedSeen)} Ehepartner`
+              : `Ehepartner`;
+          } else {
+            heading = `Partner (nicht verheiratet)`;
+          }
 
           return `
             <h3>${heading}</h3>

@@ -238,13 +238,13 @@ async function main() {
           names: [],
           sex: null,
           birth: { date: null, place: null, year: null },
-          death: { date: null, place: null, year: null },
+          death: { date: null, place: null, year: null, known: false },
           occupation: null,
           famc: [],
           fams: [],
           // NEW:
-          nickname: null,   // from NAME.NICK or NICK tag
-          houseName: null,  // from custom fact/event TYPE Hausname
+          nickname: null, // from NAME.NICK or NICK tag
+          houseName: null, // from custom fact/event TYPE Hausname
         };
       } else if (rec.tag === "FAM" && rec.xref) {
         currentType = "FAM";
@@ -267,9 +267,30 @@ async function main() {
 
     // --- INDI parsing (whitelist) ---
     if (currentType === "INDI") {
+      // IMPORTANT: ignore CHAN completely (last-change metadata)
+      // This prevents CHAN/DATE from being misread as BIRT/DEAT dates when an event is "open".
+      if (rec.level === 1 && rec.tag === "CHAN") {
+        currentEvent = null;
+        currentCustom = null;
+        // Count it as ignored (optional, but useful in the report)
+        ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
+        continue;
+      }
+
       // If we hit any new level-1 tag, a pending custom event should be finalized
-      if (rec.level === 1 && currentCustom && rec.tag !== "TYPE" && rec.tag !== "NOTE" && rec.tag !== "VALUE") {
+      if (
+        rec.level === 1 &&
+        currentCustom &&
+        rec.tag !== "TYPE" &&
+        rec.tag !== "NOTE" &&
+        rec.tag !== "VALUE"
+      ) {
         finalizeCustomForPerson();
+      }
+
+      // Any new level-1 tag that isn't BIRT/DEAT ends an open event context
+      if (rec.level === 1 && currentEvent && rec.tag !== "BIRT" && rec.tag !== "DEAT") {
+        currentEvent = null;
       }
 
       // Begin new NAME at level 1
@@ -375,8 +396,14 @@ async function main() {
       if (rec.level === 1 && (rec.tag === "BIRT" || rec.tag === "DEAT")) {
         currentEvent = rec.tag;
         currentCustom = null;
+
+        // NEW: handle "1 DEAT Y" (death known, but no date/place)
+        if (rec.tag === "DEAT") {
+          currentPerson.death.known = true;
+        }
         continue;
       }
+
       if (rec.level === 2 && currentEvent) {
         if (rec.tag === "DATE") {
           if (currentEvent === "BIRT") {
@@ -401,6 +428,19 @@ async function main() {
 
     // --- FAM parsing (whitelist) ---
     if (currentType === "FAM") {
+      // IMPORTANT: ignore CHAN completely (last-change metadata)
+      // This prevents CHAN/DATE from being misread as MARR/DATE when a MARR block has no DATE.
+      if (rec.level === 1 && rec.tag === "CHAN") {
+        currentEvent = null;
+        ignoredTags.set(rec.tag, (ignoredTags.get(rec.tag) || 0) + 1);
+        continue;
+      }
+
+      // Any new level-1 tag that isn't MARR ends an open marriage context
+      if (rec.level === 1 && currentEvent === "MARR" && rec.tag !== "MARR") {
+        currentEvent = null;
+      }
+
       if (rec.level === 1 && rec.tag === "HUSB") {
         currentFamily.husband = stripXref(rec.value);
         currentEvent = null;
