@@ -197,6 +197,9 @@ export const chronik = {
     const DATA_BASE = "/data/ged";
     const $ = (id) => document.getElementById(id);
 
+    // NEW: binary rule extension — consider dead if birth is > 100 years ago
+    const AUTO_DEAD_AGE = 100;
+
     function qsGet(key) { return new URL(location.href).searchParams.get(key); }
 
     function shortPlace(place) {
@@ -216,16 +219,33 @@ export const chronik = {
       return pp ? `${prefix} ${d} in ${pp}` : `${prefix} ${d}`;
     }
 
+    // NEW: helper to get birth year for the 100-year rule
+    function birthYear(p) {
+      const s = p?.birth?.date || "";
+      const m = String(s).match(/\b(\d{4})\b/);
+      return m ? parseInt(m[1], 10) : null;
+    }
+
+    // UPDATED: dead if death-event exists OR birth is more than 100 years ago
     function isDead(p) {
-      return Boolean(
+      const deadByData = Boolean(
         p?.death?.known ||
         p?.death?.date ||
         p?.death?.place ||
         p?.death?.year
       );
+
+      if (deadByData) return true;
+
+      const by = birthYear(p);
+      if (by == null) return false;
+
+      const age = new Date().getFullYear() - by;
+      return age > AUTO_DEAD_AGE;
     }
 
     // One-line combined life text for lists: "* ... , † ..."
+    // UPDATED: if dead but no death details (DEAT Y or age-rule), show "† ?"
     function fmtLifeInline(p, { useShortPlace = true } = {}) {
       const b = fmtEvent("*", p?.birth, { useShortPlace });
 
@@ -233,7 +253,8 @@ export const chronik = {
         return b; // lebend -> kein Kreuzzeichen
       }
 
-      const d = fmtEvent("†", p?.death, { useShortPlace });
+      const hasDetails = Boolean(p?.death?.date || p?.death?.place);
+      const d = hasDetails ? fmtEvent("†", p?.death, { useShortPlace }) : "† ?";
       return `${b}, ${d}`;
     }
 
@@ -337,8 +358,6 @@ export const chronik = {
         return;
       }
 
-      // Person head (all undereinander)
-
       // Person head (Nickname wie MyHeritage in "...")
       const nick = (p.nickname || "").trim();
 
@@ -360,15 +379,8 @@ export const chronik = {
       const bLine = fmtEvent("*", p.birth, { useShortPlace: false });
 
       let dLine = "";
-      const isDead = Boolean(
-        p.death?.known ||   // NEW: catches "1 DEAT Y"
-        p.death?.date ||
-        p.death?.place ||
-        p.death?.year
-      );
-
-      if (isDead) {
-        // If we only know "DEAT Y" (no date/place), show "† ?"
+      if (isDead(p)) {
+        // If we only know "DEAT Y" OR age-rule (no date/place), show "† ?"
         const hasDetails = Boolean(p.death?.date || p.death?.place);
         dLine = hasDetails ? fmtEvent("†", p.death, { useShortPlace: false }) : "† ?";
       }
@@ -383,7 +395,6 @@ export const chronik = {
         ${occLine ? `<div class="line">${occLine}</div>` : ``}
       `;
 
-      
       // --- UNIONS: build + sort per your priority rules ---
       const rawFams = (p.fams || []).map(fid => families[fid]).filter(Boolean);
 
@@ -516,8 +527,6 @@ export const chronik = {
         <h3>Geschwister</h3>
         ${sibHtml}
       `;
-
-      
     }
 
     load().catch(err => {

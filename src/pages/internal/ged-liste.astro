@@ -174,6 +174,10 @@ export const chronik = {
     const DATA_BASE = "/data/ged";
     const $ = (id) => document.getElementById(id);
 
+    // --- SAME binary rule as ged-person:
+    // dead if (death event exists incl. DEAT Y) OR (birth is > 100 years ago)
+    const AUTO_DEAD_AGE = 100;
+
     function qsGet(key) {
       return new URL(location.href).searchParams.get(key);
     }
@@ -195,16 +199,50 @@ export const chronik = {
         .join(", ");
     }
 
+    // Extract year from "26.12.1925", "12.1925", "1925", "ca. 1925", "vor 1925"
+    function extractYear(dateStr) {
+      if (!dateStr) return null;
+      const s = String(dateStr).trim().replace(/^ca\.\s+|^vor\s+/i, "");
+      const m = s.match(/\b(\d{4})\b/);
+      return m ? parseInt(m[1], 10) : null;
+    }
+
+    function isDead(p) {
+      const deadByData = Boolean(
+        p?.death?.known ||     // DEAT Y
+        p?.death?.date ||
+        p?.death?.place ||
+        p?.death?.year
+      );
+      if (deadByData) return true;
+
+      const by = extractYear(p?.birth?.date);
+      if (by == null) return false;
+
+      const age = new Date().getFullYear() - by;
+      return age > AUTO_DEAD_AGE;
+    }
+
     function showBorn(p) {
       const d = p?.birth?.date || "?";
       const pl = shortPlace(p?.birth?.place || "") || "";
-      return `${d}${pl ? " " + pl : ""}`;
+      // leading space: "* 12.03.1890 ..."
+      return ` ${d}${pl ? " " + pl : ""}`;
     }
 
+    // Returns:
+    // - "" if person is considered alive
+    // - " ?" if dead but no death details (DEAT Y or age rule)
+    // - " <date> [place]" if details exist
     function showDied(p) {
+      if (!isDead(p)) return "";
+
+      const hasDetails = Boolean(p?.death?.date || p?.death?.place);
+      if (!hasDetails) return " ?";
+
       const d = p?.death?.date || "?";
       const pl = shortPlace(p?.death?.place || "") || "";
-      return `${d}${pl ? " " + pl : ""}`;
+      return ` ${d}${pl ? " " + pl : ""}`;
     }
 
     function localeCompareDE(a, b) {
@@ -301,8 +339,12 @@ export const chronik = {
 
         const infoParts = [
           `<span class="metaText"><span class="light">*</span>${born}</span>`,
-          `<span class="metaText"><span class="light">†</span>${died}</span>`,
         ];
+
+        // Only show † part if person is considered dead (same rule as detail page)
+        if (died) {
+          infoParts.push(`<span class="metaText"><span class="light">†</span>${died}</span>`);
+        }
 
         const row = document.createElement("div");
         row.className = "row";
