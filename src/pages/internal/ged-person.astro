@@ -264,9 +264,9 @@ export const chronik = {
 
     // Person line: "Name, * ... , † ..."
     function personLinkHtml(people, pid, sn, az, { useShortPlace = true } = {}) {
-      if (!pid) return `<span class="muted">unknown</span>`;
+      if (!pid) return `<span class="muted">unbekannt</span>`;
       const p = people[pid];
-      if (!p) return `<span class="muted">${pid} (outside subset)</span>`;
+      if (!p) return `<span class="muted">${pid} (außerhalb des Subsets)</span>`;
 
       const href = linkToPerson(pid, sn, az);
       const life = fmtLifeInline(p, { useShortPlace });
@@ -279,9 +279,16 @@ export const chronik = {
     }
 
     function marriageLineHtml(f, { useShortPlace = false } = {}) {
-      if (!(f?.marriage?.date || f?.marriage?.place)) return "";
-      const d = f.marriage?.date || "?";
-      const p = f.marriage?.place || "";
+      // Show line if marriage is present OR if there are details
+      const present = Boolean(
+        f?.marriage?.present === true ||
+        f?.marriage?.date ||
+        f?.marriage?.place
+      );
+      if (!present) return "";
+
+      const d = f?.marriage?.date || "?";
+      const p = f?.marriage?.place || "";
       const pp = useShortPlace ? shortPlace(p) : p;
       const tail = pp ? `${d} in ${pp}` : `${d}`;
       return `<div class="kv"><span class="k">Heirat:</span> ${tail}</div>`;
@@ -432,7 +439,13 @@ export const chronik = {
 
         // --- render (Variant B, no separator line) ---
         // count marriages (only those with actual marriage info)
-        const isMarriedUnion = (f) => Boolean(f?.marriage?.date || f?.marriage?.place);
+        // married if MARR is present (even without DATE/PLAC); fallback to date/place for legacy data
+        const isMarriedUnion = (f) =>
+          Boolean(
+            f?.marriage?.present === true ||
+            f?.marriage?.date ||
+            f?.marriage?.place
+          );
         const marriedTotal = fams.filter(isMarriedUnion).length;
 
         // numbering ONLY for real marriages
@@ -440,10 +453,11 @@ export const chronik = {
 
         const unionsHtml = fams.map((f) => {
           const partnerId = (f.husband === id) ? f.wife : f.husband;
+          const hasKnownPartner = Boolean(partnerId);
 
-          const partnerHtml = partnerId
+          const partnerHtml = hasKnownPartner
             ? personLinkHtml(people, partnerId, sn, az, { useShortPlace: true })
-            : `<span class="muted">unknown</span>`;
+            : ``; // bei unbekannt: keine extra Zeile anzeigen
 
           const kids = (f.children || []).filter(Boolean);
 
@@ -455,9 +469,6 @@ export const chronik = {
 
           const married = isMarriedUnion(f);
 
-          // Heading rules:
-          // - Married unions: "Ehepartner" and ordinal if there are multiple marriages
-          // - Non-married unions: "Partner (nicht verheiratet)" and NO ordinal
           let heading = "";
           if (married) {
             marriedSeen += 1;
@@ -465,12 +476,12 @@ export const chronik = {
               ? `${ordinalDE(marriedSeen)} Ehepartner`
               : `Ehepartner`;
           } else {
-            heading = `Partner (nicht verheiratet)`;
+            heading = hasKnownPartner ? `Partner (nicht verheiratet)` : `Partner unbekannt`;
           }
 
           return `
             <h3>${heading}</h3>
-            <div class="kv">${partnerHtml}</div>
+            ${hasKnownPartner ? `<div class="kv">${partnerHtml}</div>` : ``}
             ${marriageLineHtml(f, { useShortPlace: false })}
             <h3>Kinder</h3>
             ${kidsHtml}

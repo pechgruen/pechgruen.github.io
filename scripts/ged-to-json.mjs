@@ -254,7 +254,7 @@ async function main() {
           husband: null,
           wife: null,
           children: [],
-          marriage: { date: null, place: null, year: null },
+          marriage: { present: false, date: null, place: null, year: null },
         };
       } else {
         currentType = null;
@@ -458,6 +458,8 @@ async function main() {
       }
       if (rec.level === 1 && rec.tag === "MARR") {
         currentEvent = "MARR";
+        // Treat "MARR Y" (or any MARR tag) as "marriage present", even without DATE/PLAC
+        if (currentFamily?.marriage) currentFamily.marriage.present = true;
         continue;
       }
       if (rec.level === 2 && currentEvent === "MARR") {
