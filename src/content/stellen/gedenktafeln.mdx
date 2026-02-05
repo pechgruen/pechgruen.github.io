@@ -1,0 +1,267 @@
+---
+title: "Gedenktafeln"
+subtitle: "Erinnerungsbilder aus Pechgrün – als Tafeln von Claus und Udo aufgestellt"
+date: 2026-02-05
+order: 10
+
+label: "GT"
+x: 3771
+y: 7094
+---
+
+<style>{`
+  .tafel-overview {
+    margin: 1.2rem 0 1.6rem;
+    max-width: 980px;
+  }
+
+  .tafel-overview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    background: #fff;
+  }
+
+  /* Overlay / Lightbox */
+  .tafel-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(0,0,0,0.72);
+  }
+  .tafel-lightbox.is-open { display: flex; }
+
+  .tafel-lightbox-inner {
+    max-width: min(1100px, 96vw);
+    max-height: 92vh;
+    background: transparent;
+  }
+
+  .tafel-lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    background: #fff;
+  }
+
+  .tafel-lightbox-close {
+    position: fixed;
+    top: 14px;
+    right: 16px;
+    z-index: 10000;
+    border: 0;
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    padding: 10px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tafel-lightbox-close:hover {
+    background: rgba(0,0,0,0.5);
+  }
+
+  .tafel-hint {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: #777;
+    text-align: center;
+  }
+
+`}</style>
+
+<div className="tafel-overview">
+  <img
+    id="tafel-alle"
+    src="/images/tafel-alle.jpg"
+    alt="Gedenktafeln – Übersicht auf dem Sofa"
+    useMap="#tafeln"
+    data-w="1200"
+    data-h="878"
+  />
+  <p class="tafel-hint">
+    Ein Klick auf die einzelnen Bilder öffnet die jeweilige Gedenktafel.
+  </p>
+</div>
+
+<map name="tafeln" id="tafeln">
+  {/* Reihenfolge hier ist maßgebend (und entscheidet bei Überlappungen). */}
+
+  {/* 1 Kapelle */}
+  <area
+    shape="poly"
+    data-coords="346,171,550,121,630,338,391,400"
+    href="/images/tafel-kapelle.jpg"
+    data-full="/images/tafel-kapelle.jpg"
+    alt="Gedenktafel Pechgrüner Kapelle"
+  />
+
+  {/* 2 Wehrmühle */}
+  <area
+    shape="poly"
+    data-coords="53,315,347,217,388,388,66,502"
+    href="/images/tafel-muehle.jpg"
+    data-full="/images/tafel-muehle.jpg"
+    alt="Gedenktafel Wehrmühle"
+  />
+
+  {/* 3 Haus 56 */}
+  <area
+    shape="poly"
+    data-coords="78,828,38,571,377,420,468,638"
+    href="/images/tafel-56.jpg"
+    data-full="/images/tafel-56.jpg"
+    alt="Gedenktafel Haus Nr. 56"
+  />
+
+  {/* 4 Haus 24 */}
+  <area
+    shape="poly"
+    data-coords="746,330,887,198,1170,359,1040,527"
+    href="/images/tafel-24.jpg"
+    data-full="/images/tafel-24.jpg"
+    alt="Gedenktafel Haus Nr. 24"
+  />
+
+  {/* 5 Affenfelsen */}
+  <area
+    shape="poly"
+    data-coords="564,593,684,382,1022,510,943,768"
+    href="/images/tafel-affen.jpg"
+    data-full="/images/tafel-affen.jpg"
+    alt="Gedenktafel Affenfelsen"
+  />
+
+  {/* 6 Haus 62 */}
+  <area
+    shape="poly"
+    data-coords="642,188,942,209,942,388,614,368"
+    href="/images/tafel-62.jpg"
+    data-full="/images/tafel-62.jpg"
+    alt="Gedenktafel Haus Nr. 62"
+  />
+</map>
+
+{/* Lightbox DOM */}
+<div id="tafel-lightbox" className="tafel-lightbox" aria-hidden="true">
+  <button id="tafel-lightbox-close" className="tafel-lightbox-close" type="button" aria-label="Close (Esc)">×</button>
+  <div className="tafel-lightbox-inner">
+    <img id="tafel-lightbox-img" src="" alt="" />
+  </div>
+</div>
+
+<script>{`
+  (function () {
+    const img = document.getElementById('tafel-alle');
+    const map = document.getElementById('tafeln');
+    if (!img || !map) return;
+
+    // --- responsive coords ---
+    const origW = parseFloat(img.dataset.w || '0');
+    const origH = parseFloat(img.dataset.h || '0');
+    const areas = Array.from(map.querySelectorAll('area[data-coords]'));
+
+    function rescale() {
+      const rect = img.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const scaleX = rect.width / origW;
+      const scaleY = rect.height / origH;
+
+      areas.forEach(area => {
+        const raw = (area.dataset.coords || '')
+          .split(',')
+          .map(s => parseFloat(s.trim()))
+          .filter(n => Number.isFinite(n));
+        if (raw.length < 6) return;
+
+        const scaled = raw.map((v, i) => {
+          const s = (i % 2 === 0) ? scaleX : scaleY;
+          return Math.round(v * s);
+        });
+        area.coords = scaled.join(',');
+      });
+    }
+
+    if (img.complete) rescale();
+    img.addEventListener('load', rescale);
+    window.addEventListener('resize', rescale, { passive: true });
+    setTimeout(rescale, 50);
+    setTimeout(rescale, 250);
+
+    // --- lightbox ---
+    const lb = document.getElementById('tafel-lightbox');
+    const lbImg = document.getElementById('tafel-lightbox-img');
+    const lbClose = document.getElementById('tafel-lightbox-close');
+
+    let lastFocus = null;
+
+    function openLightbox(src, alt) {
+      if (!lb || !lbImg) return;
+      lastFocus = document.activeElement;
+
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Fokus auf Close-Button (besser für Keyboard)
+      if (lbClose) lbClose.focus();
+    }
+
+    function closeLightbox() {
+      if (!lb) return;
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      // Bild leeren (optional)
+      if (lbImg) {
+        lbImg.src = '';
+        lbImg.alt = '';
+      }
+
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    // Klick auf Hotspot -> Overlay statt Navigation
+    map.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!t || t.tagName !== 'AREA') return;
+
+      const src = t.getAttribute('data-full') || t.getAttribute('href');
+      const alt = t.getAttribute('alt') || '';
+
+      if (src) {
+        e.preventDefault();
+        openLightbox(src, alt);
+      }
+    });
+
+    // Klick auf Hintergrund schließt
+    lb?.addEventListener('click', (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+
+    lbClose?.addEventListener('click', closeLightbox);
+
+    // ESC schließt
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb?.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  })();
+`}</script>
