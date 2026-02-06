@@ -38,14 +38,14 @@ export const chronik = {
       <!-- UNIONS + CHILDREN -->
       <section class="block" id="blockUnions">
         <div class="blockBody" id="unionsBody">
-          <div class="muted">Lade Daten …</div>
+          <div class="placeholder">Lade Daten …</div>
         </div>
       </section>
 
       <!-- PARENTS + SIBLINGS -->
       <section class="block" id="blockParents" style="margin-top: 14px;">
         <div class="blockBody" id="parentsBody">
-          <div class="muted">Lade Daten …</div>
+          <div class="placeholder">Lade Daten …</div>
         </div>
       </section>
 
@@ -53,7 +53,7 @@ export const chronik = {
       <hr id="gedEndSep" class="sep section-sep" />
     </div>
 
-    <!-- SCOPE HINT (shown only if something “fell away”) -->
+    <!-- SCOPE HINT (universal, same text; triggered only for potential “why?” moments) -->
     <div
       id="scopeHint"
       class="navhint muted"
@@ -61,11 +61,11 @@ export const chronik = {
     >
       <div>Hinweis:</div>
       <div>
-        In diesem Stammbaum sind Personen enthalten, die in Pechgrün oder
-        Neuhäuser geboren wurden oder dort gestorben sind. Hinzu kommen deren
-        Eltern, Geschwister, Ehepartner und Kinder (falls vorhanden), auch wenn
-        sie keinen direkten Bezug zu den beiden Orten haben. Weitergehende
-        Verwandtschaft wird nicht angezeigt.
+        Diese Darstellung zeigt familiäre Beziehungen im Ortskontext von
+        Pechgrün und Neuhäusern. Personen ohne direkten Ortsbezug können
+        enthalten sein, wenn sie in enger familiärer Beziehung stehen.
+        Weitergehende Verwandtschaft sowie einzelne familiäre Angaben werden
+        hier bewusst nicht dargestellt oder sind historisch nicht überliefert.
       </div>
     </div>
   </article>
@@ -259,6 +259,24 @@ export const chronik = {
       margin-bottom: 0;
     }
 
+    /* Normaler Inhaltstext für Platzhalter (kein Tooltip-Stil!) */
+    .ged-page .placeholder {
+      color: rgba(0, 0, 0, 0.81);
+      font-size: 1rem;
+      line-height: 1.22;
+      margin: 0.06rem 0;
+    }
+
+    /* Optische Luft vor der Linie: erzeugt Abstand nach oben, ohne Content-Margins anzufassen */
+    .ged-page hr.section-sep {
+      display: block;
+      padding-top: 0.25rem;   /* mehr Luft oberhalb */
+      margin-top: 1.3rem;    /* bleibt wie bisher */
+      margin-bottom: 0.50rem; /* bleibt wie bisher */
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.18);
+    }
+
     @media (max-width: 900px) {
       .ged-page ul.bullets li {
         white-space: normal;
@@ -273,12 +291,16 @@ export const chronik = {
     const $ = (id) => document.getElementById(id);
 
     const AUTO_DEAD_AGE = 100;
-    let missingDetected = false;
+
+    // For scope-hint trigger A (no visible place reference)
+    const SCOPE_PLACES = ["Pechgrün", "Neuhäuser"].map((s) => s.toLowerCase());
+
+    let showScopeHint = false;
 
     function renderScopeHint() {
       const el = $("scopeHint");
       if (!el) return;
-      el.style.display = missingDetected ? "block" : "none";
+      el.style.display = showScopeHint ? "block" : "none";
     }
 
     function qsGet(key) {
@@ -409,10 +431,20 @@ export const chronik = {
       return map[n] || `${n}.`;
     }
 
+    function unionsPlaceholderHtml() {
+      return `
+        <h3>Partner</h3>
+        <div class="placeholder">Keine Angaben zu Partnern oder Kindern vorhanden.</div>
+        <hr class="sep section-sep union-sep" />
+      `.trim();
+    }
+
     async function load() {
       const id = qsGet("id");
       const sn = qsGet("sn");
       const az = qsGet("az");
+
+      let noUnionsShown = false;
 
       try {
         const personNameEl = $("personName");
@@ -423,6 +455,7 @@ export const chronik = {
           personLinesEl.innerHTML = "";
           $("unionsBody").innerHTML = ``;
           $("parentsBody").innerHTML = ``;
+          showScopeHint = false;
           return;
         }
 
@@ -437,6 +470,8 @@ export const chronik = {
           personLinesEl.innerHTML = `<div class="muted">Diese Person ist im aktuellen Datenbestand nicht enthalten.</div>`;
           $("unionsBody").innerHTML = ``;
           $("parentsBody").innerHTML = ``;
+          // If person is outside the subset, show a scope hint (A is effectively true here)
+          showScopeHint = true;
           return;
         }
 
@@ -491,7 +526,8 @@ export const chronik = {
           .filter(Boolean);
 
         if (!rawFams.length) {
-          $("unionsBody").innerHTML = ``;
+          $("unionsBody").innerHTML = unionsPlaceholderHtml();
+          noUnionsShown = true;
         } else {
           const decorated = rawFams.map((f, idx) => {
             const marriageY = parseYear(f?.marriage?.date);
@@ -537,14 +573,13 @@ export const chronik = {
               const partnerId = f.husband === id ? f.wife : f.husband;
               const partnerInSet = Boolean(partnerId && people[partnerId]);
 
-              const kids = (f.children || []).filter(
+              const kidsInSet = (f.children || []).filter(
                 (cid) => cid && people[cid]
               );
 
-              if (kids.length === 0) missingDetected = true;
-
-              if (!partnerInSet && kids.length === 0) {
-                missingDetected = true;
+              // If partner is outside subset AND no kids in subset, this union adds nothing.
+              // We skip it to avoid noise; if all unions are skipped, we show a placeholder.
+              if (!partnerInSet && kidsInSet.length === 0) {
                 return ``;
               }
 
@@ -575,37 +610,42 @@ export const chronik = {
               });
 
               let kidsBlock = ``;
-              if (kids.length > 0) {
+              if (kidsInSet.length > 0) {
                 kidsBlock = `
-                <h3>Kinder</h3>
-                <ul class="bullets">
-                  ${kids
-                    .map(
-                      (cid) =>
-                        `<li>${personLinkHtml(people, cid, sn, az, { useShortPlace: true })}</li>`
-                    )
-                    .join("")}
-                </ul>
-              `;
+                  <h3>Kinder</h3>
+                  <ul class="bullets">
+                    ${kidsInSet
+                      .map(
+                        (cid) =>
+                          `<li>${personLinkHtml(people, cid, sn, az, { useShortPlace: true })}</li>`
+                      )
+                      .join("")}
+                  </ul>
+                `;
+              } else {
+                kidsBlock = `
+                  <h3>Kinder</h3>
+                  <div class="placeholder">Keine Angaben zu Kindern vorhanden.</div>
+                `;
               }
 
               return `
-              <div class="unionBlock">
-                <div class="unionContent">
-                  <h3>${heading}</h3>
-                  ${partnerLine}
-                  ${marriageLine}
-                  ${kidsBlock}
+                <div class="unionBlock">
+                  <div class="unionContent">
+                    <h3>${heading}</h3>
+                    ${partnerLine}
+                    ${marriageLine}
+                    ${kidsBlock}
+                  </div>
+                  <hr class="sep section-sep union-sep" />
                 </div>
-                <hr class="sep section-sep union-sep" />
-              </div>
-            `;
+              `;
             })
             .join("");
 
           if (!anyUnionRendered) {
-            document.getElementById("blockUnions")?.remove();
-            missingDetected = true;
+            $("unionsBody").innerHTML = unionsPlaceholderHtml();
+            noUnionsShown = true;
           } else {
             $("unionsBody").innerHTML = unionsHtml.trim();
           }
@@ -622,19 +662,8 @@ export const chronik = {
           (cid) => cid && cid !== id
         );
 
-        const fatherInSet = fatherId && people[fatherId];
-        const motherInSet = motherId && people[motherId];
-
-        if (!fatherInSet && !motherInSet) {
-          $("parentsBody").innerHTML = ``;
-          document.getElementById("blockParents")?.remove();
-
-          // FIX: if parents block is gone, remove the global bottom separator to avoid double HR
-          document.getElementById("gedEndSep")?.remove();
-
-          missingDetected = true;
-          return;
-        }
+        const fatherInSet = Boolean(fatherId && people[fatherId]);
+        const motherInSet = Boolean(motherId && people[motherId]);
 
         const fatherHtml = fatherInSet
           ? personLinkHtml(people, fatherId, sn, az, { useShortPlace: true })
@@ -644,14 +673,16 @@ export const chronik = {
           ? personLinkHtml(people, motherId, sn, az, { useShortPlace: true })
           : `<span class="muted">—</span>`;
 
-        const parentsMarriageHtml = pf
-          ? marriageLineHtml(pf, { useShortPlace: false })
-          : "";
+        // Show parents' marriage ONLY if at least one parent is actually visible in the subset.
+        // Otherwise we would get: Vater: — / Mutter: — / Heirat: ...  (confusing / misleading)
+        const parentsMarriageHtml =
+          pf && (fatherInSet || motherInSet)
+            ? marriageLineHtml(pf, { useShortPlace: false })
+            : "";
 
-        const sibInSet = siblingIds.filter((sid) => sid && people[sid]);
+        const sibInSet = (siblingIds || []).filter((sid) => sid && people[sid]);
 
         let siblingsSection = ``;
-
         if (sibInSet.length > 0) {
           const sibHtml = `
             <ul class="bullets">
@@ -665,17 +696,38 @@ export const chronik = {
           `;
           siblingsSection = `<h3>Geschwister</h3>${sibHtml}`;
         } else {
-          missingDetected = true;
-          siblingsSection = ``;
+          siblingsSection = `
+            <h3>Geschwister</h3>
+            <div class="placeholder">Keine Angaben zu Geschwistern vorhanden.</div>
+          `;
         }
 
-        $("parentsBody").innerHTML = `
-          <h3>Eltern</h3>
-          <div class="kv">Vater: ${fatherHtml}</div>
-          <div class="kv">Mutter: ${motherHtml}</div>
-          ${parentsMarriageHtml}
-          ${siblingsSection}
-        `;
+        if (!fatherInSet && !motherInSet) {
+          $("parentsBody").innerHTML = `
+            <h3>Eltern</h3>
+            <div class="placeholder">
+              Keine Angaben zu Eltern und Geschwistern vorhanden.
+            </div>
+          `;
+        } else {
+          $("parentsBody").innerHTML = `
+            <h3>Eltern</h3>
+            <div class="kv">Vater: ${fatherHtml}</div>
+            <div class="kv">Mutter: ${motherHtml}</div>
+            ${parentsMarriageHtml}
+            ${siblingsSection}
+          `;
+        }
+
+        /* ---------------- SCOPE HINT TRIGGER (universal text) ---------------- */
+
+        const noParentsShown = !fatherInSet && !motherInSet;
+
+        // Hinweis nur noch in diesen Fällen:
+        // - keine Eltern (im Subset sichtbar)
+        // - oder Partnerblock ist komplett leer (Placeholder-Fall)
+        showScopeHint = noParentsShown || noUnionsShown;
+
       } finally {
         renderScopeHint();
       }
@@ -689,8 +741,10 @@ export const chronik = {
       if (personLinesEl) personLinesEl.textContent = String(err);
       const u = document.getElementById("unionsBody");
       const p = document.getElementById("parentsBody");
-      if (u) u.innerHTML = `<div class="muted">Fehler</div>`;
-      if (p) p.innerHTML = `<div class="muted">Fehler</div>`;
+      if (u) u.innerHTML = `<div class="placeholder">Fehler</div>`;
+      if (p) p.innerHTML = `<div class="placeholder">Fehler</div>`;
+      showScopeHint = true;
+      renderScopeHint();
     });
   </script>
 </BaseLayout>

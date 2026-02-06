@@ -150,6 +150,11 @@ async function main() {
         "External refs are expected in a Pechgrün subset; broken refs indicate malformed GED or parsing issues.",
     },
     parseErrors: 0,
+
+    // NEW: collect a few examples for debugging
+    parseErrorSampleLimit: 20,
+    parseErrorSamples: [],
+
     examples: {
       brokenRefSamples: [],
     },
@@ -213,10 +218,22 @@ async function main() {
     crlfDelay: Infinity,
   });
 
+  let lineNo = 0; // NEW
+
   for await (const line of rl) {
+    lineNo++; // NEW
+
     const rec = parseLine(line);
     if (!rec) {
       report.parseErrors += 1;
+
+      // NEW: store up to N samples
+      if (report.parseErrorSamples.length < report.parseErrorSampleLimit) {
+        report.parseErrorSamples.push({
+          line: lineNo,
+          content: line,
+        });
+      }
       continue;
     }
 

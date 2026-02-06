@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# INPUT: always in Downloads (not in project)
+GED_IN="${HOME}/Downloads/MyHeritage.ged"
+
+# resolve project root (directory above scripts/)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# OUTPUT: your existing location for the GED browser JSON
+OUT_DIR="${ROOT_DIR}/public/data/ged"
+
+# TEMP filtered GED (deleted after)
+TMP_GED="/tmp/pechgruen-subset.ged"
+
+if [[ ! -f "$GED_IN" ]]; then
+  echo "❌ Input GEDCOM not found:"
+  echo "   $GED_IN"
+  echo ""
+  echo "Rename/copy your latest MyHeritage export to:"
+  echo "   ~/Downloads/MyHeritage.ged"
+  exit 1
+fi
+
+echo "▶ Filtering subset GEDCOM from:"
+echo "  $GED_IN"
+python3 "${SCRIPT_DIR}/mh-filter-subset.py" "$GED_IN" "$TMP_GED"
+
+echo "▶ Converting subset GEDCOM to JSON:"
+echo "  $OUT_DIR"
+node "${SCRIPT_DIR}/ged-to-json.mjs" "$TMP_GED" "$OUT_DIR"
+
+echo "▶ Removing temp subset:"
+rm -f "$TMP_GED"
+
+echo "✅ Done."
+echo "   Output: $OUT_DIR"
