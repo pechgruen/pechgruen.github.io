@@ -4595,8 +4595,8 @@
     "husband": "I501679",
     "wife": "I501680",
     "children": [
-      "I503524",
-      "I501678"
+      "I501678",
+      "I503524"
     ],
     "marriage": {
       "present": true,
@@ -4895,7 +4895,7 @@
     ],
     "marriage": {
       "present": true,
-      "date": "June 4 1938",
+      "date": "04.06.1938",
       "place": "Chodau (Chodov, CZ)",
       "year": 1938
     }
@@ -7267,13 +7267,13 @@
   },
   "F501099": {
     "id": "F501099",
-    "husband": null,
+    "husband": "I579333",
     "wife": "I501657",
     "children": [
       "I503148"
     ],
     "marriage": {
-      "present": false,
+      "present": true,
       "date": null,
       "place": null,
       "year": null
@@ -7497,6 +7497,7 @@
     "husband": "I503191",
     "wife": "I503263",
     "children": [
+      "I504907",
       "I503187",
       "I503193",
       "I577906",
@@ -8114,7 +8115,9 @@
     "wife": "I503312",
     "children": [
       "I503310",
-      "I503321"
+      "I579295",
+      "I503321",
+      "I579296"
     ],
     "marriage": {
       "present": true,
@@ -8217,7 +8220,10 @@
       "I503340",
       "I503341",
       "I503342",
-      "I503343"
+      "I579292",
+      "I503343",
+      "I579293",
+      "I579294"
     ],
     "marriage": {
       "present": true,
@@ -8384,6 +8390,7 @@
       "I503378",
       "I503380",
       "I503382",
+      "I579273",
       "I503381",
       "I503385"
     ],
@@ -9851,9 +9858,9 @@
     "children": [],
     "marriage": {
       "present": true,
-      "date": null,
-      "place": null,
-      "year": null
+      "date": "06.02.1906",
+      "place": "Pechgrün #30 (Smolnice, CZ)",
+      "year": 1906
     }
   },
   "F501306": {
@@ -11508,7 +11515,16 @@
     "husband": "I504074",
     "wife": "I504075",
     "children": [
-      "I504071"
+      "I579317",
+      "I579318",
+      "I579319",
+      "I579320",
+      "I579321",
+      "I579322",
+      "I504071",
+      "I579323",
+      "I579324",
+      "I579325"
     ],
     "marriage": {
       "present": false,
@@ -11907,7 +11923,7 @@
     ],
     "marriage": {
       "present": true,
-      "date": "18. Říjen 1909",
+      "date": "18.10.1909",
       "place": "Kofel (Kobelec, CZ)",
       "year": 1909
     }
@@ -12023,6 +12039,7 @@
     "husband": "I503571",
     "wife": "I503575",
     "children": [
+      "I579277",
       "I504185",
       "I504186",
       "I504187",
@@ -12436,13 +12453,13 @@
   },
   "F501509": {
     "id": "F501509",
-    "husband": null,
+    "husband": "I579301",
     "wife": "I504280",
     "children": [
       "I504289"
     ],
     "marriage": {
-      "present": false,
+      "present": true,
       "date": null,
       "place": null,
       "year": null
@@ -12711,7 +12728,9 @@
     "id": "F501527",
     "husband": "I501654",
     "wife": "I504337",
-    "children": [],
+    "children": [
+      "I579335"
+    ],
     "marriage": {
       "present": true,
       "date": null,
@@ -12726,9 +12745,9 @@
     "children": [],
     "marriage": {
       "present": true,
-      "date": null,
-      "place": null,
-      "year": null
+      "date": "24.10.1871",
+      "place": "Pechgrün #7 (Smolnice, CZ)",
+      "year": 1871
     }
   },
   "F501534": {
@@ -12742,9 +12761,9 @@
     ],
     "marriage": {
       "present": true,
-      "date": null,
+      "date": "13.06.1910",
       "place": "Pechgrün #25 (Smolnice, CZ)",
-      "year": null
+      "year": 1910
     }
   },
   "F501535": {
@@ -12795,7 +12814,9 @@
     "id": "F501539",
     "husband": "I504361",
     "wife": "I504362",
-    "children": [],
+    "children": [
+      "I579261"
+    ],
     "marriage": {
       "present": true,
       "date": "25.10.1919",
@@ -14740,6 +14761,20 @@
       "year": null
     }
   },
+  "F501710": {
+    "id": "F501710",
+    "husband": "I504799",
+    "wife": "I504798",
+    "children": [
+      "I504802"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "14.04.1856",
+      "place": "Kösteldorf (Rájec, CZ)",
+      "year": 1856
+    }
+  },
   "F501713": {
     "id": "F501713",
     "husband": "I504804",
@@ -14782,6 +14817,20 @@
       "date": "28.10.1912",
       "place": "Pechgrün #70 (Smolnice, CZ)",
       "year": 1912
+    }
+  },
+  "F501716": {
+    "id": "F501716",
+    "husband": "I504808",
+    "wife": "I504809",
+    "children": [
+      "I504807"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
     }
   },
   "F501717": {
@@ -15246,6 +15295,36 @@
       "date": "17.09.1897",
       "place": null,
       "year": 1897
+    }
+  },
+  "F501752": {
+    "id": "F501752",
+    "husband": "I504901",
+    "wife": "I504902",
+    "children": [
+      "I504900",
+      "I510387",
+      "I510383"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "07.11.1870",
+      "place": "Hermannsgrün #7 (Heřmanov, CZ)",
+      "year": 1870
+    }
+  },
+  "F501753": {
+    "id": "F501753",
+    "husband": "I504903",
+    "wife": "I504904",
+    "children": [
+      "I504899"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
     }
   },
   "F501754": {
@@ -16002,7 +16081,8 @@
     "wife": "I505040",
     "children": [
       "I505075",
-      "I505074"
+      "I505074",
+      "I579307"
     ],
     "marriage": {
       "present": true,
@@ -16386,7 +16466,8 @@
       "I505151",
       "I505152",
       "I505153",
-      "I505154"
+      "I505154",
+      "I579326"
     ],
     "marriage": {
       "present": true,
@@ -17308,13 +17389,14 @@
     "husband": "I505503",
     "wife": "I505504",
     "children": [
-      "I504893"
+      "I504893",
+      "I579272"
     ],
     "marriage": {
-      "present": false,
-      "date": null,
+      "present": true,
+      "date": "20.02.1898",
       "place": null,
-      "year": null
+      "year": 1898
     }
   },
   "F501992": {
@@ -18364,6 +18446,23 @@
       "year": null
     }
   },
+  "F502108": {
+    "id": "F502108",
+    "husband": "I505736",
+    "wife": "I505737",
+    "children": [
+      "I578824",
+      "I505738",
+      "I556244",
+      "I504805"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
   "F502124": {
     "id": "F502124",
     "husband": "I505764",
@@ -18826,7 +18925,8 @@
     "husband": "I505960",
     "wife": "I505959",
     "children": [
-      "I501874"
+      "I501874",
+      "I579285"
     ],
     "marriage": {
       "present": false,
@@ -21268,6 +21368,18 @@
       "year": 1921
     }
   },
+  "F504564": {
+    "id": "F504564",
+    "husband": "I512869",
+    "wife": "I503167",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "23.12.1942",
+      "place": "Lübeck",
+      "year": 1942
+    }
+  },
   "F504604": {
     "id": "F504604",
     "husband": "I512951",
@@ -21294,6 +21406,32 @@
       "date": null,
       "place": null,
       "year": null
+    }
+  },
+  "F504618": {
+    "id": "F504618",
+    "husband": "I512991",
+    "wife": "I512992",
+    "children": [
+      "I503166"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F504641": {
+    "id": "F504641",
+    "husband": "I513040",
+    "wife": "I503168",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "07.02.1948",
+      "place": null,
+      "year": 1948
     }
   },
   "F504670": {
@@ -21348,6 +21486,22 @@
       "date": "15.10.1747",
       "place": "Oedt (CZ)",
       "year": 1747
+    }
+  },
+  "F504776": {
+    "id": "F504776",
+    "husband": "I513411",
+    "wife": "I513391",
+    "children": [
+      "I513412",
+      "I513413",
+      "I579226"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "26.01.1875",
+      "place": "Neuhaus (Chaloupky, CZ)",
+      "year": 1875
     }
   },
   "F504792": {
@@ -21509,6 +21663,44 @@
       "date": "29.09.1857",
       "place": "Hirschenstand #15 (Jelení, CZ)",
       "year": 1857
+    }
+  },
+  "F505040": {
+    "id": "F505040",
+    "husband": "I514184",
+    "wife": "I514193",
+    "children": [
+      "I514194",
+      "I514195",
+      "I514196",
+      "I514197",
+      "I514198",
+      "I514199",
+      "I514200"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "21.11.1865",
+      "place": "Neuhaus (Chaloupky, CZ)",
+      "year": 1865
+    }
+  },
+  "F505041": {
+    "id": "F505041",
+    "husband": "I514201",
+    "wife": "I514202",
+    "children": [
+      "I579338",
+      "I557374",
+      "I565648",
+      "I514193",
+      "I557371"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "26.02.1827",
+      "place": "Neuhaus (Chaloupky, CZ)",
+      "year": 1827
     }
   },
   "F505292": {
@@ -22465,6 +22657,34 @@
       "year": null
     }
   },
+  "F508019": {
+    "id": "F508019",
+    "husband": "I522750",
+    "wife": "I522751",
+    "children": [
+      "I504163"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F508022": {
+    "id": "F508022",
+    "husband": "I522756",
+    "wife": "I522757",
+    "children": [
+      "I504164"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "17.02.1835",
+      "place": "Bernau #53 (Bernov, CZ)",
+      "year": 1835
+    }
+  },
   "F508384": {
     "id": "F508384",
     "husband": "I524349",
@@ -22696,6 +22916,20 @@
       "date": "29.01.1866",
       "place": "Sponsl #8 (Spomyšl, CZ)",
       "year": 1866
+    }
+  },
+  "F508543": {
+    "id": "F508543",
+    "husband": "I524767",
+    "wife": "I524766",
+    "children": [
+      "I579304"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "01.10.1867",
+      "place": "Sponsl #12 (Spomyšl, CZ)",
+      "year": 1867
     }
   },
   "F508564": {
@@ -28547,7 +28781,11 @@
     "id": "F515806",
     "husband": "I546783",
     "wife": "I546782",
-    "children": [],
+    "children": [
+      "I579254",
+      "I579255",
+      "I579259"
+    ],
     "marriage": {
       "present": true,
       "date": "23.05.1920",
@@ -29568,6 +29806,28 @@
       "date": null,
       "place": null,
       "year": null
+    }
+  },
+  "F516574": {
+    "id": "F516574",
+    "husband": "I549246",
+    "wife": "I549247",
+    "children": [
+      "I556690",
+      "I505724",
+      "I563056",
+      "I563098",
+      "I563099",
+      "I563100",
+      "I553283",
+      "I546498",
+      "I563104"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "18.11.1822",
+      "place": "Neuhammer (Nové Hamry, CZ)",
+      "year": 1822
     }
   },
   "F516711": {
@@ -30996,6 +31256,67 @@
       "year": null
     }
   },
+  "F519166": {
+    "id": "F519166",
+    "husband": "I557363",
+    "wife": "I557366",
+    "children": [
+      "I514201",
+      "I565747",
+      "I516395",
+      "I557361"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "11.08.1807",
+      "place": "Neuhaus #8 / #16 (Chaloupky, CZ)",
+      "year": 1807
+    }
+  },
+  "F519169": {
+    "id": "F519169",
+    "husband": "I557372",
+    "wife": "I557373",
+    "children": [
+      "I514202",
+      "I566283",
+      "I515724"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "09.02.1801",
+      "place": "Neuhaus #5 (Chaloupky, CZ)",
+      "year": 1801
+    }
+  },
+  "F519173": {
+    "id": "F519173",
+    "husband": "I557371",
+    "wife": "I557384",
+    "children": [
+      "I557385"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "11.02.1873",
+      "place": "Hirschenstand",
+      "year": 1873
+    }
+  },
+  "F519174": {
+    "id": "F519174",
+    "husband": "I557374",
+    "wife": "I557386",
+    "children": [
+      "I557387"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "21.04.1863",
+      "place": "Hirschenstand (Jelení, CZ)",
+      "year": 1863
+    }
+  },
   "F519660": {
     "id": "F519660",
     "husband": "I504755",
@@ -31350,8 +31671,8 @@
     "children": [
       "I559267",
       "I559268",
-      "I559270",
       "I500839",
+      "I559270",
       "I543512"
     ],
     "marriage": {
@@ -32187,6 +32508,27 @@
       "year": 1905
     }
   },
+  "F520385": {
+    "id": "F520385",
+    "husband": "I561122",
+    "wife": "I561123",
+    "children": [
+      "I551722",
+      "I503436",
+      "I561125",
+      "I561130",
+      "I561126",
+      "I561127",
+      "I561128",
+      "I561129"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "30.08.1870",
+      "place": "Doglasgrün (Vřesová, CZ)",
+      "year": 1870
+    }
+  },
   "F520387": {
     "id": "F520387",
     "husband": "I561132",
@@ -32563,6 +32905,28 @@
       "date": "11.02.1850",
       "place": "Sauersack #118 (Rolava, CZ)",
       "year": 1850
+    }
+  },
+  "F521754": {
+    "id": "F521754",
+    "husband": "I565647",
+    "wife": "I565648",
+    "children": [
+      "I565653",
+      "I565654",
+      "I565655",
+      "I565656",
+      "I565660",
+      "I565661",
+      "I565662",
+      "I565649",
+      "I565650"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
     }
   },
   "F521935": {
@@ -33350,6 +33714,20 @@
       "date": "01.07.1872",
       "place": "Trinksaifen #211 (Rudné, CZ)",
       "year": 1872
+    }
+  },
+  "F524661": {
+    "id": "F524661",
+    "husband": "I557831",
+    "wife": "I553497",
+    "children": [
+      "I574250"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "06.1832",
+      "place": "Trinksaifen #80 (Rudné, CZ)",
+      "year": 1832
     }
   },
   "F524670": {
@@ -34867,13 +35245,27 @@
     "husband": "I579070",
     "wife": "I579071",
     "children": [
-      "I579074"
+      "I579074",
+      "I579329",
+      "I579327"
     ],
     "marriage": {
       "present": true,
       "date": "06.06.1876",
       "place": "Sponsl #6 (Spomyšl, CZ)",
       "year": 1876
+    }
+  },
+  "F526284": {
+    "id": "F526284",
+    "husband": "I579075",
+    "wife": "I579074",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "05.06.1900",
+      "place": "Sponsl #6 (Spomyšl, CZ)",
+      "year": 1900
     }
   },
   "F526285": {
@@ -35510,6 +35902,418 @@
     "wife": "I579229",
     "children": [
       "I579231"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526352": {
+    "id": "F526352",
+    "husband": "I579256",
+    "wife": "I579257",
+    "children": [
+      "I579258",
+      "I546783"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "10.02.1885",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1885
+    }
+  },
+  "F526353": {
+    "id": "F526353",
+    "husband": "I504862",
+    "wife": "I579254",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526354": {
+    "id": "F526354",
+    "husband": "I579260",
+    "wife": "I579254",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526355": {
+    "id": "F526355",
+    "husband": "I579262",
+    "wife": "I579261",
+    "children": [
+      "I579263"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526356": {
+    "id": "F526356",
+    "husband": "I579264",
+    "wife": "I579265",
+    "children": [
+      "I579271",
+      "I503063",
+      "I579266",
+      "I503064",
+      "I579267",
+      "I579268",
+      "I579269",
+      "I579270"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "22.11.1897",
+      "place": null,
+      "year": 1897
+    }
+  },
+  "F526357": {
+    "id": "F526357",
+    "husband": "I504063",
+    "wife": "I548802",
+    "children": [
+      "I579303"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "04.07.1942",
+      "place": "Chodau - Standesamt (Chodov, CZ)",
+      "year": 1942
+    }
+  },
+  "F526358": {
+    "id": "F526358",
+    "husband": "I579273",
+    "wife": "I579274",
+    "children": [
+      "I579337"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526359": {
+    "id": "F526359",
+    "husband": "I579275",
+    "wife": "I503381",
+    "children": [
+      "I579276"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526360": {
+    "id": "F526360",
+    "husband": "I579278",
+    "wife": "I579279",
+    "children": [
+      "I579280",
+      "I502681"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "30.05.1871",
+      "place": "Chodau #155 (Chodov, CZ)",
+      "year": 1871
+    }
+  },
+  "F526361": {
+    "id": "F526361",
+    "husband": "I579280",
+    "wife": "I579281",
+    "children": [
+      "I579286"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "06.11.1900",
+      "place": "Wintersgrün #50 (Vintiřov, CZ)",
+      "year": 1900
+    }
+  },
+  "F526362": {
+    "id": "F526362",
+    "husband": "I579282",
+    "wife": "I579283",
+    "children": [
+      "I579281"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "24.02.1879",
+      "place": "Wintersgrün #28 (Vintiřov, CZ)",
+      "year": 1879
+    }
+  },
+  "F526364": {
+    "id": "F526364",
+    "husband": "I579286",
+    "wife": "I579287",
+    "children": [
+      "I579290"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526365": {
+    "id": "F526365",
+    "husband": "I579288",
+    "wife": "I579289",
+    "children": [
+      "I579287"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "23.04.1888",
+      "place": "Chodau #12 (Chodov, CZ)",
+      "year": 1888
+    }
+  },
+  "F526366": {
+    "id": "F526366",
+    "husband": "I579136",
+    "wife": "I503242",
+    "children": [
+      "I579291"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526367": {
+    "id": "F526367",
+    "husband": null,
+    "wife": "I503343",
+    "children": [
+      "I579297"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526368": {
+    "id": "F526368",
+    "husband": "I503323",
+    "wife": "I579299",
+    "children": [
+      "I579300"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526369": {
+    "id": "F526369",
+    "husband": "I503885",
+    "wife": "I579302",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526370": {
+    "id": "F526370",
+    "husband": "I579305",
+    "wife": "I579304",
+    "children": [
+      "I579306"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "21.01.1905",
+      "place": "Doglasgrün #91 (Vřesová, CZ)",
+      "year": 1905
+    }
+  },
+  "F526371": {
+    "id": "F526371",
+    "husband": "I579307",
+    "wife": "I579306",
+    "children": [
+      "I579308",
+      "I579310",
+      "I579313"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "16.10.1934",
+      "place": "Doglasgrün #93 (Vřesová, CZ)",
+      "year": 1934
+    }
+  },
+  "F526372": {
+    "id": "F526372",
+    "husband": "I579309",
+    "wife": "I579308",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526373": {
+    "id": "F526373",
+    "husband": "I579311",
+    "wife": "I579310",
+    "children": [
+      "I579312"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526374": {
+    "id": "F526374",
+    "husband": "I579314",
+    "wife": "I579313",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526376": {
+    "id": "F526376",
+    "husband": "I579329",
+    "wife": "I579328",
+    "children": [
+      "I579330",
+      "I579332"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "31.10.1921",
+      "place": "Eger (Cheb, CZ)",
+      "year": 1921
+    }
+  },
+  "F526378": {
+    "id": "F526378",
+    "husband": "I579334",
+    "wife": null,
+    "children": [
+      "I579333",
+      "I504931"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526379": {
+    "id": "F526379",
+    "husband": "I579336",
+    "wife": "I504102",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526380": {
+    "id": "F526380",
+    "husband": "I579338",
+    "wife": "I579339",
+    "children": [
+      "I579342"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "19.05.1885",
+      "place": "Eibenberg #28 (Tisová, CZ)",
+      "year": 1885
+    }
+  },
+  "F526381": {
+    "id": "F526381",
+    "husband": "I579338",
+    "wife": "I579340",
+    "children": [
+      "I579341"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "22.07.1878",
+      "place": "Bärringen #63 (Pernink, CZ)",
+      "year": 1878
+    }
+  },
+  "F526382": {
+    "id": "F526382",
+    "husband": "I579341",
+    "wife": null,
+    "children": [
+      "I579343",
+      "I579347",
+      "I579348",
+      "I579349",
+      "I579350",
+      "I579351"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526383": {
+    "id": "F526383",
+    "husband": "I579343",
+    "wife": "I579345",
+    "children": [
+      "I579346"
     ],
     "marriage": {
       "present": true,

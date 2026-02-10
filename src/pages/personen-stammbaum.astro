@@ -47,22 +47,22 @@ export const chronik = {
   <!-- IMPORTANT: global so dynamically injected <a> also match (no Astro scoping) -->
   <style is:global>
     /* --- page header --- */
-    .{chronik.title} .head {
-      margin-bottom: 1.6rem; /* Header → Body */
+    .page .head {
+      margin-bottom: 1.6rem;
     }
 
-    .{chronik.title} .head h1 {
-      margin-bottom: 0.25rem; /* Titel → Subtitle */
+    .page .head h1 {
+      margin-bottom: 0.25rem;
     }
 
-    .{chronik.title} .head .subtitle {
+    .page .head .subtitle {
       margin-top: 0;
-      margin-bottom: 0.4rem; /* Subtitle → Meta */
+      margin-bottom: 0.4rem;
       color: rgba(0, 0, 0, 0.65);
     }
 
-    .{chronik.title} .head .meta {
-      margin: 0; /* Meta → nichts extra */
+    .page .head .meta {
+      margin: 0;
       font-size: 0.85rem;
       color: rgba(0, 0, 0, 0.45);
     }
