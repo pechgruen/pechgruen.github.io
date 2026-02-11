@@ -18,7 +18,7 @@ export const chronik = {
     <header class="head">
       <h1>{chronik.title}</h1>
       <p class="subtitle">{chronik.subtitle}</p>
-      <p class="meta">{chronik.date}</p>
+      <p class="meta">{chronik.updated ?? chronik.date}</p>
     </header>
 
     <!-- DYNAMIC PERSON HEADER -->
@@ -105,6 +105,13 @@ export const chronik = {
     }
 
     .ged-page .legInline {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.81);
+    }
+
+    /* Regular (NOT bold) metadata pieces shown inline after the bold name */
+    .ged-page .metaText {
       font-size: 1rem;
       font-weight: 400;
       color: rgba(0, 0, 0, 0.81);
@@ -353,6 +360,22 @@ export const chronik = {
       return `${b}, ${d}`;
     }
 
+    // Same nickname display rule as in ged-liste.astro:
+    // Given "Nick" Surname
+    function displayNameWithNick(p) {
+      const nick = String(p?.nickname || "").trim();
+      if (!nick) return String(p?.name?.display || "").trim();
+
+      const given = String(p?.name?.given || "").trim();
+      const display = String(p?.name?.display || "").trim();
+
+      if (given && display.startsWith(given + " ")) {
+        return `${given} "${nick}"${display.slice(given.length)}`;
+      }
+
+      return `${display} "${nick}"`.trim();
+    }
+
     function linkToPerson(pid, sn, az) {
       return `/internal/ged-person?id=${encodeURIComponent(pid)}&sn=${encodeURIComponent(sn || "")}&az=${encodeURIComponent(az || "")}`;
     }
@@ -371,13 +394,22 @@ export const chronik = {
 
       const href = linkToPerson(pid, sn, az);
       const life = fmtLifeInline(p, { useShortPlace });
-      const leg = p?.name?.legitimized
-        ? `<span class="legInline"> (leg.)</span>`
+
+      // IMPORTANT TYPOGRAPHY:
+      // - Name + nickname: bold (inside .pname)
+      // - (leg.) + (house): regular (metaText)
+      const nameText = displayNameWithNick(p);
+
+      const legHtml = p?.name?.legitimized
+        ? ` <span class="metaText">(leg.)</span>`
         : "";
+
+      const house = String(p?.houseName || "").trim();
+      const houseHtml = house ? ` <span class="metaText">(${house})</span>` : "";
 
       return `
         <a class="plink" href="${href}">
-          <span class="pname">${p.name.display}</span>${leg}, ${life}
+          <span class="pname">${nameText}</span>${legHtml}${houseHtml}, ${life}
         </a>
       `.trim();
     }

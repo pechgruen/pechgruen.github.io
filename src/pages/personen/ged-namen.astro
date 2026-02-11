@@ -17,7 +17,7 @@ export const chronik = {
     <header class="head">
       <h1>{chronik.title}</h1>
       <p class="subtitle">{chronik.subtitle}</p>
-      <p class="meta">{chronik.date}</p>
+      <p class="meta">{chronik.updated ?? chronik.date}</p>
     </header>
 
     <p>
