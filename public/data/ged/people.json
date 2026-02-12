@@ -2,9 +2,9 @@
   "I500002": {
     "id": "I500002",
     "name": {
-      "given": "Erika Agnes Elsa",
+      "given": "\"Erika\" Agnes Elsa",
       "surname": "Heinzl",
-      "display": "Erika Agnes Elsa Heinzl",
+      "display": "\"Erika\" Agnes Elsa Heinzl",
       "legitimized": false,
       "surnameRaw": "Heinzl"
     },
@@ -34,9 +34,9 @@
   "I500003": {
     "id": "I500003",
     "name": {
-      "given": "Franz Robert",
+      "given": "\"Franz\" Robert",
       "surname": "Dengler",
-      "display": "Franz Robert Dengler",
+      "display": "\"Franz\" Robert Dengler",
       "legitimized": false,
       "surnameRaw": "Dengler"
     },
@@ -252,7 +252,7 @@
     "fams": [
       "F500005"
     ],
-    "nickname": null,
+    "nickname": "Resl",
     "houseName": null
   },
   "I500011": {
@@ -466,7 +466,7 @@
     "fams": [
       "F500013"
     ],
-    "nickname": "Seffn",
+    "nickname": "Seff",
     "houseName": "Florl, Wickn"
   },
   "I500021": {
@@ -883,10 +883,10 @@
     "id": "I500035",
     "name": {
       "given": "Anna Katharina",
-      "surname": "Lausmann, verw. Härtl ?",
-      "display": "Anna Katharina Lausmann, verw. Härtl ?",
+      "surname": "Lausmann",
+      "display": "Anna Katharina Lausmann",
       "legitimized": false,
-      "surnameRaw": "Lausmann, verw. Härtl ?"
+      "surnameRaw": "Lausmann"
     },
     "sex": "F",
     "birth": {
@@ -1218,7 +1218,7 @@
       "F500014"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I500046": {
     "id": "I500046",
@@ -1307,7 +1307,7 @@
       "F500271"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Florl"
   },
   "I500049": {
     "id": "I500049",
@@ -1338,7 +1338,7 @@
       "F502002"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Florl"
   },
   "I500050": {
     "id": "I500050",
@@ -1361,7 +1361,7 @@
       "year": 1950,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Porzellanmaler aaf da Boheme in Neirohla",
     "famc": [
       "F500014"
     ],
@@ -1369,7 +1369,7 @@
       "F501764"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Florl"
   },
   "I500051": {
     "id": "I500051",
@@ -1392,7 +1392,7 @@
       "year": 1929,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Nachtwachta (Nachtportier) bei der Firma Haas & Czischek, Porzellanfabriken",
     "famc": [
       "F501970"
     ],
@@ -1425,14 +1425,14 @@
       "year": 1976,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Nachtwachta (Nachtportier) bei der Firma Haas & Czischek, Porzellanfabriken",
     "famc": [
       "F500015"
     ],
     "fams": [
       "F501014"
     ],
-    "nickname": null,
+    "nickname": "Wenz",
     "houseName": null
   },
   "I500053": {
@@ -1768,7 +1768,7 @@
     "fams": [
       "F500052"
     ],
-    "nickname": null,
+    "nickname": "Traudl",
     "houseName": "Wickn"
   },
   "I500127": {
@@ -1837,12 +1837,12 @@
     "id": "I500129",
     "name": {
       "given": "Karl",
-      "surname": "Ficker)",
-      "display": "Karl Ficker)",
+      "surname": "Forster",
+      "display": "Karl Forster",
       "legitimized": true,
-      "legBirthSurname": "Forster (geb. Rossmeißl",
-      "legNewSurname": "Ficker)",
-      "surnameRaw": "Forster (geb. Rossmeißl, leg. Ficker)"
+      "legBirthSurname": "Rossmeißl",
+      "legNewSurname": "Forster",
+      "surnameRaw": "Rossmeißl, leg. Forster"
     },
     "sex": "M",
     "birth": {
@@ -1870,10 +1870,10 @@
     "id": "I500131",
     "name": {
       "given": "Rudolph",
-      "surname": "Forster (geb. Ficker)",
-      "display": "Rudolph Forster (geb. Ficker)",
+      "surname": "Forster",
+      "display": "Rudolph Forster",
       "legitimized": false,
-      "surnameRaw": "Forster (geb. Ficker)"
+      "surnameRaw": "Forster"
     },
     "sex": "M",
     "birth": {
@@ -4574,7 +4574,7 @@
     "fams": [
       "F501682"
     ],
-    "nickname": "d'Kohle",
+    "nickname": "Nannl, d'Kohle",
     "houseName": "Werdl"
   },
   "I500380": {
@@ -4602,8 +4602,10 @@
     "famc": [
       "F500138"
     ],
-    "fams": [],
-    "nickname": null,
+    "fams": [
+      "F526385"
+    ],
+    "nickname": "Kohl Luis, d' Donabitowitsch",
     "houseName": "Werdl"
   },
   "I500381": {
@@ -5730,7 +5732,7 @@
       "year": 1945,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Steinmetz",
     "famc": [
       "F500138"
     ],
@@ -6001,14 +6003,14 @@
       "year": 1961,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter aafn Puscha",
     "famc": [
       "F500278"
     ],
     "fams": [
       "F500271"
     ],
-    "nickname": "gråußn Pepp",
+    "nickname": "gråuß Pepp",
     "houseName": null
   },
   "I500759": {
@@ -6916,10 +6918,10 @@
     "id": "I500807",
     "name": {
       "given": "Maria Rosina",
-      "surname": "Kraus (verw. Neudert)",
-      "display": "Maria Rosina Kraus (verw. Neudert)",
+      "surname": "Kraus",
+      "display": "Maria Rosina Kraus",
       "legitimized": false,
-      "surnameRaw": "Kraus (verw. Neudert)"
+      "surnameRaw": "Kraus"
     },
     "sex": "F",
     "birth": {
@@ -9381,7 +9383,7 @@
       "year": null,
       "known": true
     },
-    "occupation": "Fabrikarbeiter",
+    "occupation": "Kapseldreher",
     "famc": [
       "F500414"
     ],
@@ -21323,7 +21325,7 @@
       "F500522"
     ],
     "nickname": "Mare",
-    "houseName": null
+    "houseName": "Stiafl"
   },
   "I501521": {
     "id": "I501521",
@@ -23147,7 +23149,7 @@
     "fams": [
       "F500785"
     ],
-    "nickname": null,
+    "nickname": "Kårl",
     "houseName": null
   },
   "I501593": {
@@ -25960,7 +25962,7 @@
     "sex": "M",
     "birth": {
       "date": "23.02.1903",
-      "place": null,
+      "place": "Imlikau (Jimlíkov, CZ)",
       "year": 1903
     },
     "death": {
@@ -33937,7 +33939,7 @@
     "fams": [
       "F501014"
     ],
-    "nickname": null,
+    "nickname": "Mina",
     "houseName": null
   },
   "I502925": {
@@ -34308,10 +34310,12 @@
     "id": "I502950",
     "name": {
       "given": "Elisabetha",
-      "surname": "Klier (leg.)",
-      "display": "Elisabetha Klier (leg.)",
-      "legitimized": false,
-      "surnameRaw": "Klier (leg.)"
+      "surname": "Klier",
+      "display": "Elisabetha Klier",
+      "legitimized": true,
+      "legBirthSurname": "Schreiner",
+      "legNewSurname": "Klier",
+      "surnameRaw": "Schreiner, leg. Klier"
     },
     "sex": "F",
     "birth": {
@@ -39872,7 +39876,7 @@
     "fams": [
       "F501108"
     ],
-    "nickname": null,
+    "nickname": "Frånz",
     "houseName": "Booch"
   },
   "I503175": {
@@ -41187,7 +41191,7 @@
       "year": null,
       "known": true
     },
-    "occupation": "sklář/ Glasmacher",
+    "occupation": "Glasmacher",
     "famc": [
       "F502003"
     ],
@@ -44246,14 +44250,14 @@
       "year": 1945,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501178"
     ],
     "fams": [
       "F501170"
     ],
-    "nickname": null,
+    "nickname": "gråuß Kårl",
     "houseName": null
   },
   "I503353": {
@@ -44552,7 +44556,7 @@
       "year": 1937,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501179"
     ],
@@ -44798,7 +44802,7 @@
       "year": 1980,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501178"
     ],
@@ -53038,10 +53042,12 @@
     "id": "I503733",
     "name": {
       "given": "Joseph",
-      "surname": "Kunstmann (leg.)",
-      "display": "Joseph Kunstmann (leg.)",
-      "legitimized": false,
-      "surnameRaw": "Kunstmann (leg.)"
+      "surname": "Kunstmann",
+      "display": "Joseph Kunstmann",
+      "legitimized": true,
+      "legBirthSurname": "Mörtl",
+      "legNewSurname": "Kunstmann",
+      "surnameRaw": "Mörtl, leg. Kunstmann"
     },
     "sex": "M",
     "birth": {
@@ -55602,10 +55608,10 @@
     "id": "I503847",
     "name": {
       "given": "Theresia",
-      "surname": "Meyer",
-      "display": "Theresia Meyer",
+      "surname": "Mayer",
+      "display": "Theresia Mayer",
       "legitimized": false,
-      "surnameRaw": "Meyer"
+      "surnameRaw": "Mayer"
     },
     "sex": "F",
     "birth": {
@@ -59771,17 +59777,17 @@
   "I504024": {
     "id": "I504024",
     "name": {
-      "given": "Joseph",
-      "surname": "Meyer",
-      "display": "Joseph Meyer",
+      "given": "\"Joseph\" Anton",
+      "surname": "Mayer",
+      "display": "\"Joseph\" Anton Mayer",
       "legitimized": false,
-      "surnameRaw": "Meyer"
+      "surnameRaw": "Mayer"
     },
     "sex": "M",
     "birth": {
-      "date": "ca. 1805",
+      "date": "01.01.1795",
       "place": "Kösteldorf #10 (Rájec, CZ)",
-      "year": 1805
+      "year": 1795
     },
     "death": {
       "date": null,
@@ -59790,38 +59796,12 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501420"
+    "famc": [
+      "F504227"
     ],
-    "nickname": null,
-    "houseName": null
-  },
-  "I504025": {
-    "id": "I504025",
-    "name": {
-      "given": "Barbara",
-      "surname": "Zinner ?",
-      "display": "Barbara Zinner ?",
-      "legitimized": false,
-      "surnameRaw": "Zinner ?"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "ca. 1810",
-      "place": "Pechgrün #10 (Smolnice, CZ)",
-      "year": 1810
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
     "fams": [
-      "F501420"
+      "F501420",
+      "F526388"
     ],
     "nickname": null,
     "houseName": null
@@ -60055,7 +60035,7 @@
       "F501426"
     ],
     "fams": [],
-    "nickname": "Hansl",
+    "nickname": "Hånsl",
     "houseName": null
   },
   "I504040": {
@@ -63725,7 +63705,7 @@
       "F501108"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Håns",
     "houseName": "Booch"
   },
   "I504208": {
@@ -63749,7 +63729,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F520145"
     ],
@@ -63757,7 +63737,7 @@
       "F501482",
       "F501914"
     ],
-    "nickname": "Hans",
+    "nickname": "Håns",
     "houseName": null
   },
   "I504212": {
@@ -66427,7 +66407,7 @@
       "F501526"
     ],
     "nickname": null,
-    "houseName": "Schousta"
+    "houseName": "Sahler, Schousta"
   },
   "I504334": {
     "id": "I504334",
@@ -66515,7 +66495,7 @@
       "F501526"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Pepp",
     "houseName": "Schousta"
   },
   "I504337": {
@@ -71278,7 +71258,7 @@
       "year": 1926,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Ortsvorsteher, heutzutage Bürgermeister",
     "famc": [
       "F501260"
     ],
@@ -75169,9 +75149,9 @@
   "I504755": {
     "id": "I504755",
     "name": {
-      "given": "Erich Iljitsch Rudolf Adolf",
+      "given": "\"Erich\" Iljitsch Rudolf Adolf",
       "surname": "Scheitler",
-      "display": "Erich Iljitsch Rudolf Adolf Scheitler",
+      "display": "\"Erich\" Iljitsch Rudolf Adolf Scheitler",
       "legitimized": false,
       "surnameRaw": "Scheitler"
     },
@@ -79482,7 +79462,7 @@
       "F501764",
       "F501767"
     ],
-    "nickname": null,
+    "nickname": "Rosa",
     "houseName": null
   },
   "I504935": {
@@ -83954,10 +83934,10 @@
     "id": "I505105",
     "name": {
       "given": "Albine",
-      "surname": "Schindler (widow of Adam Frantz)",
-      "display": "Albine Schindler (widow of Adam Frantz)",
+      "surname": "Schindler",
+      "display": "Albine Schindler",
       "legitimized": false,
-      "surnameRaw": "Schindler (widow of Adam Frantz)"
+      "surnameRaw": "Schindler"
     },
     "sex": "F",
     "birth": {
@@ -84641,8 +84621,8 @@
     "fams": [
       "F501842"
     ],
-    "nickname": null,
-    "houseName": null
+    "nickname": "Seff",
+    "houseName": "Äidana"
   },
   "I505145": {
     "id": "I505145",
@@ -94370,10 +94350,10 @@
     "id": "I507044",
     "name": {
       "given": "Berta",
-      "surname": "Meyer",
-      "display": "Berta Meyer",
+      "surname": "Mayer",
+      "display": "Berta Mayer",
       "legitimized": false,
-      "surnameRaw": "Meyer"
+      "surnameRaw": "Mayer"
     },
     "sex": "F",
     "birth": {
@@ -99099,6 +99079,125 @@
     "nickname": null,
     "houseName": null
   },
+  "I511915": {
+    "id": "I511915",
+    "name": {
+      "given": "Maria Anna",
+      "surname": "Schindler",
+      "display": "Maria Anna Schindler",
+      "legitimized": false,
+      "surnameRaw": "Schindler"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "17.02.1793",
+      "place": "Kösteldorf #5 (Rájec, CZ)",
+      "year": 1793
+    },
+    "death": {
+      "date": "02.01.1830",
+      "place": "Kösteldorf #10 (Rájec, CZ)",
+      "year": 1830,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F504221"
+    ],
+    "fams": [
+      "F504226",
+      "F526388"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I511922": {
+    "id": "I511922",
+    "name": {
+      "given": "Barbara",
+      "surname": "Mayer",
+      "display": "Barbara Mayer",
+      "legitimized": false,
+      "surnameRaw": "Mayer"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "26.08.1817",
+      "place": "Kösteldorf #16 (Rájec, CZ)",
+      "year": 1817
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526388"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseName": null
+  },
+  "I511925": {
+    "id": "I511925",
+    "name": {
+      "given": "Andreas",
+      "surname": "Mayer",
+      "display": "Andreas Mayer",
+      "legitimized": false,
+      "surnameRaw": "Mayer"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "ca. 1760",
+      "place": "Kösteldorf #10 (Rájec, CZ)",
+      "year": 1760
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F504227"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I511926": {
+    "id": "I511926",
+    "name": {
+      "given": "Maria Katharina",
+      "surname": "Kraus",
+      "display": "Maria Katharina Kraus",
+      "legitimized": false,
+      "surnameRaw": "Kraus"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "ca. 1765",
+      "place": "Kofel #10 (Kobelec, CZ)",
+      "year": 1765
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F504227"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
   "I511964": {
     "id": "I511964",
     "name": {
@@ -103590,11 +103689,11 @@
   "I517038": {
     "id": "I517038",
     "name": {
-      "given": "...",
-      "surname": "erste Ehefrau ... m. Heinzl",
-      "display": "... erste Ehefrau ... m. Heinzl",
+      "given": "erste Ehefrau",
+      "surname": "... m. Heinzl",
+      "display": "erste Ehefrau ... m. Heinzl",
       "legitimized": false,
-      "surnameRaw": "erste Ehefrau ... m. Heinzl"
+      "surnameRaw": "... m. Heinzl"
     },
     "sex": "F",
     "birth": {
@@ -103619,11 +103718,11 @@
   "I517039": {
     "id": "I517039",
     "name": {
-      "given": "...",
-      "surname": "zweite Ehefrau ... m. Heinzl",
-      "display": "... zweite Ehefrau ... m. Heinzl",
+      "given": "zweite Ehefrau",
+      "surname": "... m. Heinzl",
+      "display": "zweite Ehefrau ... m. Heinzl",
       "legitimized": false,
-      "surnameRaw": "zweite Ehefrau ... m. Heinzl"
+      "surnameRaw": "... m. Heinzl"
     },
     "sex": "F",
     "birth": {
@@ -116252,10 +116351,10 @@
     "id": "I536102",
     "name": {
       "given": "Maria Anna",
-      "surname": "Zinner (Garotti)",
-      "display": "Maria Anna Zinner (Garotti)",
+      "surname": "Garotti",
+      "display": "Maria Anna Garotti",
       "legitimized": false,
-      "surnameRaw": "Zinner (Garotti)"
+      "surnameRaw": "Garotti"
     },
     "sex": "F",
     "birth": {
@@ -116270,9 +116369,7 @@
       "known": true
     },
     "occupation": null,
-    "famc": [
-      "F512406"
-    ],
+    "famc": [],
     "fams": [
       "F512389"
     ],
@@ -118097,9 +118194,9 @@
   "I537330": {
     "id": "I537330",
     "name": {
-      "given": "Maria Barbara",
+      "given": "Maria \"Barbara\"",
       "surname": "Zinner",
-      "display": "Maria Barbara Zinner",
+      "display": "Maria \"Barbara\" Zinner",
       "legitimized": false,
       "surnameRaw": "Zinner"
     },
@@ -118119,7 +118216,9 @@
     "famc": [
       "F512754"
     ],
-    "fams": [],
+    "fams": [
+      "F501420"
+    ],
     "nickname": null,
     "houseName": null
   },
@@ -118134,7 +118233,7 @@
     },
     "sex": "M",
     "birth": {
-      "date": "23.11.1801",
+      "date": "22.11.1801",
       "place": "Pechgrün #11 (Smolnice, CZ)",
       "year": 1801
     },
@@ -138802,10 +138901,12 @@
     "id": "I559402",
     "name": {
       "given": "Karl",
-      "surname": "Bauer (leg.)",
-      "display": "Karl Bauer (leg.)",
-      "legitimized": false,
-      "surnameRaw": "Bauer (leg.)"
+      "surname": "Bauer",
+      "display": "Karl Bauer",
+      "legitimized": true,
+      "legBirthSurname": "Pecher",
+      "legNewSurname": "Bauer",
+      "surnameRaw": "Pecher, leg. Bauer"
     },
     "sex": "M",
     "birth": {
@@ -148799,10 +148900,12 @@
     "id": "I574600",
     "name": {
       "given": "Emma",
-      "surname": "Lill (leg.)",
-      "display": "Emma Lill (leg.)",
-      "legitimized": false,
-      "surnameRaw": "Lill (leg.)"
+      "surname": "Lill",
+      "display": "Emma Lill",
+      "legitimized": true,
+      "legBirthSurname": "Bauer",
+      "legNewSurname": "Lill",
+      "surnameRaw": "Bauer, leg. Lill"
     },
     "sex": "F",
     "birth": {
@@ -149912,10 +150015,12 @@
     "id": "I577904",
     "name": {
       "given": "Franz",
-      "surname": "Lauber (leg.)",
-      "display": "Franz Lauber (leg.)",
-      "legitimized": false,
-      "surnameRaw": "Lauber (leg.)"
+      "surname": "Lauber",
+      "display": "Franz Lauber",
+      "legitimized": true,
+      "legBirthSurname": "Müller",
+      "legNewSurname": "Lauber",
+      "surnameRaw": "Müller, leg. Lauber"
     },
     "sex": "M",
     "birth": {
@@ -157875,6 +157980,196 @@
     "nickname": null,
     "houseName": null
   },
+  "I579234": {
+    "id": "I579234",
+    "name": {
+      "given": "Anton",
+      "surname": "Fickert",
+      "display": "Anton Fickert",
+      "legitimized": true,
+      "legBirthSurname": "Wohner",
+      "legNewSurname": "Fickert",
+      "surnameRaw": "Wohner, leg. Fickert"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "17.09.1866",
+      "place": "Neuhaus #24 (Chaloupky, CZ)",
+      "year": 1866
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526344"
+    ],
+    "fams": [
+      "F526345"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579235": {
+    "id": "I579235",
+    "name": {
+      "given": "Franziska",
+      "surname": "Pecher",
+      "display": "Franziska Pecher",
+      "legitimized": false,
+      "surnameRaw": "Pecher"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "10.12.1865",
+      "place": "Neuhaus #8 (Chaloupky, CZ)",
+      "year": 1865
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526346"
+    ],
+    "fams": [
+      "F526345"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579243": {
+    "id": "I579243",
+    "name": {
+      "given": "Anton",
+      "surname": "Fickert",
+      "display": "Anton Fickert",
+      "legitimized": true,
+      "legBirthSurname": "Pecher",
+      "legNewSurname": "Fickert",
+      "surnameRaw": "Pecher, leg. Fickert"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "28.01.1886",
+      "place": "Neuhaus #8 (Chaloupky, CZ)",
+      "year": 1886
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": "Zimmermaler",
+    "famc": [
+      "F526345"
+    ],
+    "fams": [
+      "F526348"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579244": {
+    "id": "I579244",
+    "name": {
+      "given": "Rosa",
+      "surname": "Wolfert",
+      "display": "Rosa Wolfert",
+      "legitimized": false,
+      "surnameRaw": "Wolfert"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "18.09.1888",
+      "place": "Neuhaus (Chaloupky, CZ)",
+      "year": 1888
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526350"
+    ],
+    "fams": [
+      "F526348"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579247": {
+    "id": "I579247",
+    "name": {
+      "given": "Adolf",
+      "surname": "Wolfert",
+      "display": "Adolf Wolfert",
+      "legitimized": false,
+      "surnameRaw": "Wolfert"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "02.07.1854",
+      "place": "Sauersack #22 (Rolava, CZ)",
+      "year": 1854
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526349"
+    ],
+    "fams": [
+      "F526350"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579248": {
+    "id": "I579248",
+    "name": {
+      "given": "Aloisia",
+      "surname": "Ullmann",
+      "display": "Aloisia Ullmann",
+      "legitimized": false,
+      "surnameRaw": "Ullmann"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "04.05.1855",
+      "place": "Neuhaus #35 (Chaloupky, CZ)",
+      "year": 1855
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526351"
+    ],
+    "fams": [
+      "F526350"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
   "I579251": {
     "id": "I579251",
     "name": {
@@ -157966,10 +158261,12 @@
     "id": "I579254",
     "name": {
       "given": "Anna",
-      "surname": "Künzl. leg. Kraus",
-      "display": "Anna Künzl. leg. Kraus",
-      "legitimized": false,
-      "surnameRaw": "Künzl. leg. Kraus"
+      "surname": "Kraus",
+      "display": "Anna Kraus",
+      "legitimized": true,
+      "legBirthSurname": "Künzl",
+      "legNewSurname": "Kraus",
+      "surnameRaw": "Künzl, leg. Kraus"
     },
     "sex": "F",
     "birth": {
@@ -160293,6 +160590,64 @@
     ],
     "fams": [],
     "nickname": null,
+    "houseName": null
+  },
+  "I579352": {
+    "id": "I579352",
+    "name": {
+      "given": "?",
+      "surname": "Donabitowitsch",
+      "display": "? Donabitowitsch",
+      "legitimized": false,
+      "surnameRaw": "Donabitowitsch"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "ca. 1880",
+      "place": null,
+      "year": 1880
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526385"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579353": {
+    "id": "I579353",
+    "name": {
+      "given": "Dimitri",
+      "surname": "Donabitowitsch",
+      "display": "Dimitri Donabitowitsch",
+      "legitimized": false,
+      "surnameRaw": "Donabitowitsch"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "03.11.1914",
+      "place": null,
+      "year": 1914
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526385"
+    ],
+    "fams": [],
+    "nickname": "Midika",
     "houseName": null
   }
 }
