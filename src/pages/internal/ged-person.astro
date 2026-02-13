@@ -443,11 +443,6 @@ export const chronik = {
       return maxY;
     }
 
-    function spouseBirthYear(f, people) {
-      const wid = f?.wife;
-      return wid ? parseYear(people[wid]?.birth?.date) : null;
-    }
-
     function ordinalDE(n) {
       const map = {
         1: "Erster",
@@ -565,24 +560,24 @@ export const chronik = {
           const decorated = rawFams.map((f, idx) => {
             const marriageY = parseYear(f?.marriage?.date);
             const kidsMaxY = unionChildrenMaxYear(f, people);
-            const wifeY = spouseBirthYear(f, people);
-            return { f, idx, marriageY, kidsMaxY, wifeY };
+            return { f, idx, marriageY, kidsMaxY };
           });
 
           decorated.sort((a, b) => {
             if (a.marriageY != null && b.marriageY != null)
               return a.marriageY - b.marriageY;
-            if (a.marriageY != null) return -1;
-            if (b.marriageY != null) return 1;
+
+            // WICHTIG: wenn nur einer marriageY hat, NICHT sofort entscheiden,
+            // sondern Kinder als nächstes Kriterium nutzen!
 
             if (a.kidsMaxY != null && b.kidsMaxY != null)
               return a.kidsMaxY - b.kidsMaxY;
             if (a.kidsMaxY != null) return -1;
             if (b.kidsMaxY != null) return 1;
 
-            if (a.wifeY != null && b.wifeY != null) return a.wifeY - b.wifeY;
-            if (a.wifeY != null) return -1;
-            if (b.wifeY != null) return 1;
+            // erst danach marriageY als "tiebreaker", falls einer hat
+            if (a.marriageY != null) return -1;
+            if (b.marriageY != null) return 1;
 
             return a.idx - b.idx;
           });

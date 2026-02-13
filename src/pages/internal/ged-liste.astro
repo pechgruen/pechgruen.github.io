@@ -22,8 +22,8 @@ export const chronik = {
 
     <section class="ged-liste">
       <div class="toolbar" id="toolbar"></div>
+      <div class="hint" id="hint"></div>
       <div class="list" id="list"></div>
-      <p class="hint" id="hint"></p>
     </section>
   </article>
 
@@ -35,7 +35,7 @@ export const chronik = {
     }
 
     .ged-page .head {
-      margin-bottom: 1.2rem;
+      margin-bottom: 0 !important;
     }
 
     .ged-page .head h1 {
@@ -59,7 +59,9 @@ export const chronik = {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin: 0.2rem 0 1.1rem 0; /* mehr Luft zur Liste */
+
+      /* wenig Luft nach oben, moderat nach unten */
+       margin: 1.0rem 0 0.25rem 0;
     }
 
     /* plain text links, same typography as page */
@@ -95,7 +97,6 @@ export const chronik = {
       max-width: none;
       font-family: inherit;
       font-size: 1rem;
-      line-height: 3.8;
     }
 
     .ged-liste .list {
@@ -157,9 +158,12 @@ export const chronik = {
     }
 
     .hint {
-      margin: 0.7rem 0 0 0;
+      /* kein “Riesenabstand” zur Sortierung, aber Luft zur Liste */
+      margin: 0 0 1.5rem 0;
+
       font-size: 13px;
       color: rgba(0, 0, 0, 0.55);
+      line-height: 1.35;
     }
 
     @media (max-width: 900px) {
@@ -392,7 +396,12 @@ export const chronik = {
         list.appendChild(row);
       }
 
-      hint.textContent = "Tipp: Klick auf eine Person öffnet die Detailansicht.";
+      hint.innerHTML = `
+        <div>Tipp: Klick auf eine Person öffnet die Detailansicht.</div>
+        <div>Bei langen Listen kannst du mit <strong>⌘F</strong> (Mac) bzw. <strong>Strg+F</strong> (Windows) 
+        im Browser nach einem Namen oder einem Datum suchen.</div>
+      `;
+
     }
 
     window.onpopstate = () => load();

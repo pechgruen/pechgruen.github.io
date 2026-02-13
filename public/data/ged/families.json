@@ -2669,9 +2669,9 @@
     ],
     "marriage": {
       "present": true,
-      "date": null,
-      "place": null,
-      "year": null
+      "date": "12.11.1872",
+      "place": "Kofel #23 (Kobelec, CZ)",
+      "year": 1872
     }
   },
   "F500414": {
@@ -4065,20 +4065,6 @@
     "children": [
       "I501543",
       "I501544"
-    ],
-    "marriage": {
-      "present": false,
-      "date": null,
-      "place": null,
-      "year": null
-    }
-  },
-  "F500512": {
-    "id": "F500512",
-    "husband": "I501546",
-    "wife": "I501547",
-    "children": [
-      "I501079"
     ],
     "marriage": {
       "present": false,
@@ -10012,7 +9998,9 @@
     "husband": "I503741",
     "wife": "I503742",
     "children": [
-      "I503732"
+      "I579355",
+      "I503732",
+      "I501079"
     ],
     "marriage": {
       "present": true,
@@ -26044,7 +26032,7 @@
     "husband": "I536118",
     "wife": "I536117",
     "children": [
-      "I536131",
+      "I579359",
       "I536130",
       "I536129"
     ],
@@ -36475,6 +36463,35 @@
       "date": "26.11.1816",
       "place": "Kösteldorf #16 (Rájec, CZ)",
       "year": 1816
+    }
+  },
+  "F526389": {
+    "id": "F526389",
+    "husband": "I579355",
+    "wife": "I579356",
+    "children": [
+      "I510723",
+      "I502321"
+    ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526390": {
+    "id": "F526390",
+    "husband": "I579358",
+    "wife": "I579359",
+    "children": [
+      "I579356"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
     }
   }
 }

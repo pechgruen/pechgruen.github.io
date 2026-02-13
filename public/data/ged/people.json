@@ -9280,9 +9280,9 @@
     },
     "sex": "F",
     "birth": {
-      "date": "ca. 1850",
+      "date": "24.06.1845",
       "place": "Kofel #23 (Kobelec, CZ)",
-      "year": 1850
+      "year": 1845
     },
     "death": {
       "date": null,
@@ -9292,7 +9292,7 @@
     },
     "occupation": null,
     "famc": [
-      "F500512"
+      "F501318"
     ],
     "fams": [
       "F500413"
@@ -21896,64 +21896,6 @@
     "nickname": null,
     "houseName": null
   },
-  "I501546": {
-    "id": "I501546",
-    "name": {
-      "given": "Josef Karl",
-      "surname": "Mörtl",
-      "display": "Josef Karl Mörtl",
-      "legitimized": false,
-      "surnameRaw": "Mörtl"
-    },
-    "sex": "M",
-    "birth": {
-      "date": "ca. 1820",
-      "place": "Kofel #23 (Kobelec, CZ)",
-      "year": 1820
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F500512"
-    ],
-    "nickname": null,
-    "houseName": null
-  },
-  "I501547": {
-    "id": "I501547",
-    "name": {
-      "given": "Barbara",
-      "surname": "Ittner",
-      "display": "Barbara Ittner",
-      "legitimized": false,
-      "surnameRaw": "Ittner"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "ca. 1825",
-      "place": "Kührberg #43 (Mezihorská, CZ)",
-      "year": 1825
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F500512"
-    ],
-    "nickname": null,
-    "houseName": null
-  },
   "I501548": {
     "id": "I501548",
     "name": {
@@ -22099,7 +22041,7 @@
       "year": 1959,
       "known": true
     },
-    "occupation": "Landwirt",
+    "occupation": "Vollerwerbsbauer, arbeitete bis zum großen Streik der Schlämmereien auf der Osmose als Schlämmena",
     "famc": [
       "F500513"
     ],
@@ -23809,7 +23751,7 @@
       "year": 1964,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter, Handel mit Holz zum Anheizen",
     "famc": [
       "F500527"
     ],
@@ -31054,7 +30996,7 @@
       "year": 1986,
       "known": true
     },
-    "occupation": null,
+    "occupation": "kaufmännischer Angestellter auf der Bohemia, letzter Bürgermeister von Pechgrün",
     "famc": [
       "F500613"
     ],
@@ -32390,7 +32332,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526389"
+    ],
     "fams": [
       "F500794"
     ],
@@ -33725,7 +33669,7 @@
       "F501003",
       "F501004"
     ],
-    "nickname": null,
+    "nickname": "Wåstla",
     "houseName": "Wåstl"
   },
   "I502908": {
@@ -36331,7 +36275,7 @@
     "fams": [
       "F526304"
     ],
-    "nickname": null,
+    "nickname": "Luis",
     "houseName": null
   },
   "I503039": {
@@ -36829,7 +36773,7 @@
       "year": 1945,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Maurer",
     "famc": [
       "F500587"
     ],
@@ -37931,7 +37875,7 @@
       "year": 1973,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Lastwagenbesitzer und   Fuhrunternehmer",
     "famc": [
       "F501001"
     ],
@@ -38049,7 +37993,7 @@
       "year": 2003,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bauzeichner in einem Architekturbüro",
     "famc": [
       "F501003"
     ],
@@ -55772,7 +55716,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Maurer",
     "famc": [
       "F500587"
     ],
@@ -56157,7 +56101,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Wåstl"
   },
   "I503866": {
     "id": "I503866",
@@ -56304,7 +56248,7 @@
       "year": 1998,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Angestellter auf der Bohemia in Neurohlau",
     "famc": [
       "F501276"
     ],
@@ -58966,7 +58910,7 @@
     "fams": [
       "F501407"
     ],
-    "nickname": null,
+    "nickname": "Marie",
     "houseName": null
   },
   "I503987": {
@@ -59919,7 +59863,7 @@
       "F501363"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Pepp",
     "houseName": null
   },
   "I504036": {
@@ -63768,7 +63712,7 @@
       "F501482"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Erna",
     "houseName": null
   },
   "I504213": {
@@ -69068,7 +69012,7 @@
     "fams": [
       "F501580"
     ],
-    "nickname": null,
+    "nickname": "Kårl",
     "houseName": "Glosa"
   },
   "I504471": {
@@ -71135,7 +71079,7 @@
       "year": 1940,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501611"
     ],
@@ -71229,7 +71173,7 @@
       "year": 1986,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Spengler",
     "famc": [
       "F501610"
     ],
@@ -74602,7 +74546,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": "Beuja"
+    "houseName": "Bäuja"
   },
   "I504737": {
     "id": "I504737",
@@ -74631,7 +74575,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": "Beuja"
+    "houseName": "Bäuja"
   },
   "I504738": {
     "id": "I504738",
@@ -74660,7 +74604,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": "Beuja"
+    "houseName": "Bäuja"
   },
   "I504739": {
     "id": "I504739",
@@ -78887,7 +78831,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "kaufmännischer Angestellter, Beåmta aaf da Boheme",
     "famc": [
       "F500609"
     ],
@@ -78918,7 +78862,7 @@
       "year": 1942,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Damenschneiderin",
     "famc": [
       "F500609"
     ],
@@ -85579,7 +85523,7 @@
     "fams": [
       "F501860"
     ],
-    "nickname": null,
+    "nickname": "Pleier Poot",
     "houseName": null
   },
   "I505189": {
@@ -91175,6 +91119,64 @@
       "F502201"
     ],
     "nickname": null,
+    "houseName": null
+  },
+  "I505933": {
+    "id": "I505933",
+    "name": {
+      "given": "Adolf",
+      "surname": "Siart",
+      "display": "Adolf Siart",
+      "legitimized": false,
+      "surnameRaw": "Siart"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "1867",
+      "place": null,
+      "year": 1867
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F502202"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I505934": {
+    "id": "I505934",
+    "name": {
+      "given": "Katharina",
+      "surname": "... m. Siart",
+      "display": "Katharina ... m. Siart",
+      "legitimized": false,
+      "surnameRaw": "... m. Siart"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "18.03.1867",
+      "place": null,
+      "year": 1867
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F502202"
+    ],
+    "nickname": "Kathl",
     "houseName": null
   },
   "I505935": {
@@ -98209,10 +98211,10 @@
     "id": "I510723",
     "name": {
       "given": "Theresia",
-      "surname": "Mörtel",
-      "display": "Theresia Mörtel",
+      "surname": "Mörtl",
+      "display": "Theresia Mörtl",
       "legitimized": false,
-      "surnameRaw": "Mörtel"
+      "surnameRaw": "Mörtl"
     },
     "sex": "F",
     "birth": {
@@ -98227,7 +98229,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526389"
+    ],
     "fams": [
       "F503776"
     ],
@@ -116445,9 +116449,9 @@
     },
     "sex": "F",
     "birth": {
-      "date": "ca. 1790",
+      "date": "ca. 1795",
       "place": "Neurohlau #3 (Nová Role, CZ)",
-      "year": 1790
+      "year": 1795
     },
     "death": {
       "date": null,
@@ -116729,35 +116733,6 @@
     "fams": [
       "F500432"
     ],
-    "nickname": null,
-    "houseName": null
-  },
-  "I536131": {
-    "id": "I536131",
-    "name": {
-      "given": "Maria Anna",
-      "surname": "Stiefl",
-      "display": "Maria Anna Stiefl",
-      "legitimized": false,
-      "surnameRaw": "Stiefl"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "13.06.1817",
-      "place": "Stelzengrün #10 (Stará Chodovská, CZ)",
-      "year": 1817
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [
-      "F512396"
-    ],
-    "fams": [],
     "nickname": null,
     "houseName": null
   },
@@ -137307,10 +137282,10 @@
     "id": "I557638",
     "name": {
       "given": "Anton",
-      "surname": "Härtl tba",
-      "display": "Anton Härtl tba",
+      "surname": "Härtl",
+      "display": "Anton Härtl",
       "legitimized": false,
-      "surnameRaw": "Härtl tba"
+      "surnameRaw": "Härtl"
     },
     "sex": "M",
     "birth": {
@@ -137338,10 +137313,10 @@
     "id": "I557639",
     "name": {
       "given": "Venanz",
-      "surname": "Härtl tba",
-      "display": "Venanz Härtl tba",
+      "surname": "Härtl",
+      "display": "Venanz Härtl",
       "legitimized": false,
-      "surnameRaw": "Härtl tba"
+      "surnameRaw": "Härtl"
     },
     "sex": "M",
     "birth": {
@@ -160648,6 +160623,68 @@
     ],
     "fams": [],
     "nickname": "Midika",
+    "houseName": null
+  },
+  "I579355": {
+    "id": "I579355",
+    "name": {
+      "given": "Joseph Anton",
+      "surname": "Mörtl",
+      "display": "Joseph Anton Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "19.09.1842",
+      "place": "Kofel #23 (Kobelec, CZ)",
+      "year": 1842
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501318"
+    ],
+    "fams": [
+      "F526389"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579359": {
+    "id": "I579359",
+    "name": {
+      "given": "Maria Anna",
+      "surname": "Stiefl",
+      "display": "Maria Anna Stiefl",
+      "legitimized": false,
+      "surnameRaw": "Stiefl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "13.06.1818",
+      "place": "Stelzengrün (Stará Chodovská, CZ)",
+      "year": 1818
+    },
+    "death": {
+      "date": "12.01.1899",
+      "place": "Janessen (Jenišov, CZ)",
+      "year": 1899,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F512396"
+    ],
+    "fams": [
+      "F526390"
+    ],
+    "nickname": null,
     "houseName": null
   }
 }
