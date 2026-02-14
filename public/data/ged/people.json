@@ -46017,7 +46017,7 @@
       "year": 1953,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Schlosser auf der Boheme in Neurohlau",
     "famc": [
       "F502043"
     ],
@@ -46130,17 +46130,19 @@
       "year": 1909
     },
     "death": {
-      "date": null,
-      "place": null,
-      "year": null,
+      "date": "03.04.1936",
+      "place": "Pechgrün (Smolnice, CZ)",
+      "year": 1936,
       "known": true
     },
     "occupation": null,
     "famc": [
       "F501193"
     ],
-    "fams": [],
-    "nickname": null,
+    "fams": [
+      "F526391"
+    ],
+    "nickname": "Gusti",
     "houseName": "Steidl"
   },
   "I503432": {
@@ -46164,7 +46166,7 @@
       "year": 1989,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Zimmermann",
     "famc": [
       "F501193"
     ],
@@ -46230,9 +46232,7 @@
     "famc": [
       "F501193"
     ],
-    "fams": [
-      "F501441"
-    ],
+    "fams": [],
     "nickname": "Pepp",
     "houseName": "Kutschabaua"
   },
@@ -61096,39 +61096,10 @@
     },
     "occupation": null,
     "famc": [
-      "F501441"
+      "F526391"
     ],
     "fams": [],
     "nickname": "Walder",
-    "houseName": null
-  },
-  "I504085": {
-    "id": "I504085",
-    "name": {
-      "given": "Gusti",
-      "surname": "Würkner",
-      "display": "Gusti Würkner",
-      "legitimized": false,
-      "surnameRaw": "Würkner"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "10.09.1909",
-      "place": "Pechgrün (Smolnice, CZ)",
-      "year": 1909
-    },
-    "death": {
-      "date": "03.04.1936",
-      "place": "Pechgrün (Smolnice, CZ)",
-      "year": 1936,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501441"
-    ],
-    "nickname": null,
     "houseName": null
   },
   "I504086": {
@@ -65623,7 +65594,7 @@
       "F501197"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Gerti",
     "houseName": null
   },
   "I504306": {
@@ -68252,7 +68223,7 @@
       "year": 1972,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bauzeichner in einem Architekturbüro",
     "famc": [
       "F501559"
     ],
@@ -72659,7 +72630,7 @@
       "year": 1971,
       "known": true
     },
-    "occupation": "Ortsvorsteher bzw.   Bürgermeister von Pecgrün",
+    "occupation": "Ortsvorsteher bzw.   Bürgermeister von Pechgrün",
     "famc": [],
     "fams": [
       "F501644"
@@ -130376,7 +130347,7 @@
       "F516430",
       "F526357"
     ],
-    "nickname": "Elsa, Ölsa",
+    "nickname": "Elsa, Ölse",
     "houseName": "Somma"
   },
   "I548803": {

@@ -8634,7 +8634,8 @@
     "wife": "I503433",
     "children": [
       "I504077",
-      "I504305"
+      "I504305",
+      "I579360"
     ],
     "marriage": {
       "present": true,
@@ -11564,20 +11565,6 @@
       "date": "13.09.1886",
       "place": "Dotterwies (Tatrovice, CZ)",
       "year": 1886
-    }
-  },
-  "F501441": {
-    "id": "F501441",
-    "husband": "I503434",
-    "wife": "I504085",
-    "children": [
-      "I504084"
-    ],
-    "marriage": {
-      "present": false,
-      "date": null,
-      "place": null,
-      "year": null
     }
   },
   "F501442": {
@@ -36486,6 +36473,20 @@
     "wife": "I579359",
     "children": [
       "I579356"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526391": {
+    "id": "F526391",
+    "husband": null,
+    "wife": "I503431",
+    "children": [
+      "I504084"
     ],
     "marriage": {
       "present": false,
