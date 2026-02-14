@@ -7655,7 +7655,7 @@
       "year": 1953,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergmann",
     "famc": [
       "F500338"
     ],
@@ -7871,7 +7871,7 @@
       "year": 1985,
       "known": true
     },
-    "occupation": null,
+    "occupation": "ehrenamtlicher Gemeindesekretär",
     "famc": [
       "F500349"
     ],
@@ -7933,7 +7933,7 @@
       "year": 2003,
       "known": true
     },
-    "occupation": null,
+    "occupation": "begabter Maler, lernte in der Porzellanfabrik Richter, Fenkl & Hahn Maler, Zimmermaler",
     "famc": [
       "F500349"
     ],
@@ -26797,7 +26797,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Kunstmaler",
     "famc": [
       "F500349"
     ],
@@ -30841,7 +30841,7 @@
       "year": 1969,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Vollerwerbsbauer, Obmann und Kommandant der Freiwilligen Feuerwehr",
     "famc": [
       "F500613"
     ],
@@ -30996,7 +30996,7 @@
       "year": 1986,
       "known": true
     },
-    "occupation": "kaufmännischer Angestellter auf der Bohemia, letzter Bürgermeister von Pechgrün",
+    "occupation": "kaufmännischer Angestellter auf der Bohemia, letzter Bürgermeister von Pechgrün, Ortsgruppenleiter der NSDAP in Pechgrün",
     "famc": [
       "F500613"
     ],
@@ -33204,7 +33204,7 @@
     "fams": [
       "F500993"
     ],
-    "nickname": null,
+    "nickname": "Pepp",
     "houseName": null
   },
   "I502881": {
@@ -42066,7 +42066,7 @@
       "year": 1988,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Porzellanmaler",
     "famc": [
       "F501135"
     ],
@@ -56217,7 +56217,7 @@
       "year": 1993,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Elektriker",
     "famc": [
       "F501276"
     ],
@@ -56284,7 +56284,7 @@
     "fams": [
       "F501369"
     ],
-    "nickname": null,
+    "nickname": "Pirosch",
     "houseName": null
   },
   "I503872": {
@@ -58481,7 +58481,7 @@
       "year": 1967,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Zimmermeister und Feiaweah(r) Owaßteicha",
     "famc": [
       "F501399"
     ],
@@ -64272,14 +64272,14 @@
       "year": 1949,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501492"
     ],
     "fams": [
       "F501491"
     ],
-    "nickname": "Seff",
+    "nickname": "Seff, ålt   Somma",
     "houseName": "Somma"
   },
   "I504232": {
@@ -70181,7 +70181,7 @@
       "year": 1946,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Vollerwerbsbauer",
     "famc": [
       "F501211"
     ],
@@ -72659,7 +72659,7 @@
       "year": 1971,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Ortsvorsteher bzw.   Bürgermeister von Pecgrün",
     "famc": [],
     "fams": [
       "F501644"
@@ -143317,7 +143317,7 @@
       "year": 1943,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bäcker",
     "famc": [
       "F500574"
     ],
@@ -155692,7 +155692,7 @@
       "year": 1947,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Ortsvorsteher bzw.   Bürgermeister von Pechgrün",
     "famc": [],
     "fams": [
       "F526299"
