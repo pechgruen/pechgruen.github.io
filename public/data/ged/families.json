@@ -4768,7 +4768,7 @@
       "I502872",
       "I502869",
       "I502870",
-      "I566814"
+      "I503689"
     ],
     "marriage": {
       "present": true,
@@ -7818,7 +7818,7 @@
       "I503614",
       "I503615",
       "I504715",
-      "I503689",
+      "I566814",
       "I503690",
       "I504115",
       "I503691",
@@ -15103,7 +15103,6 @@
     "husband": "I504867",
     "wife": "I504868",
     "children": [
-      "I504866",
       "I504869"
     ],
     "marriage": {
@@ -20713,6 +20712,88 @@
       "year": 1871
     }
   },
+  "F504108": {
+    "id": "F504108",
+    "husband": "I500969",
+    "wife": "I511630",
+    "children": [
+      "I511632",
+      "I511635",
+      "I511636",
+      "I511655",
+      "I511637",
+      "I511638",
+      "I511639"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "17.11.1885",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1885
+    }
+  },
+  "F504109": {
+    "id": "F504109",
+    "husband": null,
+    "wife": "I511630",
+    "children": [
+      "I511631"
+    ],
+    "marriage": {
+      "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F504110": {
+    "id": "F504110",
+    "husband": "I511632",
+    "wife": "I511633",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "23.05.1910",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1910
+    }
+  },
+  "F504112": {
+    "id": "F504112",
+    "husband": "I511655",
+    "wife": "I511656",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "21.04.1923",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1923
+    }
+  },
+  "F504113": {
+    "id": "F504113",
+    "husband": "I511637",
+    "wife": "I511657",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "4. Listopad 1922",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1922
+    }
+  },
+  "F504114": {
+    "id": "F504114",
+    "husband": "I511658",
+    "wife": "I511638",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "June 19 1920",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1920
+    }
+  },
   "F504125": {
     "id": "F504125",
     "husband": "I511679",
@@ -26004,8 +26085,8 @@
     "husband": "I536113",
     "wife": "I536114",
     "children": [
-      "I536117",
-      "I504977"
+      "I504977",
+      "I536117"
     ],
     "marriage": {
       "present": true,
@@ -31634,6 +31715,29 @@
       "year": 1921
     }
   },
+  "F519722": {
+    "id": "F519722",
+    "husband": "I559201",
+    "wife": "I559200",
+    "children": [
+      "I559204",
+      "I559206",
+      "I559208",
+      "I559209",
+      "I559210",
+      "I559211",
+      "I559212",
+      "I559213",
+      "I546829",
+      "I559214"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "24.11.1879",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1879
+    }
+  },
   "F519723": {
     "id": "F519723",
     "husband": "I559202",
@@ -31644,6 +31748,24 @@
       "date": "25.08.1903",
       "place": "Dotterwies (Tatrovice, CZ)",
       "year": 1903
+    }
+  },
+  "F519726": {
+    "id": "F519726",
+    "husband": "I511635",
+    "wife": "I559211",
+    "children": [
+      "I559231",
+      "I559232",
+      "I559235",
+      "I559236",
+      "I559237"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "19.10.1912",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1912
     }
   },
   "F519728": {
@@ -31668,6 +31790,20 @@
       "date": "June 18 1904",
       "place": "Dotterwies (Tatrovice, CZ)",
       "year": 1904
+    }
+  },
+  "F519734": {
+    "id": "F519734",
+    "husband": "I559232",
+    "wife": "I559233",
+    "children": [
+      "I559234"
+    ],
+    "marriage": {
+      "present": true,
+      "date": "31.08.1939",
+      "place": "Sodau (Sadov, CZ)",
+      "year": 1939
     }
   },
   "F519743": {
@@ -34275,7 +34411,9 @@
     "id": "F524777",
     "husband": "I574601",
     "wife": "I574602",
-    "children": [],
+    "children": [
+      "I579361"
+    ],
     "marriage": {
       "present": true,
       "date": "21.08.1937",
@@ -34450,20 +34588,6 @@
       "date": "18.08.1910",
       "place": "Chodau (Chodov, CZ)",
       "year": 1910
-    }
-  },
-  "F525127": {
-    "id": "F525127",
-    "husband": "I566814",
-    "wife": "I575587",
-    "children": [
-      "I575588"
-    ],
-    "marriage": {
-      "present": true,
-      "date": null,
-      "place": null,
-      "year": null
     }
   },
   "F525289": {
@@ -34693,6 +34817,18 @@
       "date": "16.07.1906",
       "place": "Dotterwies (Tatrovice, CZ)",
       "year": 1906
+    }
+  },
+  "F525935": {
+    "id": "F525935",
+    "husband": "I511632",
+    "wife": "I574101",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": "27.11.1926",
+      "place": "Dotterwies (Tatrovice, CZ)",
+      "year": 1926
     }
   },
   "F525944": {
@@ -36490,6 +36626,21 @@
     ],
     "marriage": {
       "present": false,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526392": {
+    "id": "F526392",
+    "husband": "I504515",
+    "wife": "I579362",
+    "children": [
+      "I579363",
+      "I579364"
+    ],
+    "marriage": {
+      "present": true,
       "date": null,
       "place": null,
       "year": null

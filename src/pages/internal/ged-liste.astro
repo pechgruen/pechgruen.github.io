@@ -321,7 +321,6 @@ export const chronik = {
 
     async function load() {
       const sn = qsGet("sn");
-      const az = qsGet("az"); // for back context in detail view
       const sortMode = qsGet("sort") || "az";
 
       const list = $("list");
@@ -363,10 +362,7 @@ export const chronik = {
       for (const p of persons) {
         const id = p.id;
 
-        const href =
-          `/internal/ged-person?id=${encodeURIComponent(id)}` +
-          `&sn=${encodeURIComponent(sn)}` +
-          `&az=${encodeURIComponent(az || "")}`;
+        const href = `/internal/ged-person?id=${encodeURIComponent(id)}`;
 
         const born = showBorn(p);
         const died = showDied(p);

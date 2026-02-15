@@ -30,7 +30,9 @@ export const chronik = {
     </div>
 
     <div class="navhint muted">
-      Tipp: Klick auf einen Namen führt zur jeweiligen Person.
+      Tipp: Klick auf einen Namen unten führt zur jeweiligen Person. Klick auf
+      den Namen ganz oben führt zur Liste aller Personen mit diesem
+      Familiennamen.
     </div>
 
     <hr class="sep section-sep" />
@@ -230,6 +232,11 @@ export const chronik = {
       text-decoration: none !important;
     }
 
+    /* Optional: tiny hover feedback for the clickable head (no underline, just subtle) */
+    .ged-page a.headSurnameLink:hover {
+      opacity: 0.75;
+    }
+
     /* Bullets */
     .ged-page ul.bullets {
       list-style: none !important;
@@ -278,11 +285,11 @@ export const chronik = {
     /* Optische Luft vor der Linie: erzeugt Abstand nach oben, ohne Content-Margins anzufassen */
     .ged-page hr.section-sep {
       display: block;
-      padding-top: 0.25rem;   /* mehr Luft oberhalb */
-      margin-top: 1.3rem;    /* bleibt wie bisher */
-      margin-bottom: 0.50rem; /* bleibt wie bisher */
+      padding-top: 0.25rem; /* mehr Luft oberhalb */
+      margin-top: 1.3rem; /* bleibt wie bisher */
+      margin-bottom: 0.5rem; /* bleibt wie bisher */
       border: none;
-      border-top: 1px solid rgba(0,0,0,0.18);
+      border-top: 1px solid rgba(0, 0, 0, 0.18);
     }
 
     @media (max-width: 900px) {
@@ -376,23 +383,68 @@ export const chronik = {
       return `${display} "${nick}"`.trim();
     }
 
-    function linkToPerson(pid, sn, az) {
-      return `/internal/ged-person?id=${encodeURIComponent(pid)}&sn=${encodeURIComponent(sn || "")}&az=${encodeURIComponent(az || "")}`;
+    // Canonical person link: ID only
+    function linkToPerson(pid) {
+      return `/internal/ged-person?id=${encodeURIComponent(pid)}`;
     }
 
-    function personLinkHtml(
-      people,
-      pid,
-      sn,
-      az,
-      { useShortPlace = true } = {}
-    ) {
+    // Surname-list navigation uses the same AZ logic as ged-namen.astro
+    const LETTERS = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "…",
+    ];
+
+    function surnameDisplay(sn) {
+      if (!sn || sn === "(UNKNOWN)") return "…";
+      return sn;
+    }
+
+    function firstLetterFromSurname(sn) {
+      const disp = surnameDisplay(sn);
+      const ch = (disp[0] || "…").toUpperCase();
+      if (LETTERS.includes(ch)) return ch;
+      return "…";
+    }
+
+    function linkToSurnameList(sn) {
+      const az = firstLetterFromSurname(sn);
+      return `/internal/ged-liste?sn=${encodeURIComponent(
+        sn
+      )}&az=${encodeURIComponent(az)}`;
+    }
+
+    function personLinkHtml(people, pid, { useShortPlace = true } = {}) {
       if (!pid) return `<span class="muted">unbekannt</span>`;
       const p = people[pid];
       if (!p)
         return `<span class="muted">${pid} (außerhalb des Subsets)</span>`;
 
-      const href = linkToPerson(pid, sn, az);
+      const href = linkToPerson(pid);
       const life = fmtLifeInline(p, { useShortPlace });
 
       // IMPORTANT TYPOGRAPHY:
@@ -405,7 +457,9 @@ export const chronik = {
         : "";
 
       const house = String(p?.houseName || "").trim();
-      const houseHtml = house ? ` <span class="metaText">(${house})</span>` : "";
+      const houseHtml = house
+        ? ` <span class="metaText">(${house})</span>`
+        : "";
 
       return `
         <a class="plink" href="${href}">
@@ -467,11 +521,21 @@ export const chronik = {
       `.trim();
     }
 
+    function buildPersonIdToSurname(surnameToPersons) {
+      const map = Object.create(null);
+      if (!surnameToPersons) return map;
+
+      for (const [sn, ids] of Object.entries(surnameToPersons)) {
+        if (!Array.isArray(ids)) continue;
+        for (const pid of ids) {
+          if (pid) map[pid] = sn;
+        }
+      }
+      return map;
+    }
+
     async function load() {
       const id = qsGet("id");
-      const sn = qsGet("sn");
-      const az = qsGet("az");
-
       let noUnionsShown = false;
 
       try {
@@ -487,10 +551,13 @@ export const chronik = {
           return;
         }
 
-        const [people, families] = await Promise.all([
+        const [people, families, surnameToPersons] = await Promise.all([
           fetch(`${DATA_BASE}/people.json`).then((r) => r.json()),
           fetch(`${DATA_BASE}/families.json`).then((r) => r.json()),
+          fetch(`${DATA_BASE}/surnameToPersons.json`).then((r) => r.json()),
         ]);
+
+        const personIdToSurname = buildPersonIdToSurname(surnameToPersons);
 
         const p = people[id];
         if (!p) {
@@ -505,26 +572,52 @@ export const chronik = {
 
         /* ---------------- Person Head ---------------- */
 
+        // Build the display name text (same rule as before)
         const nick = (p.nickname || "").trim();
+        let headNameText = "";
 
         if (nick) {
           const given = (p.name?.given || "").trim();
           const display = String(p.name?.display || "").trim();
 
           if (given && display.startsWith(given + " ")) {
-            personNameEl.textContent = `${given} "${nick}"${display.slice(given.length)}`;
+            headNameText = `${given} "${nick}"${display.slice(given.length)}`;
           } else {
-            personNameEl.textContent = `${display} "${nick}"`.trim();
+            headNameText = `${display} "${nick}"`.trim();
           }
         } else {
-          personNameEl.textContent = p.name.display;
+          headNameText = String(p.name?.display || "").trim();
         }
 
-        if (p?.name?.legitimized) {
-          const leg = document.createElement("span");
-          leg.className = "legInline";
-          leg.textContent = " (leg.)";
-          personNameEl.appendChild(leg);
+        // Determine surname via the same index used by ged-namen.astro / ged-liste.astro
+        const snKey = String(personIdToSurname[id] || "").trim();
+
+        // Render clickable head: whole name leads to surname list (if possible)
+        personNameEl.textContent = "";
+
+        if (snKey && snKey !== "(UNKNOWN)") {
+          const a = document.createElement("a");
+          a.className = "plink headSurnameLink";
+          a.href = linkToSurnameList(snKey);
+          a.textContent = headNameText;
+          personNameEl.appendChild(a);
+
+          if (p?.name?.legitimized) {
+            const leg = document.createElement("span");
+            leg.className = "legInline";
+            leg.textContent = " (leg.)";
+            a.appendChild(leg);
+          }
+        } else {
+          // Fallback: no known surname key -> non-clickable
+          personNameEl.textContent = headNameText;
+
+          if (p?.name?.legitimized) {
+            const leg = document.createElement("span");
+            leg.className = "legInline";
+            leg.textContent = " (leg.)";
+            personNameEl.appendChild(leg);
+          }
         }
 
         const bLine = fmtEvent("*", p.birth, { useShortPlace: false });
@@ -630,7 +723,7 @@ export const chronik = {
               }
 
               const partnerLine = partnerInSet
-                ? `<div class="kv">${personLinkHtml(people, partnerId, sn, az, { useShortPlace: true })}</div>`
+                ? `<div class="kv">${personLinkHtml(people, partnerId, { useShortPlace: true })}</div>`
                 : ``;
 
               const marriageLine = marriageLineHtml(f, {
@@ -645,7 +738,7 @@ export const chronik = {
                     ${kidsInSet
                       .map(
                         (cid) =>
-                          `<li>${personLinkHtml(people, cid, sn, az, { useShortPlace: true })}</li>`
+                          `<li>${personLinkHtml(people, cid, { useShortPlace: true })}</li>`
                       )
                       .join("")}
                   </ul>
@@ -694,11 +787,11 @@ export const chronik = {
         const motherInSet = Boolean(motherId && people[motherId]);
 
         const fatherHtml = fatherInSet
-          ? personLinkHtml(people, fatherId, sn, az, { useShortPlace: true })
+          ? personLinkHtml(people, fatherId, { useShortPlace: true })
           : `<span class="muted">—</span>`;
 
         const motherHtml = motherInSet
-          ? personLinkHtml(people, motherId, sn, az, { useShortPlace: true })
+          ? personLinkHtml(people, motherId, { useShortPlace: true })
           : `<span class="muted">—</span>`;
 
         // Show parents' marriage ONLY if at least one parent is actually visible in the subset.
@@ -717,7 +810,7 @@ export const chronik = {
               ${sibInSet
                 .map(
                   (sid) =>
-                    `<li>${personLinkHtml(people, sid, sn, az, { useShortPlace: true })}</li>`
+                    `<li>${personLinkHtml(people, sid, { useShortPlace: true })}</li>`
                 )
                 .join("")}
             </ul>
@@ -755,7 +848,6 @@ export const chronik = {
         // - keine Eltern (im Subset sichtbar)
         // - oder Partnerblock ist komplett leer (Placeholder-Fall)
         showScopeHint = noParentsShown || noUnionsShown;
-
       } finally {
         renderScopeHint();
       }
