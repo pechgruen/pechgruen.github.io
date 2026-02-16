@@ -8633,6 +8633,7 @@
     "husband": "I503432",
     "wife": "I503433",
     "children": [
+      "I579368",
       "I504077",
       "I504305",
       "I579360"
@@ -11531,10 +11532,10 @@
       "I560641"
     ],
     "marriage": {
-      "present": false,
-      "date": null,
-      "place": null,
-      "year": null
+      "present": true,
+      "date": "06.06.1911",
+      "place": "Schwarzenbach #66 (Černava, CZ)",
+      "year": 1911
     }
   },
   "F501439": {
@@ -26085,8 +26086,8 @@
     "husband": "I536113",
     "wife": "I536114",
     "children": [
-      "I504977",
-      "I536117"
+      "I536117",
+      "I504977"
     ],
     "marriage": {
       "present": true,
@@ -36639,6 +36640,18 @@
       "I579363",
       "I579364"
     ],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
+  "F526394": {
+    "id": "F526394",
+    "husband": "I504077",
+    "wife": "I579367",
+    "children": [],
     "marriage": {
       "present": true,
       "date": null,

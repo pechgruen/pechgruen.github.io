@@ -48485,7 +48485,7 @@
       "year": 1944,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Schusterlehre",
     "famc": [
       "F501232"
     ],
@@ -60168,10 +60168,10 @@
     "id": "I504045",
     "name": {
       "given": "Josef",
-      "surname": "Gebhart",
-      "display": "Josef Gebhart",
+      "surname": "Gebhardt",
+      "display": "Josef Gebhardt",
       "legitimized": false,
-      "surnameRaw": "Gebhart"
+      "surnameRaw": "Gebhardt"
     },
     "sex": "M",
     "birth": {
@@ -60197,10 +60197,10 @@
     "id": "I504046",
     "name": {
       "given": "Roland",
-      "surname": "Gebhart",
-      "display": "Roland Gebhart",
+      "surname": "Gebhardt",
+      "display": "Roland Gebhardt",
       "legitimized": false,
-      "surnameRaw": "Gebhart"
+      "surnameRaw": "Gebhardt"
     },
     "sex": "M",
     "birth": {
@@ -60479,7 +60479,7 @@
       "year": 1966,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Hausbesitzerin Pechgrün Nr. 53, Besitzerin Tabaktrafik",
     "famc": [
       "F501329"
     ],
@@ -61007,7 +61007,9 @@
     "famc": [
       "F501197"
     ],
-    "fams": [],
+    "fams": [
+      "F526394"
+    ],
     "nickname": "Rudi",
     "houseName": null
   },
@@ -73950,7 +73952,7 @@
       "year": 1941,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Nebenerwerbsbauer",
     "famc": [
       "F501622"
     ],
@@ -76242,7 +76244,7 @@
     "fams": [
       "F501717"
     ],
-    "nickname": "Bejchana Knüppl",
+    "nickname": "Bejchana Knübbl",
     "houseName": "Kla(r)las"
   },
   "I504813": {
@@ -77077,7 +77079,7 @@
     ],
     "fams": [],
     "nickname": "Pepperla",
-    "houseName": null
+    "houseName": "Gebhardt"
   },
   "I504845": {
     "id": "I504845",
@@ -130587,7 +130589,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Kapellmeister der Sommerschen Blaskapelle",
     "famc": [
       "F501491"
     ],
@@ -132400,7 +132402,7 @@
       "year": null,
       "known": true
     },
-    "occupation": "Geigenlehrer",
+    "occupation": "Geigenlehrer, Hausmeister",
     "famc": [
       "F501616"
     ],
@@ -139541,7 +139543,7 @@
     "fams": [
       "F519808"
     ],
-    "nickname": null,
+    "nickname": "Ferdl",
     "houseName": "Kla(r)las"
   },
   "I559426": {
@@ -158594,7 +158596,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Musiker",
     "famc": [
       "F501432"
     ],
@@ -158652,7 +158654,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Besitzer des Alten Hotels in Chodau, vorher Wirt und Fleischer in Köstldorf",
     "famc": [
       "F501578"
     ],
@@ -158711,7 +158713,7 @@
     },
     "death": {
       "date": "16.07.1942",
-      "place": "Kopanka - východní fronta",
+      "place": "Stalingrad, Russland",
       "year": 1942,
       "known": true
     },
@@ -161228,6 +161230,64 @@
     "occupation": null,
     "famc": [
       "F526392"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579367": {
+    "id": "I579367",
+    "name": {
+      "given": "Fanny",
+      "surname": "... m. Bauer",
+      "display": "Fanny ... m. Bauer",
+      "legitimized": false,
+      "surnameRaw": "... m. Bauer"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "ca. 1948",
+      "place": null,
+      "year": 1948
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": false
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526394"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579368": {
+    "id": "I579368",
+    "name": {
+      "given": "Augusta",
+      "surname": "Lorenz",
+      "display": "Augusta Lorenz",
+      "legitimized": false,
+      "surnameRaw": "Lorenz"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "19.12.1932",
+      "place": "Kofel (Kobelec, CZ)",
+      "year": 1932
+    },
+    "death": {
+      "date": "15.04.1934",
+      "place": "Kofel (Kobelec, CZ)",
+      "year": 1934,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501197"
     ],
     "fams": [],
     "nickname": null,

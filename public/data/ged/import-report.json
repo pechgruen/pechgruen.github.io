@@ -2,21 +2,21 @@
   "inputFile": "/tmp/pechgruen-subset.ged",
   "outputDir": "/Users/ufdto/Documents/pechgruen/pechgruen-website/public/data/ged",
   "counts": {
-    "individuals": 5374,
-    "families": 2331
+    "individuals": 5376,
+    "families": 2332
   },
   "ignoredTagsTop": {
-    "RIN": 7705,
-    "_UID": 7705,
+    "RIN": 7708,
+    "_UID": 7708,
     "AGE": 2479,
     "SOUR": 1483,
     "QUAY": 1483,
     "DATA": 1483,
     "TEXT": 1483,
     "PAGE": 1107,
-    "_UPD": 1090,
+    "_UPD": 1095,
     "_MARNM": 562,
-    "NOTE": 525,
+    "NOTE": 527,
     "CONC": 365,
     "EVEN": 218,
     "DATE": 203,
