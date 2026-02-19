@@ -5406,13 +5406,14 @@
     "husband": "I501910",
     "wife": "I501911",
     "children": [
+      "I579382",
       "I501879"
     ],
     "marriage": {
-      "present": false,
-      "date": null,
-      "place": null,
-      "year": null
+      "present": true,
+      "date": "11.02.1850",
+      "place": "Pechgrün #22 (Smolnice, CZ)",
+      "year": 1850
     }
   },
   "F500618": {
@@ -7973,7 +7974,7 @@
   },
   "F501149": {
     "id": "F501149",
-    "husband": null,
+    "husband": "I579381",
     "wife": "I503296",
     "children": [
       "I503297"
@@ -13660,18 +13661,6 @@
       "date": "29.05.1891",
       "place": "Chodau (Chodov, CZ)",
       "year": 1891
-    }
-  },
-  "F501608": {
-    "id": "F501608",
-    "husband": "I504542",
-    "wife": "I504543",
-    "children": [],
-    "marriage": {
-      "present": true,
-      "date": null,
-      "place": null,
-      "year": null
     }
   },
   "F501609": {
@@ -36001,7 +35990,7 @@
   },
   "F526340": {
     "id": "F526340",
-    "husband": null,
+    "husband": "I504542",
     "wife": "I501557",
     "children": [
       "I574602"

@@ -513,10 +513,109 @@ export const chronik = {
       return map[n] || `${n}.`;
     }
 
-    function unionsPlaceholderHtml() {
+    function unionsPlaceholderHtml(person) {
+      // Vorname ermitteln (robust, ohne viel Magie)
+      function firstName(p) {
+        const given = String(p?.name?.given || "").trim();
+        if (given) return given.split(/\s+/)[0]; // nur erster Vorname
+
+        const disp = String(p?.name?.display || "").trim();
+        if (disp) return disp.split(/\s+/)[0]; // Fallback: erstes Wort aus Display
+
+        return "Die Person";
+      }
+
+      function extractYear(dateStr) {
+        if (!dateStr) return null;
+        const m = String(dateStr).match(/(\d{4})/);
+        return m ? Number(m[1]) : null;
+      }
+
+      function ageAtDeathYears(p) {
+        const by = extractYear(p?.birth?.date);
+        const dy = extractYear(p?.death?.date);
+        if (!by || !dy) return null;
+        return dy - by;
+      }
+
+      function parseDateFlexible(s) {
+        if (!s) return null;
+        const str = String(s).trim();
+
+        // ISO: YYYY-MM-DD oder YYYY-MM oder YYYY
+        const iso = str.match(/^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?/);
+        if (iso) {
+          const y = Number(iso[1]);
+          const m = iso[2] ? Number(iso[2]) : 1;
+          const d = iso[3] ? Number(iso[3]) : 1;
+          const dt = new Date(Date.UTC(y, m - 1, d));
+          return Number.isNaN(dt.getTime()) ? null : dt;
+        }
+
+        // dd.mm.yyyy
+        const de = str.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+        if (de) {
+          const d = Number(de[1]);
+          const m = Number(de[2]);
+          const y = Number(de[3]);
+          const dt = new Date(Date.UTC(y, m - 1, d));
+          return Number.isNaN(dt.getTime()) ? null : dt;
+        }
+
+        // sonst: nur Jahr irgendwo
+        const y = parseYear(str);
+        if (y != null) {
+          const dt = new Date(Date.UTC(y, 0, 1));
+          return Number.isNaN(dt.getTime()) ? null : dt;
+        }
+
+        return null;
+      }
+
+      function childhoodCategory(p) {
+        if (!p || !isDead(p)) return null;
+
+        const bd = parseDateFlexible(p?.birth?.date);
+        const dd = parseDateFlexible(p?.death?.date);
+
+        // Wenn wir echte Daten haben: Tag-Differenz nutzen (nur intern!)
+        if (bd && dd) {
+          const days = Math.floor((dd.getTime() - bd.getTime()) / 86400000);
+          if (days < 0) return null;
+
+          if (days <= 28) return "kurz nach der Geburt";
+          if (days < 365) return "im Säuglingsalter";
+          if (days < 6 * 365) return "im frühen Kindesalter";
+          if (days < 14 * 365) return "im Kindesalter";
+          if (days < 18 * 365) return "in jugendlichem Alter";
+          return null;
+        }
+
+        // Fallback: nur Jahreslogik (grob)
+        const by = parseYear(p?.birth?.date);
+        const dy = parseYear(p?.death?.date);
+        if (by == null || dy == null) return null;
+
+        const ageY = dy - by;
+        if (ageY < 0) return null;
+
+        if (ageY === 0) return "im Säuglingsalter";      // Jahrgleich => wahrscheinlich < 1 Jahr
+        if (ageY < 6) return "im frühen Kindesalter";
+        if (ageY < 14) return "im Kindesalter";
+        if (ageY < 18) return "in jugendlichem Alter";
+        return null;
+      }
+
+      const category = childhoodCategory(person);
+      const fn = firstName(person);
+
+      const message = category
+        ? `${fn} verstarb ${category}.`
+        : "Keine Angaben zu Partnern oder Kindern vorhanden.";
+
       return `
         <h3>Partner</h3>
-        <div class="placeholder">Keine Angaben zu Partnern oder Kindern vorhanden.</div>
+        <div class="placeholder">${message}</div>
         <hr class="sep section-sep union-sep" />
       `.trim();
     }
@@ -647,7 +746,7 @@ export const chronik = {
           .filter(Boolean);
 
         if (!rawFams.length) {
-          $("unionsBody").innerHTML = unionsPlaceholderHtml();
+          $("unionsBody").innerHTML = unionsPlaceholderHtml(p);
           noUnionsShown = true;
         } else {
           const decorated = rawFams.map((f, idx) => {
@@ -765,7 +864,7 @@ export const chronik = {
             .join("");
 
           if (!anyUnionRendered) {
-            $("unionsBody").innerHTML = unionsPlaceholderHtml();
+            $("unionsBody").innerHTML = unionsPlaceholderHtml(p);
             noUnionsShown = true;
           } else {
             $("unionsBody").innerHTML = unionsHtml.trim();

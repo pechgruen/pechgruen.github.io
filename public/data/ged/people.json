@@ -1456,7 +1456,7 @@
       "year": 1991,
       "known": true
     },
-    "occupation": null,
+    "occupation": "umgeschulter Eisendreher in einer Panzerschmiede in Brandenburg",
     "famc": [
       "F500015"
     ],
@@ -21101,7 +21101,7 @@
       "year": 1907,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Wirt in der Gaststätte Zum Bohrturm in Pechgrün",
     "famc": [
       "F500501"
     ],
@@ -21110,7 +21110,7 @@
       "F500619"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bårtl"
   },
   "I501513": {
     "id": "I501513",
@@ -21356,7 +21356,7 @@
       "F500522"
     ],
     "nickname": "Mare",
-    "houseName": "Stiafl"
+    "houseName": "Werdl, Stiafl"
   },
   "I501521": {
     "id": "I501521",
@@ -21389,7 +21389,7 @@
       "F500520"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Werdl"
   },
   "I501522": {
     "id": "I501522",
@@ -21420,7 +21420,7 @@
       "F500546"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Werdl"
   },
   "I501523": {
     "id": "I501523",
@@ -21449,7 +21449,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Werdl"
   },
   "I501524": {
     "id": "I501524",
@@ -21509,7 +21509,7 @@
       "F500780"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Werdl"
   },
   "I501526": {
     "id": "I501526",
@@ -26230,8 +26230,8 @@
     "fams": [
       "F500574"
     ],
-    "nickname": "Hiacha Frånz",
-    "houseName": null
+    "nickname": "Frånz",
+    "houseName": "Hiacha"
   },
   "I501737": {
     "id": "I501737",
@@ -26570,7 +26570,7 @@
     "fams": [
       "F500582"
     ],
-    "nickname": null,
+    "nickname": "Luis",
     "houseName": null
   },
   "I501757": {
@@ -32673,7 +32673,7 @@
       "year": 1991,
       "known": true
     },
-    "occupation": "Porzellandreher",
+    "occupation": "Porzellandreher, umgeschulter Eisendreher in einer Panzerschmiede in Brandenburg",
     "famc": [
       "F500015"
     ],
@@ -32995,9 +32995,9 @@
   "I502873": {
     "id": "I502873",
     "name": {
-      "given": "\"Franz\" Xaver",
+      "given": "Franz Xaver",
       "surname": "Lorenz",
-      "display": "\"Franz\" Xaver Lorenz",
+      "display": "Franz Xaver Lorenz",
       "legitimized": false,
       "surnameRaw": "Lorenz"
     },
@@ -33020,7 +33020,7 @@
     "fams": [
       "F500992"
     ],
-    "nickname": null,
+    "nickname": "ålt Hiacha",
     "houseName": "Hiacha"
   },
   "I502874": {
@@ -36989,7 +36989,7 @@
       "year": 1975,
       "known": true
     },
-    "occupation": null,
+    "occupation": "kaufmännischer Angestellter bei der Baufirma Reichmann in Chodau",
     "famc": [
       "F526356"
     ],
@@ -38806,10 +38806,10 @@
     "id": "I503131",
     "name": {
       "given": "Herbert",
-      "surname": "Bílek",
-      "display": "Herbert Bílek",
+      "surname": "Bilek",
+      "display": "Herbert Bilek",
       "legitimized": false,
-      "surnameRaw": "Bílek"
+      "surnameRaw": "Bilek"
     },
     "sex": "M",
     "birth": {
@@ -40171,7 +40171,7 @@
       "year": 1980,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Wirt in der Gaststätte Zum Bohrturm in Pechgrün",
     "famc": [
       "F500580"
     ],
@@ -42197,7 +42197,7 @@
     "fams": [
       "F501115"
     ],
-    "nickname": "Emilla",
+    "nickname": "Em(ü)lla",
     "houseName": null
   },
   "I503264": {
@@ -43979,7 +43979,7 @@
       "year": 1955,
       "known": true
     },
-    "occupation": "Schneidemeisterr",
+    "occupation": "Schneidermeister",
     "famc": [
       "F501166"
     ],
@@ -44988,7 +44988,7 @@
       "year": 1943,
       "known": true
     },
-    "occupation": null,
+    "occupation": "besuchte er die Handelsakademie in Karlsbad und studierte nach der   Matura an den Universitäten Prag und Königsberg Handelswissenschaften.",
     "famc": [
       "F501178"
     ],
@@ -48394,7 +48394,7 @@
       "year": 1933,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bauer",
     "famc": [
       "F500553"
     ],
@@ -48970,7 +48970,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bårtl"
   },
   "I503555": {
     "id": "I503555",
@@ -49001,7 +49001,7 @@
       "F501473"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bårtl"
   },
   "I503556": {
     "id": "I503556",
@@ -49454,7 +49454,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I503574": {
     "id": "I503574",
@@ -53947,7 +53947,7 @@
       "year": 1950,
       "known": true
     },
-    "occupation": null,
+    "occupation": "leitender Angestellter bei der Osmose in Poschetzau",
     "famc": [
       "F500992"
     ],
@@ -53984,7 +53984,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Hiacha"
   },
   "I503784": {
     "id": "I503784",
@@ -54013,7 +54013,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Hiacha"
   },
   "I503785": {
     "id": "I503785",
@@ -54073,7 +54073,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Hiacha"
   },
   "I503787": {
     "id": "I503787",
@@ -63354,7 +63354,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I504186": {
     "id": "I504186",
@@ -63383,7 +63383,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I504187": {
     "id": "I504187",
@@ -63412,7 +63412,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I504188": {
     "id": "I504188",
@@ -66765,7 +66765,7 @@
       "year": 1944,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Gärtnerlehrling",
     "famc": [
       "F501237"
     ],
@@ -66823,7 +66823,7 @@
       "year": 1968,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Redakteur bei einer deutschen Zeitung in Budweis",
     "famc": [
       "F501236"
     ],
@@ -70694,9 +70694,9 @@
       "year": 1891
     },
     "death": {
-      "date": "ca. 1918",
-      "place": "vermißt WW !.",
-      "year": 1918,
+      "date": "ca. 1915",
+      "place": "gefallen im ersten Weltkrieg",
+      "year": 1915,
       "known": true
     },
     "occupation": null,
@@ -70704,39 +70704,10 @@
       "F501607"
     ],
     "fams": [
-      "F501608"
+      "F526340"
     ],
     "nickname": null,
-    "houseName": null
-  },
-  "I504543": {
-    "id": "I504543",
-    "name": {
-      "given": "Marie",
-      "surname": "Steidl",
-      "display": "Marie Steidl",
-      "legitimized": false,
-      "surnameRaw": "Steidl"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "14.12.1899",
-      "place": null,
-      "year": 1899
-    },
-    "death": {
-      "date": "15.06.1964",
-      "place": "Darmstadt",
-      "year": 1964,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501608"
-    ],
-    "nickname": null,
-    "houseName": null
+    "houseName": "Tischler"
   },
   "I504544": {
     "id": "I504544",
@@ -70765,7 +70736,7 @@
     ],
     "fams": [],
     "nickname": "Ordensschwester Leonarda",
-    "houseName": null
+    "houseName": "Tischler"
   },
   "I504545": {
     "id": "I504545",
@@ -70857,7 +70828,7 @@
       "F502013"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Tischler"
   },
   "I504548": {
     "id": "I504548",
@@ -70880,13 +70851,13 @@
       "year": 1992,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Schreiner",
     "famc": [
       "F501607"
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Tischler"
   },
   "I504549": {
     "id": "I504549",
@@ -70909,13 +70880,13 @@
       "year": 1989,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Schreiner",
     "famc": [
       "F501607"
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Tischler"
   },
   "I504550": {
     "id": "I504550",
@@ -87108,7 +87079,7 @@
       "F501904"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bårtl"
   },
   "I505286": {
     "id": "I505286",
@@ -132590,7 +132561,7 @@
       "F516474"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I548927": {
     "id": "I548927",
@@ -155797,7 +155768,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bauzeichner",
     "famc": [
       "F526295"
     ],
@@ -159212,7 +159183,7 @@
       "year": 1944,
       "known": true
     },
-    "occupation": "Bäcker",
+    "occupation": "Bäcker in Bäckerei Ulbert in Chodau",
     "famc": [
       "F501178"
     ],
@@ -159338,7 +159309,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Bäuja"
   },
   "I579280": {
     "id": "I579280",
@@ -159423,7 +159394,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bäcker",
     "famc": [
       "F526361"
     ],
@@ -161288,6 +161259,64 @@
     "occupation": null,
     "famc": [
       "F501197"
+    ],
+    "fams": [],
+    "nickname": "Gusterl",
+    "houseName": null
+  },
+  "I579381": {
+    "id": "I579381",
+    "name": {
+      "given": "Isak",
+      "surname": "Maier",
+      "display": "Isak Maier",
+      "legitimized": false,
+      "surnameRaw": "Maier"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "04.07.1842",
+      "place": "Lichtenstadt (Hroznětín, CZ)",
+      "year": 1842
+    },
+    "death": {
+      "date": "27.07.1921",
+      "place": "Fischern (Rybáře, CZ)",
+      "year": 1921,
+      "known": true
+    },
+    "occupation": "Porzellanfabrikant in Poschetzau",
+    "famc": [],
+    "fams": [
+      "F501149"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579382": {
+    "id": "I579382",
+    "name": {
+      "given": "Joseph",
+      "surname": "Lutz",
+      "display": "Joseph Lutz",
+      "legitimized": false,
+      "surnameRaw": "Lutz"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "13.11.1852",
+      "place": "Pechgrün #8 (Smolnice, CZ)",
+      "year": 1852
+    },
+    "death": {
+      "date": "29.03.1853",
+      "place": null,
+      "year": 1853,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F500617"
     ],
     "fams": [],
     "nickname": null,
