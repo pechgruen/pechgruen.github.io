@@ -13,15 +13,14 @@
     "QUAY": 1484,
     "DATA": 1484,
     "TEXT": 1484,
+    "_UPD": 1119,
     "PAGE": 1108,
-    "_UPD": 1101,
     "_MARNM": 562,
-    "NOTE": 532,
+    "NOTE": 534,
     "CONC": 365,
-    "EVEN": 223,
     "DATE": 202,
     "PLAC": 185,
-    "TYPE": 95,
+    "EVEN": 128,
     "BURI": 38,
     "ROLE": 38,
     "CAUS": 35,
@@ -35,7 +34,8 @@
     "DSCR": 3,
     "DIV": 3,
     "NSFX": 2,
-    "EDUC": 2
+    "EDUC": 2,
+    "CTRY": 2
   },
   "warnings": {
     "brokenRefs": 0,

@@ -3551,7 +3551,7 @@
       "year": 1939,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Landwirt",
     "famc": [
       "F500120"
     ],
@@ -7288,9 +7288,9 @@
       "surname": "Fellner",
       "display": "Elisabeth Fellner",
       "legitimized": true,
-      "legBirthSurname": "Kriegelstein",
+      "legBirthSurname": "Krieglstein",
       "legNewSurname": "Fellner",
-      "surnameRaw": "Kriegelstein, leg. Fellner"
+      "surnameRaw": "Krieglstein, leg. Fellner"
     },
     "sex": "F",
     "birth": {
@@ -16830,7 +16830,7 @@
       "F500466"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Möhl"
   },
   "I501349": {
     "id": "I501349",
@@ -30802,8 +30802,8 @@
     },
     "sex": "M",
     "birth": {
-      "date": "01.1881",
-      "place": "Permesgrün #28 (Květnová, CZ)",
+      "date": "10.09.1881",
+      "place": "Pechgrün #28 (Smolnice, CZ)",
       "year": 1881
     },
     "death": {
@@ -31582,10 +31582,10 @@
     "id": "I502128",
     "name": {
       "given": "Franz Anton",
-      "surname": "Pfeifer",
-      "display": "Franz Anton Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Franz Anton Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "M",
     "birth": {
@@ -31676,10 +31676,10 @@
     "id": "I502132",
     "name": {
       "given": "Ottilia",
-      "surname": "Pfeifer",
-      "display": "Ottilia Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Ottilia Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "F",
     "birth": {
@@ -37205,7 +37205,7 @@
       "F525951"
     ],
     "nickname": null,
-    "houseName": "Möhlfrank"
+    "houseName": "Möhl"
   },
   "I503074": {
     "id": "I503074",
@@ -37485,7 +37485,7 @@
       "year": 1993,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Angestellter bei der Schlämmerei „Osmose“ und in einem Tochterbetrieb der Zettlitzer Kaolinwerke in Merkelsgrün",
     "famc": [
       "F501070"
     ],
@@ -37524,7 +37524,7 @@
     ],
     "fams": [
       "F501072",
-      "F501073"
+      "F526402"
     ],
     "nickname": "Frieda",
     "houseName": "Möhl"
@@ -37535,8 +37535,10 @@
       "given": "Walburga",
       "surname": "Wohlrab",
       "display": "Walburga Wohlrab",
-      "legitimized": false,
-      "surnameRaw": "Wohlrab"
+      "legitimized": true,
+      "legBirthSurname": "Frank",
+      "legNewSurname": "Wohlrab",
+      "surnameRaw": "Frank, leg. Wohlrab"
     },
     "sex": "F",
     "birth": {
@@ -37614,7 +37616,7 @@
     },
     "occupation": null,
     "famc": [
-      "F501073"
+      "F526402"
     ],
     "fams": [],
     "nickname": null,
@@ -39036,7 +39038,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": "Möhlfrank"
+    "houseName": "Möhl"
   },
   "I503141": {
     "id": "I503141",
@@ -39065,7 +39067,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": "Möhlfrank"
+    "houseName": "Möhl"
   },
   "I503142": {
     "id": "I503142",
@@ -45135,7 +45137,7 @@
       "year": 1903,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Knecht auf dem Euin Huaf",
     "famc": [
       "F501181"
     ],
@@ -45164,7 +45166,7 @@
       "year": 1938,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Vollerwerbsbauer Euin Huaf",
     "famc": [
       "F501181"
     ],
@@ -57428,10 +57430,10 @@
     "id": "I503919",
     "name": {
       "given": "Josef",
-      "surname": "Pfeifer",
-      "display": "Josef Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Josef Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "M",
     "birth": {
@@ -57459,10 +57461,10 @@
     "id": "I503920",
     "name": {
       "given": "Karl",
-      "surname": "Pfeifer",
-      "display": "Karl Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Karl Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "M",
     "birth": {
@@ -57488,10 +57490,10 @@
     "id": "I503921",
     "name": {
       "given": "Robert",
-      "surname": "Pfeifer",
-      "display": "Robert Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Robert Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "M",
     "birth": {
@@ -57517,10 +57519,10 @@
     "id": "I503922",
     "name": {
       "given": "Robert",
-      "surname": "Pfeifer",
-      "display": "Robert Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Robert Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "M",
     "birth": {
@@ -57546,10 +57548,10 @@
     "id": "I503923",
     "name": {
       "given": "Maria Anna",
-      "surname": "Pfeifer",
-      "display": "Maria Anna Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Maria Anna Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "F",
     "birth": {
@@ -57577,10 +57579,10 @@
     "id": "I503924",
     "name": {
       "given": "Mathilde",
-      "surname": "Pfeifer",
-      "display": "Mathilde Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Mathilde Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "F",
     "birth": {
@@ -57606,10 +57608,10 @@
     "id": "I503925",
     "name": {
       "given": "Berta",
-      "surname": "Pfeifer",
-      "display": "Berta Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Berta Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "F",
     "birth": {
@@ -67890,7 +67892,7 @@
     "sex": "M",
     "birth": {
       "date": "21.07.1906",
-      "place": "Oberthann",
+      "place": "Abertham (Abertamy, CZ)",
       "year": 1906
     },
     "death": {
@@ -78450,7 +78452,7 @@
       "year": 1963,
       "known": true
     },
-    "occupation": "Kaufmännischer Angestellter",
+    "occupation": "Kaufmännischer Angestellter \"aaf da Schåmm\", Schriftführer bei der Gemeinde",
     "famc": [
       "F501554"
     ],
@@ -86084,12 +86086,12 @@
     "id": "I505215",
     "name": {
       "given": "Anna",
-      "surname": "Pfeifer",
-      "display": "Anna Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Anna Pfeiffer",
       "legitimized": true,
       "legBirthSurname": "Heinzl",
-      "legNewSurname": "Pfeifer",
-      "surnameRaw": "Heinzl, leg. Pfeifer"
+      "legNewSurname": "Pfeiffer",
+      "surnameRaw": "Heinzl, leg. Pfeiffer"
     },
     "sex": "F",
     "birth": {
@@ -86121,9 +86123,9 @@
       "surname": "Müller",
       "display": "Barbara Müller",
       "legitimized": true,
-      "legBirthSurname": "Pfeifer",
+      "legBirthSurname": "Pfeiffer",
       "legNewSurname": "Müller",
-      "surnameRaw": "Pfeifer, leg. Müller"
+      "surnameRaw": "Pfeiffer, leg. Müller"
     },
     "sex": "F",
     "birth": {
@@ -86426,9 +86428,9 @@
       "surname": "Pecher",
       "display": "Theresia Pecher",
       "legitimized": true,
-      "legBirthSurname": "Pfeifer",
+      "legBirthSurname": "Pfeiffer",
       "legNewSurname": "Pecher",
-      "surnameRaw": "Pfeifer, leg. Pecher"
+      "surnameRaw": "Pfeiffer, leg. Pecher"
     },
     "sex": "F",
     "birth": {
@@ -95027,10 +95029,10 @@
     "id": "I507539",
     "name": {
       "given": "Franz Anton",
-      "surname": "Kriegelstein",
-      "display": "Franz Anton Kriegelstein",
+      "surname": "Krieglstein",
+      "display": "Franz Anton Krieglstein",
       "legitimized": false,
-      "surnameRaw": "Kriegelstein"
+      "surnameRaw": "Krieglstein"
     },
     "sex": "M",
     "birth": {
@@ -130512,10 +130514,10 @@
     "id": "I548793",
     "name": {
       "given": "Anna Maria",
-      "surname": "Pfeifer",
-      "display": "Anna Maria Pfeifer",
+      "surname": "Pfeiffer",
+      "display": "Anna Maria Pfeiffer",
       "legitimized": false,
-      "surnameRaw": "Pfeifer"
+      "surnameRaw": "Pfeiffer"
     },
     "sex": "F",
     "birth": {

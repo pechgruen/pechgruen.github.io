@@ -175,6 +175,9 @@ async function main() {
   // NEW: capture custom facts/events inside INDI, for Hausname etc.
   let currentCustom = null; // { tag: "EVEN"|"FACT", rawValue, type, data }
 
+  // NEW: helper flag for FAM records (not serialized)
+  let currentFamilyHasMarr = false;
+
   function finalizeCustomForPerson() {
     if (!currentPerson || !currentCustom) return;
 
@@ -201,6 +204,12 @@ async function main() {
       people.set(currentId, currentPerson);
       report.counts.individuals += 1;
     } else if (currentType === "FAM" && currentFamily && currentId) {
+      // Parser-level fix: if one spouse is missing, do not claim "married"
+      if (currentFamily.marriage?.present === true) {
+        if (!currentFamily.husband || !currentFamily.wife) {
+          currentFamily.marriage.present = false;
+        }
+      }
       families.set(currentId, currentFamily);
       report.counts.families += 1;
     }
@@ -211,6 +220,7 @@ async function main() {
     currentEvent = null;
     currentName = null;
     currentCustom = null;
+    currentFamilyHasMarr = false;
   }
 
   const rl = readline.createInterface({
@@ -266,12 +276,17 @@ async function main() {
       } else if (rec.tag === "FAM" && rec.xref) {
         currentType = "FAM";
         currentId = stripXref(rec.xref);
+
+        // NEW: per-family helper flag
+        currentFamilyHasMarr = false;
+
         currentFamily = {
           id: currentId,
           husband: null,
           wife: null,
           children: [],
-          marriage: { present: false, date: null, place: null, year: null },
+          // Per your rule: default to married=true; only flip to false on MYHERITAGE:REL_*
+          marriage: { present: true, date: null, place: null, year: null },
         };
       } else {
         currentType = null;
@@ -458,6 +473,24 @@ async function main() {
         currentEvent = null;
       }
 
+      // NEW: MyHeritage relationship markers
+      // If ANY "MYHERITAGE:REL_*" appears in this family, then marriage.present = false
+      // unless we have an explicit MARR event (which wins).
+      if (rec.level === 1 && rec.tag === "EVEN") {
+        currentEvent = "FAM_EVEN";
+        continue;
+      }
+      if (rec.level === 1 && currentEvent === "FAM_EVEN" && rec.tag !== "EVEN") {
+        currentEvent = null;
+      }
+      if (rec.level === 2 && currentEvent === "FAM_EVEN" && rec.tag === "TYPE") {
+        const t = (rec.value || "").trim();
+        if (/^MYHERITAGE:REL_/i.test(t)) {
+          if (!currentFamilyHasMarr) currentFamily.marriage.present = false;
+        }
+        continue;
+      }
+
       if (rec.level === 1 && rec.tag === "HUSB") {
         currentFamily.husband = stripXref(rec.value);
         currentEvent = null;
@@ -475,6 +508,7 @@ async function main() {
       }
       if (rec.level === 1 && rec.tag === "MARR") {
         currentEvent = "MARR";
+        currentFamilyHasMarr = true; // NEW
         // Treat "MARR Y" (or any MARR tag) as "marriage present", even without DATE/PLAC
         if (currentFamily?.marriage) currentFamily.marriage.present = true;
         continue;
@@ -574,7 +608,6 @@ async function main() {
       nickname: p.nickname || null,
       houseName: p.houseName || null,
     };
-
   }
 
   // Convert families

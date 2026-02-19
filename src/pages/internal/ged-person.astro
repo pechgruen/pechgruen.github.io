@@ -469,10 +469,8 @@ export const chronik = {
     }
 
     function marriageLineHtml(f, { useShortPlace = false } = {}) {
-      const present = Boolean(
-        f?.marriage?.present === true || f?.marriage?.date || f?.marriage?.place
-      );
-      if (!present) return "";
+      // Only show a marriage line if the family is explicitly marked as married
+      if (f?.marriage?.present !== true) return "";
 
       const d = f?.marriage?.date || "?";
       const p = f?.marriage?.place || "";
