@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Little Joe",
+  subtitle:
+    "Eine Erinnerung von Erich Heinzl an die überraschende Geburt seines kleinen Bruders",
+  date: "2026-02-19",
+  bereich: "Texte, Stimmen und Erinnerungen",
+  href: "/little-joe",
+  order: 1,
+};
+
+const sourceShort =
+  "Aus: Pechgrün am Fuße des Erzgebirges – ein verschüttetes Dorf. Geschichte und Erinnerungen, Band 3 (1998), hg. von Anton Strunz und Erich Heinzl.";
+
+---
+
+<BaseLayout title={chronik.title}>
+  <header class="head">
+    <h1>{chronik.title}</h1>
+    <p class="subtitle">{chronik.subtitle}</p>
+
+    <p class="meta">
+      <span class="source">{sourceShort}</span>
+    </p>
+  </header>
+
+  <section class="geschichte">
+    <p>
+      Es war um 5 Uhr in der Früh, als wir Kinder, eine Neunjährige, ein
+      Achtjähriger und eine Sechsjährige, geweckt wurden. Wir mußten unser
+      gemeinsames Schlafgemach, die Küche, verlassen. Dazu ist zu sagen, daß
+      diese Küche eigentlich keine Küche war; sie war Schlafzimmer für drei von
+      vier Kindern. Soweit ich mich erinnern kann, wurde in dieser Küche nie
+      gekocht. Außer drei Betten gab es alles, was eine Küche ausmachte: einen
+      weißgekachelten Herd, eine Kredenz, einen Küchentisch und zwei
+      weißgestrichene Stühle. Es war alles, auch die Bettgestelle waren weiß.
+      Der Herd war mit einem Paravent umstellt, damit dieser nicht als Herd
+      erkannt werden konnte. Hinter dieser spanischen Wand war alles das
+      gelagert, was man nicht sehen sollte oder durfte. Im Backrohr des Herdes
+      waren nichtverbrauchte Pillen, Tropfen und sonstige Medikamente verborgen.
+      Dort fand ich auch eine Großpackung mit Dingen, die man damals nicht mit
+      Namen nennen durfte, worüber aber heutzutage viel gesprochen wird. Wenn
+      das mein Vater gewußt hätte!
+    </p>
+
+    <p>
+      Als wir damals zu so früher Stunde geweckt wurden und das auch noch an
+      einem Sonntag, hatte man uns den Grund für so frühes Aufstehen nicht
+      gesagt. Das Wetter war herrlich, und so gesehen war das frühe Aufstehen
+      ein Gewinn.
+    </p>
+
+    <p>
+      Auf unserem alten „Huulzbiaanbaam“, der zwischen Haus und Bach stand, saß
+      vor seinem Nistkasten ein Star, der vorzeitig aus dem Süden zurückgekehrt
+      war und sang in den sonnigen Morgen. Flügelschlagend warb er um eine
+      Lebensgefährtin.
+    </p>
+
+    <p>
+      Auf der Straße war es noch ruhig; es war ja Sonntag. Da kein Ausflug
+      geplant war und auch kein Fest anstand, was ein so frühes Aufstehen
+      gerechtfertigt hätte, wurde ich neugierig und wollte von Erna wissen, was
+      denn eigentlich los sei. Sie ließ sich nicht ausfragen und äußerte nur:
+      „Dees wiast scho nuu zeitsoot dafåh(r)n.“
+    </p>
+
+    <p>
+      Zwischen 6 und 7 Uhr haben wir es dann auch erfahren. Unser Vater, der
+      Tata, wollte es uns als freudiges Ereignis schmackhaft machen: „Wir hatten
+      ein Geschwister, einen Bruder, bekommen.“ Die bereits vorhandenen vier
+      Kinder empfanden das sogenannte freudige Ereignis gar nicht als so
+      freudig. Wir ließen es unserem Vater auch wissen, daß die vorhandenen vier
+      bereits gereicht hätten, wozu also noch ein fünftes?
+    </p>
+
+    <p>
+      Die Ankunft unseres Bruders am 9. März 1930 bedeutete nur Nachteile für
+      uns. Unsere Zukunft malten wir uns ganz schrecklich aus; dazu kam dieser
+      Nachwuchs für uns Kinder ganz überraschend. Wir wurden weder durch
+      Mitteilungen noch durch Anspielungen auf dieses Ereignis vorbereitet. Bei
+      unserer Mama sah man keine Zeichen einer Schwangerschaft. Sie war zu jener
+      Zeit schon recht beleibt, und daß sie während dieser Schwangerschaft noch
+      dicker wurde, fiel niemandem auf. Die Überraschung war perfekt; wir hatten
+      keine Gelegenheit, uns auf diese Veränderung in der Familie einzustellen.
+      Als wir unseren Bruder das erste Mal sehen durften und der glücklichen
+      Mutter gratulieren sollten, gab es nur lange, verstimmte Gesichter.
+      Freude, nein, Freude empfanden wir nicht.
+    </p>
+
+    <p>
+      Nach und nach gewöhnten wir uns an unseren Bruder Pepp, der nach dem
+      „Våder“, dem Wickn Seffn, Josef getauft wurde; daß er auch noch Ludwig in
+      den Taufschein geschrieben bekam, das begriff ich noch, warum aber
+      Berthold?
+    </p>
+
+    <p>
+      Jetzt, 60 Jahre später, kenne ich den wahren Grund immer noch nicht.
+      Allerdings weiß ich inzwischen, daß mit seiner Geburt zwar kein
+      Gleichstand erreicht wurde, doch die bis dahin herrschende Übermacht der
+      Schwestern war erheblich verringert, auch wenn ich von diesem Zeitpunkt an
+      nicht mehr der „Einzige“ in der Familie war.
+    </p>
+
+    <p class="schluss">Stuttgart, im März 1990</p>
+  </section>
+
+  <figure class="pepperl-photo">
+    <img
+      src="/images/pepperl-fotograf.jpg"
+      alt="Das Peppepperl als Fotograf"
+      loading="lazy"
+    />
+    <figcaption>
+      Josef Heinzel („Pepperl“), der kleine Bruder von Erich Heinzl –
+      fotografiert am Låuch Rång in Pechgrün mit dem Fotoapparat seines Bruders.
+      Im Hintergrund das obere Dorf.
+    </figcaption>
+  </figure>
+</BaseLayout>
+
+<style>
+  /* ===== Kopf ===== */
+  .head {
+    margin-bottom: 1.6rem;
+  }
+  .head h1 {
+    margin: 0 0 0.35rem 0;
+  }
+  .subtitle {
+    margin: 0 0 0.35rem 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.78);
+  }
+
+  .head .meta {
+    padding-top: 0.5rem;
+    margin: 0 0 0.9rem 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .geschichte {
+    margin-top: 2rem;
+    padding-top: 0.01px;
+    margin-bottom: 2rem;
+  }
+
+  .schluss {
+    margin-top: 2rem;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  figure.pepperl-photo {
+    margin: 2.5rem 0 2.4rem 0;
+  }
+
+  figure.pepperl-photo img {
+    display: block;
+    width: 100%;
+    max-width: 500px; /* Begrenzung */
+    height: auto;
+    border-radius: 12px;
+  }
+
+  figure.pepperl-photo figcaption {
+    margin-top: 0.6rem;
+    max-width: 700px;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.62);
+  }
+</style>

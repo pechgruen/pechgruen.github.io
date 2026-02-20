@@ -5,7 +5,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 // damit Titel/Untertitel/Href nicht doppelt gepflegt werden müssen.
 import { chronik as aHooch } from "./a-hooch-aaf-unna-dorf.astro";
 import { chronik as egerlaenderMundart } from "./egerlaendermundart.astro";
+import { chronik as egerlaenderWoerterbuch } from "./egerlaenderwoerterbuch.astro";
 import { chronik as redelbachTeich } from "./redelbach-teich.astro";
+import { chronik as littleJoe } from "./little-joe.astro";
+import { chronik as daDrrrn } from "./da-drrrn.astro";
 
 export const chronik = {
   title: "Übersicht",
@@ -23,7 +26,6 @@ const intro =
 const entries = [
   {
     ...aHooch,
-    author: "Erich Heinzl",
     note: "Ein stark innenperspektivischer Text: ein Feuerwerk an Namen, Hausnamen und persönlichen Zuordnungen – sehr wertvoll als Erinnerungsdokument und Personen-Porträt, für Außenstehende jedoch anspruchsvoll, wenn man die Figuren nicht bereits kennt.",
     tags: ["Personen", "Hausnamen", "Innenperspektive", "anspruchsvoll"],
     suggestion:
@@ -31,27 +33,27 @@ const entries = [
   },
   {
     ...egerlaenderMundart,
-    author: "Dokumentarisches Kurzporträt",
     note: "Eine Stimme aus dem Egerland: Elfriede Šulková spricht in ihrer Mundart. Kein erklärender Text, keine Übersetzung – es geht allein um Klang, Rhythmus und Tonfall.",
     tags: ["Mundart", "Stimme", "Originalton", "Video"],
     suggestion:
       "Am besten mit Ruhe anhören – der Eindruck entsteht weniger über Wörter als über den Klang der Sprache.",
   },
   {
-    title: "Ebbas va dahuim",
-    subtitle: "Egerländer Wörterbuch",
-    href: "/egerlaenderwoerterbuch",
-    author: "Erich Heinzl",
+    ...egerlaenderWoerterbuch,
     note: "Ein aus dem Gedächtnis entstandenes Egerländer Wörterbuch, das nicht erklärt, sondern bewahrt. Die Wörter stehen für sich, oft nur durch kurze Übersetzungen gestützt, und lassen Klang, Eigenheit und Alltagssprache sichtbar werden. Weniger Nachschlagewerk als sprachliches Erinnerungsdokument.",
     tags: ["Wörterbuch", "Mundart", "Sprache", "Erinnerung", "Alltag"],
     suggestion:
       "Zum Stöbern und Wiederentdecken einzelner Wörter – weniger zum systematischen Nachschlagen.",
   },
   {
-    title: "Da Drrrn",
-    subtitle: "Ein Gedicht von Erich Heinzl über das Pepperl, seinen kleinen Bruder",
-    href: "/da-drrrn",
-    author: "Erich Heinzl",
+    ...littleJoe,
+    note: "Eine offene, ehrliche Erinnerung an die unerwartete Geburt eines fünften Kindes. Der Text zeigt, wie sich die anfängliche Ablehnung im Lauf der Zeit in ein anderes Verständnis verwandelt.",
+    tags: ["Familie", "Geschwister", "Kindheit", "Erinnerung", "1930er Jahre"],
+    suggestion:
+      "Besonders eindrucksvoll im Zusammenspiel mit dem Gedicht „Da Drrrn“, das denselben Bruder aus späterer Perspektive zeigt.",
+  },
+  {
+    ...daDrrrn,
     note: "Ein liebevoll und mit leisem Humor geschriebenes Gedicht im Egerländer Dialekt. Zeile für Zeile erzählt es von Kindheit, Geschwisterbeziehung und dem Klang einer Sprache, die heute kaum noch gesprochen wird. Der Text erschließt sich erst im genauen Lesen – und im Hören der Worte.",
     tags: ["Gedicht", "Mundart", "Egerland", "Erinnerung", "Familie"],
     suggestion:
@@ -59,8 +61,7 @@ const entries = [
   },
   {
     ...redelbachTeich,
-    author: "Karl Redelbach",
-    note: "Ein dichter Erinnerungsaufsatz über die Teiche von Pechgrün als Lebens-, Spiel- und Erfahrungsraum. Naturbeobachtung, Dialekt, Fischerei und Schwimmen verbinden sich zu einem lebendigen Bild der Jugendzeit – ruhig erzählt, aber voller Szenen, Namen und Atmosphäre.",
+    note: "Ein dichter Erinnerungsaufsatz von Karl Redelbach über die Teiche von Pechgrün als Lebens-, Spiel- und Erfahrungsraum. Naturbeobachtung, Dialekt, Fischerei und Schwimmen verbinden sich zu einem lebendigen Bild der Jugendzeit – ruhig erzählt, aber voller Szenen, Namen und Atmosphäre.",
     tags: ["Teiche", "Jugend", "Alltag", "Natur", "Schwimmen"],
     suggestion:
       "Gut lesbar auch ohne Vorkenntnisse. Besonders wirkungsvoll, wenn man sich Zeit lässt und die Bilder als Teil des Erzählflusses betrachtet.",
@@ -87,12 +88,6 @@ const entries = [
               </h2>
 
               {e.subtitle ? <p class="sub">{e.subtitle}</p> : null}
-
-              <p class="meta">
-                <span class="author">{e.author}</span>
-                <span class="dot">·</span>
-                <span class="hint">Hinweis</span>
-              </p>
 
               <p class="note">{e.note}</p>
 
@@ -181,27 +176,6 @@ const entries = [
     font-size: 1.02rem;
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.7);
-  }
-
-  .meta {
-    margin: 0 0 0.7rem 0;
-    font-size: 0.9rem;
-    line-height: 1.35;
-    color: rgba(0, 0, 0, 0.6);
-  }
-
-  .author {
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.7);
-  }
-
-  .dot {
-    margin: 0 0.35rem;
-    opacity: 0.6;
-  }
-
-  .hint {
-    color: rgba(0, 0, 0, 0.55);
   }
 
   .note {

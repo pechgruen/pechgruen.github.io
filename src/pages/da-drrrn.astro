@@ -296,11 +296,25 @@ const LINES: Array<
     in gesprochener Form erleben. Denn gerade der Klang der Sprache gehört
     untrennbar zu dem, was dieses Gedicht ausmacht.
   </section>
+
+  <figure class="drrrn-photo">
+    <img
+      src="/images/da-drrrn.jpg"
+      alt="Josef Heinzel mit seinem Fahrrad in Pechgrün auf der Dorfstraße (mittleres Dorf), vor Haus 24."
+      loading="lazy"
+    />
+    <figcaption>
+      Josef Heinzel („Pepperl“, „Da Drrrn“), der kleine Bruder von Erich Heinzl
+      – fotografiert in Pechgrün auf der Dorfstraße (mittleres Dorf), mit seinem
+      neuen Fahrrad vor Haus&nbsp;24. Im Hintergrund: Schleudersteine am
+      Schwarzebach.
+    </figcaption>
+  </figure>
 </BaseLayout>
 
 <script is:inline>
   const data = JSON.parse(
-    document.getElementById("__DRRRN_LINES__")?.textContent || "[]"
+    document.getElementById("__DRRRN_LINES__")?.textContent || "[]",
   );
   const grid = document.getElementById("drrrnGrid");
 
@@ -506,5 +520,25 @@ const LINES: Array<
     margin-top: 2rem;
     padding-top: 0.01px;
     margin-bottom: 2rem;
+  }
+
+  figure.drrrn-photo {
+    margin: 4.0rem 0 2.4rem 0;
+  }
+
+  figure.drrrn-photo img {
+    display: block;
+    width: 100%;
+    max-width: 500px; /* Begrenzung */
+    height: auto;
+    border-radius: 12px;
+  }
+
+  figure.drrrn-photo figcaption {
+    margin-top: 0.6rem;
+    max-width: 700px; /* gleiche Breite wie Bild */
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.62);
   }
 </style>
