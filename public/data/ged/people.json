@@ -24610,7 +24610,7 @@
       "F501059"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Girgn"
   },
   "I501649": {
     "id": "I501649",
@@ -24639,7 +24639,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Girgn"
   },
   "I501650": {
     "id": "I501650",
@@ -32277,7 +32277,7 @@
       "F501466"
     ],
     "nickname": null,
-    "houseName": "Ficker-Bäcka"
+    "houseName": "Ficker"
   },
   "I502315": {
     "id": "I502315",
@@ -36721,7 +36721,7 @@
       "F501062"
     ],
     "nickname": null,
-    "houseName": null
+    "houseName": "Heinisch"
   },
   "I503053": {
     "id": "I503053",
@@ -56675,7 +56675,7 @@
       "year": 1984,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergmann",
     "famc": [
       "F501376"
     ],
@@ -60616,7 +60616,7 @@
       "F526357"
     ],
     "nickname": "Joosa",
-    "houseName": null
+    "houseName": "Schindler"
   },
   "I504064": {
     "id": "I504064",
@@ -60645,7 +60645,7 @@
     ],
     "fams": [],
     "nickname": "Fred",
-    "houseName": null
+    "houseName": "Schindler"
   },
   "I504065": {
     "id": "I504065",
@@ -62903,7 +62903,7 @@
       "year": null,
       "known": false
     },
-    "occupation": null,
+    "occupation": "Mediziner, Professor Dr. an der Uni Marburg",
     "famc": [
       "F501468"
     ],
@@ -62990,7 +62990,7 @@
       "year": null,
       "known": false
     },
-    "occupation": null,
+    "occupation": "Augenarzt und lehrt als Professor Dr. an der Uni Köln, zuvor war er   an der Uni-Augenklinik in Würzburg tätig",
     "famc": [
       "F501468"
     ],
@@ -65059,7 +65059,7 @@
       "year": 1965,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Eisenbahner",
     "famc": [
       "F502043"
     ],
@@ -65098,7 +65098,7 @@
       "F501508"
     ],
     "nickname": "Gisse",
-    "houseName": null
+    "houseName": "Girgn"
   },
   "I504279": {
     "id": "I504279",
@@ -65126,8 +65126,8 @@
       "F501507"
     ],
     "fams": [],
-    "nickname": "Girgn Pepp",
-    "houseName": null
+    "nickname": "Pepp",
+    "houseName": "Girgn"
   },
   "I504280": {
     "id": "I504280",
@@ -65216,7 +65216,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Girgn"
   },
   "I504283": {
     "id": "I504283",
@@ -65245,7 +65245,7 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseName": null
+    "houseName": "Girgn"
   },
   "I504284": {
     "id": "I504284",
@@ -158569,7 +158569,7 @@
       "year": null,
       "known": true
     },
-    "occupation": "Musiker",
+    "occupation": "Musiker, Sologeiger beim Regensburger Stadttheater",
     "famc": [
       "F501432"
     ],
