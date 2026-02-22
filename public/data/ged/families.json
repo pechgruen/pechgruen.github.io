@@ -36448,6 +36448,18 @@
       "year": 1921
     }
   },
+  "F526377": {
+    "id": "F526377",
+    "husband": "I579331",
+    "wife": "I579330",
+    "children": [],
+    "marriage": {
+      "present": true,
+      "date": null,
+      "place": null,
+      "year": null
+    }
+  },
   "F526378": {
     "id": "F526378",
     "husband": "I579334",

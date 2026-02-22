@@ -24720,7 +24720,7 @@
       "year": 1984,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bauer",
     "famc": [
       "F500425"
     ],
@@ -24758,7 +24758,7 @@
     "fams": [
       "F522187"
     ],
-    "nickname": null,
+    "nickname": "Ella",
     "houseName": "Wiezenzn"
   },
   "I501656": {
@@ -24787,7 +24787,7 @@
       "F500425"
     ],
     "fams": [],
-    "nickname": "Ella",
+    "nickname": null,
     "houseName": "Wiezenzn"
   },
   "I501657": {
@@ -39148,7 +39148,7 @@
       "year": 1995,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Drogist",
     "famc": [
       "F500425"
     ],
@@ -75368,7 +75368,7 @@
       "F501694"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Rudi",
     "houseName": "Konnas"
   },
   "I504771": {
@@ -79474,6 +79474,64 @@
     "occupation": null,
     "famc": [
       "F501768"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseName": null
+  },
+  "I504941": {
+    "id": "I504941",
+    "name": {
+      "given": "Marie",
+      "surname": "Zinner",
+      "display": "Marie Zinner",
+      "legitimized": false,
+      "surnameRaw": "Zinner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "22.10.1916",
+      "place": "Braunsdorf (Nová Chodovská, CZ)",
+      "year": 1916
+    },
+    "death": {
+      "date": "07.07.1999",
+      "place": "Mühldorf",
+      "year": 1999,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F501769"
+    ],
+    "nickname": "Mare",
+    "houseName": "Stiafl"
+  },
+  "I504942": {
+    "id": "I504942",
+    "name": {
+      "given": "Ingrid",
+      "surname": "Unger",
+      "display": "Ingrid Unger",
+      "legitimized": false,
+      "surnameRaw": "Unger"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "12.09.1943",
+      "place": "Braunsdorf (Nová Chodovská, CZ)",
+      "year": 1943
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": false
+    },
+    "occupation": null,
+    "famc": [
+      "F501769"
     ],
     "fams": [],
     "nickname": null,
@@ -159984,7 +160042,7 @@
       "year": 1981,
       "known": true
     },
-    "occupation": "Wirtschaftsgehilfe",
+    "occupation": "Wirtschaftsgehilfe, Knecht",
     "famc": [
       "F501813"
     ],
@@ -160495,6 +160553,35 @@
     "nickname": null,
     "houseName": null
   },
+  "I579328": {
+    "id": "I579328",
+    "name": {
+      "given": "Magdalena",
+      "surname": "Böswetter",
+      "display": "Magdalena Böswetter",
+      "legitimized": false,
+      "surnameRaw": "Böswetter"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "18.10.1890",
+      "place": "Voitersreuth (Vojtanov, CZ)",
+      "year": 1890
+    },
+    "death": {
+      "date": "02.11.1955",
+      "place": "Bad König, Odenwald (D)",
+      "year": 1955,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526376"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
   "I579329": {
     "id": "I579329",
     "name": {
@@ -160523,6 +160610,66 @@
     "fams": [
       "F526376"
     ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579330": {
+    "id": "I579330",
+    "name": {
+      "given": "Hilde",
+      "surname": "Sättler",
+      "display": "Hilde Sättler",
+      "legitimized": false,
+      "surnameRaw": "Sättler"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "29.04.1922",
+      "place": "Lehenstein / Eger (Cheb, CZ)",
+      "year": 1922
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526376"
+    ],
+    "fams": [
+      "F526377"
+    ],
+    "nickname": null,
+    "houseName": null
+  },
+  "I579332": {
+    "id": "I579332",
+    "name": {
+      "given": "Heinz",
+      "surname": "Sättler",
+      "display": "Heinz Sättler",
+      "legitimized": false,
+      "surnameRaw": "Sättler"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "10.10.1925",
+      "place": "Horn (Hory, CZ)",
+      "year": 1925
+    },
+    "death": {
+      "date": "18.02.1947",
+      "place": "Suchumi / Kaukasus",
+      "year": 1947,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526376"
+    ],
+    "fams": [],
     "nickname": null,
     "houseName": null
   },
