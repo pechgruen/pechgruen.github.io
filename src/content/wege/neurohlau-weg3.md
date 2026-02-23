@@ -85,11 +85,11 @@ Zwischen dem Weg, der bei »Hanrich Kårls Haus« im Bogen bergwärts führte un
 <figure style="margin: 1.2rem 0 0.8rem;">
   <img
     src="/images/weg-nr-58-93-94.jpg"
-    alt="Häuser Nr.58 der Fam. Ferdinand Bauer, Nr.93 der Fam. Karl Frank und Nr.94 der Fam. Unger"
+    alt="Häuser Nr.58 der Fam. Ferdinand Bauer, Nr. 93 der Fam. Karl Frank und Nr. 94 der Fam. Unger"
     style="display:block; max-width:520px; width:100%; height:auto;"
   >
   <figcaption style="max-width:520px; margin: .4rem 0 0; font-size: .95rem; line-height: 1.35;">
-    Häuser Nr. 58 der Fam. Ferdinand Bauer, Nr.93 der Fam. Karl Frank und Nr.94 der Fam. Unger
+    Häuser Nr. 58 der Fam. Ferdinand Bauer, Nr. 93 der Fam. Karl Frank und Nr. 94 der Fam. Unger
   </figcaption>  
 </figure>
 

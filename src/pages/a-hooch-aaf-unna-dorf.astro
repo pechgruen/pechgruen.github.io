@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import textHtml from "../assets/texte/a-hooch-aaf-unna-dorf.html?raw";
+import houseLinks from "../data/house-links.json";
 
 export const chronik = {
   title: "A Hooch aaf unna Dorf uu d' Pechgräina Leit",
@@ -28,9 +29,9 @@ function linkPersons(rawHtml: string): string {
   // Matches: [[I500020|Name]] or [[?|Name]]
   const re = /\[\[([A-Za-z]\d+|\?)\|([^\]]+?)\]\]/g;
 
-const missingNote =
-  "Nicht im Pechgrün-Stammbaum erfasst.\n" +
-  "Keine familiäre Verbindung zu den Pechgrüner Stammlinien.";
+  const missingNote =
+    "Nicht im Pechgrün-Stammbaum erfasst.\n" +
+    "Keine familiäre Verbindung zu den Pechgrüner Stammlinien.";
 
   return rawHtml.replace(re, (_match, key, label) => {
     const safeLabel = escapeHtml(label);
@@ -45,7 +46,20 @@ const missingNote =
   });
 }
 
-const textHtmlLinked = linkPersons(textHtml);
+function linkHouseNumbers(rawHtml: string): string {
+  const map = houseLinks as Record<string, string>;
+
+  const re = /\b(Haus\s+)?Nr\.\s*(\d{1,3})\b/g;
+
+  return rawHtml.replace(re, (match, _hausPrefix, num) => {
+    const href = map[String(num)];
+    if (!href) return match;
+
+    return `<a href="${href}" class="house-link" target="_blank" rel="noopener">${match}</a>`;
+  });
+}
+
+const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
 ---
 
 <BaseLayout title={chronik.title}>
@@ -56,6 +70,12 @@ const textHtmlLinked = linkPersons(textHtml);
 
       <p class="meta">
         <span class="source">{sourceShort}</span>
+      </p>
+
+      <p class="meta">
+        Hinweis: Namen und Hausnummern im Text sind anklickbar. Sie führen zu
+        weiterführenden Informationen im Stammbaum sowie zu den
+        Wegbeschreibungen, in denen die Häuser näher beschrieben sind.
       </p>
     </header>
 
@@ -85,6 +105,13 @@ const textHtmlLinked = linkPersons(textHtml);
 
   .meta {
     margin: 0 0 0.9rem 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .usage-hint {
+    margin: 0 0 1.4rem 0;
     font-size: 0.95rem;
     line-height: 1.35;
     color: rgba(0, 0, 0, 0.6);
@@ -166,6 +193,19 @@ const textHtmlLinked = linkPersons(textHtml);
 
   :global(.text-ort .text a.person-link:hover),
   :global(.text-ort .text a.person-link:focus-visible) {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  :global(.text-ort .text a.house-link) {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: 500;
+  }
+
+  :global(.text-ort .text a.house-link:hover),
+  :global(.text-ort .text a.house-link:focus-visible) {
     text-decoration: underline !important;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
