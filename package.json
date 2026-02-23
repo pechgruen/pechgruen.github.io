@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "generate:hooch": "node scripts/generate-hooch-mentions.mjs",
+    "build": "npm run generate:hooch && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

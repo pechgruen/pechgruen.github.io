@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import houseLinks from "../../data/house-links.json";
+import memoryLinks from "../../data/memory-links.json";
+import hoochMentions from "../../data/hooch-mentions.json";
 
 export const chronik = {
   title: "Personen- und Familienbericht",
@@ -22,17 +25,21 @@ export const chronik = {
     </header>
 
     <!-- DYNAMIC PERSON HEADER -->
-    <div class="person-head">
-      <div class="personName" id="personName">…</div>
-      <div class="personLines" id="personLines">
-        <div class="line">…</div>
+    <div class="person-head no-photo" id="personHead">
+      <div class="personHeadLeft">
+        <div class="personName" id="personName">…</div>
+        <div class="personLines" id="personLines">
+          <div class="line">…</div>
+        </div>
+      </div>
+
+      <div class="personPhotoWrap" id="personPhotoWrap">
+        <img id="personPhoto" alt="" loading="lazy" decoding="async" />
       </div>
     </div>
 
     <div class="navhint muted">
-      Tipp: Klick auf einen Namen unten führt zur jeweiligen Person. Klick auf
-      den Namen ganz oben führt zur Liste aller Personen mit diesem
-      Familiennamen.
+      Tipp: Einige Einträge im Text sind hervorgehoben und führen beim Anklicken zu weiterführenden Seiten.
     </div>
 
     <hr class="sep section-sep" />
@@ -104,6 +111,42 @@ export const chronik = {
       padding: 0;
       color: rgba(0, 0, 0, 0.81);
       font-size: 1rem;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    /* If no image exists, collapse back to classic single-column layout */
+    .ged-page .person-head.no-photo {
+      display: block;
+    }
+
+    .ged-page .personHeadLeft {
+      min-width: 0;
+    }
+
+    .ged-page .personPhotoWrap {
+      flex: 0 0 auto;
+    }
+
+    /* Standard: Foto darf angezeigt werden */
+    .ged-page .personPhotoWrap {
+      display: block;
+    }
+
+    /* Wenn kein Foto vorhanden: Wrapper ausblenden */
+    .ged-page .person-head.no-photo .personPhotoWrap {
+      display: none;
+    }
+
+    .ged-page #personPhoto {
+      width: 105px;
+      height: 135px;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
     }
 
     .ged-page .legInline {
@@ -215,6 +258,11 @@ export const chronik = {
       color: rgba(0, 0, 0, 0.81);
     }
 
+    /* Generic "this is clickable" helper (for future spans etc.) */
+    .ged-page .clickable {
+      cursor: pointer;
+    }
+
     /* Links: black, no underline */
     .ged-page a.plink,
     .ged-page a.plink:visited,
@@ -234,6 +282,10 @@ export const chronik = {
 
     /* Optional: tiny hover feedback for the clickable head (no underline, just subtle) */
     .ged-page a.headSurnameLink:hover {
+      opacity: 0.75;
+    }
+
+    .ged-page a.plink:hover * {
       opacity: 0.75;
     }
 
@@ -301,9 +353,13 @@ export const chronik = {
     }
   </style>
 
-  <script type="module">
+  <script type="module" define:vars={{ houseLinks, memoryLinks, hoochMentions }}>
     const DATA_BASE = "/data/ged";
     const $ = (id) => document.getElementById(id);
+
+    const HOUSE_LINKS = houseLinks;
+    const MEMORY_LINKS = memoryLinks;
+    const HOOCH_MENTIONS = hoochMentions;
 
     const AUTO_DEAD_AGE = 100;
 
@@ -330,6 +386,52 @@ export const chronik = {
         .filter(Boolean)
         .slice(0, 2)
         .join(", ");
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    /**
+     * Returns HTML for a place string.
+     * If it starts with "Pechgrün" and contains a house number that exists in HOUSE_LINKS,
+     * it will link ONLY the "Pechgrün #NN" part and render it bold (via .pname).
+     * Otherwise returns plain escaped text.
+     */
+    function placeWithHouseLinkHtml(place) {
+      const raw = String(place || "").trim();
+      if (!raw) return "";
+
+      // Must start with Pechgrün + house number
+      // Matches: "Pechgrün #42 (Smolnice, CZ)" or "Pechgrün 42 (Smolnice, CZ)"
+      const m = raw.match(/^Pechgrün\s*(?:#\s*)?(\d{1,3})\b(.*)$/i);
+      if (!m) return escapeHtml(raw);
+
+      const nr = String(m[1]);      // "42"
+      const rest = m[2] || "";      // " (Smolnice, CZ)"
+
+      const href = HOUSE_LINKS[nr];
+      if (!href) return escapeHtml(raw);
+
+      const token = `Pechgrün #${nr}`;
+
+      return `<a class="plink" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span class="pname">${escapeHtml(
+        token
+      )}</span></a>${escapeHtml(rest)}`;
+    }
+
+    function fmtEventHtml(prefix, ev, { useShortPlace = false } = {}) {
+      const d = ev?.date || "?";
+      const p = ev?.place || "";
+      const pp = useShortPlace ? shortPlace(p) : p;
+
+      if (!pp) return `${escapeHtml(prefix)} ${escapeHtml(d)}`;
+      return `${escapeHtml(prefix)} ${escapeHtml(d)} in ${placeWithHouseLinkHtml(pp)}`;
     }
 
     function fmtEvent(prefix, ev, { useShortPlace = false } = {}) {
@@ -635,17 +737,59 @@ export const chronik = {
       const id = qsGet("id");
       let noUnionsShown = false;
 
+      // Photo handling (ROBUST: visibility is controlled ONLY via .no-photo on #personHead)
+      const headEl = $("personHead");
+      const photo = $("personPhoto");
+
+      function hidePhoto() {
+        if (headEl) headEl.classList.add("no-photo");
+      }
+
+      function showPhoto() {
+        if (headEl) headEl.classList.remove("no-photo");
+      }
+
       try {
         const personNameEl = $("personName");
         const personLinesEl = $("personLines");
 
         if (!id) {
+          // No person selected
+          hidePhoto();
+          if (photo) {
+            photo.onerror = null;
+            photo.src = "";
+            photo.alt = "";
+          }
           personNameEl.textContent = "Keine Person gewählt.";
           personLinesEl.innerHTML = "";
           $("unionsBody").innerHTML = ``;
           $("parentsBody").innerHTML = ``;
           showScopeHint = false;
           return;
+        }
+
+        // Setup photo early:
+        // - show by default
+        // - hide only if the image request fails (404 etc.)
+        hidePhoto(); // start hidden to avoid flicker during navigation
+        if (photo) {
+          const cleanId = id.trim();
+          const src = `/images/ged/${encodeURIComponent(cleanId)}.jpg`;
+
+          // Reset handlers from any previous run
+          photo.onerror = null;
+
+          // We want the layout to reserve space only if photo exists.
+          // So: show first, but hide on error.
+          showPhoto();
+          photo.onerror = () => {
+            hidePhoto();
+          };
+
+          photo.src = src;
+          // alt gets set later, once we know the display name
+          photo.alt = "";
         }
 
         const [people, families, surnameToPersons] = await Promise.all([
@@ -658,11 +802,17 @@ export const chronik = {
 
         const p = people[id];
         if (!p) {
+          // Person outside subset → do not show photo even if a file exists
+          hidePhoto();
+          if (photo) {
+            photo.onerror = null;
+            photo.alt = "";
+          }
+
           personNameEl.textContent = `Nicht im Set: ${id}`;
           personLinesEl.innerHTML = `<div class="muted">Diese Person ist im aktuellen Datenbestand nicht enthalten.</div>`;
           $("unionsBody").innerHTML = ``;
           $("parentsBody").innerHTML = ``;
-          // If person is outside the subset, show a scope hint (A is effectively true here)
           showScopeHint = true;
           return;
         }
@@ -684,6 +834,11 @@ export const chronik = {
           }
         } else {
           headNameText = String(p.name?.display || "").trim();
+        }
+
+        // Set a nice alt text once we know the name
+        if (photo) {
+          photo.alt = `Foto: ${headNameText}`;
         }
 
         // Determine surname via the same index used by ged-namen.astro / ged-liste.astro
@@ -717,31 +872,50 @@ export const chronik = {
           }
         }
 
-        const bLine = fmtEvent("*", p.birth, { useShortPlace: false });
+        const bLine = fmtEventHtml("*", p.birth, { useShortPlace: false });
 
         let dLine = "";
         if (isDead(p)) {
           const hasDetails = Boolean(p.death?.date || p.death?.place);
-          dLine = hasDetails
-            ? fmtEvent("†", p.death, { useShortPlace: false })
-            : "† ?";
+          dLine = hasDetails ? fmtEventHtml("†", p.death, { useShortPlace: false }) : "† ?";
         }
 
         const houseLine = p.houseName ? `Hausname: ${p.houseName}` : "";
         const occLine = p.occupation ? `Beruf: ${p.occupation}` : "";
+
+        const memList = Array.isArray(MEMORY_LINKS[id]) ? MEMORY_LINKS[id] : null;
+        const memoryLine = memList && memList.length
+          ? (() => {
+              const linksHtml = memList
+                .filter((x) => x && x.title && x.href)
+                .map(
+                  (x) =>
+                    `<a class="plink" href="${x.href}" target="_blank" rel="noopener noreferrer"><span class="pname">${x.title}</span></a>`
+                )
+                .join(", ");
+              const label = memList.length === 1 ? "Erinnerung" : "Erinnerungen";
+              return linksHtml ? `${label}: ${linksHtml}` : "";
+            })()
+          : "";
+
+        const mentionCount = Number(HOOCH_MENTIONS[id] ?? 0);
+        const mentionsLine =
+          mentionCount > 0
+            ? `Erwähnungen: <a class="plink" href="/texte/a-hooch-aaf-unna-dorf?pid=${encodeURIComponent(id)}" target="_blank" rel="noopener noreferrer"><span class="pname">${mentionCount}</span></a>`
+            : "";
 
         personLinesEl.innerHTML = `
           <div class="line">${bLine}</div>
           ${dLine ? `<div class="line">${dLine}</div>` : ``}
           ${houseLine ? `<div class="line">${houseLine}</div>` : ``}
           ${occLine ? `<div class="line">${occLine}</div>` : ``}
+          ${mentionsLine ? `<div class="line">${mentionsLine}</div>` : ``}
+          ${memoryLine ? `<div class="line">${memoryLine}</div>` : ``}
         `;
 
         /* ---------------- UNIONS ---------------- */
 
-        const rawFams = (p.fams || [])
-          .map((fid) => families[fid])
-          .filter(Boolean);
+        const rawFams = (p.fams || []).map((fid) => families[fid]).filter(Boolean);
 
         if (!rawFams.length) {
           $("unionsBody").innerHTML = unionsPlaceholderHtml(p);
@@ -754,18 +928,12 @@ export const chronik = {
           });
 
           decorated.sort((a, b) => {
-            if (a.marriageY != null && b.marriageY != null)
-              return a.marriageY - b.marriageY;
+            if (a.marriageY != null && b.marriageY != null) return a.marriageY - b.marriageY;
 
-            // WICHTIG: wenn nur einer marriageY hat, NICHT sofort entscheiden,
-            // sondern Kinder als nächstes Kriterium nutzen!
-
-            if (a.kidsMaxY != null && b.kidsMaxY != null)
-              return a.kidsMaxY - b.kidsMaxY;
+            if (a.kidsMaxY != null && b.kidsMaxY != null) return a.kidsMaxY - b.kidsMaxY;
             if (a.kidsMaxY != null) return -1;
             if (b.kidsMaxY != null) return 1;
 
-            // erst danach marriageY als "tiebreaker", falls einer hat
             if (a.marriageY != null) return -1;
             if (b.marriageY != null) return 1;
 
@@ -775,11 +943,7 @@ export const chronik = {
           const fams = decorated.map((x) => x.f);
 
           const isMarriedUnion = (f) =>
-            Boolean(
-              f?.marriage?.present === true ||
-              f?.marriage?.date ||
-              f?.marriage?.place
-            );
+            Boolean(f?.marriage?.present === true || f?.marriage?.date || f?.marriage?.place);
 
           const marriedTotal = fams.filter(isMarriedUnion).length;
           let marriedSeen = 0;
@@ -791,12 +955,8 @@ export const chronik = {
               const partnerId = f.husband === id ? f.wife : f.husband;
               const partnerInSet = Boolean(partnerId && people[partnerId]);
 
-              const kidsInSet = (f.children || []).filter(
-                (cid) => cid && people[cid]
-              );
+              const kidsInSet = (f.children || []).filter((cid) => cid && people[cid]);
 
-              // If partner is outside subset AND no kids in subset, this union adds nothing.
-              // We skip it to avoid noise; if all unions are skipped, we show a placeholder.
               if (!partnerInSet && kidsInSet.length === 0) {
                 return ``;
               }
@@ -810,10 +970,7 @@ export const chronik = {
                 const married = isMarriedUnion(f);
                 if (married) {
                   marriedSeen += 1;
-                  heading =
-                    marriedTotal > 1
-                      ? `${ordinalDE(marriedSeen)} Ehepartner`
-                      : "Ehepartner";
+                  heading = marriedTotal > 1 ? `${ordinalDE(marriedSeen)} Ehepartner` : "Ehepartner";
                 } else {
                   heading = "Partner (nicht verheiratet)";
                 }
@@ -823,9 +980,7 @@ export const chronik = {
                 ? `<div class="kv">${personLinkHtml(people, partnerId, { useShortPlace: true })}</div>`
                 : ``;
 
-              const marriageLine = marriageLineHtml(f, {
-                useShortPlace: false,
-              });
+              const marriageLine = marriageLineHtml(f, { useShortPlace: false });
 
               let kidsBlock = ``;
               if (kidsInSet.length > 0) {
@@ -833,10 +988,7 @@ export const chronik = {
                   <h3>Kinder</h3>
                   <ul class="bullets">
                     ${kidsInSet
-                      .map(
-                        (cid) =>
-                          `<li>${personLinkHtml(people, cid, { useShortPlace: true })}</li>`
-                      )
+                      .map((cid) => `<li>${personLinkHtml(people, cid, { useShortPlace: true })}</li>`)
                       .join("")}
                   </ul>
                 `;
@@ -876,9 +1028,7 @@ export const chronik = {
 
         const fatherId = pf?.husband || null;
         const motherId = pf?.wife || null;
-        const siblingIds = (pf?.children || []).filter(
-          (cid) => cid && cid !== id
-        );
+        const siblingIds = (pf?.children || []).filter((cid) => cid && cid !== id);
 
         const fatherInSet = Boolean(fatherId && people[fatherId]);
         const motherInSet = Boolean(motherId && people[motherId]);
@@ -891,12 +1041,8 @@ export const chronik = {
           ? personLinkHtml(people, motherId, { useShortPlace: true })
           : `<span class="muted">—</span>`;
 
-        // Show parents' marriage ONLY if at least one parent is actually visible in the subset.
-        // Otherwise we would get: Vater: — / Mutter: — / Heirat: ...  (confusing / misleading)
         const parentsMarriageHtml =
-          pf && (fatherInSet || motherInSet)
-            ? marriageLineHtml(pf, { useShortPlace: false })
-            : "";
+          pf && (fatherInSet || motherInSet) ? marriageLineHtml(pf, { useShortPlace: false }) : "";
 
         const sibInSet = (siblingIds || []).filter((sid) => sid && people[sid]);
 
@@ -905,10 +1051,7 @@ export const chronik = {
           const sibHtml = `
             <ul class="bullets">
               ${sibInSet
-                .map(
-                  (sid) =>
-                    `<li>${personLinkHtml(people, sid, { useShortPlace: true })}</li>`
-                )
+                .map((sid) => `<li>${personLinkHtml(people, sid, { useShortPlace: true })}</li>`)
                 .join("")}
             </ul>
           `;
@@ -940,10 +1083,6 @@ export const chronik = {
         /* ---------------- SCOPE HINT TRIGGER (universal text) ---------------- */
 
         const noParentsShown = !fatherInSet && !motherInSet;
-
-        // Hinweis nur noch in diesen Fällen:
-        // - keine Eltern (im Subset sichtbar)
-        // - oder Partnerblock ist komplett leer (Placeholder-Fall)
         showScopeHint = noParentsShown || noUnionsShown;
       } finally {
         renderScopeHint();
