@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export const chronik = {
   title: "Ebbas va dahuim",
   subtitle: "Egerländer Wörterbuch zusammengestellt von Erich Heinzl",
   date: "2026-01-13",
   bereich: "Texte, Stimmen und Erinnerungen",
-  href: "/egerlaenderwoerterbuch",
+  href: "/texte/egerlaenderwoerterbuch",
   order: 1,
 };
 
@@ -48,13 +48,13 @@ type Page = {
 };
 
 // ===== Seitenliste (Vite-konform via glob) =====
-const wbImages = import.meta.glob("../assets/woerterbuch/*.jpg", {
+const wbImages = import.meta.glob("../../assets/woerterbuch/*.jpg", {
   eager: true,
   import: "default",
 }) as Record<string, any>;
 
 const getSrcByFile = (file: string): string => {
-  const key = `../assets/woerterbuch/${file}`;
+  const key = `../../assets/woerterbuch/${file}`;
   const v = wbImages[key];
   return v?.src ?? v ?? "";
 };
