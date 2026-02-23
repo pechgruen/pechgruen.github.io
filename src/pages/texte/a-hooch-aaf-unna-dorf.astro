@@ -80,6 +80,135 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
     </header>
 
     <section class="text" lang="de" set:html={textHtmlLinked} />
+
+    <script is:inline>
+      (function () {
+        const sp = new URLSearchParams(window.location.search);
+        const pid = sp.get("pid");
+        if (!pid) return;
+
+        // Collect candidates. Prefer explicit class, fallback to href prefix.
+        const preferred = document.querySelectorAll("a.person-link");
+        const candidates = preferred.length
+          ? preferred
+          : document.querySelectorAll('a[href^="/internal/ged-person?id="]');
+
+        // Filter hits by id=... param (robust for relative hrefs)
+        const hits = Array.from(candidates).filter((a) => {
+          const href = a.getAttribute("href") || "";
+          try {
+            const u = new URL(href, window.location.href);
+            return u.searchParams.get("id") === pid;
+          } catch {
+            return false;
+          }
+        });
+
+        if (hits.length === 0) return;
+
+        // ---------- UI ----------
+        const bar = document.createElement("div");
+        bar.className = "findbar";
+        bar.innerHTML = `
+          <div class="findbar-inner">
+            <div class="findbar-box">
+              <span class="count">1 / ${hits.length}</span>
+              <button type="button" data-action="prev" aria-label="Previous match">◀</button>
+              <button type="button" data-action="next" aria-label="Next match">▶</button>
+              <button type="button" data-action="close" aria-label="Close">✕</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(bar);
+
+        const countEl = bar.querySelector(".count");
+
+        let idx = 0;
+
+        function setActive(nextIdx, scroll = true) {
+          idx = nextIdx;
+
+          // mark all once
+          // (safe even if called multiple times)
+          hits.forEach((a) => a.classList.add("mention-hit"));
+
+          // switch active
+          hits.forEach((a) => a.classList.remove("mention-active"));
+          const active = hits[idx];
+          active.classList.add("mention-active");
+
+          // update count
+          countEl.textContent = `${idx + 1} / ${hits.length}`;
+
+          if (scroll) {
+            active.scrollIntoView({ behavior: "smooth", block: "center" });
+            // optional focus without jumping
+            // try { active.focus({ preventScroll: true }); } catch {}
+          }
+        }
+
+        function next() {
+          setActive((idx + 1) % hits.length);
+        }
+
+        function prev() {
+          setActive((idx - 1 + hits.length) % hits.length);
+        }
+
+        function cleanup() {
+          // remove UI
+          bar.remove();
+
+          // remove classes
+          hits.forEach((a) => {
+            a.classList.remove("mention-hit");
+            a.classList.remove("mention-active");
+          });
+
+          // remove listeners
+          window.removeEventListener("keydown", onKey);
+          bar.removeEventListener("click", onClick);
+
+          // optional: remove pid from URL (comment out if you want to keep it)
+          // const url = new URL(window.location.href);
+          // url.searchParams.delete("pid");
+          // history.replaceState({}, "", url);
+        }
+
+        function onClick(e) {
+          const btn = e.target.closest("button[data-action]");
+          if (!btn) return;
+          const action = btn.getAttribute("data-action");
+          if (action === "next") next();
+          else if (action === "prev") prev();
+          else if (action === "close") cleanup();
+        }
+
+        function onKey(e) {
+          // Don’t hijack typing in inputs, just in case
+          const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+          if (tag === "input" || tag === "textarea" || tag === "select") return;
+
+          if (e.key === "Escape") {
+            e.preventDefault();
+            cleanup();
+          } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+            e.preventDefault();
+            next();
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            e.preventDefault();
+            prev();
+          }
+        }
+
+        bar.addEventListener("click", onClick);
+        window.addEventListener("keydown", onKey);
+
+        // start
+        setActive(0, true);
+      })();
+    </script>
+
   </article>
 </BaseLayout>
 
@@ -250,5 +379,118 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
     border: 6px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.92);
     z-index: 51;
+  }
+
+  /* ===== Mention find-mode (A Hooch) ===== */
+  :global(.mention-hit) {
+    background: rgba(255, 235, 59, 0.55); /* gelb */
+    border-radius: 4px;
+    padding: 0 2px;
+  }
+
+  :global(.mention-active) {
+    background: rgba(255, 140, 0, 0.55); /* orange */
+    border-radius: 4px;
+    padding: 0 2px;
+  }
+
+  /* Outer: spans viewport */
+  :global(.findbar) {
+    position: fixed;
+    top: calc(32px + 14px);
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+    pointer-events: none;
+  }
+
+  /* Inner: aligns to the same 980px container as header/main */
+  :global(.findbar-inner) {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1.25rem; /* same as .main and .header-inner */
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  /* Box: the actual visible widget */
+  :global(.findbar-box) {
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 10px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    font-size: 0.92rem;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+  }
+
+  /* keep your existing rules – just target box scope */
+  :global(.findbar-box .count) {
+    font-variant-numeric: tabular-nums;
+    min-width: 5.5ch;
+    text-align: center;
+  }
+
+  :global(.findbar-box button) {
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    background: white;
+    color: inherit;
+
+    padding: 6px 9px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    line-height: 1;
+  }
+
+  :global(.findbar-box button:hover) {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  :global(.findbar-box button:active) {
+    transform: translateY(1px);
+  }
+
+  /* ===== PATCH: enforce highlight + remove ugly focus ring ===== */
+
+  /* Make sure background wins against link styles */
+  :global(a.mention-hit),
+  :global(.mention-hit) {
+    background: rgba(255, 235, 59, 0.55) !important;
+    text-decoration: none !important;
+  }
+
+  /* Active: orange + a bit more emphasis */
+  :global(a.mention-active),
+  :global(.mention-active) {
+    background: rgba(255, 140, 0, 0.55) !important;
+    box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.35) !important;
+  }
+
+  /* Kill browser focus outline/box that looks like a frame */
+  :global(a.mention-hit:focus),
+  :global(a.mention-hit:focus-visible),
+  :global(a.mention-active:focus),
+  :global(a.mention-active:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure the findbar is always on top and clickable */
+  :global(.findbar) {
+    z-index: 999999 !important;
+    pointer-events: auto;
   }
 </style>
