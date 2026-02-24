@@ -82,10 +82,18 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
     <section class="text" lang="de" set:html={textHtmlLinked} />
 
     <script is:inline>
-      (function () {
+      (async function () {
         const sp = new URLSearchParams(window.location.search);
+
         const pid = sp.get("pid");
-        if (!pid) return;
+        const hn = sp.get("hn"); // Hausname-Modus
+
+        // Wenn weder pid noch hn → nichts tun
+        if (!pid && !hn) return;
+
+        // Für pid-Modus: Name aus URL lesen (wie bisher)
+        const nameRaw = sp.get("name") || "";
+        const name = nameRaw.trim();
 
         // Collect candidates. Prefer explicit class, fallback to href prefix.
         const preferred = document.querySelectorAll("a.person-link");
@@ -93,29 +101,74 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
           ? preferred
           : document.querySelectorAll('a[href^="/internal/ged-person?id="]');
 
-        // Filter hits by id=... param (robust for relative hrefs)
-        const hits = Array.from(candidates).filter((a) => {
+        // Helper: extract id=... from link (robust for relative hrefs)
+        function getIdFromLink(a) {
           const href = a.getAttribute("href") || "";
           try {
             const u = new URL(href, window.location.href);
-            return u.searchParams.get("id") === pid;
+            return u.searchParams.get("id");
           } catch {
-            return false;
+            return null;
           }
+        }
+
+        // If hn-mode: load list of person IDs for this house name
+        let idSet = null;
+        if (hn) {
+          const resp = await fetch("/data/ged/houseNameToPersons.json", {
+            cache: "force-cache",
+          });
+          if (!resp.ok) return;
+
+          const map = await resp.json();
+          const ids = map[hn] || [];
+          if (!Array.isArray(ids) || ids.length === 0) return;
+
+          idSet = new Set(ids);
+        }
+
+        // Filter hits:
+        // - pid-mode: match exactly one id
+        // - hn-mode: match any id in the set
+        const hits = Array.from(candidates).filter((a) => {
+          const id = getIdFromLink(a);
+          if (!id) return false;
+
+          if (pid) return id === pid;
+          return idSet && idSet.has(id);
         });
 
         if (hits.length === 0) return;
 
         // ---------- UI ----------
         const bar = document.createElement("div");
+
+        function escapeHtml(s) {
+          return s
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        // Title:
+        // - hn-mode: show only the house name
+        // - pid-mode: show the passed display name (if present)
+        const title = hn ? hn : name;
+        const titleHtml = title
+          ? `<span class="who">${escapeHtml(title)}</span><span class="who-sep">·</span>`
+          : "";
+
         bar.className = "findbar";
         bar.innerHTML = `
           <div class="findbar-inner">
             <div class="findbar-box">
+              ${titleHtml}
               <span class="count">1 / ${hits.length}</span>
-              <button type="button" data-action="prev" aria-label="Previous match">◀</button>
-              <button type="button" data-action="next" aria-label="Next match">▶</button>
-              <button type="button" data-action="close" aria-label="Close">✕</button>
+              <button type="button" data-action="prev">◀</button>
+              <button type="button" data-action="next">▶</button>
+              <button type="button" data-action="close">✕</button>
             </div>
           </div>
         `;
@@ -128,8 +181,7 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
         function setActive(nextIdx, scroll = true) {
           idx = nextIdx;
 
-          // mark all once
-          // (safe even if called multiple times)
+          // mark all hits
           hits.forEach((a) => a.classList.add("mention-hit"));
 
           // switch active
@@ -142,8 +194,6 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
 
           if (scroll) {
             active.scrollIntoView({ behavior: "smooth", block: "center" });
-            // optional focus without jumping
-            // try { active.focus({ preventScroll: true }); } catch {}
           }
         }
 
@@ -168,11 +218,6 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
           // remove listeners
           window.removeEventListener("keydown", onKey);
           bar.removeEventListener("click", onClick);
-
-          // optional: remove pid from URL (comment out if you want to keep it)
-          // const url = new URL(window.location.href);
-          // url.searchParams.delete("pid");
-          // history.replaceState({}, "", url);
         }
 
         function onClick(e) {
@@ -461,6 +506,15 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(textHtml));
 
   :global(.findbar-box button:active) {
     transform: translateY(1px);
+  }
+
+  :global(.findbar-box .who) {
+    font-weight: 600;
+  }
+
+  :global(.findbar-box .who-sep) {
+    opacity: 0.5;
+    padding: 0 2px;
   }
 
   /* ===== PATCH: enforce highlight + remove ugly focus ring ===== */

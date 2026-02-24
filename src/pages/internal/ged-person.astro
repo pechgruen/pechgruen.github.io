@@ -835,6 +835,7 @@ export const chronik = {
         } else {
           headNameText = String(p.name?.display || "").trim();
         }
+        const personNameForUrl = encodeURIComponent(headNameText);
 
         // Set a nice alt text once we know the name
         if (photo) {
@@ -880,7 +881,29 @@ export const chronik = {
           dLine = hasDetails ? fmtEventHtml("†", p.death, { useShortPlace: false }) : "† ?";
         }
 
-        const houseLine = p.houseName ? `Hausname: ${p.houseName}` : "";
+        // House names: prefer new array field, fallback to legacy string (comma-separated)
+        const houseNames = Array.isArray(p.houseNames)
+          ? p.houseNames.map((s) => String(s || "").trim()).filter(Boolean)
+          : String(p.houseName || "")
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
+
+        // Build "Hausname/Hausnamen" line with individual links
+        const houseLine =
+          houseNames.length > 0
+            ? (() => {
+                const label = houseNames.length === 1 ? "Hausname" : "Hausnamen";
+                const linksHtml = houseNames
+                  .map((hn) => {
+                    const href = `/texte/a-hooch-aaf-unna-dorf?hn=${encodeURIComponent(hn)}`;
+                    return `<a class="plink" href="${href}" target="_blank" rel="noopener noreferrer"><span class="pname">${hn}</span></a>`;
+                  })
+                  .join(", ");
+                return `${label}: ${linksHtml}`;
+              })()
+            : "";
+
         const occLine = p.occupation ? `Beruf: ${p.occupation}` : "";
 
         const memList = Array.isArray(MEMORY_LINKS[id]) ? MEMORY_LINKS[id] : null;
@@ -901,7 +924,9 @@ export const chronik = {
         const mentionCount = Number(HOOCH_MENTIONS[id] ?? 0);
         const mentionsLine =
           mentionCount > 0
-            ? `Erwähnungen: <a class="plink" href="/texte/a-hooch-aaf-unna-dorf?pid=${encodeURIComponent(id)}" target="_blank" rel="noopener noreferrer"><span class="pname">${mentionCount}</span></a>`
+            ? `Erwähnungen: <a class="plink" href="/texte/a-hooch-aaf-unna-dorf?pid=${encodeURIComponent(
+                id
+              )}&name=${personNameForUrl}" target="_blank" rel="noopener noreferrer"><span class="pname">${mentionCount}</span></a>`
             : "";
 
         personLinesEl.innerHTML = `

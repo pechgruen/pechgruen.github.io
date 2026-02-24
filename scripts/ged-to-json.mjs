@@ -54,6 +54,16 @@ function surnameKey(s) {
   return surnameDisplay(s).toUpperCase();
 }
 
+// NEW: house name grouping helpers
+function houseNameDisplay(s) {
+  if (!s) return "";
+  return String(s).trim().replace(/\s+/g, " ");
+}
+
+function houseNameKey(s) {
+  return houseNameDisplay(s).toUpperCase();
+}
+
 function normalizePlace(s) {
   if (!s) return "";
   return s.trim().replace(/\s+/g, " ");
@@ -183,14 +193,23 @@ async function main() {
 
     const type = (currentCustom.type || "").trim();
     if (/^hausname$/i.test(type)) {
-      // In your GED export, Hausname is stored as: 1 EVEN Brüln / 2 TYPE Hausname
-      // But be robust: sometimes the actual value is in VALUE/NOTE instead.
-      const val =
+      const raw =
         (currentCustom.data && String(currentCustom.data).trim()) ||
         (currentCustom.rawValue && String(currentCustom.rawValue).trim()) ||
         "";
 
-      if (val) currentPerson.houseName = val;
+      // If multiple names are stuffed into one value, split conservatively on ; or ,
+      const parts = raw
+        ? raw.split(/[;,]/g).map((s) => s.trim()).filter(Boolean)
+        : [];
+
+      const list = parts.length ? parts : raw ? [raw] : [];
+
+      for (const hn of list) {
+        const key = houseNameKey(hn);
+        const exists = currentPerson.houseNames.some((x) => houseNameKey(x) === key);
+        if (!exists) currentPerson.houseNames.push(hn);
+      }
     }
 
     currentCustom = null;
@@ -271,7 +290,7 @@ async function main() {
           fams: [],
           // NEW:
           nickname: null, // from NAME.NICK or NICK tag
-          houseName: null, // from custom fact/event TYPE Hausname
+          houseNames: [], // from custom fact/event TYPE Hausname (can be multiple)
         };
       } else if (rec.tag === "FAM" && rec.xref) {
         currentType = "FAM";
@@ -606,7 +625,7 @@ async function main() {
       fams: p.fams.filter(Boolean),
 
       nickname: p.nickname || null,
-      houseName: p.houseName || null,
+      houseNames: Array.isArray(p.houseNames) ? p.houseNames : [],
     };
   }
 
@@ -626,56 +645,88 @@ async function main() {
     };
   }
 
-  // Build surname index
-  const keyToIds = new Map();
-  const keyToDisplay = new Map();
+// Build surname index
+const keyToIds = new Map();
+const keyToDisplay = new Map();
 
-  for (const [id, p] of Object.entries(peopleOut)) {
-    const disp = surnameDisplay(p.name.surname || "");
-    const key = disp ? surnameKey(disp) : "(UNKNOWN)";
+for (const [id, p] of Object.entries(peopleOut)) {
+  const disp = surnameDisplay(p.name.surname || "");
+  const key = disp ? surnameKey(disp) : "(UNKNOWN)";
 
-    if (!keyToIds.has(key)) keyToIds.set(key, []);
-    keyToIds.get(key).push(id);
+  if (!keyToIds.has(key)) keyToIds.set(key, []);
+  keyToIds.get(key).push(id);
 
-    if (key !== "(UNKNOWN)" && !keyToDisplay.has(key) && disp) {
-      keyToDisplay.set(key, disp);
+  if (key !== "(UNKNOWN)" && !keyToDisplay.has(key) && disp) {
+    keyToDisplay.set(key, disp);
+  }
+}
+
+// Sort persons within surname (optional)
+for (const [k, ids] of keyToIds.entries()) {
+  ids.sort((a, b) => {
+    const pa = peopleOut[a];
+    const pb = peopleOut[b];
+    const ga = (pa?.name?.given || "").trim();
+    const gb = (pb?.name?.given || "").trim();
+    const c1 = localeCompareDE(ga, gb);
+    if (c1 !== 0) return c1;
+
+    const ya = pa?.birth?.year ?? 9999;
+    const yb = pb?.birth?.year ?? 9999;
+    if (ya !== yb) return ya - yb;
+
+    return localeCompareDE(pa?.name?.display || a, pb?.name?.display || b);
+  });
+}
+
+const surnames = Array.from(keyToIds.keys())
+  .map((k) => {
+    if (k === "(UNKNOWN)") return "(UNKNOWN)";
+    return keyToDisplay.get(k) || k;
+  })
+  .sort(localeCompareDE);
+
+const surnameToPersons = {};
+for (const disp of surnames) {
+  if (disp === "(UNKNOWN)") {
+    surnameToPersons["(UNKNOWN)"] = keyToIds.get("(UNKNOWN)") || [];
+    continue;
+  }
+  const k = surnameKey(disp);
+  surnameToPersons[disp] = keyToIds.get(k) || [];
+}
+
+// NEW: Build houseName index (houseName -> person ids) using houseNames[]
+const houseKeyToIds = new Map();
+const houseKeyToDisplay = new Map();
+
+for (const [id, p] of Object.entries(peopleOut)) {
+  const list = Array.isArray(p.houseNames) ? p.houseNames : [];
+  for (const hn of list) {
+    const disp = houseNameDisplay(hn);
+    if (!disp) continue;
+
+    const key = houseNameKey(disp);
+
+    if (!houseKeyToIds.has(key)) houseKeyToIds.set(key, []);
+    const arr = houseKeyToIds.get(key);
+    if (!arr.includes(id)) arr.push(id);
+
+    if (!houseKeyToDisplay.has(key)) {
+      houseKeyToDisplay.set(key, disp);
     }
   }
+}
 
-  // Sort persons within surname
-  for (const [k, ids] of keyToIds.entries()) {
-    ids.sort((a, b) => {
-      const pa = peopleOut[a];
-      const pb = peopleOut[b];
-      const ga = (pa?.name?.given || "").trim();
-      const gb = (pb?.name?.given || "").trim();
-      const c1 = localeCompareDE(ga, gb);
-      if (c1 !== 0) return c1;
+const houseNames = Array.from(houseKeyToIds.keys())
+  .map((k) => houseKeyToDisplay.get(k))
+  .sort(localeCompareDE);
 
-      const ya = pa?.birth?.year ?? 9999;
-      const yb = pb?.birth?.year ?? 9999;
-      if (ya !== yb) return ya - yb;
-
-      return localeCompareDE(pa?.name?.display || a, pb?.name?.display || b);
-    });
-  }
-
-  const surnames = Array.from(keyToIds.keys())
-    .map((k) => {
-      if (k === "(UNKNOWN)") return "(UNKNOWN)";
-      return keyToDisplay.get(k) || k;
-    })
-    .sort(localeCompareDE);
-
-  const surnameToPersons = {};
-  for (const disp of surnames) {
-    if (disp === "(UNKNOWN)") {
-      surnameToPersons["(UNKNOWN)"] = keyToIds.get("(UNKNOWN)") || [];
-      continue;
-    }
-    const k = surnameKey(disp);
-    surnameToPersons[disp] = keyToIds.get(k) || [];
-  }
+const houseNameToPersons = {};
+for (const hn of houseNames) {
+  const k = houseNameKey(hn);
+  houseNameToPersons[hn] = houseKeyToIds.get(k) || [];
+}
 
   fs.writeFileSync(path.join(OUTDIR, "people.json"), JSON.stringify(peopleOut, null, 2), "utf8");
   fs.writeFileSync(path.join(OUTDIR, "families.json"), JSON.stringify(familiesOut, null, 2), "utf8");
@@ -683,6 +734,13 @@ async function main() {
   fs.writeFileSync(
     path.join(OUTDIR, "surnameToPersons.json"),
     JSON.stringify(surnameToPersons, null, 2),
+    "utf8"
+  );
+
+  // NEW: write houseNameToPersons.json
+  fs.writeFileSync(
+    path.join(OUTDIR, "houseNameToPersons.json"),
+    JSON.stringify(houseNameToPersons, null, 2),
     "utf8"
   );
 
@@ -695,6 +753,7 @@ async function main() {
   console.log(`   people:   ${Object.keys(peopleOut).length}`);
   console.log(`   families: ${Object.keys(familiesOut).length}`);
   console.log(`   surnames: ${surnames.length}`);
+  console.log(`   houseNames: ${houseNames.length}`);
   console.log(`   report:   import-report.json`);
 }
 
