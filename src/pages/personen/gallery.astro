@@ -76,35 +76,31 @@ const THUMB_SIZE = 74;
       <p class="subtitle">{chronik.subtitle}</p>
     </header>
 
-<section class="intro">
-  <p>
-    Diese Galerie zeigt Gesichter von Menschen, die einst in Pechgrün gelebt
-    haben. Viele von ihnen sind heute nicht mehr am Leben; fast alle wurden nach
-    dem Zweiten Weltkrieg aus ihrer Heimat vertrieben und gezwungen, den Ort zu
-    verlassen. Was von ihnen geblieben ist, sind wenige Fotografien, Namen in
-    Dokumenten und Erinnerungen, die sich nur bruchstückhaft erhalten haben.
-  </p>
+    <section class="intro">
+      <p>
+        Diese Galerie zeigt Gesichter von Menschen, die einst in Pechgrün gelebt haben.
+        Viele von ihnen sind heute nicht mehr am Leben; fast alle wurden nach dem 
+        Zweiten Weltkrieg aus ihrer Heimat vertrieben und gezwungen, den Ort zu verlassen. 
+        Was von ihnen geblieben ist, sind wenige Fotografien, Namen in Dokumenten und 
+        Erinnerungen, die sich nur bruchstückhaft erhalten haben.
+      </p>
 
-  <p>
-    Die Bilder sind keine vollständige Chronik und kein geschlossenes Porträt
-    einer Dorfgemeinschaft. Sie zeigen einzelne Menschen, oft ohne genaue
-    Datierung, manchmal ohne sichere Identifikation. Dennoch geben sie einen
-    Eindruck von den Gesichtern, die zu Pechgrün gehörten – von denen, die dort
-    aufwuchsen, arbeiteten, Familien gründeten und ihr Leben verbrachten.
-  </p>
+      <p>
+       Die Bilder sind keine vollständige Chronik und kein geschlossenes Porträt einer 
+       Dorfgemeinschaft. Sie zeigen einzelne Menschen, oft ohne genaue Datierung, manchmal 
+       ohne sichere Identifikation. Dennoch geben sie einen Eindruck von den Gesichtern, 
+       die zu Pechgrün gehörten – von denen, die dort aufwuchsen, arbeiteten, Familien 
+       gründeten und ihr Leben verbrachten.
+      </p>
 
-  <p>
-    Die Bildunterschriften enthalten alles, was zu den einzelnen Fotografien
-    bekannt ist. Sie dienen zugleich als Suchgrundlage: Über das Eingabefeld
-    lassen sich Namen oder andere Textfragmente finden, sofern sie in den
-    Beschreibungen vorkommen.
-  </p>
-
-  <p class="hint">
-    Tipp: Mit den Pfeiltasten ← / → wechseln oder über die Thumbnails oben direkt
-    springen.
-  </p>
-</section>
+      <p class="transparency">
+        Alle Fotografien wurden digital bearbeitet, um Altersspuren und druckbedingte
+        Qualitätsverluste auszugleichen. Bei gerasterten Buchvorlagen, wie sie in den
+        Pechgrün-Bänden vorliegen, kann die Aufbereitung – insbesondere bei Gruppenaufnahmen
+        mit vielen kleinen Gesichtern – über eine reine Restaurierung hinausgehen und in
+        eine Rekonstruktion übergehen.
+      </p>
+    </section>
 
     {items.length === 0 ? (
       <p>
@@ -476,7 +472,7 @@ const THUMB_SIZE = 74;
 
         <div class="frame">
           <div class="filterbar" aria-label="Filter">
-            <label class="filterlabel" for="personFilter">Namensfilter:</label>
+            <label class="filterlabel" for="personFilter">Suche (Name oder Stichwort):</label>
 
             <input
               id="personFilter"
@@ -484,17 +480,21 @@ const THUMB_SIZE = 74;
               type="text"
               autocomplete="off"
               inputmode="text"
-              placeholder=""
+              placeholder="z.B. Dürrschmidt, ATUS, Feuerwehr"
             />
-
-            <div class="filtersyntax" aria-hidden="true">
-              z.B. gerber | gerber a. | "gerber a." | gerber, heinzel
-            </div>
 
             <span class="spacer" aria-hidden="true"></span>
 
             <div class="filtercount">
               Treffer: <span data-hit-count>{items.length}</span> / {items.length}
+            </div>
+          </div>
+
+          <div class="filterbelow" aria-label="Hinweise">
+            <div class="filterbelow-line">
+              Die Suche filtert die Galerie nach Begriffen aus den Bildunterschriften; 
+              nicht passende Bilder werden ausgeblendet. Vorschaubilder anklicken oder 
+              mit den Pfeiltasten ← / → blättern.
             </div>
           </div>
 
@@ -571,16 +571,21 @@ const THUMB_SIZE = 74;
   }
 
   .intro,
-  .intro p,
-  .hint {
+  .intro p {
     max-width: 800px;
   }
   .intro {
     margin: 0 0 1rem;
   }
-  .hint {
-    opacity: 0.75;
-    margin-top: -0.25rem;
+  .intro p {
+    margin: 0 0 0.85rem;
+  }
+  .intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .transparency {
+    opacity: 0.9;
   }
 
   .viewer-wrap {
@@ -599,7 +604,7 @@ const THUMB_SIZE = 74;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 0 0 0.45rem;
+    margin: 0 0 0.35rem;
   }
 
   .filterlabel {
@@ -609,7 +614,7 @@ const THUMB_SIZE = 74;
   }
 
   .filterinput {
-    width: 170px;
+    width: 270px;
     max-width: 45vw;
     padding: 8px 10px;
     border: 1px solid rgba(0, 0, 0, 0.18);
@@ -631,6 +636,22 @@ const THUMB_SIZE = 74;
     opacity: 0.75;
     font-size: 0.95rem;
     white-space: nowrap;
+  }
+
+  .filterbelow {
+    max-width: 800px;
+    opacity: 0.75;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    margin: 0 0 0.75rem;
+  }
+
+  .filterbelow-line {
+    white-space: normal;
+  }
+
+  .filterbelow-line + .filterbelow-line {
+    margin-top: 0.2rem;
   }
 
   .spacer {
