@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
 }
 
-const { title = "Pechgrün", description = "" } = Astro.props;
+const { title = "Pechgrün (Smolnice)", description = "" } = Astro.props;
 ---
 
 <!doctype html>
@@ -63,7 +63,9 @@ const { title = "Pechgrün", description = "" } = Astro.props;
     <header class="site-header">
       <div class="header-inner">
         <div class="brand">
-          <a href="/" class="brand-link">Pechgrün</a>
+          <a href="/" class="brand-link" translate="no">
+            Pechgrün
+          </a>
         </div>
 
         <nav class="top-nav" aria-label="Hauptnavigation">
