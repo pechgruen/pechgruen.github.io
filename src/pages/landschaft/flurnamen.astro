@@ -541,5 +541,28 @@ const flurRowsNr = flurRows
     } else {
       wireFlurTableClicks();
     }
+
+    // TEST: Marker-Klick sichtbar machen
+    window.addEventListener("dz:marker-click", (ev) => {
+      const d = ev.detail || {};
+      if (d.mapId !== "dz-flurnamen-1964") return;
+
+      const note = document.createElement("div");
+      note.textContent = `Marker geklickt: ${d.markerId}`;
+      note.style.position = "fixed";
+      note.style.left = "20px";
+      note.style.bottom = "20px";
+      note.style.padding = "6px 10px";
+      note.style.background = "rgba(0,0,0,0.8)";
+      note.style.color = "#fff";
+      note.style.borderRadius = "8px";
+      note.style.fontSize = "13px";
+      note.style.zIndex = "9999";
+
+      document.body.appendChild(note);
+
+      setTimeout(() => note.remove(), 1500);
+    });
+    
   </script>
 </BaseLayout>

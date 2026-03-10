@@ -60,6 +60,13 @@ const redelbachEntries = [
   redelbachGallery,
 ];
 
+// Mitmachen
+import { chronik as mitmachenFlurnamenQuiz } from "./mitmachen/flurnamen-quiz.astro";
+
+const mitmachenEntries = [
+  mitmachenFlurnamenQuiz,
+];
+
 /* ------------------------------------------------------------------
    Date handling: base.date ist jetzt STRING.
    Für Sortierung (Landschaft/Geschichte) versuchen wir ISO ("YYYY-MM-DD")
@@ -472,6 +479,31 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         </ul>
       </div>
     </section>
+
+    <!-- Mitmachen -->
+    <section class="acc" data-acc-id="mitmachen">
+      <button class="acc-head" type="button" aria-expanded="false">
+        <span class="acc-title">Mitmachen</span>
+        <span class="acc-right">
+          <span class="acc-meta">{mitmachenEntries.length} Einträge</span>
+          <span class="acc-arrow" aria-hidden="true">▲</span>
+        </span>
+      </button>
+
+      <div class="acc-body">
+        <ul>
+          {
+           mitmachenEntries.map((e) => (
+              <li>
+                <a href={e.href}>{e.title}</a>
+                {e.subtitle ? <span> — {e.subtitle}</span> : null}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
   </div>
 </BaseLayout>
 

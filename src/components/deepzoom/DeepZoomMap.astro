@@ -30,8 +30,7 @@ const {
   authorMode = true,
   startView = { type: "home" },
   height = 640,
-
-  // ✅ NEW (opt-in): persist view + marker state via sessionStorage
+  showMarkerTooltip = true,
   stateKey = null,
 } = Astro.props as {
   id: string;
@@ -42,8 +41,7 @@ const {
   authorMode?: boolean;
   startView?: StartView;
   height?: number;
-
-  // ✅ NEW
+  showMarkerTooltip?: boolean;
   stateKey?: string | null;
 };
 
@@ -124,8 +122,7 @@ const tileSourceFixed =
     showMarkersToggle,
     authorMode,
     startView,
-
-    // ✅ NEW
+    showMarkerTooltip,
     stateKey,
   }}
 >
@@ -180,10 +177,10 @@ const tileSourceFixed =
       if (!HAS_STATE) return;
       try {
         const c = viewer.viewport.getCenter(true); // viewport coords
-        const z = viewer.viewport.getZoom(true);   // absolute zoom
+        const z = viewer.viewport.getZoom(true); // absolute zoom
         sessionStorage.setItem(
           VIEW_KEY,
-          JSON.stringify({ z, c: { x: c.x, y: c.y } })
+          JSON.stringify({ z, c: { x: c.x, y: c.y } }),
         );
       } catch (_) {}
     }
@@ -223,8 +220,24 @@ const tileSourceFixed =
 
     // ✅ NEW: also save when leaving page (back/forward, close tab)
     if (HAS_STATE) {
-      window.addEventListener("pagehide", () => { try { saveView(); } catch (_) {} }, { passive: true });
-      window.addEventListener("beforeunload", () => { try { saveView(); } catch (_) {} }, { passive: true });
+      window.addEventListener(
+        "pagehide",
+        () => {
+          try {
+            saveView();
+          } catch (_) {}
+        },
+        { passive: true },
+      );
+      window.addEventListener(
+        "beforeunload",
+        () => {
+          try {
+            saveView();
+          } catch (_) {}
+        },
+        { passive: true },
+      );
     }
 
     let BASE_ZOOM = null;
@@ -322,9 +335,11 @@ const tileSourceFixed =
       setFrozen(false);
 
       // ✅ Event für die Liste (Highlight entfernen)
-      window.dispatchEvent(new CustomEvent("dz:pinned-close", {
-        detail: { mapId: id, id: pinnedMarkerId }
-      }));
+      window.dispatchEvent(
+        new CustomEvent("dz:pinned-close", {
+          detail: { mapId: id, id: pinnedMarkerId },
+        }),
+      );
 
       pinnedMarkerId = null;
     }
@@ -392,11 +407,16 @@ const tileSourceFixed =
       tip.style.top = `${y}px`;
 
       const btn = tip.querySelector("[data-tip-close]");
-      if (btn) btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        closePinnedTip();
-      }, { once: true });
+      if (btn)
+        btn.addEventListener(
+          "click",
+          (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closePinnedTip();
+          },
+          { once: true },
+        );
 
       const onDoc = (e) => {
         if (!pinned) return;
@@ -430,7 +450,7 @@ const tileSourceFixed =
 
       el.setAttribute("aria-label", aria || m.label || "");
 
-      if (title || subtitle) {
+      if (showMarkerTooltip && (title || subtitle)) {
         const onMove = (e) => showTip(title, subtitle, e.clientX, e.clientY);
         const onLeave = () => hideTip();
 
@@ -477,6 +497,14 @@ const tileSourceFixed =
         el.addEventListener("click", go, true);
       }
 
+      el.addEventListener("click", () => {
+        window.dispatchEvent(
+          new CustomEvent("dz:marker-click", {
+            detail: { mapId: id, markerId: m.id },
+          }),
+        );
+      });
+      
       return el;
     }
 
@@ -652,14 +680,14 @@ const tileSourceFixed =
       }
 
       const zoomOut = BASE_ZOOM / 1.4;
-      const zoomIn  = BASE_ZOOM * 2.1;
+      const zoomIn = BASE_ZOOM * 2.1;
 
       // ✅ FlyTo darf die manuellen Grenzen nicht "zudrehen"
       if (MANUAL_MIN != null) viewer.viewport.minZoomLevel = MANUAL_MIN;
       viewer.viewport.maxZoomLevel = Math.max(
         viewer.viewport.maxZoomLevel,
         zoomIn,
-        MANUAL_MAX ?? zoomIn
+        MANUAL_MAX ?? zoomIn,
       );
 
       const imgPt = new OSD.Point(x, y);
@@ -671,7 +699,7 @@ const tileSourceFixed =
 
       viewer.viewport.centerSpringX.animationTime = 1.9;
       viewer.viewport.centerSpringY.animationTime = 1.9;
-      viewer.viewport.zoomSpring.animationTime    = 1.9;
+      viewer.viewport.zoomSpring.animationTime = 1.9;
 
       viewer.viewport.zoomTo(zoomOut, undefined, false);
       await waitAnimationFinish();

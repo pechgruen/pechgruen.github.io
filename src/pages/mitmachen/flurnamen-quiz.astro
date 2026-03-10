@@ -1,0 +1,515 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DeepZoomMap from "../../components/deepzoom/DeepZoomMap.astro";
+import flurCsvRaw from "../../assets/landschaft/flurnamen-pechgruen.csv?raw";
+
+export const chronik = {
+  title: "Flurnamen-Quiz",
+  subtitle: "Finde 10 zufällig ausgewählte Flurnamen auf der Karte",
+  date: "2026-03-10",
+  bereich: "Mitmachen",
+  href: "/mitmachen/flurnamen-quiz",
+  order: 1,
+};
+
+const tileSource = "/tiles/flurnamen-pechgruen/flurnamen-pechgruen.dzi";
+
+type FlurRow = {
+  id: string;
+  nr: number;
+  title: string;
+  frage: string;
+  subtitle: string;
+  x: number;
+  y: number;
+};
+
+function parseCSV(text: string): Record<string, string>[] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cur = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cur += ch;
+      }
+      continue;
+    }
+
+    if (ch === '"') {
+      inQuotes = true;
+      continue;
+    }
+    if (ch === ",") {
+      row.push(cur);
+      cur = "";
+      continue;
+    }
+    if (ch === "\n") {
+      row.push(cur);
+      rows.push(row);
+      row = [];
+      cur = "";
+      continue;
+    }
+    if (ch === "\r") continue;
+
+    cur += ch;
+  }
+
+  if (cur.length || row.length) {
+    row.push(cur);
+    rows.push(row);
+  }
+
+  if (!rows.length) return [];
+
+  const headers = rows.shift()!.map((h) => h.trim());
+
+  return rows
+    .filter((r) => r.some((c) => String(c ?? "").trim() !== ""))
+    .map((r) => {
+      const obj: Record<string, string> = {};
+      headers.forEach((h, i) => {
+        obj[h] = (r[i] ?? "").trim();
+      });
+      return obj;
+    });
+}
+
+function toNum(s: string): number {
+  const n = Number(String(s ?? "").trim());
+  return Number.isFinite(n) ? n : NaN;
+}
+
+const flurRows: FlurRow[] = parseCSV(flurCsvRaw)
+  .map((o) => {
+    const nr = toNum(o.nr ?? "");
+    const x = toNum(o.x ?? "");
+    const y = toNum(o.y ?? "");
+    const idRaw = String(o.id ?? "").trim();
+
+    return {
+      id: idRaw || `flur-${Number.isFinite(nr) ? nr : "x"}`,
+      nr: Number.isFinite(nr) ? nr : 0,
+      title: String(o.title ?? "").trim(),
+      frage: String(o.frage ?? "").trim(),
+      subtitle: String(o.subtitle ?? "").trim(),
+      x,
+      y,
+    };
+  })
+  .filter(
+    (r) => r.id && r.title && Number.isFinite(r.x) && Number.isFinite(r.y),
+  );
+
+const markers = flurRows.map((r) => ({
+  id: r.id,
+  label: String(r.nr),
+  x: r.x,
+  y: r.y,
+  title: r.title,
+  subtitle: r.subtitle,
+}));
+---
+
+<BaseLayout title="Flurnamen-Quiz">
+  <main style="max-width:980px;margin:0 auto;">
+    <h1 style="margin:0 0 0.35rem;">Flurnamen-Quiz</h1>
+
+    <p style="margin:0 0 1rem; opacity:0.8;">
+      Finde 10 zufällig ausgewählte Flurnamen auf der Karte. Pro Frage hast du
+      maximal drei Versuche.
+    </p>
+
+    <DeepZoomMap
+      id="dz-flurnamen-quiz"
+      tileSource={tileSource}
+      height={640}
+      markers={markers}
+      markersDefaultVisible={true}
+      showMarkersToggle={false}
+      authorMode={false}
+      showMarkerTooltip={false}
+      startView={{
+        type: "centerZoom",
+        x: 6788,
+        y: 4419,
+        zoomFactor: 3,
+      }}
+    />
+
+    <section id="quizPanel" class="quiz-panel" aria-live="polite">
+      <div id="quizInner"></div>
+    </section>
+  </main>
+
+  <style is:global>
+    .quiz-panel {
+      min-height: 132px;
+      margin: 0 0 12px;
+      padding-top: 14px;
+    }
+
+    .quiz-kicker {
+      font-size: 0.9rem;
+      line-height: 1.2;
+      color: rgba(0, 0, 0, 0.62);
+      margin-bottom: 6px;
+    }
+
+    .quiz-question {
+      font-size: 1.15rem;
+      line-height: 1.25;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .quiz-score {
+      font-size: 0.94rem;
+      line-height: 1.2;
+      color: rgba(0, 0, 0, 0.72);
+      margin-bottom: 10px;
+    }
+
+    .quiz-feedback {
+      font-size: 0.96rem;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      min-height: 2.7em;
+    }
+
+    .quiz-feedback.is-subtle {
+      color: rgba(0, 0, 0, 0.68);
+    }
+
+    .quiz-link {
+      all: unset;
+      cursor: pointer;
+      color: inherit;
+      font-size: 0.96rem;
+      line-height: 1.2;
+      text-decoration: underline;
+    }
+
+    .quiz-link:hover {
+      opacity: 0.82;
+    }
+
+    .quiz-linkrow {
+      min-height: 1.4em;
+    }
+
+    .quiz-result-title {
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .quiz-result-line {
+      margin-bottom: 4px;
+    }
+
+    .quiz-help {
+      font-size: 0.96rem;
+      line-height: 1.2;
+      color: rgba(0, 0, 0, 0.68);
+    }
+  </style>
+
+  <script define:vars={{ flurRows }}>
+    const MAP_ID = "dz-flurnamen-quiz";
+    const MAX_QUESTIONS = 10;
+    const MAX_POINTS = 30;
+
+    const quizInner = document.getElementById("quizInner");
+
+    /** @type {any[]} */
+    let questions = [];
+    let currentIndex = 0;
+    let attempts = 0;
+    let score = 0;
+    let running = false;
+    let awaitingNext = false;
+
+    /**
+     * phase:
+     * - intro
+     * - asking
+     * - wrong
+     * - correct
+     * - revealed
+     * - finished
+     */
+    let phase = "intro";
+
+    let feedbackHtml = "";
+
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function getRank(total) {
+      if (total >= 27) return "Alter Pechgräiner";
+      if (total >= 21) return "Flurenmeister";
+      if (total >= 15) return "Pechgrün-Kenner";
+      if (total >= 7) return "Spaziergänger";
+      return "Tourist";
+    }
+
+    function getCurrentQuestion() {
+      return questions[currentIndex] || null;
+    }
+
+    function getMarkerTitleById(markerId) {
+      const m = flurRows.find((r) => r.id === markerId);
+      return m?.title || markerId || "";
+    }
+
+    function getQuestionText(q) {
+      return String(q?.frage || q?.title || "").trim();
+    }
+
+    function renderIntro() {
+      if (!quizInner) return;
+
+      quizInner.innerHTML = `
+        <div class="quiz-kicker">Bereit?</div>
+        <div class="quiz-question">Finde 10 Flurnamen auf der Karte.</div>
+        <div class="quiz-score">Punktestand: 0 von ${MAX_POINTS}</div>
+        <div class="quiz-feedback is-subtle">
+          1. Versuch = 3 Punkte, 2. Versuch = 2 Punkte, 3. Versuch = 1 Punkt, danach 0 Punkte.
+        </div>
+        <div class="quiz-linkrow">
+          <button type="button" class="quiz-link" data-action="start">Quiz starten</button>
+        </div>
+      `;
+    }
+
+    function renderRunning() {
+      if (!quizInner) return;
+
+      const q = getCurrentQuestion();
+      if (!q) return;
+
+      const questionNo = currentIndex + 1;
+      const questionText = getQuestionText(q);
+
+      let linkHtml = `
+        <span class="quiz-help">Bitte klicke auf einen Punkt in der Karte.</span>
+        &nbsp;·&nbsp;
+        <button type="button" class="quiz-link" data-action="restart">Neu starten</button>
+      `;
+
+      if (phase === "correct" || phase === "revealed") {
+        linkHtml = `
+          <button type="button" class="quiz-link" data-action="next">Weiter zur nächsten Frage</button>
+          &nbsp;·&nbsp;
+          <button type="button" class="quiz-link" data-action="restart">Neu starten</button>
+        `;
+      }
+
+      quizInner.innerHTML = `
+        <div class="quiz-kicker">Frage ${questionNo} von ${MAX_QUESTIONS}</div>
+        <div class="quiz-question">Wo liegt ${escapeHtml(questionText)}?</div>
+        <div class="quiz-score">Punktestand: ${score} von ${MAX_POINTS}</div>
+        <div class="quiz-feedback">${feedbackHtml}</div>
+        <div class="quiz-linkrow">${linkHtml}</div>
+      `;
+    }
+
+    function renderFinished() {
+      if (!quizInner) return;
+
+      const rank = getRank(score);
+
+      quizInner.innerHTML = `
+        <div class="quiz-result-title">Ergebnis</div>
+        <div class="quiz-result-line">Punktestand: ${score} von ${MAX_POINTS}</div>
+        <div class="quiz-result-line">Rang: <strong>${escapeHtml(rank)}</strong></div>
+        <div class="quiz-feedback is-subtle" style="margin-top:10px;">
+          Danke fürs Mitmachen.
+        </div>
+        <div class="quiz-linkrow">
+          <button type="button" class="quiz-link" data-action="restart">Noch einmal spielen</button>
+        </div>
+      `;
+    }
+
+    function render() {
+      if (phase === "intro") {
+        renderIntro();
+        return;
+      }
+
+      if (phase === "finished") {
+        renderFinished();
+        return;
+      }
+
+      renderRunning();
+    }
+
+    function startQuiz() {
+      questions = shuffle(flurRows).slice(0, MAX_QUESTIONS);
+      currentIndex = 0;
+      attempts = 0;
+      score = 0;
+      running = true;
+      awaitingNext = false;
+      phase = "asking";
+      feedbackHtml = `Du hast drei Versuche.`;
+      render();
+    }
+
+    function goToNextQuestion() {
+      currentIndex += 1;
+
+      if (currentIndex >= questions.length) {
+        running = false;
+        awaitingNext = false;
+        phase = "finished";
+        render();
+        return;
+      }
+
+      attempts = 0;
+      awaitingNext = false;
+      phase = "asking";
+      feedbackHtml = `Du hast drei Versuche.`;
+      render();
+    }
+
+    function flyToQuestion(q) {
+      window.dispatchEvent(
+        new CustomEvent("dz:flyto", {
+          detail: {
+            mapId: MAP_ID,
+            id: q.id,
+            x: q.x,
+            y: q.y,
+          },
+        }),
+      );
+    }
+
+    function handleCorrectAnswer() {
+      const q = getCurrentQuestion();
+      if (!q) return;
+
+      const pts = Math.max(0, 4 - attempts);
+      score += pts;
+      awaitingNext = true;
+      phase = "correct";
+
+      feedbackHtml = `
+        Richtig — das war <strong>${escapeHtml(getQuestionText(q))}</strong>.<br>
+        Du bekommst ${pts} ${pts === 1 ? "Punkt" : "Punkte"}.
+      `;
+
+      render();
+      flyToQuestion(q);
+    }
+
+    function handleWrongAnswer(clickedTitle) {
+      const q = getCurrentQuestion();
+      if (!q) return;
+
+      if (attempts >= 3) {
+        awaitingNext = true;
+        phase = "revealed";
+
+        feedbackHtml = `
+          Falsch — du hast auf <strong>${escapeHtml(clickedTitle)}</strong> geklickt.<br>
+          Die richtige Antwort ist <strong>${escapeHtml(q.title)}</strong>. Du bekommst 0 Punkte.
+        `;
+
+        render();
+        flyToQuestion(q);
+        return;
+      }
+
+      phase = "wrong";
+      const remaining = 3 - attempts;
+
+      feedbackHtml = `
+        Falsch — du hast auf <strong>${escapeHtml(clickedTitle)}</strong> geklickt.<br>
+        ${remaining} ${remaining === 1 ? "Versuch bleibt" : "Versuche bleiben"}.
+      `;
+
+      render();
+    }
+
+    window.addEventListener("click", (ev) => {
+      const btn = ev.target?.closest?.("[data-action]");
+      if (!btn) return;
+
+      const action = btn.getAttribute("data-action");
+
+      if (action === "start") {
+        startQuiz();
+        return;
+      }
+
+      if (action === "restart") {
+        startQuiz();
+        return;
+      }
+
+      if (action === "next") {
+        goToNextQuestion();
+      }
+    });
+
+    window.addEventListener("dz:marker-click", (ev) => {
+      if (!running) return;
+      if (awaitingNext) return;
+
+      const d = ev.detail || {};
+      if (d.mapId !== MAP_ID) return;
+
+      const clickedId = String(d.markerId || "");
+      if (!clickedId) return;
+
+      const q = getCurrentQuestion();
+      if (!q) return;
+
+      attempts += 1;
+
+      if (clickedId === q.id) {
+        handleCorrectAnswer();
+        return;
+      }
+
+      const clickedTitle = getMarkerTitleById(clickedId);
+      handleWrongAnswer(clickedTitle);
+    });
+
+    render();
+  </script>
+</BaseLayout>
