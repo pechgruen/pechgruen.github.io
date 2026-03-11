@@ -1,0 +1,609 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Bilder-Puzzle",
+  subtitle: "Setze historische Pechgrün-Bilder wieder zusammen",
+  date: "2026-03-10",
+  bereich: "Mitmachen",
+  href: "/mitmachen/bilder-puzzle",
+  order: 2,
+};
+
+type PuzzleImage = {
+  src: string;
+  name: string;
+  label: string;
+};
+
+const imageModules = import.meta.glob(
+  "../../assets/mitmachen/puzzle/*.{jpg,jpeg,png,webp,avif}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
+
+function toLabel(filename: string): string {
+  const base = filename.replace(/\.[^.]+$/, "");
+  return base
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\p{L}/gu, (m) => m.toUpperCase());
+}
+
+const puzzleImages: PuzzleImage[] = Object.entries(imageModules)
+  .map(([path, src]) => {
+    const filename = path.split("/").pop() || "bild";
+    return {
+      src: String(src),
+      name: filename,
+      label: toLabel(filename),
+    };
+  })
+  .sort((a, b) => a.label.localeCompare(b.label, "de"));
+---
+
+<BaseLayout title="Bilder-Puzzle">
+  <main class="puzzle-page">
+    <h1>Bilder-Puzzle</h1>
+
+    <p class="intro">
+      Wähle ein Bild und setze es wieder zusammen. Die Kacheln können mit der
+      Maus gezogen und durch Loslassen auf einer anderen Kachel getauscht
+      werden.
+    </p>
+
+    {
+      puzzleImages.length === 0 ? (
+        <section class="puzzle-empty">
+          <p>Es wurden noch keine Puzzle-Bilder gefunden.</p>
+          <p>
+            Lege Bilder in <code>src/assets/mitmachen/puzzle/</code> ab.
+          </p>
+        </section>
+      ) : (
+        <>
+          <section class="puzzle-picker" aria-labelledby="puzzle-picker-title">
+            <h2 id="puzzle-picker-title">Bild auswählen</h2>
+            <div class="thumb-grid">
+              {puzzleImages.map((img, index) => (
+                <button
+                  type="button"
+                  class="thumb-button"
+                  data-puzzle-thumb
+                  data-index={index}
+                  data-src={img.src}
+                  data-label={img.label}
+                  aria-pressed="false"
+                >
+                  <img src={img.src} alt={img.label} loading="lazy" />
+                  <span>{img.label}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section class="puzzle-panel" aria-labelledby="puzzle-title">
+            <div class="puzzle-head">
+              <div>
+                <h2 id="puzzle-title">Noch kein Bild gewählt</h2>
+                <p id="puzzleStatus" class="puzzle-status">
+                  Bitte wähle oben ein Bild aus.
+                </p>
+                <p id="puzzleMoves" class="puzzle-moves">Züge: 0</p>
+              </div>
+
+              <div class="puzzle-actions">
+                <button
+                  type="button"
+                  id="shuffleBtn"
+                  class="puzzle-btn"
+                  disabled
+                >
+                  Neu mischen
+                </button>
+              </div>
+            </div>
+
+            <div class="board-wrap">
+              <div
+                id="puzzleBoard"
+                class="puzzle-board is-disabled"
+                aria-label="Bilder-Puzzle"
+              ></div>
+            </div>
+          </section>
+        </>
+      )
+    }
+  </main>
+
+  <style is:global>
+    .puzzle-page {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .puzzle-page h1 {
+      margin: 0 0 0.4rem;
+    }
+
+    .puzzle-page .intro {
+      margin: 0 0 1.2rem;
+      opacity: 0.82;
+      line-height: 1.45;
+    }
+
+    .puzzle-empty {
+      padding: 1rem 0;
+      line-height: 1.45;
+    }
+
+    .puzzle-picker {
+      margin: 0 0 1.5rem;
+    }
+
+    .puzzle-picker h2,
+    .puzzle-panel h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .thumb-button {
+      appearance: none;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      background: #fff;
+      padding: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition:
+        transform 0.12s ease,
+        border-color 0.12s ease,
+        box-shadow 0.12s ease;
+    }
+
+    .thumb-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .thumb-button.is-active {
+      border-color: rgba(0, 0, 0, 0.52);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .thumb-button img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 7px;
+      margin-bottom: 8px;
+      background: #f1f1f1;
+    }
+
+    .thumb-button span {
+      display: block;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .puzzle-panel {
+      margin-top: 0.5rem;
+    }
+
+    .puzzle-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 0.9rem;
+    }
+
+    .puzzle-status {
+      margin: 0;
+      line-height: 1.35;
+      opacity: 0.78;
+    }
+
+    .puzzle-moves {
+      margin: 0.35rem 0 0;
+      line-height: 1.25;
+      opacity: 0.82;
+      font-size: 0.95rem;
+    }
+
+    .puzzle-actions {
+      flex: 0 0 auto;
+    }
+
+    .puzzle-btn {
+      appearance: none;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: #fff;
+      color: inherit;
+      padding: 0.55rem 0.8rem;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      line-height: 1.15;
+    }
+
+    .puzzle-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .board-wrap {
+      width: 100%;
+    }
+
+    .puzzle-board {
+      --cols: 6;
+      --rows: 4;
+      position: relative;
+      width: min(100%, 960px);
+      aspect-ratio: 6 / 4;
+      display: grid;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      grid-template-rows: repeat(var(--rows), 1fr);
+      gap: 2px;
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 12px;
+      overflow: hidden;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .puzzle-board.is-disabled {
+      opacity: 0.55;
+    }
+
+    .puzzle-tile {
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: 600% 400%;
+      background-color: #e9e9e9;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: grab;
+      min-width: 0;
+      min-height: 0;
+      transition: transform 0.08s ease;
+    }
+
+    .puzzle-tile:hover {
+      z-index: 1;
+    }
+
+    .puzzle-tile:active {
+      cursor: grabbing;
+    }
+
+    .puzzle-tile:disabled {
+      cursor: default;
+    }
+
+    .puzzle-tile.is-dragging {
+      opacity: 0.56;
+      transform: scale(0.98);
+    }
+
+    .puzzle-tile.is-over {
+      outline: 2px solid rgba(0, 0, 0, 0.38);
+      outline-offset: -2px;
+      z-index: 2;
+    }
+
+    .puzzle-tile.is-correct::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      pointer-events: none;
+    }
+
+    @media (max-width: 760px) {
+      .puzzle-head {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .puzzle-actions {
+        align-self: flex-start;
+      }
+
+      .thumb-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+    }
+  </style>
+
+  <script define:vars={{ puzzleImages }}>
+    const COLS = 6;
+    const ROWS = 4;
+    const TILE_COUNT = COLS * ROWS;
+
+    const board = document.getElementById("puzzleBoard");
+    const titleEl = document.getElementById("puzzle-title");
+    const statusEl = document.getElementById("puzzleStatus");
+    const movesEl = document.getElementById("puzzleMoves");
+    const shuffleBtn = document.getElementById("shuffleBtn");
+    const thumbButtons = Array.from(
+      document.querySelectorAll("[data-puzzle-thumb]"),
+    );
+
+    let selectedImage = null;
+    let tiles = [];
+    let dragFromIndex = null;
+    let solved = false;
+    let moves = 0;
+
+    function shuffle(array) {
+      const a = array.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function isSolved(order) {
+      return order.every((value, index) => value === index);
+    }
+
+    function shuffledOrder(size) {
+      const base = Array.from({ length: size }, (_, i) => i);
+      let mixed = shuffle(base);
+      let guard = 0;
+
+      while (isSolved(mixed) && guard < 12) {
+        mixed = shuffle(base);
+        guard += 1;
+      }
+
+      return mixed;
+    }
+
+    function updateThumbSelection(activeIndex) {
+      thumbButtons.forEach((btn, index) => {
+        btn.classList.toggle("is-active", index === activeIndex);
+        btn.setAttribute(
+          "aria-pressed",
+          index === activeIndex ? "true" : "false",
+        );
+      });
+    }
+
+    function getTileBackgroundPosition(pieceIndex) {
+      const correctCol = pieceIndex % COLS;
+      const correctRow = Math.floor(pieceIndex / COLS);
+
+      const x = COLS === 1 ? 0 : (correctCol / (COLS - 1)) * 100;
+      const y = ROWS === 1 ? 0 : (correctRow / (ROWS - 1)) * 100;
+
+      return `${x}% ${y}%`;
+    }
+
+    function setStatus(text) {
+      if (statusEl) statusEl.textContent = text;
+    }
+
+    function setMoves(value) {
+      if (movesEl) {
+        movesEl.textContent = `Züge: ${value}`;
+      }
+    }
+
+    function clearDragVisuals() {
+      document.querySelectorAll(".puzzle-tile.is-over").forEach((el) => {
+        el.classList.remove("is-over");
+      });
+
+      document.querySelectorAll(".puzzle-tile.is-dragging").forEach((el) => {
+        el.classList.remove("is-dragging");
+      });
+    }
+
+    function renderBoard() {
+      if (!board || !selectedImage) return;
+
+      solved = isSolved(tiles);
+      board.innerHTML = "";
+
+      tiles.forEach((pieceIndex, boardIndex) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "puzzle-tile";
+        tile.draggable = !solved;
+        tile.disabled = solved;
+        tile.dataset.boardIndex = String(boardIndex);
+        tile.dataset.pieceIndex = String(pieceIndex);
+        tile.setAttribute(
+          "aria-label",
+          `Kachel ${boardIndex + 1} von ${TILE_COUNT}`,
+        );
+
+        tile.style.backgroundImage = `url("${selectedImage.src}")`;
+        tile.style.backgroundPosition = getTileBackgroundPosition(pieceIndex);
+
+        if (pieceIndex === boardIndex) {
+          tile.classList.add("is-correct");
+        }
+
+        if (!solved) {
+          tile.addEventListener("dragstart", onDragStart);
+          tile.addEventListener("dragend", onDragEnd);
+          tile.addEventListener("dragover", onDragOver);
+          tile.addEventListener("dragenter", onDragEnter);
+          tile.addEventListener("dragleave", onDragLeave);
+          tile.addEventListener("drop", onDrop);
+        }
+
+        board.appendChild(tile);
+      });
+
+      setMoves(moves);
+
+      if (solved) {
+        if (shuffleBtn) {
+          shuffleBtn.disabled = true;
+        }
+        setStatus(`Gelöst: ${selectedImage.label}. Sehr schön.`);
+      } else {
+        if (shuffleBtn) {
+          shuffleBtn.disabled = false;
+        }
+        setStatus(
+          `Aktuelles Bild: ${selectedImage.label}. Ziehe eine Kachel auf eine andere, um sie zu tauschen.`,
+        );
+      }
+    }
+
+    function swapTiles(indexA, indexB) {
+      if (
+        solved ||
+        indexA == null ||
+        indexB == null ||
+        indexA === indexB ||
+        indexA < 0 ||
+        indexB < 0 ||
+        indexA >= tiles.length ||
+        indexB >= tiles.length
+      ) {
+        return;
+      }
+
+      [tiles[indexA], tiles[indexB]] = [tiles[indexB], tiles[indexA]];
+      moves += 1;
+      renderBoard();
+    }
+
+    function onDragStart(ev) {
+      if (solved) return;
+
+      const tile = ev.currentTarget;
+      if (!tile) return;
+
+      dragFromIndex = Number(tile.dataset.boardIndex);
+      tile.classList.add("is-dragging");
+
+      if (ev.dataTransfer) {
+        ev.dataTransfer.effectAllowed = "move";
+        ev.dataTransfer.setData("text/plain", String(dragFromIndex));
+      }
+    }
+
+    function onDragEnd(ev) {
+      const tile = ev.currentTarget;
+      if (tile) {
+        tile.classList.remove("is-dragging");
+      }
+
+      clearDragVisuals();
+      dragFromIndex = null;
+    }
+
+    function onDragOver(ev) {
+      if (solved) return;
+      ev.preventDefault();
+
+      if (ev.dataTransfer) {
+        ev.dataTransfer.dropEffect = "move";
+      }
+    }
+
+    function onDragEnter(ev) {
+      if (solved) return;
+
+      const tile = ev.currentTarget;
+      if (!tile) return;
+      tile.classList.add("is-over");
+    }
+
+    function onDragLeave(ev) {
+      const tile = ev.currentTarget;
+      if (!tile) return;
+      tile.classList.remove("is-over");
+    }
+
+    function onDrop(ev) {
+      if (solved) return;
+
+      ev.preventDefault();
+
+      const tile = ev.currentTarget;
+      if (!tile) return;
+
+      tile.classList.remove("is-over");
+
+      let fromIndex = dragFromIndex;
+
+      if ((fromIndex == null || Number.isNaN(fromIndex)) && ev.dataTransfer) {
+        fromIndex = Number(ev.dataTransfer.getData("text/plain"));
+      }
+
+      const toIndex = Number(tile.dataset.boardIndex);
+
+      if (Number.isFinite(fromIndex) && Number.isFinite(toIndex)) {
+        swapTiles(fromIndex, toIndex);
+      }
+    }
+
+    function startPuzzle(image, thumbIndex) {
+      selectedImage = image;
+      tiles = shuffledOrder(TILE_COUNT);
+      solved = false;
+      moves = 0;
+      dragFromIndex = null;
+
+      if (titleEl) {
+        titleEl.textContent = image.label;
+      }
+
+      if (board) {
+        board.classList.remove("is-disabled");
+      }
+
+      if (shuffleBtn) {
+        shuffleBtn.disabled = false;
+      }
+
+      updateThumbSelection(thumbIndex);
+      renderBoard();
+    }
+
+    thumbButtons.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const image = puzzleImages[index];
+        if (!image) return;
+        startPuzzle(image, index);
+      });
+    });
+
+    if (shuffleBtn) {
+      shuffleBtn.addEventListener("click", () => {
+        if (!selectedImage || solved) return;
+        tiles = shuffledOrder(TILE_COUNT);
+        solved = false;
+        moves = 0;
+        dragFromIndex = null;
+        renderBoard();
+      });
+    }
+  </script>
+</BaseLayout>
