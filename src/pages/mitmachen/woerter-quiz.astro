@@ -1,0 +1,480 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import fragen from "../../data/mitmachen/quiz/fragen.json";
+import woerter from "../../data/mitmachen/quiz/woerter.json";
+
+export const chronik = {
+  title: "Egerländer Wörterquiz",
+  subtitle: "Ein spielerischer Einstieg in die Sprache der Egerländer.",
+  date: "2026-03-11",
+  bereich: "Mitmachen",
+  href: "/mitmachen/woerter-quiz",
+  order: 3,
+};
+---
+
+<BaseLayout title="Egerländer Wörterquiz">
+  <main class="quiz-page">
+    <div class="quiz-topline">
+      <h1>Egerländer Wörterquiz</h1>
+    </div>
+
+    <p class="intro">
+      Dieses Quiz ist ein kleiner spielerischer Einstieg in die Sprache der
+      Egerländer. Es stellt jeweils fünf Fragen. Mal geht es vom Dialekt zur
+      hochdeutschen Bedeutung, mal in die andere Richtung. Wenn ein Wort im
+      Dialekt erraten werden muss, werden nach der Antwort alle angebotenen
+      Wörter kurz erklärt. So lässt sich der Wortschatz des Egerländer Dialekts
+      Schritt für Schritt entdecken.
+    </p>
+
+    <section class="quiz-panel" aria-labelledby="quiz-status-title">
+      <div id="quizMeta" class="quiz-meta">
+        <p id="quizProgress" class="quiz-progress">Frage 1 von 5</p>
+        <button type="button" id="restartLink" class="text-link">
+          Neues Quiz beginnen
+        </button>
+      </div>
+
+      <div id="quizQuestionBlock" class="quiz-question-block">
+        <h2 id="quiz-status-title" class="visually-hidden">Wörterquiz</h2>
+        <p id="quizQuestion" class="quiz-question"></p>
+        <div id="quizChoices" class="quiz-choices" role="list"></div>
+      </div>
+
+      <div id="quizFeedback" class="quiz-feedback" hidden></div>
+
+      <div id="quizActions" class="quiz-actions" hidden>
+        <button type="button" id="nextLink" class="text-link">
+          Weiter zur nächsten Frage
+        </button>
+      </div>
+
+      <div id="quizResult" class="quiz-result" hidden></div>
+    </section>
+  </main>
+
+  <style is:global>
+    .quiz-page {
+      max-width: 860px;
+      margin: 0;
+    }
+
+    .quiz-topline {
+      margin-bottom: 0.45rem;
+    }
+
+    .quiz-page h1 {
+      margin: 0;
+    }
+
+    .intro {
+      padding-top: 0.8rem;
+      margin: 0 0 1.6rem;
+      line-height: 1.5;
+      opacity: 0.84;
+    }
+
+    .quiz-panel {
+      padding-top: 0.25rem;
+    }
+
+    .quiz-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .quiz-progress {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.75;
+    }
+
+    .quiz-question-block {
+      margin-bottom: 1rem;
+    }
+
+    .quiz-question {
+      margin: 0 0 1rem;
+      font-size: 1.15rem;
+      line-height: 1.45;
+    }
+
+    .quiz-choices {
+      display: grid;
+      gap: 0.45rem;
+      max-width: 54rem;
+    }
+
+    .quiz-choice {
+      appearance: none;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      background: #fff;
+      color: inherit;
+      text-align: left;
+      padding: 0.72rem 0.85rem;
+      border-radius: 10px;
+      line-height: 1.4;
+      font: inherit;
+      cursor: pointer;
+      transition:
+        border-color 0.12s ease,
+        background-color 0.12s ease;
+    }
+
+    .quiz-choice:hover:not(:disabled) {
+      border-color: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.018);
+    }
+
+    .quiz-choice:disabled {
+      cursor: default;
+    }
+
+    .quiz-choice.is-correct,
+    .quiz-choice.is-wrong {
+      border-color: rgba(0, 0, 0, 0.38);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .quiz-feedback {
+      margin-top: 1rem;
+      padding-top: 0.1rem;
+      line-height: 1.5;
+    }
+
+    .quiz-feedback p {
+      margin: 0 0 0.7rem;
+    }
+
+    .quiz-feedback .feedback-head {
+      font-weight: 600;
+    }
+
+    .quiz-feedback .feedback-answer {
+      opacity: 0.86;
+    }
+
+    .choice-explanations {
+      margin-top: 1rem;
+      padding-top: 0.15rem;
+    }
+
+    .choice-explanations h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .choice-explanations ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .choice-explanations li {
+      margin: 0.15rem 0;
+    }
+
+    .quiz-actions {
+      margin-top: 1rem;
+    }
+
+    .quiz-result {
+      margin-top: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .quiz-result h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    .quiz-result p {
+      margin: 0 0 0.6rem;
+    }
+
+    .quiz-result .result-score {
+      font-weight: 600;
+    }
+
+    .quiz-result .result-note {
+      opacity: 0.88;
+    }
+
+    .text-link {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      opacity: 0.82;
+      text-decoration: none !important;
+      box-shadow: none;
+    }
+
+    .text-link:hover,
+    .text-link:focus,
+    .text-link:active,
+    .text-link:visited {
+      color: inherit;
+      text-decoration: none !important;
+      opacity: 1;
+      outline: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 720px) {
+      .quiz-topline {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quiz-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+  <script define:vars={{ fragen, woerter }}>
+    const QUESTION_COUNT = 5;
+
+    const progressEl = document.getElementById("quizProgress");
+    const questionEl = document.getElementById("quizQuestion");
+    const choicesEl = document.getElementById("quizChoices");
+    const feedbackEl = document.getElementById("quizFeedback");
+    const actionsEl = document.getElementById("quizActions");
+    const resultEl = document.getElementById("quizResult");
+    const nextLink = document.getElementById("nextLink");
+    const restartLink = document.getElementById("restartLink");
+
+    let quizQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function shuffle(array) {
+      const copy = array.slice();
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function sampleQuestions(allQuestions, count) {
+      return shuffle(allQuestions).slice(
+        0,
+        Math.min(count, allQuestions.length),
+      );
+    }
+
+    function prepareQuestion(question) {
+      const indexedChoices = question.choices.map((choice, index) => ({
+        text: choice,
+        isCorrect: index === question.correctIndex,
+      }));
+
+      const shuffledChoices = shuffle(indexedChoices);
+      const correctIndex = shuffledChoices.findIndex(
+        (choice) => choice.isCorrect,
+      );
+
+      return {
+        ...question,
+        shuffledChoices,
+        displayCorrectIndex: correctIndex,
+      };
+    }
+
+    function getResultText(value) {
+      if (value === 5) {
+        return "Wahnsinn. Das ist kaum zu erwarten. Fast so, als wäre jemand aus dem alten Pechgrün hier vorbeigekommen.";
+      }
+      if (value === 4) {
+        return "Wow. Das ist wirklich bemerkenswert. Diese Wörter gehören zu einer Sprache, die heute kaum noch gesprochen wird.";
+      }
+      if (value === 3) {
+        return "Sehr gut. Du scheinst ein richtig gutes Gefühl für den Egerländer Dialekt zu haben.";
+      }
+      if (value === 2) {
+        return "Alle Achtung. Du scheinst einen guten Bezug zum Egerland zu haben. Damit wirst du auf dieser Webseite vieles wiedererkennen.";
+      }
+      if (value === 1) {
+        return "Glückwunsch. Ein erster Treffer ist da. Der Rest wartet im Wörterbuch und in den Texten.";
+      }
+      return "Macht nichts – genau dafür ist das Quiz da: als kleiner neugieriger Einstieg in die Sprache des Egerlands und die Geschichten dieser Webseite.";
+    }
+
+    function lookupMeaning(word) {
+      return woerter[word] || "keine Erklärung gefunden";
+    }
+
+    function clearQuestionView() {
+      feedbackEl.hidden = true;
+      feedbackEl.innerHTML = "";
+      actionsEl.hidden = true;
+      resultEl.hidden = true;
+      resultEl.innerHTML = "";
+      choicesEl.innerHTML = "";
+      answered = false;
+    }
+
+    function renderQuestion() {
+      clearQuestionView();
+
+      const question = quizQuestions[currentIndex];
+      if (!question) return;
+
+      progressEl.textContent = `Frage ${currentIndex + 1} von ${quizQuestions.length}`;
+      questionEl.textContent = question.question;
+
+      question.shuffledChoices.forEach((choice, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "quiz-choice";
+        button.textContent = choice.text;
+        button.addEventListener("click", () => handleAnswer(index));
+        choicesEl.appendChild(button);
+      });
+    }
+
+    function markChoices(question, selectedIndex) {
+      const buttons = Array.from(choicesEl.querySelectorAll(".quiz-choice"));
+      const isCorrect = selectedIndex === question.displayCorrectIndex;
+
+      buttons.forEach((button, index) => {
+        button.disabled = true;
+
+        if (index === selectedIndex) {
+          button.classList.add(isCorrect ? "is-correct" : "is-wrong");
+        }
+      });
+    }
+
+    function buildMeaningList(question) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "choice-explanations";
+
+      const heading = document.createElement("h3");
+      heading.textContent = "Die fünf angebotenen Wörter bedeuten:";
+      wrapper.appendChild(heading);
+
+      const list = document.createElement("ul");
+
+      question.shuffledChoices.forEach((choice) => {
+        const item = document.createElement("li");
+        const meaning = lookupMeaning(choice.text);
+        item.innerHTML = `<strong>${escapeHtml(choice.text)}</strong> = ${escapeHtml(meaning)}`;
+        list.appendChild(item);
+      });
+
+      wrapper.appendChild(list);
+      return wrapper;
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function handleAnswer(selectedIndex) {
+      if (answered) return;
+      answered = true;
+
+      const question = quizQuestions[currentIndex];
+      const selectedChoice = question.shuffledChoices[selectedIndex];
+      const correctChoice =
+        question.shuffledChoices[question.displayCorrectIndex];
+      const isCorrect = selectedIndex === question.displayCorrectIndex;
+
+      if (isCorrect) {
+        score += 1;
+      }
+
+      markChoices(question, selectedIndex);
+
+      feedbackEl.hidden = false;
+      feedbackEl.innerHTML = `
+        <p class="feedback-head">${isCorrect ? "Richtig." : "Leider nicht richtig."}</p>
+        <p class="feedback-answer">Die richtige Antwort ist: <strong>${escapeHtml(correctChoice.text)}</strong>.</p>
+      `;
+
+      if (question.type === "bedeutung-zu-dialekt") {
+        feedbackEl.appendChild(buildMeaningList(question));
+      }
+
+      const isLastQuestion = currentIndex >= quizQuestions.length - 1;
+
+      if (isLastQuestion) {
+        showResult();
+      } else {
+        actionsEl.hidden = false;
+      }
+    }
+
+    function showResult() {
+      resultEl.hidden = false;
+      resultEl.innerHTML = `
+        <h2>Ergebnis</h2>
+        <p class="result-score">${score} von ${quizQuestions.length} richtig.</p>
+        <p>${getResultText(score)}</p>
+        <p class="result-note">Wer weiterstöbern möchte, findet im Bereich „Texte, Stimmen und Erinnerungen“ ein Egerländer Wörterbuch, 
+            eine Mundartstimme zum Anhören sowie Gedichte und Texte im Egerländer Dialekt.
+        </p>
+      `;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizQuestions.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
+      }
+    }
+
+    function startQuiz() {
+      const picked = sampleQuestions(fragen, QUESTION_COUNT).map(
+        prepareQuestion,
+      );
+      quizQuestions = picked;
+      currentIndex = 0;
+      score = 0;
+      clearQuestionView();
+      renderQuestion();
+    }
+
+    if (nextLink) {
+      nextLink.addEventListener("click", nextQuestion);
+    }
+
+    if (restartLink) {
+      restartLink.addEventListener("click", startQuiz);
+    }
+
+    startQuiz();
+  </script>
+</BaseLayout>

@@ -1,0 +1,1252 @@
+[
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „äjascht“?",
+    "word": "äjascht",
+    "meaning": "erst",
+    "choices": ["erst", "eilig", "früher einmal", "jemand", "plötzlich"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Åuawaschl“?",
+    "word": "Åuawaschl",
+    "meaning": "Ohrmuschel",
+    "choices": [
+      "Ohrmuschel",
+      "Nasenflügel",
+      "Ohrläppchen",
+      "Schläfe",
+      "Augenwinkel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „großes Stück Wurst“?",
+    "word": "Blätzn",
+    "meaning": "großes Stück Wurst",
+    "choices": ["Blätzn", "Blunzn", "Plätzl", "Zollan", "Krambball"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Boowiel“?",
+    "word": "Boowiel",
+    "meaning": "Pflaumenmus",
+    "choices": [
+      "Pflaumenmus",
+      "Hagebuttenmarmelade",
+      "Kren (Meerrettich)",
+      "Lebkuchen",
+      "Brombeere"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „boitschkan“?",
+    "word": "boitschkan",
+    "meaning": "komisch tanzen",
+    "choices": [
+      "komisch tanzen",
+      "herumstolpern",
+      "laut lachen",
+      "wild gestikulieren",
+      "torkelnd gehen"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Purzelbaum“?",
+    "word": "Boochstürtzl",
+    "meaning": "Purzelbaum",
+    "choices": ["Boochstürtzl", "Kopara", "purzln", "boitschkan", "Strawanzer"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Buazl“?",
+    "word": "Buazl",
+    "meaning": "Dampfnudel",
+    "choices": [
+      "Dampfnudel",
+      "Pflaumenmus",
+      "Knödel",
+      "Lebkuchen",
+      "Brotkante"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „dålkat“?",
+    "word": "dålkat",
+    "meaning": "ungeschickt",
+    "choices": [
+      "ungeschickt",
+      "unverschämt",
+      "schwerfällig",
+      "verlegen",
+      "zerstreut"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „inzwischen“?",
+    "word": "dawaal",
+    "meaning": "inzwischen",
+    "choices": ["dawaal", "iewarawaal", "säalmål", "vanej", "affra Måål"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Draahwalzl“?",
+    "word": "Draahwalzl",
+    "meaning": "Wellholz",
+    "choices": [
+      "Nudelholz",
+      "Holzhammer",
+      "Teigschaber",
+      "Butterfass",
+      "Holzkelle"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „einfältiger Mensch“?",
+    "word": "Dubbl",
+    "meaning": "einfältiger Mensch",
+    "choices": ["Dubbl", "Dabbl", "Måuscha", "Tippl", "Sockl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Liege“?",
+    "word": "Faalentza",
+    "meaning": "Liege",
+    "choices": ["Faalentza", "Strapouz", "Bieat", "Stockal", "Hitschl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „fischban“?",
+    "word": "fischban",
+    "meaning": "wispern",
+    "choices": [
+      "wispern",
+      "leise vor sich hin summen",
+      "jemanden auslachen",
+      "heimlich lauschen",
+      "vorsichtig tasten"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Germ“?",
+    "word": "Germ",
+    "meaning": "Hefe",
+    "choices": ["Hefe", "Malz", "Sauerteig", "Backpulver", "Mehlstaub"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gelåwa“?",
+    "word": "Gelåwa",
+    "meaning": "Geplapper",
+    "choices": [
+      "Geplapper",
+      "Gerücht",
+      "lautes Streiten",
+      "Durcheinander",
+      "Beschwerde"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Pullover“?",
+    "word": "Golla",
+    "meaning": "Pullover",
+    "choices": ["Golla", "Leiwl", "Joppm", "Kaalmuck", "Kii´l"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gschluda“?",
+    "word": "Gschluda",
+    "meaning": "schlampige Schrift",
+    "choices": [
+      "schlampige Schrift",
+      "schiefes Gesicht",
+      "unordentliches Zimmer",
+      "krakelige Handschrift",
+      "unleserlicher Brief"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gwirch“?",
+    "word": "Gwirch",
+    "meaning": "Durcheinander",
+    "choices": [
+      "Durcheinander",
+      "Gerücht",
+      "lautstarker Streit",
+      "unordentliche Arbeit",
+      "großer Schaden"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Åalma“?",
+    "word": "Åalma",
+    "meaning": "Speiseschrank",
+    "choices": [
+      "Speiseschrank",
+      "Holztruhe",
+      "Mehlkasten",
+      "Kellerregal",
+      "Brotkasten"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Arschloch“?",
+    "word": "Åaschluach",
+    "meaning": "Arschloch",
+    "choices": ["Åaschluach", "Dubbl", "Hoodalump", "Ruatzlöffl", "Strawanzer"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Linienrichter“?",
+    "word": "Autwachla",
+    "meaning": "Linienrichter",
+    "choices": [
+      "Autwachla",
+      "Buulhuppa",
+      "Strawanzer",
+      "Krautscheia",
+      "Schlawiner"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Beja“?",
+    "word": "Beja",
+    "meaning": "Bier",
+    "choices": ["Bier", "Most", "Schnaps", "Apfelwein", "Malztrunk"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Blunzn“?",
+    "word": "Blunzn",
+    "meaning": "Blutwurst",
+    "choices": [
+      "Blutwurst",
+      "Leberwurst",
+      "Bratwurst",
+      "Presswurst",
+      "Knackwurst"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Verkäufer“?",
+    "word": "Buulhuppa",
+    "meaning": "Verkäufer",
+    "choices": ["Buulhuppa", "Strawanzer", "Dabbl", "Protza", "Schlawiner"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Dabbl“?",
+    "word": "Dabbl",
+    "meaning": "Depp",
+    "choices": ["Depp", "Bauer", "Träumer", "Witzbold", "Besserwisser"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Dubbl“?",
+    "word": "Dubbl",
+    "meaning": "einfältiger Mensch",
+    "choices": [
+      "einfältiger Mensch",
+      "Faulpelz",
+      "Schreihals",
+      "Besserwisser",
+      "Prahlhans"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Faalentza“?",
+    "word": "Faalentza",
+    "meaning": "Liege",
+    "choices": ["Liege", "Hocker", "Schemel", "Holzbank", "Stuhl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Fuatz“?",
+    "word": "Fuatz",
+    "meaning": "Furz",
+    "choices": ["Furz", "Rülpser", "Husten", "Seufzer", "Niesen"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Funtzl“?",
+    "word": "Funtzl",
+    "meaning": "alte Lampe",
+    "choices": [
+      "alte Lampe",
+      "Kerzenhalter",
+      "Laterne",
+      "Stalllampe",
+      "Öllampe"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gfries“?",
+    "word": "Gfries",
+    "meaning": "Fresse",
+    "choices": ["Fresse", "Bart", "Backe", "Kinn", "Gesicht"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Golla“?",
+    "word": "Golla",
+    "meaning": "Pullover",
+    "choices": ["Pullover", "Mantel", "Joppe", "Weste", "Jacke"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gonsära“?",
+    "word": "Gonsära",
+    "meaning": "Gänserich",
+    "choices": ["Gänserich", "Entenpelz", "Truthahn", "Hahn", "Gänseküken"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Hoodalump“?",
+    "word": "Hoodalump",
+    "meaning": "Haderlump",
+    "choices": ["Haderlump", "Bettler", "Dieb", "Faulpelz", "Schwindler"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Hundsfotz“?",
+    "word": "Hundsfotz",
+    "meaning": "Hundegenitalie",
+    "choices": [
+      "Hundegenitalie",
+      "Hundeschwanz",
+      "Hundefell",
+      "Hundezunge",
+      "Hundepfote"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kiewl“?",
+    "word": "Kiewl",
+    "meaning": "Kübel",
+    "choices": ["Kübel", "Kanne", "Topf", "Wanne", "Schüssel"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kluppm“?",
+    "word": "Kluppm",
+    "meaning": "Klammer",
+    "choices": ["Klammer", "Nagel", "Schraube", "Haken", "Öse"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kopara“?",
+    "word": "Kopara",
+    "meaning": "Kopfsprung",
+    "choices": [
+      "Kopfsprung",
+      "Hechtsprung",
+      "Purzelbaum",
+      "Sturz",
+      "Sprung ins Wasser"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kräañ“?",
+    "word": "Kräañ",
+    "meaning": "Meerrettich",
+    "choices": [
+      "Meerrettich",
+      "Sellerie",
+      "Pastinake",
+      "Rettich",
+      "Petersilienwurzel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kullöffl“?",
+    "word": "Kullöffl",
+    "meaning": "Kochlöffel",
+    "choices": [
+      "Kochlöffel",
+      "Schöpflöffel",
+      "Suppenkelle",
+      "Holzspatel",
+      "Pfannenwender"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Lausa“?",
+    "word": "Lausa",
+    "meaning": "Lausbub",
+    "choices": ["Lausbub", "Schreihals", "Faulpelz", "Träumer", "Angeber"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Liwanzl“?",
+    "word": "Liwanzl",
+    "meaning": "Hefepfannkuchen",
+    "choices": [
+      "Hefepfannkuchen",
+      "Kartoffelpuffer",
+      "Waffel",
+      "Pfannkuchen",
+      "Crêpe"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Loahm“?",
+    "word": "Loahm",
+    "meaning": "Lehm",
+    "choices": ["Lehm", "Sand", "Ton", "Kies", "Schlamm"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Måuscha“?",
+    "word": "Måuscha",
+    "meaning": "Tölpel",
+    "choices": [
+      "Tölpel",
+      "Schwindler",
+      "Besserwisser",
+      "Schwätzer",
+      "Schreihals"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Mucksa“?",
+    "word": "Mucksa",
+    "meaning": "leises Murren",
+    "choices": [
+      "leises Murren",
+      "lautes Lachen",
+      "starker Husten",
+      "langes Seufzen",
+      "kurzer Pfiff"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Ruatzlöffl“?",
+    "word": "Ruatzlöffl",
+    "meaning": "Rotzlöffel",
+    "choices": [
+      "Rotzlöffel",
+      "Taugenichts",
+      "Lausbub",
+      "Schwätzer",
+      "Schlingel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Strawanzer“?",
+    "word": "Strawanzer",
+    "meaning": "untätig herum Laufender",
+    "choices": [
+      "untätig herum Laufender",
+      "Landstreicher",
+      "Faulpelz",
+      "Witzbold",
+      "Schwätzer"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Tunk“?",
+    "word": "Tunk",
+    "meaning": "Soße",
+    "choices": ["Soße", "Brühe", "Suppe", "Saft", "Fett"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Ziroop“?",
+    "word": "Ziroop",
+    "meaning": "Sirup",
+    "choices": [
+      "Sirup",
+      "Honigwasser",
+      "Apfelsaft",
+      "Zuckerwasser",
+      "Fruchtsaft"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Boochstürtzl“?",
+    "word": "Boochstürtzl",
+    "meaning": "Purzelbaum",
+    "choices": ["Purzelbaum", "Hechtsprung", "Sturz", "Sprung", "Kopfsprung"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Sirup“?",
+    "word": "Ziroop",
+    "meaning": "Sirup",
+    "choices": ["Ziroop", "Powidl", "Germ", "Beja", "Faam"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Pflaumenmus“?",
+    "word": "Powidl",
+    "meaning": "Pflaumenmus",
+    "choices": ["Powidl", "Ziroop", "Blunzn", "Liwanzl", "Beja"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Kübel“?",
+    "word": "Kiewl",
+    "meaning": "Kübel",
+    "choices": ["Kiewl", "Kluppm", "Kullöffl", "Kopara", "Koustl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Meerrettich“?",
+    "word": "Kräañ",
+    "meaning": "Meerrettich",
+    "choices": ["Kräañ", "Krautscheia", "Kullöffl", "Kliarreis", "Kouhlecka"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Kochlöffel“?",
+    "word": "Kullöffl",
+    "meaning": "Kochlöffel",
+    "choices": ["Kullöffl", "Kiewl", "Kluppm", "Kopara", "Kniåwl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Klammer“?",
+    "word": "Kluppm",
+    "meaning": "Klammer",
+    "choices": ["Kluppm", "Kiewl", "Kopara", "Kliarreis", "Kullöffl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Knoblauch“?",
+    "word": "Gnuawlat",
+    "meaning": "Knoblauch",
+    "choices": ["Gnuawlat", "Kräañ", "Krautscheia", "Kouhlecka", "Koustl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Lausbub“?",
+    "word": "Lausa",
+    "meaning": "Lausbub",
+    "choices": ["Lausa", "Dubbl", "Strawanzer", "Protza", "Schlawiner"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Rotzlöffel“?",
+    "word": "Ruatzlöffl",
+    "meaning": "Rotzlöffel",
+    "choices": ["Ruatzlöffl", "Strawanzer", "Dubbl", "Dabbl", "Protza"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Gänserich“?",
+    "word": "Gonsära",
+    "meaning": "Gänserich",
+    "choices": ["Gonsära", "Hussl", "Heel", "Hafaling", "Wiewal"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Bier“?",
+    "word": "Beja",
+    "meaning": "Bier",
+    "choices": ["Beja", "Faam", "Powidl", "Ziroop", "Blunzn"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Dampfnudel“?",
+    "word": "Buazl",
+    "meaning": "Dampfnudel",
+    "choices": ["Buazl", "Liwanzl", "Blunzn", "Powidl", "Ziroop"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Nudelholz“?",
+    "word": "Draahwalzl",
+    "meaning": "Nudelholz",
+    "choices": ["Draahwalzl", "Kullöffl", "Kiewl", "Kluppm", "Kopara"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Durcheinander“?",
+    "word": "Gwirch",
+    "meaning": "Durcheinander",
+    "choices": ["Gwirch", "Gelåwa", "Gschwafl", "Gschmalk", "Gfries"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Bäñk“?",
+    "word": "Bäñk",
+    "meaning": "Bauernlümmel",
+    "choices": [
+      "Bauernlümmel",
+      "Landarbeiter",
+      "Stallknecht",
+      "Holzhacker",
+      "Feldhüter"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Britschn“?",
+    "word": "Britschn",
+    "meaning": "unflätiges Weib",
+    "choices": [
+      "unflätiges Weib",
+      "freundliche Frau",
+      "alte Bäuerin",
+      "Nachbarin",
+      "Magd"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Brousl“?",
+    "word": "Brousl",
+    "meaning": "Fleck",
+    "choices": ["Fleck", "Riss", "Schramme", "Beule", "Sprung"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Buulhuppa“?",
+    "word": "Buulhuppa",
+    "meaning": "Verkäufer",
+    "choices": [
+      "Verkäufer",
+      "Marktschreier",
+      "Handwerker",
+      "Bäcker",
+      "Hausierer"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Dråuschl“?",
+    "word": "Dråuschl",
+    "meaning": "ungeschickte Person",
+    "choices": [
+      "ungeschickte Person",
+      "schlauer Mensch",
+      "fauler Mensch",
+      "armer Mensch",
+      "reicher Mann"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Droompl“?",
+    "word": "Droompl",
+    "meaning": "ungeschicktes Weib",
+    "choices": [
+      "ungeschicktes Weib",
+      "kluge Frau",
+      "freundliche Nachbarin",
+      "Magd",
+      "Wirtin"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Faam“?",
+    "word": "Faam",
+    "meaning": "Schaum",
+    "choices": ["Schaum", "Staub", "Rauch", "Dampf", "Nebel"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Fallot“?",
+    "word": "Fallot",
+    "meaning": "Betrüger",
+    "choices": ["Betrüger", "Richter", "Kaufmann", "Bauer", "Lehrer"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Faunz“?",
+    "word": "Faunz",
+    "meaning": "Grundel",
+    "choices": ["Grundel", "Karpfen", "Forelle", "Hecht", "Aal"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Fedawiesch“?",
+    "word": "Fedawiesch",
+    "meaning": "Federbusch",
+    "choices": [
+      "Federbusch",
+      "Vogelnest",
+      "Federkiel",
+      "Federmantel",
+      "Federkranz"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Flitschal“?",
+    "word": "Flitschal",
+    "meaning": "leichtsinniges Mädchen",
+    "choices": [
+      "leichtsinniges Mädchen",
+      "kleines Kind",
+      "Bäuerin",
+      "Magd",
+      "alte Frau"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Fongas“?",
+    "word": "Fongas",
+    "meaning": "Verletzung",
+    "choices": ["Verletzung", "Erkältung", "Beule", "Kratzer", "Schramme"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Fuchtl“?",
+    "word": "Fuchtl",
+    "meaning": "zänkische Frau",
+    "choices": [
+      "zänkische Frau",
+      "freundliche Frau",
+      "Nachbarin",
+      "Magd",
+      "Wirtin"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gahnåff“?",
+    "word": "Gahnåff",
+    "meaning": "Schimpfwort für Affe",
+    "choices": [
+      "Schimpfwort für Affe",
+      "kleiner Hund",
+      "lustiger Mensch",
+      "Narr",
+      "Bettler"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gallrawasch“?",
+    "word": "Gallrawasch",
+    "meaning": "Schimpfname",
+    "choices": [
+      "Schimpfname",
+      "Kosename",
+      "Familienname",
+      "Ortsname",
+      "Spitzname"
+    ],
+    "correctIndex": 0
+  },
+
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Furz“?",
+    "word": "Fuatz",
+    "meaning": "Furz",
+    "choices": ["Fuatz", "Gelåwa", "Gfries", "Germ", "Faam"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Schaum“?",
+    "word": "Faam",
+    "meaning": "Schaum",
+    "choices": ["Faam", "Beja", "Germ", "Gelåwa", "Gfries"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Federbusch“?",
+    "word": "Fedawiesch",
+    "meaning": "Federbusch",
+    "choices": ["Fedawiesch", "Faunz", "Fallot", "Fongas", "Flitschal"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Betrüger“?",
+    "word": "Fallot",
+    "meaning": "Betrüger",
+    "choices": ["Fallot", "Bäñk", "Dubbl", "Dabbl", "Strawanzer"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „zänkische Frau“?",
+    "word": "Fuchtl",
+    "meaning": "zänkische Frau",
+    "choices": ["Fuchtl", "Flitschal", "Britschn", "Droompl", "Dråuschl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Goschut“?",
+    "word": "Goschut",
+    "meaning": "Schimpfwort",
+    "choices": [
+      "Schimpfwort",
+      "Begrüßung",
+      "Segensspruch",
+      "Redensart",
+      "Spottlied"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gnallal“?",
+    "word": "Gnallal",
+    "meaning": "Knäulchen",
+    "choices": ["Knäulchen", "Fadenrolle", "Wollknäuel", "Stoffrest", "Knoten"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Huck“?",
+    "word": "Huck",
+    "meaning": "Höcker",
+    "choices": ["Höcker", "Rücken", "Buckel", "Knie", "Schulter"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Huckschabolln“?",
+    "word": "Huckschabolln",
+    "meaning": "Ball zum Spielen",
+    "choices": [
+      "Ball zum Spielen",
+      "Holzklotz",
+      "Stein",
+      "Kreisel",
+      "Spielwürfel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Huiñchl“?",
+    "word": "Huiñchl",
+    "meaning": "Geizhals",
+    "choices": [
+      "Geizhals",
+      "Reicher Bauer",
+      "Schulmeister",
+      "Gastwirt",
+      "Nachbar"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Hussl“?",
+    "word": "Hussl",
+    "meaning": "Gans",
+    "choices": ["Gans", "Huhn", "Ente", "Truthahn", "Taube"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kaalmuck“?",
+    "word": "Kaalmuck",
+    "meaning": "kurzer Mantel",
+    "choices": ["kurzer Mantel", "Hut", "Stiefel", "Jacke", "Weste"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kåunigl“?",
+    "word": "Kåunigl",
+    "meaning": "Wildhase",
+    "choices": ["Wildhase", "Kaninchen", "Fuchs", "Dachs", "Reh"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Keschara“?",
+    "word": "Keschara",
+    "meaning": "dumpfer Knall",
+    "choices": [
+      "dumpfer Knall",
+      "leises Klopfen",
+      "heller Schlag",
+      "Donner",
+      "Rumpeln"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kliarreis“?",
+    "word": "Kliarreis",
+    "meaning": "klirrendes Eis",
+    "choices": [
+      "klirrendes Eis",
+      "dünnes Eis",
+      "schmelzendes Eis",
+      "gefrorener Schnee",
+      "Eiskruste"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Knoitl“?",
+    "word": "Knoitl",
+    "meaning": "tapsiger kräftiger Kerl",
+    "choices": [
+      "tapsiger kräftiger Kerl",
+      "kleiner Junge",
+      "fauler Mann",
+      "kluger Mann",
+      "reicher Bauer"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kouhlecka“?",
+    "word": "Kouhlecka",
+    "meaning": "Wirbel im Haar",
+    "choices": ["Wirbel im Haar", "Locke", "Zopf", "Haarsträhne", "Bartlocke"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Koustl“?",
+    "word": "Koustl",
+    "meaning": "Zapfen eines Nadelbaums",
+    "choices": ["Zapfen eines Nadelbaums", "Ast", "Zweig", "Rinde", "Wurzel"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kurasch“?",
+    "word": "Kurasch",
+    "meaning": "Mut",
+    "choices": ["Mut", "Angst", "Zorn", "Freude", "Trauer"],
+    "correctIndex": 0
+  },
+
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Geizhals“?",
+    "word": "Huiñchl",
+    "meaning": "Geizhals",
+    "choices": ["Huiñchl", "Dubbl", "Dabbl", "Strawanzer", "Fallot"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Gans“?",
+    "word": "Hussl",
+    "meaning": "Gans",
+    "choices": ["Hussl", "Gonsära", "Heel", "Hafaling", "Wiewal"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Mut“?",
+    "word": "Kurasch",
+    "meaning": "Mut",
+    "choices": ["Kurasch", "Leu", "Lack", "Rand", "Hetz"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Wirbel im Haar“?",
+    "word": "Kouhlecka",
+    "meaning": "Wirbel im Haar",
+    "choices": ["Kouhlecka", "Kliarreis", "Keschara", "Kluppm", "Kiewl"],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Wildhase“?",
+    "word": "Kåunigl",
+    "meaning": "Wildhase",
+    "choices": ["Kåunigl", "Hussl", "Gonsära", "Heel", "Hafaling"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Bieazl“?",
+    "word": "Bieazl",
+    "meaning": "Rohrnudel",
+    "choices": ["Rohrnudel", "Dampfnudel", "Pfannkuchen", "Knödel", "Strudel"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gniawl“?",
+    "word": "Gniawl",
+    "meaning": "Fingerknöchel",
+    "choices": [
+      "Fingerknöchel",
+      "Fingergelenk",
+      "Handfläche",
+      "Daumenspitze",
+      "Handwurzel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gschmalk“?",
+    "word": "Gschmalk",
+    "meaning": "dummes Gerede",
+    "choices": [
+      "dummes Gerede",
+      "Durcheinander",
+      "lautes Streiten",
+      "Geschimpfe",
+      "schlampige Schrift"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Gschwafl“?",
+    "word": "Gschwafl",
+    "meaning": "Geschwätz",
+    "choices": [
+      "Geschwätz",
+      "Gerücht",
+      "Beschwerde",
+      "Schimpfwort",
+      "Unordnung"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Hagebuttenmarmelade“?",
+    "word": "Hätschapätsch",
+    "meaning": "Hagebuttenmarmelade",
+    "choices": ["Hätschapätsch", "Powidl", "Boowiel", "Ziroop", "Blunzn"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Hemmbengl“?",
+    "word": "Hemmbengl",
+    "meaning": "Hemdbengel",
+    "choices": [
+      "Hemdbengel",
+      "Lausbub",
+      "Schlingel",
+      "Rotzlöffel",
+      "Schuljunge"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Hollaramotschak“?",
+    "word": "Hollaramotschak",
+    "meaning": "übler Mensch",
+    "choices": [
+      "übler Mensch",
+      "lustiger Kerl",
+      "fauler Arbeiter",
+      "kluger Mann",
+      "schlechter Sänger"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Kniawl“?",
+    "word": "Kniawl",
+    "meaning": "Knöchel an der Hand",
+    "choices": [
+      "Knöchel an der Hand",
+      "Fingerknöchel",
+      "Handrücken",
+      "Daumenballen",
+      "Ellenbogen"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Vogelscheuche“?",
+    "word": "Krautscheia",
+    "meaning": "Vogelscheuche",
+    "choices": [
+      "Krautscheia",
+      "Strawanzer",
+      "Buulhuppa",
+      "Schlawiner",
+      "Gonsära"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Låppara“?",
+    "word": "Låppara",
+    "meaning": "Dauerredner",
+    "choices": [
+      "Dauerredner",
+      "Angeber",
+      "Besserwisser",
+      "Marktschreier",
+      "Schwätzer"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Låtschfoz“?",
+    "word": "Låtschfoz",
+    "meaning": "geschwätziges Weib",
+    "choices": [
+      "geschwätziges Weib",
+      "zänkische Frau",
+      "unflätiges Weib",
+      "leichtsinniges Mädchen",
+      "alte Nachbarin"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Lejdamasch“?",
+    "word": "Lejdamasch",
+    "meaning": "Liebestoll",
+    "choices": [
+      "Liebestoll",
+      "eifersüchtig",
+      "leichtsinnig",
+      "verliebt verträumt",
+      "zänkisch"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "type": "bedeutung-zu-dialekt",
+    "question": "Wie sagt man im Egerländer Dialekt „Laden“?",
+    "word": "Loon",
+    "meaning": "Laden",
+    "choices": ["Loon", "Kiewl", "Kluppm", "Kullöffl", "Faalentza"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Malizn“?",
+    "word": "Malizn",
+    "meaning": "Eigenheiten",
+    "choices": ["Eigenheiten", "Launen", "Fehler", "Ausreden", "Gewohnheiten"],
+    "correctIndex": 0
+  },
+  {
+    "type": "dialekt-zu-bedeutung",
+    "question": "Was bedeutet das Egerländer Wort „Murksa“?",
+    "word": "Murksa",
+    "meaning": "unordentlicher Arbeiter",
+    "choices": [
+      "unordentlicher Arbeiter",
+      "fauler Kerl",
+      "ungeschickter Bauer",
+      "schlechter Handwerker",
+      "lauter Angeber"
+    ],
+    "correctIndex": 0
+  }
+]

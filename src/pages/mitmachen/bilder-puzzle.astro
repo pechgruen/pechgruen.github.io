@@ -93,7 +93,9 @@ const puzzleImages: PuzzleImage[] = Object.entries(imageModules)
                 <p id="puzzleStatus" class="puzzle-status">
                   Bitte wähle oben ein Bild aus.
                 </p>
-                <p id="puzzleMoves" class="puzzle-moves">Züge: 0</p>
+                <p id="puzzleMoves" class="puzzle-moves">
+                  Züge: 0
+                </p>
               </div>
 
               <div class="puzzle-actions">
@@ -113,7 +115,7 @@ const puzzleImages: PuzzleImage[] = Object.entries(imageModules)
                 id="puzzleBoard"
                 class="puzzle-board is-disabled"
                 aria-label="Bilder-Puzzle"
-              ></div>
+              />
             </div>
           </section>
         </>
@@ -604,6 +606,10 @@ const puzzleImages: PuzzleImage[] = Object.entries(imageModules)
         dragFromIndex = null;
         renderBoard();
       });
+
+      if (puzzleImages.length > 0) {
+        startPuzzle(puzzleImages[0], 0);
+      }
     }
   </script>
 </BaseLayout>
