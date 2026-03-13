@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import textHtml from "../../assets/texte/erinnerungen-karl-redelbach.html?raw";
+import houseLinks from "../../data/house-links.json";
 
 export const chronik = {
   title: "Erinnerungen an Pechgrün",
@@ -16,7 +17,63 @@ const sourceShort =
   "Aus: Pechgrün am Fuße des Erzgebirges – ein verschüttetes Dorf. Geschichte und Erinnerungen.";
 
 const intro =
-  "Dieser Text versammelt Erinnerungen an Pechgrün in zusammenhängender Prosa. Anders als im Skizzenheft beschreibt Karl Redelbach nicht den Verfall des Dorfes aus unmittelbarer Nähe, sondern blickt aus zeitlicher Distanz auf Kindheit, Dorfleben, Wege, Orte und Landschaften zurück. Die Erinnerung folgt dabei keinem historischen Anspruch, sondern dem persönlichen Gedächtnis: ruhig, beschreibend, manchmal tastend – getragen von Nähe zum Ort und von Sprache.";
+  "Dieser Text versammelt Erinnerungen an Pechgrün in zusammenhängender Prosa. Anders als im Skizzenheft beschreibt Karl Redelbach nicht den Verfall des Dorfes aus unmittelbarer Nähe, sondern blickt aus zeitlicher Distanz auf Kindheit, Dorfleben, Wege, Orte und Landschaften zurück. Die Erinnerung folgt dabei keinem historischen Anspruch, sondern dem persönlichen Gedächtnis: ruhig, beschreibend, manchmal tastend – getragen von Nähe zum Ort und von Sprache.\n\nNamen, Hausnummern und Flurnamen im Text sind anklickbar. Sie führen zu weiterführenden Informationen im Stammbaum, zu den Wegbeschreibungen der Häuser sowie zur Flurnamenkarte.";
+
+function escapeHtml(s: string): string {
+  return s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function linkFlurnames(rawHtml: string): string {
+  // Matches: [[flur-067|Pfarrteich]]
+  const re = /\[\[(flur-\d+)\|([^\]]+?)\]\]/g;
+
+  return rawHtml.replace(re, (_match, key, label) => {
+    const safeLabel = escapeHtml(label);
+    const safeId = encodeURIComponent(key);
+
+    return `<a href="/landschaft/flurnamen?flur=${safeId}" class="flur-link" target="_blank" rel="noopener">${safeLabel}</a>`;
+  });
+}
+
+function linkPersons(rawHtml: string): string {
+  // Matches: [[I500020|Name]] or [[?|Name]]
+  const re = /\[\[([A-Za-z]\d+|\?)\|([^\]]+?)\]\]/g;
+
+  const missingNote =
+    "Nicht im Pechgrün-Stammbaum erfasst.\n" +
+    "Keine familiäre Verbindung zu den Pechgrüner Stammlinien.";
+
+  return rawHtml.replace(re, (_match, key, label) => {
+    const safeLabel = escapeHtml(label);
+
+    if (key === "?") {
+      const safeNote = escapeHtml(missingNote);
+      return `<span class="person-link person-missing" data-note="${safeNote}">${safeLabel}</span>`;
+    }
+
+    const safeId = encodeURIComponent(key);
+    return `<a href="/internal/ged-person?id=${safeId}" class="person-link" target="_blank" rel="noopener">${safeLabel}</a>`;
+  });
+}
+
+function linkHouseNumbers(rawHtml: string): string {
+  const map = houseLinks as Record<string, string>;
+  const re = /\b(Haus\s+)?Nr\.\s*(\d{1,3})\b/g;
+
+  return rawHtml.replace(re, (match, _hausPrefix, num) => {
+    const href = map[String(num)];
+    if (!href) return match;
+
+    return `<a href="${href}" class="house-link" target="_blank" rel="noopener">${match}</a>`;
+  });
+}
+
+const textHtmlLinked = linkHouseNumbers(linkPersons(linkFlurnames(textHtml)));
 ---
 
 <BaseLayout title={chronik.title}>
@@ -33,12 +90,177 @@ const intro =
       </p>
     </header>
 
-    <!-- Einleitung (Editorischer Kontext, nicht Teil des Originaltexts) -->
+    <!-- Einleitung (editorischer Kontext, nicht Teil des Originaltexts) -->
     <section class="intro">
       <p>{intro}</p>
     </section>
 
-    <section class="text" lang="de" set:html={textHtml} />
+    <section class="text" lang="de" set:html={textHtmlLinked} />
+
+    <script is:inline>
+      (async function () {
+        const sp = new URLSearchParams(window.location.search);
+
+        const pid = sp.get("pid");
+        const hn = sp.get("hn"); // Hausname-Modus
+
+        // Wenn weder pid noch hn → nichts tun
+        if (!pid && !hn) return;
+
+        // Für pid-Modus: Name aus URL lesen
+        const nameRaw = sp.get("name") || "";
+        const name = nameRaw.trim();
+
+        // Kandidaten für Personenlinks
+        const preferred = document.querySelectorAll("a.person-link");
+        const candidates = preferred.length
+          ? preferred
+          : document.querySelectorAll('a[href^="/internal/ged-person?id="]');
+
+        function getIdFromLink(a) {
+          const href = a.getAttribute("href") || "";
+          try {
+            const u = new URL(href, window.location.href);
+            return u.searchParams.get("id");
+          } catch {
+            return null;
+          }
+        }
+
+        // hn-Modus: Liste von Person-IDs zu Hausname laden
+        let idSet = null;
+        if (hn) {
+          const resp = await fetch("/data/ged/houseNameToPersons.json", {
+            cache: "force-cache",
+          });
+          if (!resp.ok) return;
+
+          const map = await resp.json();
+          const ids = map[hn] || [];
+          if (!Array.isArray(ids) || ids.length === 0) return;
+
+          idSet = new Set(ids);
+        }
+
+        // Filter:
+        // - pid-Modus: genau diese eine Person
+        // - hn-Modus: alle Personen aus diesem Hausnamen
+        const hits = Array.from(candidates).filter((a) => {
+          const id = getIdFromLink(a);
+          if (!id) return false;
+
+          if (pid) return id === pid;
+          return idSet && idSet.has(id);
+        });
+
+        if (hits.length === 0) return;
+
+        const bar = document.createElement("div");
+
+        function escapeHtml(s) {
+          return s
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        // Titel:
+        // - hn-Modus: nur Hausname
+        // - pid-Modus: übergebener Name
+        const title = hn ? hn : name;
+        const titleHtml = title
+          ? `<span class="who">${escapeHtml(title)}</span><span class="who-sep">·</span>`
+          : "";
+
+        bar.className = "findbar";
+        bar.innerHTML = `
+          <div class="findbar-inner">
+            <div class="findbar-box">
+              ${titleHtml}
+              <span class="count">1 / ${hits.length}</span>
+              <button type="button" data-action="prev">◀</button>
+              <button type="button" data-action="next">▶</button>
+              <button type="button" data-action="close">✕</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(bar);
+
+        const countEl = bar.querySelector(".count");
+
+        let idx = 0;
+
+        function setActive(nextIdx, scroll = true) {
+          idx = nextIdx;
+
+          hits.forEach((a) => a.classList.add("mention-hit"));
+          hits.forEach((a) => a.classList.remove("mention-active"));
+
+          const active = hits[idx];
+          active.classList.add("mention-active");
+
+          countEl.textContent = `${idx + 1} / ${hits.length}`;
+
+          if (scroll) {
+            active.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }
+
+        function next() {
+          setActive((idx + 1) % hits.length);
+        }
+
+        function prev() {
+          setActive((idx - 1 + hits.length) % hits.length);
+        }
+
+        function cleanup() {
+          bar.remove();
+
+          hits.forEach((a) => {
+            a.classList.remove("mention-hit");
+            a.classList.remove("mention-active");
+          });
+
+          window.removeEventListener("keydown", onKey);
+          bar.removeEventListener("click", onClick);
+        }
+
+        function onClick(e) {
+          const btn = e.target.closest("button[data-action]");
+          if (!btn) return;
+
+          const action = btn.getAttribute("data-action");
+          if (action === "next") next();
+          else if (action === "prev") prev();
+          else if (action === "close") cleanup();
+        }
+
+        function onKey(e) {
+          const tag =
+            e.target && e.target.tagName ? e.target.tagName.toLowerCase() : "";
+          if (tag === "input" || tag === "textarea" || tag === "select") return;
+
+          if (e.key === "Escape") {
+            e.preventDefault();
+            cleanup();
+          } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+            e.preventDefault();
+            next();
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            e.preventDefault();
+            prev();
+          }
+        }
+
+        bar.addEventListener("click", onClick);
+        window.addEventListener("keydown", onKey);
+
+        setActive(0, true);
+      })();
+    </script>
   </article>
 </BaseLayout>
 
@@ -107,6 +329,11 @@ const intro =
 
   .text :global(p) {
     margin: 0 0 0.9rem 0;
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: break-word;
+    word-spacing: 0.03em;
+    line-height: 1.55;
   }
 
   /* ===== Seiten (fortlaufend, stabil) ===== */
@@ -155,5 +382,197 @@ const intro =
     margin: 1.6rem 0 1.8rem 2rem;
     padding-left: 0;
     max-width: 38ch;
+  }
+
+  :global(.text-ort .text a.person-link) {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: 500;
+  }
+
+  :global(.text-ort .text a.person-link:hover),
+  :global(.text-ort .text a.person-link:focus-visible) {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  :global(.text-ort .text a.flur-link) {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: 500;
+  }
+
+  :global(.text-ort .text a.flur-link:hover),
+  :global(.text-ort .text a.flur-link:focus-visible) {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  :global(.text-ort .text a.house-link) {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: 500;
+  }
+
+  :global(.text-ort .text a.house-link:hover),
+  :global(.text-ort .text a.house-link:focus-visible) {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  /* "?"-Personen: kein Link, aber Hover-Hinweis */
+  :global(.text-ort .text .person-missing) {
+    position: relative;
+    cursor: help;
+    font-weight: 500;
+  }
+
+  :global(.text-ort .text .person-missing:hover::after) {
+    content: attr(data-note);
+    position: absolute;
+    left: 0;
+    top: 1.4em;
+    z-index: 50;
+
+    width: 36ch;
+    max-width: 90vw;
+
+    white-space: pre-line;
+    box-sizing: border-box;
+
+    padding: 0.6em 0.8em;
+    border-radius: 10px;
+
+    background: rgba(55, 55, 55, 0.92);
+    color: white;
+
+    font-size: 0.92em;
+    line-height: 1.35;
+  }
+
+  :global(.text-ort .text .person-missing:hover::before) {
+    content: "";
+    position: absolute;
+    left: 0.8em;
+    top: 1.15em;
+    border: 6px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.92);
+    z-index: 51;
+  }
+
+  /* ===== Mention find-mode ===== */
+  :global(.mention-hit) {
+    background: rgba(255, 235, 59, 0.55);
+    border-radius: 4px;
+    padding: 0 2px;
+  }
+
+  :global(.mention-active) {
+    background: rgba(255, 140, 0, 0.55);
+    border-radius: 4px;
+    padding: 0 2px;
+  }
+
+  :global(.findbar) {
+    position: fixed;
+    top: calc(32px + 14px);
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+    pointer-events: none;
+  }
+
+  :global(.findbar-inner) {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  :global(.findbar-box) {
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 10px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    font-size: 0.92rem;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+  }
+
+  :global(.findbar-box .count) {
+    font-variant-numeric: tabular-nums;
+    min-width: 5.5ch;
+    text-align: center;
+  }
+
+  :global(.findbar-box button) {
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    background: white;
+    color: inherit;
+
+    padding: 6px 9px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    line-height: 1;
+  }
+
+  :global(.findbar-box button:hover) {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  :global(.findbar-box button:active) {
+    transform: translateY(1px);
+  }
+
+  :global(.findbar-box .who) {
+    font-weight: 600;
+  }
+
+  :global(.findbar-box .who-sep) {
+    opacity: 0.5;
+    padding: 0 2px;
+  }
+
+  /* ===== Patch: Highlight + Fokus ===== */
+  :global(a.mention-hit),
+  :global(.mention-hit) {
+    background: rgba(255, 235, 59, 0.55) !important;
+    text-decoration: none !important;
+  }
+
+  :global(a.mention-active),
+  :global(.mention-active) {
+    background: rgba(255, 140, 0, 0.55) !important;
+    box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.35) !important;
+  }
+
+  :global(a.mention-hit:focus),
+  :global(a.mention-hit:focus-visible),
+  :global(a.mention-active:focus),
+  :global(a.mention-active:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  :global(.findbar) {
+    z-index: 999999 !important;
+    pointer-events: auto;
   }
 </style>

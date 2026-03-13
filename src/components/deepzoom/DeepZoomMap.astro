@@ -504,7 +504,7 @@ const tileSourceFixed =
           }),
         );
       });
-      
+
       return el;
     }
 
@@ -750,6 +750,12 @@ const tileSourceFixed =
 
       viewer.viewport.minZoomLevel = MANUAL_MIN;
       viewer.viewport.maxZoomLevel = MANUAL_MAX;
+
+      window.dispatchEvent(
+        new CustomEvent("dz:ready", {
+          detail: { mapId: id },
+        }),
+      );
     });
   }
 </script>
