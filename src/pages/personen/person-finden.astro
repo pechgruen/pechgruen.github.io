@@ -1,0 +1,317 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Von einem Namen zum Ort",
+  subtitle: "Ein geführter Weg durch den Personen- und Familienbrowser",
+  date: "2026-03-13",
+  bereich: "Personen",
+  href: "/personen/person-finden",
+  order: 25,
+};
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="page personen-guide">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+      <p class="meta">{chronik.date}</p>
+    </header>
+
+    <p>
+      Viele Besucher kommen auf diese Website, weil ihnen der Ortsname
+      <strong>Pechgrün</strong> aus der eigenen Familiengeschichte bekannt ist. Vielleicht
+      steht er in alten Dokumenten, in einem Stammbaum oder in einer Erinnerung der
+      Familie. Man sucht nach diesem Ort – und stellt fest, dass es ihn heute nicht
+      mehr gibt. Pechgrün ist verschwunden und auf modernen Karten kaum noch zu finden.
+    </p>
+
+    <p>
+      Wer nach Pechgrün sucht, landet deshalb oft auf dieser Website. Hier geht
+      es nicht nur um die Geschichte des Dorfes. Die Website enthält auch
+      zahlreiche <strong>Menschen aus Pechgrün</strong>: Personen, Familien,
+      Hausnamen und Erinnerungen an das Leben im Dorf.
+    </p>
+
+    <p>Für viele Besucher entsteht dadurch eine neue Frage:</p>
+
+    <p class="question">
+      <strong
+        >Kann ich hier vielleicht die Person finden, die aus meiner Familie nach
+        Pechgrün gehörte?</strong
+      >
+    </p>
+
+    <p>
+      Der Personen- und Familienbrowser bietet genau dafür einen Einstieg. Er
+      ermöglicht es, von einem bekannten <strong>Familiennamen</strong>
+      zu einer Person zu gelangen – und von dort weiter zu Familie, Erinnerungen,
+      Häusern und Orten im Dorf.
+    </p>
+
+    <p>
+      Dieser Weg beginnt auf der <strong>Inhaltsseite</strong>.
+    </p>
+
+    <!-- Schritt 1 -->
+
+    <section class="step">
+      <h2>1. Zur Inhaltsseite gehen</h2>
+
+      <p>
+        Der Einstieg beginnt auf der Seite <strong>Inhalt</strong>. Dort sind
+        alle Bereiche dieser Website aufgeführt. Wenn du den Abschnitt <strong
+          >Personen</strong
+        > öffnest, erscheinen mehrere Zugänge zu Menschen aus Pechgrün.
+      </p>
+
+      <p>Für diesen Weg ist besonders ein Eintrag wichtig:</p>
+
+      <p class="highlight">
+        Familiennamensliste — Einstieg in den Personen- und Familienbrowser
+      </p>
+
+      <img
+        src="/images/person-finden/schritt-1.png"
+        alt="Inhaltsseite mit Bereich Personen"
+      />
+    </section>
+
+    <!-- Schritt 2 -->
+
+    <section class="step">
+      <h2>2. Einen Familiennamen auswählen</h2>
+
+      <p>
+        Auf der Seite <strong>Familiennamensliste</strong> siehst du zunächst eine
+        Reihe von Buchstaben. Sie stehen für die Anfangsbuchstaben der Familiennamen.
+      </p>
+
+      <p>
+        Wenn du auf einen Buchstaben klickst, erscheinen darunter alle
+        Familiennamen aus Pechgrün mit diesem Anfangsbuchstaben. Hinter jedem
+        Namen steht eine Zahl, die zeigt, wie viele Personen im Stammbaum zu
+        diesem Namen erfasst sind.
+      </p>
+
+      <p>
+        Suchst du zum Beispiel einen Vorfahren oder Verwandten mit dem Namen
+        <strong>Fellner</strong>, klickst du auf den Buchstaben <strong
+          >F</strong
+        >.
+      </p>
+
+      <img
+        src="/images/person-finden/schritt-2.png"
+        alt="Familiennamensliste"
+      />
+    </section>
+
+    <!-- Schritt 3 -->
+
+    <section class="step">
+      <h2>3. Die richtige Person finden</h2>
+
+      <p>
+        Wenn du auf einen Familiennamen klickst, erscheint eine Liste aller
+        Personen mit diesem Namen.
+      </p>
+
+      <p>
+        Bei manchen Familiennamen kann diese Liste ziemlich lang werden. Neben
+        jedem Eintrag stehen deshalb wichtige Hinweise wie Geburts- und
+        Sterbedatum oder der Ort.
+      </p>
+
+      <p>Diese Angaben helfen dabei, die richtige Person zu erkennen.</p>
+
+      <img src="/images/person-finden/schritt-3.png" alt="Personenliste" />
+    </section>
+
+    <!-- Schritt 4 -->
+
+    <section class="step">
+      <h2>4. Die Personenseite</h2>
+
+      <p>
+        Wenn du auf einen Namen klickst, öffnet sich die
+        <strong>Personenseite</strong>. Dort stehen die wichtigsten Lebensdaten
+        der Person: Geburts- und Sterbedatum, Orte, Hausnummern, Hausnamen und –
+        wenn bekannt – auch der Beruf. Bei manchen Personen ist zusätzlich ein
+        Foto vorhanden.
+      </p>
+
+      <p>
+        Darunter erscheinen die familiären Beziehungen: Ehepartner, Kinder,
+        Eltern und Geschwister. Alle Namen sind anklickbar, so dass du dich von
+        einer Person zur nächsten bewegen kannst.
+      </p>
+
+      <img src="/images/person-finden/schritt-4.png" alt="Personenseite" />
+    </section>
+
+    <!-- Schritt 5 -->
+
+    <section class="step">
+      <h2>5. Erwähnungen im Erinnerungstext</h2>
+
+      <p>
+        Auf vielen Personenseiten findest du die Angabe
+        <strong>Erwähnungen</strong>.
+      </p>
+
+      <p>
+        Sie zeigt, wie oft diese Person im großen Erinnerungstext meines Onkels <em
+          >„A Hooch aaf unna Dorf uu d’ Pechgräina Leit“</em
+        >
+        vorkommt.
+      </p>
+
+      <p>
+        Ein Klick darauf führt direkt in den Text. Die entsprechenden Stellen
+        werden hervorgehoben und du kannst von einer Erwähnung zur nächsten
+        springen.
+      </p>
+
+      <img
+        src="/images/person-finden/schritt-5.png"
+        alt="Erwähnungen im Text"
+      />
+    </section>
+
+    <!-- Schritt 6 -->
+
+    <section class="step">
+      <h2>6. Eigene Erinnerungsseiten</h2>
+
+      <p>
+        Bei manchen Personen gibt es zusätzlich einen Eintrag
+        <strong>Erinnerung</strong>.
+      </p>
+
+      <p>
+        Dann führt ein Klick zu einer eigenen Seite mit einer ausführlicheren
+        Beschreibung dieser Person – eine kleine biografische Darstellung aus
+        Erinnerungen und Erzählungen des Dorflebens.
+      </p>
+
+      <img src="/images/person-finden/schritt-6.png" alt="Erinnerungsseite" />
+    </section>
+
+    <!-- Schritt 7 -->
+
+    <section class="step">
+      <h2>7. Vom Menschen zum Haus und zum Ort</h2>
+
+      <p>
+        In den Texten und auf den Personenseiten erscheinen häufig
+        <strong>Hausnummern</strong>. Diese sind anklickbar.
+      </p>
+
+      <p>
+        Ein Klick darauf führt zu einer Seite aus dem Bereich
+        <strong>Wege</strong>.
+      </p>
+
+      <p>
+        Diese Seiten gehören zu einem anderen Erinnerungstext meines Onkels.
+        Während der zuvor erwähnte Text vor allem Menschen und ihre Geschichten
+        beschreibt, geht es hier um das Dorf selbst: um Wege, Häuser und Orte
+        des Alltags.
+      </p>
+
+      <p>
+        Jede dieser Seiten zeigt einen bestimmten Weg durch Pechgrün und
+        beschreibt die Häuser entlang dieses Weges.
+      </p>
+
+      <p>
+        Häufig beginnt eine solche Seite mit einem historischen Luftbild, auf
+        dem die Lage der Häuser markiert ist. So wird sichtbar, wo sich ein
+        bestimmter Ort im Dorf befand.
+      </p>
+
+      <img src="/images/person-finden/schritt-7.png" alt="Wegbeschreibung" />
+    </section>
+
+    <!-- Tabs Hinweis -->
+
+    <section class="step">
+      <h2>8. Mehrere Tabs – und warum das sinnvoll ist</h2>
+
+      <p>
+        Bei diesem Weg öffnen sich an manchen Stellen neue
+        <strong>Tabs</strong>.
+      </p>
+
+      <p>
+        Das ist Absicht: Wenn du von der Personenseite zum Erinnerungstext oder
+        zu einer Wegseite springst, bleibt dein Ausgangspunkt erhalten.
+      </p>
+
+      <p>
+        So kannst du jederzeit zur Person zurückkehren und von dort aus eine
+        andere Richtung weiterverfolgen.
+      </p>
+
+      <img
+        src="/images/person-finden/schritt-8.png"
+        alt="Luftbild mit Häusern"
+      />
+
+      <section class="closing">
+        <h2>Ein anderer Zugang zur Website</h2>
+
+        <p>
+          Im Hauptmenü der <strong>Website</strong> findest du auch einen
+          <strong>Rundgang</strong>, der als Einführung durch verschiedene
+          Bereiche der Website führt. Der hier beschriebene Weg ist ein anderer
+          Zugang: Er beginnt nicht bei Karten oder Landschaften, sondern bei
+          einem <strong>Menschen</strong>.
+        </p>
+
+        <p>
+          Gerade für Nachfahren und Familienforscher ist das oft der
+          natürlichste Einstieg. Vielleicht steht am Anfang nur ein Name. Am
+          Ende erscheinen daraus Familie, Erinnerungen, Hausnamen, Hausnummern,
+          Wege und Orte. So wird aus einem Namen nach und nach wieder ein Mensch
+          – und aus einem Menschen ein Platz im Dorf.
+        </p>
+
+        <p>
+          Wenn du diesen Weg selbst ausprobieren möchtest, beginne auf der
+          <strong>Inhaltsseite</strong> im Bereich <strong>Personen</strong>
+          mit der <strong>Familiennamensliste</strong>. Dort startet die Suche.
+        </p>
+      </section>
+    </section>
+  </article>
+
+  <style>
+    .personen-guide img {
+      display: block;
+      max-width: 680px;
+      height: auto;
+      margin: 1rem 0 1.8rem 0;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .step {
+      margin-top: 3.5rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .question {
+      font-size: 1.1rem;
+    }
+
+    .closing {
+      margin-top: 5rem;
+    }
+  </style>
+</BaseLayout>

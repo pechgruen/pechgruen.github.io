@@ -30,6 +30,7 @@ import { chronik as wegeIndex } from "./wege/index.astro";
 import { chronik as ortschaftenUmPechgruen } from "./nachbarorte/um-pechgruen.astro";
 
 // Personen (Werkzeuge)
+import { chronik as personFinden } from "./personen/person-finden.astro";
 import { chronik as personenEinwohnermeldebuch } from "./personen-einwohnermeldebuch.astro";
 import { chronik as personenStammbaum } from "./personen-stammbaum.astro";
 import { chronik as gedNamen } from "./personen/ged-namen.astro";
@@ -354,7 +355,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <span class="acc-title">Personen</span>
         <span class="acc-right">
           <span class="acc-meta">
-            {(personen.length + 3).toLocaleString("de-DE")} Einträge
+            {(personen.length + 5).toLocaleString("de-DE")} Einträge
           </span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
@@ -364,16 +365,20 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <ul>
           <!-- Werkzeuge -->
           <li>
+            <a href={personFinden.href}>{personFinden.title}</a>
+            {personFinden.subtitle ? <span> — {personFinden.subtitle}</span> : null}
+          </li>
+          <li>
+            <a href={gedNamen.href}>{gedNamen.title}</a>
+            {gedNamen.subtitle ? <span> — {gedNamen.subtitle}</span> : null}
+          </li>
+          <li>
             <a href={personenEinwohnermeldebuch.href}>{personenEinwohnermeldebuch.title}</a>
             {personenEinwohnermeldebuch.subtitle ? <span> — {personenEinwohnermeldebuch.subtitle}</span> : null}
           </li>
           <li>
             <a href={personenStammbaum.href}>{personenStammbaum.title}</a>
             {personenStammbaum.subtitle ? <span> — {personenStammbaum.subtitle}</span> : null}
-          </li>
-          <li>
-            <a href={gedNamen.href}>{gedNamen.title}</a>
-            {gedNamen.subtitle ? <span> — {gedNamen.subtitle}</span> : null}
           </li>
           <!-- Galerie -->
           <li>
