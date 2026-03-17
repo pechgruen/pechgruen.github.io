@@ -259,7 +259,11 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(linkFlurnames(textHtml)));
         bar.addEventListener("click", onClick);
         window.addEventListener("keydown", onKey);
 
-        setActive(0, true);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setActive(0, true);
+          });
+        });
       })();
     </script>
   </article>
