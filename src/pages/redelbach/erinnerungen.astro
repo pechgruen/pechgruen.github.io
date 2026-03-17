@@ -7,6 +7,7 @@ export const chronik = {
   title: "Erinnerungen an Pechgrün",
   subtitle: "Kindheitserinnerungen und Dorfleben",
   date: "2025-12-23",
+  updated: "2026-03-14",
   bereich: "Redelbach",
   href: "/redelbach/erinnerungen",
   order: 1,
@@ -313,6 +314,32 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(linkFlurnames(textHtml)));
     margin: 0;
   }
 
+  /* ===== Bilder ===== */
+  .text :global(figure) {
+    margin: 0;
+  }
+
+  .text :global(figure.media) {
+    max-width: 500px;
+    margin: 2rem 0;
+  }
+
+  .text :global(figure.media.wide) {
+    max-width: 650px;
+  }
+  .text :global(figure.media img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .text :global(figure.media figcaption) {
+    font-size: 0.95rem;
+    line-height: 1.35;
+    margin-top: 0.5rem;
+    color: #444;
+  }
+
   /* ===== Fließtext ===== */
   .text {
     margin-top: 1.6rem;
@@ -379,9 +406,10 @@ const textHtmlLinked = linkHouseNumbers(linkPersons(linkFlurnames(textHtml)));
 
   /* ===== Gedichte / lyrische Einschübe ===== */
   .text :global(.poem) {
+    font-style: italic;
     margin: 1.6rem 0 1.8rem 2rem;
     padding-left: 0;
-    max-width: 38ch;
+    max-width: 60ch;
   }
 
   :global(.text-ort .text a.person-link) {

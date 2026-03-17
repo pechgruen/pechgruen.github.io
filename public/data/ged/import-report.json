@@ -1,22 +1,22 @@
 {
   "inputFile": "/tmp/pechgruen-subset.ged",
-  "outputDir": "/Users/ufdto/Documents/pechgruen/pechgruen-website/public/data/ged",
+  "outputDir": "/Users/ufdto/documents/pechgruen/pechgruen-website/public/data/ged",
   "counts": {
-    "individuals": 5382,
+    "individuals": 5383,
     "families": 2332
   },
   "ignoredTagsTop": {
-    "RIN": 7714,
-    "_UID": 7714,
+    "RIN": 7715,
+    "_UID": 7715,
     "AGE": 2479,
     "SOUR": 1485,
     "QUAY": 1485,
     "DATA": 1485,
     "TEXT": 1485,
-    "_UPD": 1126,
+    "_UPD": 1133,
     "PAGE": 1109,
     "_MARNM": 563,
-    "NOTE": 534,
+    "NOTE": 535,
     "CONC": 365,
     "DATE": 202,
     "PLAC": 185,
@@ -39,7 +39,7 @@
   },
   "warnings": {
     "brokenRefs": 0,
-    "externalRefs": 3134,
+    "externalRefs": 3133,
     "notes": "External refs are expected in a Pechgrün subset; broken refs indicate malformed GED or parsing issues."
   },
   "parseErrors": 0,

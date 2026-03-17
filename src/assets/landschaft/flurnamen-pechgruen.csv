@@ -54,17 +54,17 @@ flur-052,52,Alte Leitn,die Alte Leitn,"Höchster Punkt des historischen Wegs von
 flur-053,53,Leitn,die Leitn,"Höchster Punkt der 1896/7 gebauten Straße, die Chodau mit Pechgrün verband. Diese Straße führte, wie auch der alte Weg, über die ""Leitn"",  einem 466 m hohen Bergrücken der zwischen den beiden Orten lag. Allgemeine Bedeutung des Wortes ""Leitn"": Gelände, das merklich geneigt ist, schwer zu bewirtschaften, oft Übergang zwischen Hoch- und Tieflage.",7741,8245
 flur-054,54,Birkwies,die Birkwies,Eine Wiese mit Birkenbestand oder starkem Birkenaufwuchs.,6343,4940
 flur-055,55,Vuaglsång,der Vuaglsång,"Ortsteil von Pechgrün: Vuaglsång = ""Vogelsang"", also eine Stelle, an der viele Vögel singen.",5964,4887
-flur-056,56,Fuatzwinkl,der Fuatzwinkl,"Ortsteil von Pechgrün: Fuatz = Dreck, Gatsch, Mist, unbrauchbares Zeug.",6494,4683
+flur-056,56,Fuatzwinkl,der Fuatzwinkl,"Ortsteil von Pechgrün: Fuatz = Dreck, Gatsch, Mist, unbrauchbares Zeug.",6568,4552
 flur-057,57,Schulberg,der Schulberg,Weg bei der Pechgrüner Schule der bergauf zur Dorfkapelle führte.,6742,4433
-flur-058,58,Kutscherberch,der Kutscherberch,Früherer Mühlteich. Im Winter Schlittschuharena der Pechgrüner Jugend.,6656,4407
-flur-059,59,Hechtenteich,der Hechtenteich,Hat früher einmal ein Mühle miot Wasser versorgt.,6690,4138
+flur-058,58,Kutscherberch,der Kutscherberch,Anhöhe hinter dem Kutscherbauernhof (Haus Nr. 3),6656,4407
+flur-059,59,Hechtenteich,der Hechtenteich,Früherer Mühlteich. Im Winter Schlittschuharena der Pechgrüner Jugend.,6690,4138
 flur-060,60,Meislberch,der Meislberch,Hügel auf dem das Haus der Familie Josef Roßmeisel stand.,6310,3819
 flur-061,61,Linden,die Linden,"Auf dem Stück Land, das vom »Büllerlweg« und dem Fuhrweg begrenzt wurde, standen die »Linden«, drei uralte Bäume (Pechgrüner Wahrzeichen). Unter den ersten beiden Linden war ein Marterl errichtet. Zwischen der zweiten und dritten hatte sich durch jahrhundertelanges Befahren ein Weg in den Hof tief ins Erdreich eingegraben. Auf diesem Weg gelangte man nach dem Passieren des »Matzlhuafs« wieder zum »Läi(n)huaf«. Die drei Bäume wurden vermutlich während des Dreißigjährigen Krieges, oder kurz nach seiner Beendigung gepflanzt. Etwa 330 Jahre später, am 12. Februar 1976 wurden die Linden von den Tschechen gefällt.",6090,4267
 flur-062,62,Låuchrong,der Låuchrong,"Flaches Stück Land, das steil zum Schwarzebach abfiel.",5901,3982
-flur-063,63,s Rinnerl,s Rinnerl,"""kleines Rinnsal / kleine Geländerinne / schmale Abflussmulde"": hier beliebte Trinkwasserquelle in Pechgrün.",6065,3815
+flur-063,63,s Rinnl,das Rinnl,"""kleines Rinnsal / kleine Geländerinne / schmale Abflussmulde"": hier beliebte Trinkwasserquelle in Pechgrün.",6065,3815
 flur-064,64,In der Weja,in der Weja,"Weja bezeichnet einen nordwestlich gelegenen Ortsteil von Pechgrün, dort, wo der Schwarzebach den Wald verlässt und in die offene Wiesen- und Bachaue übergeht. Der Name steht vermutlich im Zusammenhang mit der Wejam(ü)hl (Wehrmühle) und einem dortigen Bachwehr.",5771,3411
 flur-065,65,Matzl's Bühlerl,Matzl's Bühlerl,"Eine kleine Geländekuppe, benannt nach einer Person (Matzl).",5766,4277
-flur-066,66,Euin Baint,die Euin Baint,"Größeres Wiesengrundstück mit einer sumpfigen ""Suttl"" (sumpfige, schmutzige Stelle im Gelände), das dem ""Euin"" Bauern gehörte.",5773,4899
+flur-066,66,Euin Teichl,das Euin Teichl,"Kleiner Teich, der dem ""Euin"" Bauern gehörte.",5773,4899
 flur-067,67,Pfarrteich,der Pfarrteich,"Der Damm des »Pfårrteichs« war zur Hälfte mit Stauden bewachsen. In seiner Mitte stand ein alter Holzbirnbaum. Die zweite Hälfte des Dammes war bis zu Ullmanns Behelfsheim mit noch jungen Eichen bepflanzt. Im »Pfårrteich« tummelten sich die kleinen Buben, Mädchen und jene Erwachsene, die das Schwimmen erst erlernten.",5432,4498
 flur-068,68,Stårkeneierteich,der Stårkeneierteich,"„Storchen­eier Teich“ (aber nicht wörtlich, sondern bildhaft): Wasserstelle in einem Gebiet mit auffälligen, rundlichen Steinen / Knollen.",5115,4373
 flur-069,69,Segelteich,der Segelteich,"Trockengelegter Teich des ""Segel Huafs"".",5102,4780
@@ -92,3 +92,5 @@ flur-090,90,Chodau,Chodau,Heute Kreisstadt – Pechgrün gehörte früher zu den
 flur-091,91,Poschetzau,Poschetzau,Nachbarort von Pechgrün.,11291,6468
 flur-092,92,Schwarzebach (Oberlauf),der Schwarzebach (Oberlauf),Wilder Bachlauf mit stärkerem Gefälle oberhalb von Pechgrün.,4962,2025
 flur-093,93,Schwarzebach (Unterlauf),der Schwarzebach (Unterlauf),Sanfter Bachlauf mit ruhiger Wasserführung im Dorfbereich.,7706,4617
+flur-094,94,Schlämmerei Osmose,die Schlämmerei Osmose,"Kaolin-Aufbereitungsanlage in Poschetzau, in der das abgebaute Material mit Wasser gewaschen und getrennt wurde.",8973,7255
+flur-095,95,Euin Baint,die Euin Baint,"Größeres Wiesengrundstück mit einer sumpfigen ""Suttl"" (sumpfige, schmutzige Stelle im Gelände), das dem ""Euin"" Bauern gehörte.",6505,4783

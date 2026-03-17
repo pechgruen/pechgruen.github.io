@@ -1228,7 +1228,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F500272"
     ],
@@ -24626,7 +24626,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I501643": {
     "id": "I501643",
@@ -24654,8 +24656,10 @@
       "F500537"
     ],
     "fams": [],
-    "nickname": null,
-    "houseNames": []
+    "nickname": "Toni",
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I501644": {
     "id": "I501644",
@@ -24684,7 +24688,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I501647": {
     "id": "I501647",
@@ -26628,7 +26634,7 @@
       "year": 1970,
       "known": true
     },
-    "occupation": "Tiefbohrunternehmer",
+    "occupation": "Landwirt und Tiefbohrunternehmer",
     "famc": [
       "F524659"
     ],
@@ -32989,7 +32995,7 @@
       "F500015"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Heinl",
     "houseNames": []
   },
   "I502866": {
@@ -37818,7 +37824,7 @@
       "year": 1953,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501482"
     ],
@@ -45440,7 +45446,9 @@
       "F501225"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I503390": {
     "id": "I503390",
@@ -45568,7 +45576,9 @@
       "F525003"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I503394": {
     "id": "I503394",
@@ -45597,7 +45607,9 @@
     ],
     "fams": [],
     "nickname": "Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I503396": {
     "id": "I503396",
@@ -46551,7 +46563,7 @@
     },
     "death": {
       "date": "23.05.1989",
-      "place": "Waldsassen",
+      "place": "Waldsassen, Bayern (D)",
       "year": 1989,
       "known": true
     },
@@ -46584,7 +46596,7 @@
     },
     "death": {
       "date": "23.03.1992",
-      "place": "Walsassen",
+      "place": "Waldsassen, Bayern (D)",
       "year": 1992,
       "known": true
     },
@@ -55934,7 +55946,9 @@
       "F501363"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Gloosseff"
+    ]
   },
   "I503844": {
     "id": "I503844",
@@ -55964,8 +55978,10 @@
     "fams": [
       "F501363"
     ],
-    "nickname": "Glosseff",
-    "houseNames": []
+    "nickname": null,
+    "houseNames": [
+      "Gloosseff"
+    ]
   },
   "I503845": {
     "id": "I503845",
@@ -55996,7 +56012,9 @@
       "F501424"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Gloosseff"
+    ]
   },
   "I503846": {
     "id": "I503846",
@@ -60382,7 +60400,9 @@
     ],
     "fams": [],
     "nickname": "Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Gloosseff"
+    ]
   },
   "I504036": {
     "id": "I504036",
@@ -62029,7 +62049,7 @@
       "year": 1950,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Bergarbeiter",
     "famc": [
       "F501451"
     ],
@@ -65116,7 +65136,9 @@
     ],
     "fams": [],
     "nickname": "Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Somma-Lima"
+    ]
   },
   "I504244": {
     "id": "I504244",
@@ -65147,7 +65169,9 @@
       "F501498"
     ],
     "nickname": "Edi",
-    "houseNames": []
+    "houseNames": [
+      "Somma-Lima"
+    ]
   },
   "I504245": {
     "id": "I504245",
@@ -66920,7 +66944,7 @@
       "year": 1976,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Steinmetz",
     "famc": [
       "F500994"
     ],
@@ -66987,12 +67011,12 @@
       "year": 1945,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Tischlerlehre",
     "famc": [
       "F501526"
     ],
     "fams": [],
-    "nickname": null,
+    "nickname": "Tone",
     "houseNames": [
       "Schousta"
     ]
@@ -67353,7 +67377,9 @@
     ],
     "fams": [],
     "nickname": "As Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Gartna"
+    ]
   },
   "I504360": {
     "id": "I504360",
@@ -67382,7 +67408,9 @@
     ],
     "fams": [],
     "nickname": "Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Gartna"
+    ]
   },
   "I504361": {
     "id": "I504361",
@@ -67502,7 +67530,9 @@
       "F501540"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Gartna"
+    ]
   },
   "I504368": {
     "id": "I504368",
@@ -68791,7 +68821,7 @@
       "year": 1936,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Zimmermann",
     "famc": [
       "F501571"
     ],
@@ -68891,7 +68921,9 @@
     ],
     "fams": [],
     "nickname": "Pepp",
-    "houseNames": []
+    "houseNames": [
+      "Mußl"
+    ]
   },
   "I504422": {
     "id": "I504422",
@@ -68920,7 +68952,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Mußl"
+    ]
   },
   "I504423": {
     "id": "I504423",
@@ -72032,7 +72066,7 @@
     "fams": [
       "F520818"
     ],
-    "nickname": null,
+    "nickname": "Toni",
     "houseNames": []
   },
   "I504579": {
@@ -72455,7 +72489,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Somma-Lima"
+    ]
   },
   "I504595": {
     "id": "I504595",
@@ -74457,7 +74493,9 @@
       "F501673"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I504707": {
     "id": "I504707",
@@ -123987,7 +124025,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Euin"
+    ]
   },
   "I545546": {
     "id": "I545546",
@@ -138829,7 +138869,9 @@
       "F519683"
     ],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Gloosseff"
+    ]
   },
   "I559105": {
     "id": "I559105",
@@ -140438,7 +140480,9 @@
     ],
     "fams": [],
     "nickname": null,
-    "houseNames": []
+    "houseNames": [
+      "Kla(r)las"
+    ]
   },
   "I559434": {
     "id": "I559434",
@@ -157238,7 +157282,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Feuerwehr-Sanitäter",
     "famc": [
       "F501408"
     ],
@@ -157307,7 +157351,9 @@
     ],
     "fams": [],
     "nickname": "Tone",
-    "houseNames": []
+    "houseNames": [
+      "Kla(r)las"
+    ]
   },
   "I579140": {
     "id": "I579140",
@@ -162263,5 +162309,36 @@
     "fams": [],
     "nickname": null,
     "houseNames": []
+  },
+  "I579452": {
+    "id": "I579452",
+    "name": {
+      "given": "Theresia",
+      "surname": "Lorenz",
+      "display": "Theresia Lorenz",
+      "legitimized": false,
+      "surnameRaw": "Lorenz"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "07.06.1868",
+      "place": "Pechgrün #21 (Smolnice, CZ)",
+      "year": 1868
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501181"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": [
+      "Euin"
+    ]
   }
 }

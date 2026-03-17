@@ -1,9 +1,8 @@
 ---
 title: "Oberes Dorf"
-subtitle: "Der Kösteldorfer Weg über die Spitzeich"
+subtitle: "Der Kösteldorfer Weg über die Spitzseich"
 date: 2026-01-09
 order: 10
-
 ---
 
 <style>
@@ -219,7 +218,7 @@ Dicht dahinter war »'s Krebsn-Haus« fast an das Ufer des Baches gebaut. Neben 
     style="display:block; max-width:520px; width:100%; height:auto;"
   >
   <figcaption style="max-width:520px; margin: .4rem 0 0; font-size: .95rem; line-height: 1.35;">
-   Haus Nr. 75: das neue "Hiachahaus" (Forsthaus, beim Stowasser). Es liegt am Ende des Dorfes Richtung Kösteldorf. Das alte Hiachahaus hatte die Nummer 14 und lag am Waldrand auf dem Weg zur Wehr-Mühle.
+   Haus Nr. 75: das neue "Hiachahaus" (Forsthaus, beim Stowasser, Frankschneiderhaus). Es liegt am Ende des Dorfes Richtung Kösteldorf. Das alte Hiachahaus hatte die Nummer 14 und lag am Waldrand auf dem Weg zur Wehr-Mühle.
   </figcaption> 
 </figure>
 
