@@ -43,7 +43,6 @@ import { chronik as egerlaenderMundart } from "./texte/egerlaendermundart.astro"
 import { chronik as redelbachTeich } from "./texte/redelbach-teich.astro";
 import { chronik as woerterbuch } from "./texte/egerlaenderwoerterbuch.astro";
 import { chronik as wicknSeff } from "./texte/da-wickn-seff.astro";
-import { chronik as littleJoe } from "./texte/little-joe.astro";
 import { chronik as daDrrrn } from "./texte/da-drrrn.astro";
 
 // Redelbach
@@ -444,10 +443,6 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           <li>
             <a href={wicknSeff.href}>{wicknSeff.title}</a>
             {wicknSeff.subtitle ? <span> — {wicknSeff.subtitle}</span> : null}
-          </li>
-          <li>
-            <a href={littleJoe.href}>{littleJoe.title}</a>
-            {daDrrrn.subtitle ? <span> — {littleJoe.subtitle}</span> : null}
           </li>
           <li>
             <a href={daDrrrn.href}>{daDrrrn.title}</a>
