@@ -35,6 +35,7 @@ import { chronik as personenEinwohnermeldebuch } from "./personen-einwohnermelde
 import { chronik as personenStammbaum } from "./personen-stammbaum.astro";
 import { chronik as gedNamen } from "./personen/ged-namen.astro";
 import { chronik as gallery } from "./personen/gallery.astro";
+import { chronik as album } from "./personen/heinzl-album.astro";
 
 // Texte (Heinzl)
 import { chronik as aHooch } from "./texte/a-hooch-aaf-unna-dorf.astro";
@@ -354,7 +355,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <span class="acc-title">Personen</span>
         <span class="acc-right">
           <span class="acc-meta">
-            {(personen.length + 5).toLocaleString("de-DE")} Einträge
+            {(personen.length + 6).toLocaleString("de-DE")} Einträge
           </span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
@@ -383,6 +384,11 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           <li>
             <a href={gallery.href}>{gallery.title}</a>
             {gallery.subtitle ? <span> — {gallery.subtitle}</span> : null}
+          </li>
+          <!-- Heinzl Album -->
+          <li>
+            <a href={album.href}>{album.title}</a>
+            {album.subtitle ? <span> — {album.subtitle}</span> : null}
           </li>
 
           <!-- Personen-Detailseiten -->

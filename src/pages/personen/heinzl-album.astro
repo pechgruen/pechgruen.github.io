@@ -1,0 +1,480 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+type SlideModule = {
+  src: string;
+};
+
+export const chronik = {
+  title: "Heinzl-Album",
+  subtitle: "Familienfotos aus privaten Beständen",
+  date: "2026-03-24",
+  bereich: "Personen",
+  href: "/personen/heinzl-album",
+  order: 26,
+};
+
+const slideModules = import.meta.glob("../../assets/heinzl-album/*.{jpg,jpeg,png,webp,avif}", {
+  eager: true,
+  import: "default",
+}) as Record<string, SlideModule>;
+
+const slides = Object.entries(slideModules)
+  .map(([path, image]) => {
+    const filename = path.split("/").pop() ?? path;
+    return {
+      src: image.src,
+      filename,
+      alt: filename.replace(/\.[^.]+$/, ""),
+    };
+  })
+  .sort((a, b) =>
+    a.filename.localeCompare(b.filename, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
+  );
+
+const hasSlides = slides.length > 0;
+const firstSrc = hasSlides ? slides[0].src : "";
+const slideCount = slides.length;
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="page heinzl-album-page">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+      <p class="meta">{chronik.date}</p>
+    </header>
+
+    <p>
+      Die Fotos auf dieser Seite stammen aus einer alten Fotokiste meiner Eltern. Sie lagen lose vor, ohne Ordnung und fast immer ohne Beschriftung. Ein Album hat es dazu nie gegeben. 
+      Anders als die Galerie „Gesichter von Pechgrün“ zeigt diese Seite eine einzige Familie ausführlicher: die Familie meiner Mutter. Manche Gesichter erscheinen hier mehrfach, in verschiedenen Lebensphasen und familiären Zusammenhängen. Gezeigt werden ausschließlich Aufnahmen aus der Zeit vor der Vertreibung. 
+      Es handelt sich nicht um ein überliefertes Familienalbum, sondern um eine nachträgliche Zusammenstellung. Ich versuche, die verstreuten Bilder zu ordnen und dabei Zusammenhänge sichtbar zu machen. Nicht alles lässt sich eindeutig bestimmen; manches bleibt offen, weil ich heute niemanden mehr fragen kann.
+    </p>
+
+    {
+      hasSlides ? (
+        <section class="album-shell" data-album-root aria-label="Heinzl-Album">
+
+          <div class="slide-stage" aria-live="polite">
+            <!-- Two cards always in the DOM — JS crossfades between them -->
+            <figure class="slide-card is-active" id="card-a">
+              <img id="img-a" src={firstSrc} alt={`Albumseite 1 von ${slideCount}`} loading="eager" decoding="async" width="2560" height="1600" />
+            </figure>
+            <figure class="slide-card" id="card-b">
+              <img id="img-b" alt="" decoding="async" width="2560" height="1600" />
+            </figure>
+          </div>
+
+          <div class="album-toolbar">
+            <div class="toolbar-buttons">
+              <button class="toolbar-btn" type="button" data-prev aria-label="Vorherige Seite">
+                ← Zurück
+              </button>
+              <button class="toolbar-btn" type="button" data-next aria-label="Nächste Seite">
+                Weiter →
+              </button>
+              <button type="button" class="presentation-btn" data-open-presentation>
+                Präsentationsmodus
+              </button>
+              <span class="slide-counter" data-counter></span>
+            </div>
+          </div>
+
+          <div class="presentation" data-presentation hidden>
+            <div
+              class="presentation-inner"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Präsentationsmodus Heinzl-Album"
+              tabindex="-1"
+            >
+              <div class="presentation-stage">
+                <!-- Two-layer crossfade for presentation mode -->
+                <img id="pres-img-a" src={firstSrc} alt={`Albumseite 1 von ${slideCount}`} width="2560" height="1600" class="is-active" />
+                <img id="pres-img-b" alt="" width="2560" height="1600" />
+              </div>
+            </div>
+          </div>
+
+        </section>
+      ) : (
+        <section class="album-empty">
+          <p>
+            Noch keine Albumseiten gefunden. Lege Bilder unter
+            <code>src/assets/heinzl-album/</code> ab, zum Beispiel
+            <code>seite-01.jpg</code>, <code>seite-02.jpg</code> usw.
+          </p>
+        </section>
+      )
+    }
+  </article>
+
+  <script is:inline define:vars={{ slides, slideCount }}>
+    (() => {
+      const root = document.querySelector('[data-album-root]');
+      if (!(root instanceof HTMLElement)) return;
+
+      // ── DOM refs ──────────────────────────────────────────────────────
+      const cardA      = document.getElementById('card-a');
+      const cardB      = document.getElementById('card-b');
+      const imgA       = document.getElementById('img-a');
+      const imgB       = document.getElementById('img-b');
+
+      const prevButton        = root.querySelector('[data-prev]');
+      const nextButton        = root.querySelector('[data-next]');
+      const openPresButton    = root.querySelector('[data-open-presentation]');
+     
+      const counterEl         = root.querySelector('[data-counter]');
+      const presentation      = root.querySelector('[data-presentation]');
+      const presInner         = root.querySelector('.presentation-inner');
+      const presImgA          = document.getElementById('pres-img-a');
+      const presImgB          = document.getElementById('pres-img-b');
+      const html              = document.documentElement;
+
+      if (
+        !(cardA instanceof HTMLElement) ||
+        !(cardB instanceof HTMLElement) ||
+        !(imgA instanceof HTMLImageElement) ||
+        !(imgB instanceof HTMLImageElement) ||
+        !(presentation instanceof HTMLElement) ||
+        !(presImgA instanceof HTMLImageElement) ||
+        !(presImgB instanceof HTMLImageElement)
+      ) return;
+
+      // ── State ─────────────────────────────────────────────────────────
+      let current      = 0;
+      let isAnimating  = false;
+      let presOpen     = false;
+      let activeInline = 'a';  // which card is visible in the inline viewer
+      let activePres   = 'a';  // which img is visible in presentation
+
+      const inlineCards = { a: cardA, b: cardB };
+      const inlineImgs  = { a: imgA,  b: imgB  };
+      const presImgs    = { a: presImgA, b: presImgB };
+
+      function other(layer) { return layer === 'a' ? 'b' : 'a'; }
+
+      function updateCounter() {
+        if (counterEl) counterEl.textContent = `${current + 1} / ${slideCount}`;
+      }
+
+      // ── Inline crossfade ───────────────────────────────────────────────
+      function goTo(nextIndex) {
+        if (isAnimating || nextIndex === current) return;
+
+        const outLayer = activeInline;
+        const inLayer  = other(activeInline);
+        const outCard  = inlineCards[outLayer];
+        const inCard   = inlineCards[inLayer];
+        const inImg    = inlineImgs[inLayer];
+
+        isAnimating = true;
+
+        inImg.src = slides[nextIndex].src;
+        inImg.alt = `Albumseite ${nextIndex + 1} von ${slideCount}`;
+
+        inCard.classList.add('is-active', 'fade-enter');
+        outCard.classList.add('fade-exit');
+
+        window.setTimeout(() => {
+          outCard.classList.remove('is-active', 'fade-exit');
+          inCard.classList.remove('fade-enter');
+          activeInline = inLayer;
+          current = nextIndex;
+          updateCounter();
+
+          if (presOpen) crossfadePresentation(nextIndex);
+
+          isAnimating = false;
+        }, 420);
+      }
+
+      const next = () => goTo((current + 1) % slideCount);
+      const prev = () => goTo((current - 1 + slideCount) % slideCount);
+
+      // ── Presentation crossfade ─────────────────────────────────────────
+      function crossfadePresentation(nextIndex) {
+        const outLayer = activePres;
+        const inLayer  = other(activePres);
+        const outImg   = presImgs[outLayer];
+        const inImg    = presImgs[inLayer];
+
+        inImg.src = slides[nextIndex].src;
+        inImg.alt = `Albumseite ${nextIndex + 1} von ${slideCount}`;
+
+        inImg.classList.add('is-active', 'pres-fade-enter');
+        outImg.classList.add('pres-fade-exit');
+
+        window.setTimeout(() => {
+          outImg.classList.remove('is-active', 'pres-fade-exit');
+          inImg.classList.remove('pres-fade-enter');
+          activePres = inLayer;
+        }, 420);
+      }
+
+      // ── Open / close presentation ──────────────────────────────────────
+      const openPresentation = async () => {
+        // Sync to current slide before opening
+        presImgA.src = slides[current].src;
+        presImgA.alt = `Albumseite ${current + 1} von ${slideCount}`;
+        presImgA.classList.add('is-active');
+        presImgB.classList.remove('is-active');
+        activePres = 'a';
+
+        presentation.hidden = false;
+        presOpen = true;
+        html.classList.add('album-presentation-open');
+
+        if (presInner instanceof HTMLElement) presInner.focus();
+
+        try { await presentation.requestFullscreen(); } catch { /* overlay fallback */ }
+      };
+
+      const closePresentation = async () => {
+        if (document.fullscreenElement === presentation) {
+          try { await document.exitFullscreen(); } catch { /* ignore */ }
+        }
+        presentation.hidden = true;
+        presOpen = false;
+        html.classList.remove('album-presentation-open');
+      };
+
+      // ── Event listeners ────────────────────────────────────────────────
+      if (prevButton instanceof HTMLButtonElement) prevButton.addEventListener('click', prev);
+      if (nextButton instanceof HTMLButtonElement) nextButton.addEventListener('click', next);
+      if (openPresButton instanceof HTMLButtonElement) openPresButton.addEventListener('click', openPresentation);
+     
+
+      presentation.addEventListener('click', (e) => {
+        if (e.target === presentation) closePresentation();
+      });
+
+      document.addEventListener('fullscreenchange', () => {
+        if (presOpen && document.fullscreenElement == null) {
+          presentation.hidden = true;
+          presOpen = false;
+          html.classList.remove('album-presentation-open');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        else if (e.key === 'Escape' && presOpen) { e.preventDefault(); closePresentation(); }
+      });
+
+      updateCounter();
+    })();
+  </script>
+
+  <style>
+    .heinzl-album-page {
+      --album-max-width: 980px;
+      --album-radius: 8px;
+      --album-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+      --album-border: 1px solid rgba(0, 0, 0, 0.12);
+      --album-bg: #f7f5f1;
+    }
+
+    .album-shell {
+      margin-top: 2rem;
+    }
+
+    .slide-stage {
+      position: relative;
+      width: 100%;
+      max-width: var(--album-max-width);
+      margin: 0 auto;
+      aspect-ratio: 16 / 10;
+    }
+
+    .slide-card {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      border-radius: var(--album-radius);
+      overflow: hidden;
+      background: var(--album-bg);
+      border: var(--album-border);
+      box-shadow: var(--album-shadow);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .slide-card.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .slide-card.fade-enter {
+      animation: fadeInSoft 420ms ease forwards;
+      z-index: 3;
+    }
+
+    .slide-card.fade-exit {
+      animation: fadeOutSoft 420ms ease forwards;
+      z-index: 2;
+    }
+
+    .slide-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .album-toolbar {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .slide-counter {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .toolbar-btn,
+    .presentation-btn {
+      appearance: none;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      background: #fff;
+      color: inherit;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      padding: 0.58rem 0.95rem;
+      font: inherit;
+    }
+
+    .toolbar-btn:hover,
+    .presentation-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 0, 0, 0.24);
+      background: #fafafa;
+    }
+
+    .album-empty {
+      margin-top: 2rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .album-empty code {
+      font-size: 0.95em;
+    }
+
+    /* ── Presentation overlay ───────────────────────────── */
+
+    .presentation {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .presentation[hidden] {
+      display: none;
+    }
+
+    .presentation-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .presentation-stage {
+      position: relative;
+      width: min(96vw, calc(96vh * 1.6));
+      max-height: 92vh;
+      aspect-ratio: 16 / 10;
+    }
+
+    .presentation-stage img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .presentation-stage img.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .presentation-stage img.pres-fade-enter {
+      animation: fadeInSoft 420ms ease forwards;
+      z-index: 3;
+    }
+
+    .presentation-stage img.pres-fade-exit {
+      animation: fadeOutSoft 420ms ease forwards;
+      z-index: 2;
+    }
+
+    :global(html.album-presentation-open),
+    :global(html.album-presentation-open body) {
+      overflow: hidden;
+    }
+
+    @keyframes fadeInSoft {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes fadeOutSoft {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .presentation-inner {
+        padding: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide-card,
+      .slide-card.fade-enter,
+      .slide-card.fade-exit,
+      .presentation-stage img,
+      .presentation-stage img.pres-fade-enter,
+      .presentation-stage img.pres-fade-exit,
+      .toolbar-btn,
+      .presentation-btn
+    }
+  </style>
+</BaseLayout>

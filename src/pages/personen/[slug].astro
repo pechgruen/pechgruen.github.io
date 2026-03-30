@@ -15,7 +15,9 @@ const { Content } = await entry.render();
 const data = entry.data;
 
 const displayDate = (data.updated ?? data.date) as Date;
-const displayDateText = displayDate.toLocaleDateString("sv-SE", { timeZone: "UTC" });
+const displayDateText = displayDate.toLocaleDateString("sv-SE", {
+  timeZone: "UTC",
+});
 ---
 
 <BaseLayout title={data.title}>
@@ -30,63 +32,88 @@ const displayDateText = displayDate.toLocaleDateString("sv-SE", { timeZone: "UTC
 
     <Content />
 
-    {(data.author || data.source) && (
-      <footer class="source">
-        <hr />
-        <p>
-          {data.author && (
-            <>
-              <strong>Autor:</strong> {data.author}
-              {data.source ? " · " : ""}
-            </>
-          )}
-          {data.source && (
-            <>
-              <strong>Quelle:</strong> {data.source}
-            </>
-          )}
-        </p>
-      </footer>
-    )}
+    {
+      (data.author || data.source) && (
+        <footer class="source">
+          <hr />
+          <p>
+            {data.author && (
+              <>
+                <strong>Autor:</strong> {data.author}
+                {data.source ? " · " : ""}
+              </>
+            )}
+            {data.source && (
+              <>
+                <strong>Quelle:</strong> {data.source}
+              </>
+            )}
+          </p>
+        </footer>
+      )
+    }
+
+    <script is:inline>
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          document.body.style.transform = "translateZ(0)";
+          requestAnimationFrame(() => {
+            document.body.style.transform = "";
+          });
+        }
+      });
+    </script>
   </article>
 </BaseLayout>
 
 <style>
-header {
-  margin-bottom: 1.6rem;
-}
+  header {
+    margin-bottom: 1.6rem;
+  }
 
-header h1 {
-  margin-bottom: 0.25rem;   /* enger an den Subtitle */
-}
+  header h1 {
+    margin-bottom: 0.25rem; /* enger an den Subtitle */
+  }
 
-.subtitle {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 1.05rem;
-}
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 1.05rem;
+  }
 
   .meta {
     font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.45);
   }
 
-.source {
-  margin-top: 3.5rem;   /* vorher 2.5rem */
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.55);
-}
+  .source {
+    margin-top: 3.5rem; /* vorher 2.5rem */
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.55);
+  }
 
-.source hr {
-  border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  margin-bottom: 0.75rem;
-  margin-top: 0;        /* sicherstellen, dass der Abstand nur von oben kommt */
-}
+  .source hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.75rem;
+    margin-top: 0; /* sicherstellen, dass der Abstand nur von oben kommt */
+  }
 
   .source p {
     margin: 0;
     line-height: 1.4;
+  }
+
+  article :global(a[href^="/internal/ged-person"]) {
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+
+  article :global(a[href^="/internal/ged-person"]):hover,
+  article :global(a[href^="/internal/ged-person"]):focus-visible {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   }
 </style>
