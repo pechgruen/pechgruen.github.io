@@ -20,7 +20,7 @@ const { title = "Pechgrün (Smolnice)", description = "" } = Astro.props;
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <meta name="author" content="Udo Dengler" />
     <meta name="creator" content="Udo Dengler" />
 
@@ -52,6 +52,16 @@ const { title = "Pechgrün (Smolnice)", description = "" } = Astro.props;
     <title>{title}</title>
     {description ? <meta name="description" content={description} /> : null}
 
+    {
+      import.meta.env.PROD && (
+        <script
+          data-goatcounter="https://pechgruen.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        />
+      )
+    }
+    
     <!-- Optional: Inter (uncomment if you want it) -->
     <!-- <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> -->
@@ -63,9 +73,7 @@ const { title = "Pechgrün (Smolnice)", description = "" } = Astro.props;
     <header class="site-header">
       <div class="header-inner">
         <div class="brand">
-          <a href="/" class="brand-link" translate="no">
-            Pechgrün
-          </a>
+          <a href="/" class="brand-link" translate="no"> Pechgrün </a>
         </div>
 
         <nav class="top-nav" aria-label="Hauptnavigation">
@@ -582,6 +590,5 @@ const { title = "Pechgrün (Smolnice)", description = "" } = Astro.props;
         margin-top: -0.35rem;
       }
     </style>
-    
   </body>
 </html>
