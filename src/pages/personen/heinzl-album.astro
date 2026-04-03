@@ -7,7 +7,7 @@ type SlideModule = {
 
 export const chronik = {
   title: "Heinzl-Album",
-  subtitle: "Familienfotos aus privaten Beständen",
+  subtitle: "Eine bebilderte Familienbiografie",
   date: "2026-03-24",
   bereich: "Personen",
   href: "/personen/heinzl-album",
@@ -47,12 +47,6 @@ const slideCount = slides.length;
       <p class="subtitle">{chronik.subtitle}</p>
       <p class="meta">{chronik.date}</p>
     </header>
-
-    <p>
-      Die Fotos auf dieser Seite stammen aus einer alten Fotokiste meiner Eltern. Sie lagen lose vor, ohne Ordnung und fast immer ohne Beschriftung. Ein Album hat es dazu nie gegeben. 
-      Anders als die Galerie „Gesichter von Pechgrün“ zeigt diese Seite eine einzige Familie ausführlicher: die Familie meiner Mutter. Manche Gesichter erscheinen hier mehrfach, in verschiedenen Lebensphasen und familiären Zusammenhängen. Gezeigt werden ausschließlich Aufnahmen aus der Zeit vor der Vertreibung. 
-      Es handelt sich nicht um ein überliefertes Familienalbum, sondern um eine nachträgliche Zusammenstellung. Ich versuche, die verstreuten Bilder zu ordnen und dabei Zusammenhänge sichtbar zu machen. Nicht alles lässt sich eindeutig bestimmen; manches bleibt offen, weil ich heute niemanden mehr fragen kann.
-    </p>
 
     {
       hasSlides ? (
@@ -110,6 +104,21 @@ const slideCount = slides.length;
         </section>
       )
     }
+    <br />
+    <p>
+      Ich habe Pechgrün selbst nicht mehr erlebt. Die meisten Menschen, die dort gelebt haben, 
+      kenne ich nicht persönlich, sondern nur dem Namen nach oder aus wenigen erhaltenen Bildern. 
+      Anders ist es bei der Familie meiner Mutter. Viele dieser Personen habe ich noch selbst gekannt, 
+      andere sind mir aus Erzählungen und aus den Fotos vertraut, die sich in einer alten Fotokiste 
+      meiner Eltern erhalten haben.
+    </p>
+    <p>
+      Ich kann hier deshalb nicht über Pechgrün insgesamt schreiben, wie es etwa mein Onkel Erich oder 
+      Karl Redelbach getan haben, sondern nur über diese eine Familie. Aus Bildern, Erinnerungen und 
+      Geschichten ist im Lauf der Zeit eine bebilderte Familienbiografie entstanden. Darin zeige ich 
+      die Menschen so, wie sie mir aus all dem vertraut geworden sind.
+    </p>
+
   </article>
 
   <script is:inline define:vars={{ slides, slideCount }}>
@@ -280,7 +289,7 @@ const slideCount = slides.length;
     }
 
     .album-shell {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .slide-stage {
