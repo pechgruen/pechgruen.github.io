@@ -135,7 +135,7 @@ const slideCount = slides.length;
       const prevButton        = root.querySelector('[data-prev]');
       const nextButton        = root.querySelector('[data-next]');
       const openPresButton    = root.querySelector('[data-open-presentation]');
-     
+
       const counterEl         = root.querySelector('[data-counter]');
       const presentation      = root.querySelector('[data-presentation]');
       const presInner         = root.querySelector('.presentation-inner');
@@ -149,6 +149,7 @@ const slideCount = slides.length;
         !(imgA instanceof HTMLImageElement) ||
         !(imgB instanceof HTMLImageElement) ||
         !(presentation instanceof HTMLElement) ||
+        !(presInner instanceof HTMLElement) ||
         !(presImgA instanceof HTMLImageElement) ||
         !(presImgB instanceof HTMLImageElement)
       ) return;
@@ -159,6 +160,12 @@ const slideCount = slides.length;
       let presOpen     = false;
       let activeInline = 'a';  // which card is visible in the inline viewer
       let activePres   = 'a';  // which img is visible in presentation
+
+      let pointerStartX = 0;
+      let pointerStartY = 0;
+      let pointerStartTime = 0;
+      let pointerTracking = false;
+      let suppressClickUntil = 0;
 
       const inlineCards = { a: cardA, b: cardB };
       const inlineImgs  = { a: imgA,  b: imgB  };
@@ -237,7 +244,7 @@ const slideCount = slides.length;
         presOpen = true;
         html.classList.add('album-presentation-open');
 
-        if (presInner instanceof HTMLElement) presInner.focus();
+        presInner.focus();
 
         try { await presentation.requestFullscreen(); } catch { /* overlay fallback */ }
       };
@@ -251,14 +258,58 @@ const slideCount = slides.length;
         html.classList.remove('album-presentation-open');
       };
 
+      function onPresentationPointerDown(e) {
+        if (!presOpen) return;
+        pointerTracking = true;
+        pointerStartX = e.clientX;
+        pointerStartY = e.clientY;
+        pointerStartTime = Date.now();
+      }
+
+      function onPresentationPointerUp(e) {
+        if (!presOpen || !pointerTracking) return;
+        pointerTracking = false;
+
+        const dx = e.clientX - pointerStartX;
+        const dy = e.clientY - pointerStartY;
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+        const elapsed = Date.now() - pointerStartTime;
+
+        const isSwipe = absX >= 50 && absX > absY * 1.2;
+        if (isSwipe) {
+          suppressClickUntil = Date.now() + 500;
+          if (dx < 0) next();
+          else prev();
+          return;
+        }
+
+        const isTap = absX <= 12 && absY <= 12 && elapsed <= 350;
+        if (!isTap) return;
+
+        const rect = presInner.getBoundingClientRect();
+        const upperZoneBottom = rect.top + Math.min(140, rect.height * 0.22);
+
+        if (e.clientY <= upperZoneBottom) {
+          suppressClickUntil = Date.now() + 500;
+          closePresentation();
+        }
+      }
+
       // ── Event listeners ────────────────────────────────────────────────
       if (prevButton instanceof HTMLButtonElement) prevButton.addEventListener('click', prev);
       if (nextButton instanceof HTMLButtonElement) nextButton.addEventListener('click', next);
       if (openPresButton instanceof HTMLButtonElement) openPresButton.addEventListener('click', openPresentation);
-     
 
-      presentation.addEventListener('click', (e) => {
-        if (e.target === presentation) closePresentation();
+      presentation.addEventListener('click', () => {
+        if (Date.now() < suppressClickUntil) return;
+        closePresentation();
+      });
+
+      presInner.addEventListener('pointerdown', onPresentationPointerDown, { passive: true });
+      presInner.addEventListener('pointerup', onPresentationPointerUp, { passive: true });
+      presInner.addEventListener('pointercancel', () => {
+        pointerTracking = false;
       });
 
       document.addEventListener('fullscreenchange', () => {
@@ -417,6 +468,7 @@ const slideCount = slides.length;
       padding: 2rem;
       box-sizing: border-box;
       outline: none;
+      touch-action: none;
     }
 
     .presentation-stage {
@@ -459,6 +511,10 @@ const slideCount = slides.length;
       overflow: hidden;
     }
 
+    :global(html.album-presentation-open) .album-toolbar {
+      display: none;
+    }
+
     @keyframes fadeInSoft {
       from { opacity: 0; }
       to   { opacity: 1; }
@@ -483,7 +539,10 @@ const slideCount = slides.length;
       .presentation-stage img.pres-fade-enter,
       .presentation-stage img.pres-fade-exit,
       .toolbar-btn,
-      .presentation-btn
+      .presentation-btn {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </BaseLayout>
