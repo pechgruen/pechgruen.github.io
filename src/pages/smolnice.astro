@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const siteTitle = "Smolnice (Pechgrün)";
+const description =
+  "Pechgrün (Smolnice) – zaniklá obec a web, který shromažďuje její stopy.";
+---
+
+<BaseLayout title={siteTitle} description={description}>
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">Pechgrün / Smolnice</h1>
+    <p class="hero-subtitle">Krajina · stopy · proti zapomnění</p>
+    <img
+      src="/images/redelbach-meiselberg.jpg"
+      alt="Pechgrün – pohled od Meißlbergu na střed obce. Akvarel od Karla Redelbacha."
+      class="hero-image"
+    />
+  </section>
+
+  <!-- EINLADUNG -->
+  <section class="pechgruen-invite">
+    <p><strong>Máte vazbu na Pechgrün (Smolnici)?</strong></p>
+
+    <p>
+      Tento web shromažďuje stopy po zaniklé obci – možná k nim patří i vaše
+      vzpomínky, fotografie nebo rodinné příběhy.
+    </p>
+
+    <p>Pomoci mohou i drobné informace nebo jednotlivé detaily.</p>
+
+    <p>
+      → Budu rád za každou zprávu:
+      <a href="mailto:pechgruen.website@gmail.com">
+        pechgruen.website@gmail.com
+      </a>
+    </p>
+  </section>
+
+  <!-- HAUPTTEXT -->
+  <section class="section">
+    <p>Pechgrün (Smolnice u Chodova) je místo, které dnes již neexistuje.</p>
+
+    <p>
+      Domy zmizely, cesty byly zasypány výsypkou a krajina nad obcí byla zcela
+      nově utvářena. Na místě obce se dnes nachází vrstva skrývky z povrchové
+      těžby hnědého uhlí, místy až do výšky kolem 100 metrů. Co zůstalo, jsou
+      vzpomínky – a i ty jsou dnes stále vzácnější.
+    </p>
+
+    <p>
+      Generace, která Pechgrün ještě zažila, z velké části odešla. Jejich děti
+      zestárly, jejich hlasy slábnou. Lidé, pro které byl tento kraj kdysi
+      domovem, by zřejmě měli z takovéhoto webu radost – možná by ho i
+      potřebovali. Tehdy však taková možnost neexistovala.
+    </p>
+
+    <p>
+      Tento web vzniká pozdě, ale ne příliš pozdě. Neobrací se už přímo k
+      pamětníkům, ale k dalším generacím – k dětem a vnukům, kteří toto místo
+      nikdy nepoznali, ale možná se jednou začnou ptát, odkud pocházejí. Stejně
+      tak je určen i lidem bez rodinné vazby, kteří chtějí porozumět tomu, co
+      znamená, když vesnice zmizí – ne válkou, ale plánovaným zásahem do
+      krajiny.
+    </p>
+
+    <p>
+      Cílem tohoto webu není Pechgrün znovu vytvořit ani idealizovat. Nesnaží se
+      zaniklou obec obnovit. Shromažďuje stopy: fotografie, texty, kresby, mapy
+      a vzpomínky. Zpřístupňuje to, co jinak existuje jen v knihách, soukromých
+      archivech nebo v paměti jednotlivců.
+    </p>
+
+    <p>
+      Tento web není projektem pro rychlou pozornost ani pro okamžitou spotřebu.
+      Je formou předávání. Uchovává něco pro okamžik, kdy někdo začne hledat –
+      možná náhodou, možná pozdě, možná až tehdy, kdy už nebude koho se zeptat.
+      V tomto smyslu není památníkem, ale spíše otevřeným archivem: klidným,
+      fragmentárním a vědomě neúplným.
+    </p>
+
+    <p>
+      Většina obsahu tohoto webu je napsána německy. Stránky si však můžete ve
+      svém prohlížeči snadno automaticky přeložit do češtiny.
+    </p>
+  </section>
+
+  <!-- ÜBERSETZUNGSHINWEIS -->
+  <section class="translation-box">
+    <p><strong>Překlad webu</strong></p>
+
+    <p><strong>Jak na to:</strong></p>
+
+    <p>
+      V prohlížečích jako Chrome nebo Edge stačí kliknout pravým tlačítkem myši
+      na stránku a zvolit „Přeložit do češtiny“. Překlad lze také spustit pomocí
+      ikony v adresním řádku.
+    </p>
+
+    <p>
+      Na zařízeních Apple (Safari) klikněte v adresním řádku na „aA“ a zvolte
+      „Přeložit web“ (pokud je tato možnost dostupná).
+    </p>
+
+    <p>
+      Automatický překlad není vždy přesný, ale pro základní orientaci na celém
+      webu obvykle postačí.
+    </p>
+  </section>
+  
+  <!-- HINWEIS -->
+  <section class="section">
+    <p class="leiser-hinweis">
+      <em>
+        Pokud jste zde poprvé, doporučuje se začít částí „Rundgang“. Úplný
+        přehled všech částí webu najdete pod „Inhalt“.
+      </em>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 0px 0 28px;
+  }
+
+  .hero-title {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-subtitle {
+    margin: 10px 0 22px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .section {
+    padding: 10px 0;
+  }
+
+  .leiser-hinweis {
+    margin-top: 2.2rem;
+    border-left: 3px solid rgba(0, 0, 0, 0.18);
+    padding-left: 1.6rem;
+    margin-left: 0.4rem;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .leiser-hinweis em {
+    font-style: italic;
+  }
+
+  .pechgruen-invite {
+    border-left: 2px solid #ccc;
+    background: #f0f0f0;
+    padding: 16px 14px 14px 18px;
+    margin: 12px 0;
+  }
+
+  .pechgruen-invite p:last-child {
+    margin-bottom: 0;
+  }
+
+  .translation-box {
+    border-left: 2px solid #ccc;
+    background: #f7f7f7;
+    padding: 16px 14px 14px 18px;
+    margin: 18px 0 12px;
+  }
+
+  .translation-box p:last-child {
+    margin-bottom: 0;
+  }
+</style>
