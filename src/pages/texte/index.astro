@@ -5,6 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 // damit Titel/Untertitel/Href nicht doppelt gepflegt werden müssen.
 import { chronik as aHooch } from "./a-hooch-aaf-unna-dorf.astro";
 import { chronik as egerlaenderMundart } from "./egerlaendermundart.astro";
+import { chronik as rosaNaKolejich } from "./rosa-na-kolejich.astro";
 import { chronik as egerlaenderWoerterbuch } from "./egerlaenderwoerterbuch.astro";
 import { chronik as redelbachTeich } from "./redelbach-teich.astro";
 import { chronik as daDrrrn } from "./da-drrrn.astro";
@@ -36,6 +37,13 @@ const entries = [
     tags: ["Mundart", "Stimme", "Originalton", "Video"],
     suggestion:
       "Am besten mit Ruhe anhören – der Eindruck entsteht weniger über Wörter als über den Klang der Sprache.",
+  },
+  {
+    ...rosaNaKolejich,
+    note: "Ein bekanntes Lied der tschechischen Tramp-Kultur. Ein Artikel bringt es mit den Ruinen von Pechgrün in Verbindung: Tramps hätten in den frühen 1970er Jahren entlang der Werkbahngleise dorthin gefunden. Ob das Lied in diesem Umfeld entstand, bleibt offen.",
+    tags: ["Lied", "Tramp-Kultur", "Gleise", "1970er Jahre"],
+    suggestion:
+      "Am besten anhören und parallel die Bilder betrachten – der Zusammenhang erschließt sich eher aus der Stimmung als aus einer eindeutigen Aussage.",
   },
   {
     ...egerlaenderWoerterbuch,

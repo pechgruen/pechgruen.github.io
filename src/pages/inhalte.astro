@@ -41,6 +41,7 @@ import { chronik as album } from "./personen/heinzl-album.astro";
 import { chronik as aHooch } from "./texte/a-hooch-aaf-unna-dorf.astro";
 import { chronik as texteUebersicht } from "./texte/index.astro";
 import { chronik as egerlaenderMundart } from "./texte/egerlaendermundart.astro";
+import { chronik as rosaNaKolejich } from "./texte/rosa-na-kolejich.astro";
 import { chronik as redelbachTeich } from "./texte/redelbach-teich.astro";
 import { chronik as woerterbuch } from "./texte/egerlaenderwoerterbuch.astro";
 import { chronik as wicknSeff } from "./texte/da-wickn-seff.astro";
@@ -411,7 +412,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
       <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
-          <span class="acc-meta">6 Einträge</span>
+          <span class="acc-meta">7 Einträge</span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
       </button>
@@ -431,6 +432,14 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
             {
               egerlaenderMundart.subtitle ? (
                 <span> — {egerlaenderMundart.subtitle}</span>
+              ) : null
+            }
+          </li>
+          <li>
+            <a href={rosaNaKolejich.href}>{rosaNaKolejich.title}</a>
+            {
+              rosaNaKolejich.subtitle ? (
+                <span> — {rosaNaKolejich.subtitle}</span>
               ) : null
             }
           </li>

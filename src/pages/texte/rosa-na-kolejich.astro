@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Rosa na kolejích",
+  subtitle: "Ein Lied und eine mögliche Verbindung zu Pechgrün",
+  date: "2026-04-20",
+  bereich: "Texte, Stimmen und Erinnerungen",
+  href: "/texte/rosa-na-kolejich",
+  order: 7,
+};
+
+const intro =
+  "Das Lied „Rosa na kolejích“ („Tau auf den Schienen“) des tschechischen Liedermachers Wabi Daněk wird mit den letzten Jahren von Pechgrün in Verbindung gebracht. Es beschreibt das Unterwegssein entlang von Gleisen – und lässt sich im Kontext der damaligen Landschaft deuten.";
+
+const videoId = "N1tC-B353TY";
+const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+      <p class="intro">{intro}</p>
+    </header>
+
+    <!-- Video -->
+    <section class="content">
+      <figure class="video">
+        <div class="video-frame">
+          <iframe
+            src={embedUrl}
+            title="Rosa na kolejích – Wabi Daněk"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <figcaption>
+          Wabi Daněk: „Rosa na kolejích“. Ein bekanntes und populäres Lied aus
+          der tschechischen Trampszene.
+        </figcaption>
+      </figure>
+
+      <p>
+        Die tschechische Trampszene entstand vor allem unter jungen Leuten, die
+        am Wochenende hinauszogen – mit wenig Gepäck, oft mit Gitarre, und dem
+        Wunsch nach Freiheit und Abstand vom Alltag.
+      </p>
+
+      <!-- Einordnung -->
+      <p>
+        In einem <a href="..." target="_blank" rel="noopener">Artikel über Pechgrün</a> 
+        wird ein Zusammenhang hergestellt: Tramps hätten in den frühen 1970er Jahren
+        die Ruinen des verlassenen Dorfes aufgesucht und sich dabei entlang der Werkbahngleise
+        bewegt. Das Lied entstand in genau dieser Zeit und in unmittelbarer Nähe (Chodov).
+        Die Gleise führten durch eine Landschaft, die bereits vom Abbau und der Aufschüttung
+        geprägt war.
+      </p>
+
+      <p>
+        Ein direkter Nachweis für diese Verbindung existiert nicht. Ort, Zeit
+        und Motiv fallen jedoch so deutlich zusammen, dass sich das Lied
+        plausibel im Zusammenhang mit Pechgrün lesen lässt.
+      </p>
+
+      <!-- Redelbach -->
+      <figure class="figure-small">
+        <img
+          src="/images/redelbach-ruinen-skizze.png"
+          alt="Redelbach Zeichnung Pechgrün"
+        />
+        <figcaption>
+          Zeichnung von Karl Redelbach: Ruinen von Pechgrün mit bereits naher
+          Halde.
+        </figcaption>
+      </figure>
+
+      <!-- Luftbild -->
+      <figure class="figure-large">
+        <img src="/images/luftbild-1974.png" alt="Pechgrün Luftbild 1974" />
+        <figcaption>
+          Luftbildaufnahme 1974: Die Reste des Dorfes sind noch erkennbar,
+          während die Halde bereits unmittelbar an den Ort herangerückt ist.
+        </figcaption>
+      </figure>
+
+      <!-- Schluss -->
+      <p>
+        Vor diesem Hintergrund lässt sich „Rosa na kolejích“ als Echo jener
+        letzten Jahre verstehen, in denen die Ruinen noch zugänglich waren und
+        die Halde bereits über dem Ort stand.
+      </p>
+
+      <p>
+        Von Pechgrün ist heute vor Ort nichts mehr zu sehen. Unter der Halde ist
+        das Dorf verschwunden. Was geblieben ist, sind Erinnerungen – und
+        vielleicht ein Lied.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .video-frame {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video figcaption {
+    max-width: 450px;
+  }
+
+  .figure-small {
+    max-width: 450px;
+    margin: 2rem 0;
+  }
+
+  .figure-large {
+    max-width: 750px;
+    margin: 2rem 0;
+  }
+
+  figure img {
+    width: 100%;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+</style>
