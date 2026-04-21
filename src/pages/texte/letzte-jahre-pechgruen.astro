@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Die letzten Jahre von Pechgrün",
+  subtitle: "Gleise, Halden und die letzten sichtbaren Spuren des Dorfes",
+  date: "2026-04-20",
+  bereich: "Texte, Stimmen und Erinnerungen",
+  href: "/texte/letzte-jahre-pechgruen",
+  order: 7,
+};
+
+const intro =
+  "In den 1960er und frühen 1970er Jahren war Pechgrün bereits verlassen. Das Dorf existierte nicht mehr als bewohnter Ort, doch seine Spuren waren noch sichtbar: Wege, Gärten, Fundamente und einzelne Ruinen lagen offen in einer Landschaft, die sich gleichzeitig bereits grundlegend veränderte.";
+
+const videoId = "N1tC-B353TY";
+const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+
+// Hier den echten Link einsetzen:
+const horydolyUrl = "#";
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+      <p class="intro">{intro}</p>
+    </header>
+
+    <section class="content">
+      <p>
+        Neue Werkbahngleise führten durch das Gebiet. Halden rückten näher,
+        Maschinen bestimmten zunehmend das Bild. Für eine Zeit überlagerten sich
+        beide Wirklichkeiten: die letzten sichtbaren Reste des Dorfes und die
+        neue Industrielandschaft des Braunkohlenabbaus.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/halden-skizze-zug.png"
+          alt="Werkbahn am Rand der Halde in einer Darstellung nach zeitgenössischen Vorlagen"
+        />
+        <figcaption>
+          Werkbahnzug am Rand der Halde: Der Abraum aus dem Falkenauer 
+          Braunkohlenbergbau wurde per Bahn hierher transportiert – 
+          KI-generierte Darstellung nach zeitgenössischen Vorlagen.
+        </figcaption>
+      </figure>
+
+      <p>
+        Mit dem Fortschreiten des Tagebaus wurde die Umgebung immer stärker
+        umgeformt. Förderanlagen, Raupen und Abraum prägten eine Landschaft, in
+        der das frühere Dorf nur noch als Restform vorhanden war.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/halden-skizze-verteiler.png"
+          alt="Abraumarbeiten im Umfeld der späteren Smolnická výsypka in einer Darstellung nach zeitgenössischen Vorlagen"
+        />
+        <figcaption>
+          Verteileranlage zur Ablagerung des Abraums: Hier wurde das Material 
+          verteilt und anschließend mit Raupenfahrzeugen eingeebnet – 
+          KI-generierte Darstellung nach zeitgenössischen Vorlagen.
+        </figcaption>
+      </figure>
+
+      <p>
+        Auch zeitgenössische Zeichnungen und Erinnerungen zeigen Pechgrün in
+        dieser Zwischenphase: nicht mehr als Dorf, aber noch nicht ganz
+        verschwunden.
+      </p>
+
+      <figure class="figure-small">
+        <img
+          src="/images/redelbach-ruinen-skizze.png"
+          alt="Zeichnung von Karl Redelbach mit den Ruinen von Pechgrün und naher Halde"
+        />
+        <figcaption>
+          Zeichnung von Karl Redelbach: Ruinen von Pechgrün mit bereits naher 
+          Halde. Im Vordergrund Menschen, die in den Resten des Dorfes nach 
+          verwertbaren Gegenständen suchen.
+        </figcaption>
+      </figure>
+
+      <p>
+        Luftaufnahmen aus dem Jahr 1974 zeigen, dass die Reste des Dorfes damals
+        noch erkennbar waren, während die Halde bereits unmittelbar herangerückt
+        war.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/luftbild-1974.png"
+          alt="Luftbild von Pechgrün aus dem Jahr 1974"
+        />
+        <figcaption>
+          Luftbildaufnahme 1974: Die letzten Spuren des Dorfes vor der
+          vollständigen Überdeckung.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aus dieser Zeit stammt auch das bekannte Lied „Rosa na kolejích“ („Tau auf den Schienen“) 
+        von Wabi Daněk. Es beschreibt das Unterwegssein entlang von Gleisen. In einem
+        <a href="http://www.horydoly.cz/vypsat.php?id=7071" target="_blank" rel="noopener">tschechischen Artikel</a> 
+        wird ein Zusammenhang mit Aufenthalten von Tramps in der Gegend um das bereits
+        verlassene Pechgrün erwähnt; ein direkter Nachweis dafür existiert jedoch nicht.
+      </p>
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe
+            src={embedUrl}
+            title="Rosa na kolejích – Wabi Daněk"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        <figcaption>
+          Wabi Daněk: „Rosa na kolejích“. Das Lied erscheint hier eher als Echo
+          dieser Landschaft als als sicheres Zeugnis des Ortes.
+        </figcaption>
+      </figure>
+
+      <p>
+        Kurz darauf verschwand Pechgrün vollständig unter der Halde. Was blieb,
+        sind wenige Bilder, Erinnerungen – und vielleicht auch ein Lied.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .video-frame {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video {
+    margin: 2rem 0;
+  }
+
+  .video figcaption {
+    max-width: 450px;
+  }
+
+  .figure-small {
+    max-width: 450px;
+    margin: 2rem 0;
+  }
+
+  .figure-large {
+    max-width: 750px;
+    margin: 2rem 0;
+  }
+
+  figure img {
+    width: 100%;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+</style>
