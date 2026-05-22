@@ -76,7 +76,7 @@ Auf YouTube fand ich außerdem ein kurzes Video der Sprengung des Abraumverteile
   </div>
 </figure>
 
-Der ZD 2100/11 war ein sogenannter Absetzer – eine riesige Förder- und Verteileranlage auf gewaltigen Raupenketten. Mit Hilfe eines langen schwenkbaren Auslegers wurde der Abraum über große Bereiche der Halde verteilt. Der Abraum wurde über Werkbahnzüge und Förderanlagen aus dem Falkenauer Revier zur Halde transportiert und dort vom ZD 2100/11 verteilt. Über Jahrzehnte hinweg entstanden auf diese Weise die charakteristischen terrassenförmigen Ebenen der Smolnicer Halde.
+Der ZD 2100/11 war ein sogenannter Absetzer – eine riesige Förder- und Verteileranlage auf auf einem gewaltigen Schienenfahrwerk. Mit Hilfe eines langen schwenkbaren Auslegers wurde der Abraum über große Bereiche der Halde verteilt. Der Abraum wurde über Werkbahnzüge und Förderanlagen aus dem Falkenauer Revier zur Halde transportiert und dort vom ZD 2100/11 verteilt. Über Jahrzehnte hinweg entstanden auf diese Weise die charakteristischen terrassenförmigen Ebenen der Smolnicer Halde.
 
 <figure class="media">
   <img src="/images/zd2100-2006.jpg" alt="Der ZD 2100/11 bei der Arbeit">
