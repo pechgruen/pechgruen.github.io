@@ -91,6 +91,7 @@ Sie sind wichtige Bestandteile moderner Elektromotoren, Windkraftanlagen und zah
 <h3 style="margin-bottom:0.2em;">Titan und Zirkonium</h3>
 
 Hochleistungswerkstoffe für Industrie, Leichtbau und Turbinentechnik.
+
 Das Volumen dieser Ablagerungen wird in den offiziellen Unterlagen auf mehr als zehn Millionen Kubikmeter geschätzt.
 
 <figure class="media">
