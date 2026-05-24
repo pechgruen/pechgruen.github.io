@@ -99,7 +99,7 @@ Besonders interessant ist ein im Inneren angebrachter End- und Notschalterplan, 
 
 Man erkennt darauf, dass der Absetzer aus einem gekoppelten Drei-Wagen-System auf Schienen bestand. Im vorderen Bereich befand sich der schwenkbare Turm mit dem langen Abwurfausleger, über den der Abraum auf der Halde verteilt wurde. Dahinter folgte der sogenannte Aufnahmewagen. Dort wurde der von Zulieferzügen angelieferte und neben den Gleisen abgekippte Abraum mit Hilfe einer gewaltigen rotierenden Eimerkette aufgenommen und anschließend über eine Förderbandbrücke zum Abwurfausleger transportiert. Am hinteren Ende befand sich schließlich der Umspannwagen, der den Strom aus den Hochspannungsleitungen der Werkbahn übernahm und für den Betrieb des ZD 2100/11 umwandelte.
 
-Mit einem Gesamtgewicht von rund 2.100 Tonnen – daher auch die Bezeichnung ZD 2100/11 – war die Anlage die mit Abstand größte Maschine der Smolnicer Halde. Der zentrale Turm erreichte eine Höhe von etwa 35 bis 38 Metern, während der Abwurfausleger allein rund 70 Meter lang war. Die gesamte gekoppelte Einheit maß vermutlich weit über 130 Meter Länge.
+Der ZD 2100/11 war die mit Abstand größte Maschine der Smolnicer Halde. Seine Bezeichnung bezog sich auf eine maximale Leistung von 2100 m³ Abraum pro Stunde. Das genaue Gesamtgewicht der gesamten Maschinenanlage konnte bisher nicht ermittelt werden, dürfte aber weit über 1.000 Tonnen gelegen haben. Der zentrale Turm erreichte eine Höhe von etwa 35 bis 38 Metern, während der Abwurfausleger allein rund 70 Meter lang war. Die gesamte gekoppelte Einheit maß vermutlich deutlich über 130 Meter Länge.
 
 <figure class="media" style="margin-bottom: 1.0rem;">
   <img src="/images/zd-unter-dem-absetzer.jpg" alt="Unter dem Absetzer">
