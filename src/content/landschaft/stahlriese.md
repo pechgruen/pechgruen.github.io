@@ -141,7 +141,7 @@ Jaroslavs Blick von ganz oben über die Halde in südlicher Richtung.
   <img src="/images/zd-aufnahmewagen.jpg" alt="Blick hinunter auf den Aufnahmewagen">
 </figure>
 
-Blick hinunter auf den Aufnahmewagen. Links unten erkennt man das Umlenkrad der Eimerkette, mit der der abgekippte Abraum aus dem Braunkohletagebau aufgenommen wurde. Oben rechts befindet sich ein kleiner Kran, mit dem die Höhe und Position der Eimerkette verstellt werden konnten. Etwas erhöht daneben erkennt man die zugehörige Bedienerkabine. Gut sichtbar ist außerdem die Förderbandbrücke, über die der aufgeschaufelte Abraum hinauf zum Verteilerturm transportiert wurde.
+Blick hinunter auf den Aufnahmewagen. Links unten erkennt man das Umlenkrad der Eimerkette, mit der der abgekippte Abraum aus dem Braunkohletagebau aufgenommen wurde. Oben rechts befindet sich ein kleiner verfahrbarer Hilfskran, der sich direkt über den Bereich des Umlenkrads bewegen ließ und vermutlich für Wartungsarbeiten an der Eimerkette diente. Etwas erhöht neben dem Umlenkrad erkennt man die zugehörige Bedienerkabine. Gut sichtbar ist außerdem die Förderbandbrücke, über die der aufgeschaufelte Abraum hinauf zum Verteilerturm transportiert wurde.
 
 <figure class="media" style="margin-bottom: 1.0rem;">
   <img src="/images/zd-eimerkette.jpg" alt="Die riesige, bereits abmontierte Eimerkette">
