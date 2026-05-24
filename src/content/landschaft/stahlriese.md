@@ -50,7 +50,7 @@ order: 3
 
 Neulich besuchte Claus wieder einmal die Halde und wurde dort von einem tschechischen Wanderer angesprochen, der ihn aufgrund unserer „Haldenabenteuer“-Geschichte auf der Pechgrün-Website erkannt hatte. Claus hat sich darüber sehr gefreut.
 
-Wenig später erhielten wir von Jaroslav zwei historische Fotos, die die letzten Monate der gigantischen Verteileranlage ZD 2100/11 dokumentieren. Fast fünfzig Jahre lang wurde diese gewaltige Maschine eingesetzt, um den Abraum aus dem Falkenauer Braunkohlenrevier auf der Pechgrüner Halde aufzuschütten und zu verteilen.
+Wenig später erhielten wir von Jaroslav Karban zwei historische Fotos, die die letzten Monate der gigantischen Verteileranlage ZD 2100/11 dokumentieren. Fast fünfzig Jahre lang wurde diese gewaltige Maschine eingesetzt, um den Abraum aus dem Falkenauer Braunkohlenrevier auf der Pechgrüner Halde aufzuschütten und zu verteilen.
 
 <figure class="media">
   <img src="/images/zd2100-20190406.jpg" alt="ZD 2100/11 vor der Zerlegung">
@@ -79,9 +79,9 @@ Auf YouTube fand ich außerdem ein kurzes Video der Sprengung des Abraumverteile
 Der ZD 2100/11 war ein sogenannter Absetzer – eine riesige Förder- und Verteileranlage auf auf einem gewaltigen Schienenfahrwerk. Mit Hilfe eines langen schwenkbaren Auslegers wurde der Abraum über große Bereiche der Halde verteilt. Der Abraum wurde über Werkbahnzüge und Förderanlagen aus dem Falkenauer Revier zur Halde transportiert und dort vom ZD 2100/11 verteilt. Über Jahrzehnte hinweg entstanden auf diese Weise die charakteristischen terrassenförmigen Ebenen der Smolnicer Halde.
 
 <figure class="media">
-  <img src="/images/zd2100-2006.jpg" alt="Der ZD 2100/11 bei der Arbeit">
+  <img src="/images/zd-luftbild.jpg" alt="Der ZD 2100/11 bei der Arbeit">
   <figcaption>
-    Satellitenbild von 2003: Der ZD 2100/11 bei der Arbeit
+    Luftbildaufnahme von 2017: Der ZD 2100/11 bei der Arbeit
   </figcaption>
 </figure>
 
