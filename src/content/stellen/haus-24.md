@@ -109,7 +109,7 @@ Gegründet wurde der Laden von Josef Fellner, dem „Wickn Seff“. Er war geler
 
 ## Vom Fellner- zum Heinzl-Laden
 
-Josef Fellner heiratete Berta Heinzl, eine Pflegetochter des Steinmetzmeisters Dürrschmidt (Wiggn) aus Neuhäuser Nr. 2. Die Ehe blieb kinderlos; adoptiert wurde schließlich Frieda, eine uneheliche Tochter von Fellners Schwester Berta. Frieda Fellner wurde später ein Paar mit Adolf Heinzl, aus dem Hanrich Adolf wurde der Wickn Adolf, und aus dieser Verbindung gingen vier Kinder hervor: Traudl, Erich, Gretl und Pepp, die im Dorf als die Wickenkinder bekannt waren, während der Laden im Sprachgebrauch vieler weiterhin der Fellner-Laden blieb.
+Josef Fellner heiratete Berta Heinzl, eine Pflegetochter des Steinmetzmeisters Dürrschmidt (Wiggn) aus Neuhäuser Nr. 2. Die Ehe blieb kinderlos; adoptiert wurde schließlich Frieda, eine uneheliche Tochter von Fellners Schwester Berta. Frieda Fellner wurde später ein Paar mit Adolf Heinzl, aus dem Hanrich Adolf wurde der Wickn Adolf, und aus dieser Verbindung gingen fünf Kinder hervor: Traudl, Erich, Erika, Gretl und Pepp, die im Dorf als die Wickenkinder bekannt waren, während der Laden im Sprachgebrauch vieler weiterhin der Fellner-Laden blieb.
 
 ![Der Laden nach 1924 – Menschen auf den Stufen](/images/haus24-laden-neu.jpg)
 
