@@ -13,6 +13,6 @@
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.6",
-    "openseadragon": "^5.0.1"
+    "openseadragon": "^6.0.2"
   }
 }
