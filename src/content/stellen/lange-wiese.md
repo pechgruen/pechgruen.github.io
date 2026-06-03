@@ -13,7 +13,7 @@ Auf dem Weg von der **Wehrmühle** zum **Heinrich-Siehr-Felsen** kommt man an de
 
 Heute erinnert nur noch wenig an die einstige Bergwiese. Durch die Aufschüttung der Pechgrüner Halde kann das Wasser nicht mehr wie früher in den Schwarzebach abfließen. Aus der Langen Wiese ist im Laufe der Jahre ein kleiner Teich geworden, umgeben von Birken, Weiden und dichtem Bewuchs.
 
-Bei unseren Besuchen konnten wir diesen Ort nur als Momentaufnahme erleben. Umso bemerkenswerter ist die Fotoserie von **Jaroslav Karban**, der die Lange Wiese zwischen 2019 und 2022 immer wieder vom nahezu gleichen Standort aus fotografiert hat. Die Aufnahmen zeigen nicht nur den Wechsel der Jahreszeiten, sondern auch die unterschiedlichen Stimmungen des Ortes – vom frischen Grün des Frühlings über sommerliche Spiegelungen bis hin zu Schnee, Eis und winterlicher Stille.
+Bei unserem Besuch im Mai 2025 konnten Claus und ich diesen Ort nur als Momentaufnahme erleben. Umso bemerkenswerter ist die Fotoserie von **Jaroslav Karban**, der die Lange Wiese zwischen 2019 und 2022 immer wieder vom nahezu gleichen Standort aus fotografiert hat. Die Aufnahmen zeigen nicht nur den Wechsel der Jahreszeiten, sondern auch die unterschiedlichen Stimmungen des Ortes – vom frischen Grün des Frühlings über sommerliche Spiegelungen bis hin zu Schnee, Eis und winterlicher Stille.
 
 <blockquote style="margin:1.2rem 0; padding:.9rem 1rem; border-left:4px solid #bbb; background:#f7f7f7;">
   <p style="margin:0;">
