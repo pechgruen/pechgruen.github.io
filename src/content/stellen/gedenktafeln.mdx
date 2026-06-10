@@ -2,6 +2,7 @@
 title: "Gedenktafeln"
 subtitle: "Erinnerungsbilder aus Pechgrün – als Tafeln von Claus und Udo aufgestellt"
 date: 2026-02-05
+updated: 2026-06-10
 order: 10
 
 label: "GT"
@@ -79,6 +80,27 @@ y: 7094
     text-align: center;
   }
 
+  .article-image {
+    margin: 2.4rem 0 1.6rem;
+  }
+
+  .article-image a {
+    display: block;
+  }
+
+  .article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    background: #fff;
+  }
+
+  .article-image img:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  }
+
 `}</style>
 
 <div className="tafel-overview">
@@ -99,60 +121,91 @@ y: 7094
     alt="Gedenktafeln – Rundgang"
   />
   <p class="tafel-hint">
-    Rundgang beim Aufstellen der Pechgrüner Gedenktafeln:<br />
+    Rundgang beim Aufstellen der Pechgrüner Gedenktafeln:
+    <br />
     Kapelle · Haus Nr. 56 · Haus Nr. 24 · Haus Nr. 62 · Affenfelsen · Wehrmühle
   </p>
 </div>
 
+<section className="article-image">
+  <h2>Ein alter Fels und eine neue Freundschaft</h2>
+
+  <p>
+    Im Mai 2026 erschien im <em>Neudeker Heimatbrief</em> ein Beitrag von Claus Kircheiss
+    über die Suche nach dem Affenfelsen, das Aufstellen der Pechgrüner Gedenktafeln
+    und die daraus entstandene Freundschaft.
+  </p>
+
+  <a
+    href="/quellen/ein-alter-fels-und-eine-neue-freundschaft.pdf"
+    target="_blank"
+  >
+    <img
+      src="/quellen/ein-alter-fels-und-eine-neue-freundschaft.jpg"
+      alt="Artikel im Neudeker Heimatbrief"
+    />
+  </a>
+
+  <p className="tafel-hint">
+    Klick auf die Zeitungsseite zum Öffnen der PDF-Version.
+  </p>
+</section>
+
 <map name="tafeln" id="tafeln">
   {/* Reihenfolge hier ist maßgebend (und entscheidet bei Überlappungen). */}
 
-  {/* 1 Kapelle */}
-  <area
-    shape="poly"
-    data-coords="346,171,550,121,630,338,391,400"
-    href="/images/tafel-kapelle.jpg"
-    data-full="/images/tafel-kapelle.jpg"
-    alt="Gedenktafel Pechgrüner Kapelle"
-  />
+{/* 1 Kapelle */}
 
-  {/* 2 Wehrmühle */}
-  <area
-    shape="poly"
-    data-coords="53,315,347,217,388,388,66,502"
-    href="/images/tafel-muehle.jpg"
-    data-full="/images/tafel-muehle.jpg"
-    alt="Gedenktafel Wehrmühle"
-  />
+<area
+  shape="poly"
+  data-coords="346,171,550,121,630,338,391,400"
+  href="/images/tafel-kapelle.jpg"
+  data-full="/images/tafel-kapelle.jpg"
+  alt="Gedenktafel Pechgrüner Kapelle"
+/>
 
-  {/* 3 Haus 56 */}
-  <area
-    shape="poly"
-    data-coords="78,828,38,571,377,420,468,638"
-    href="/images/tafel-56.jpg"
-    data-full="/images/tafel-56.jpg"
-    alt="Gedenktafel Haus Nr. 56"
-  />
+{/* 2 Wehrmühle */}
 
-  {/* 4 Haus 24 */}
-  <area
-    shape="poly"
-    data-coords="746,330,887,198,1170,359,1040,527"
-    href="/images/tafel-24.jpg"
-    data-full="/images/tafel-24.jpg"
-    alt="Gedenktafel Haus Nr. 24"
-  />
+<area
+  shape="poly"
+  data-coords="53,315,347,217,388,388,66,502"
+  href="/images/tafel-muehle.jpg"
+  data-full="/images/tafel-muehle.jpg"
+  alt="Gedenktafel Wehrmühle"
+/>
 
-  {/* 5 Affenfelsen */}
-  <area
-    shape="poly"
-    data-coords="564,593,684,382,1022,510,943,768"
-    href="/images/tafel-affen.jpg"
-    data-full="/images/tafel-affen.jpg"
-    alt="Gedenktafel Affenfelsen"
-  />
+{/* 3 Haus 56 */}
 
-  {/* 6 Haus 62 */}
+<area
+  shape="poly"
+  data-coords="78,828,38,571,377,420,468,638"
+  href="/images/tafel-56.jpg"
+  data-full="/images/tafel-56.jpg"
+  alt="Gedenktafel Haus Nr. 56"
+/>
+
+{/* 4 Haus 24 */}
+
+<area
+  shape="poly"
+  data-coords="746,330,887,198,1170,359,1040,527"
+  href="/images/tafel-24.jpg"
+  data-full="/images/tafel-24.jpg"
+  alt="Gedenktafel Haus Nr. 24"
+/>
+
+{/* 5 Affenfelsen */}
+
+<area
+  shape="poly"
+  data-coords="564,593,684,382,1022,510,943,768"
+  href="/images/tafel-affen.jpg"
+  data-full="/images/tafel-affen.jpg"
+  alt="Gedenktafel Affenfelsen"
+/>
+
+{/* 6 Haus 62 */}
+
   <area
     shape="poly"
     data-coords="642,188,942,209,942,388,614,368"
@@ -163,8 +216,16 @@ y: 7094
 </map>
 
 {/* Lightbox DOM */}
+
 <div id="tafel-lightbox" className="tafel-lightbox" aria-hidden="true">
-  <button id="tafel-lightbox-close" className="tafel-lightbox-close" type="button" aria-label="Close (Esc)">×</button>
+  <button
+    id="tafel-lightbox-close"
+    className="tafel-lightbox-close"
+    type="button"
+    aria-label="Close (Esc)"
+  >
+    ×
+  </button>
   <div className="tafel-lightbox-inner">
     <img id="tafel-lightbox-img" src="" alt="" />
   </div>
