@@ -75201,7 +75201,7 @@
     },
     "death": {
       "date": "16.01.1985",
-      "place": "Henfurt-Flachungen",
+      "place": "Heufurt-Fladungen",
       "year": 1985,
       "known": true
     },
@@ -75260,10 +75260,10 @@
       "year": 1939
     },
     "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": false
+      "date": "22.06.2026",
+      "place": "Bad Neustadt an der Saale",
+      "year": 2026,
+      "known": true
     },
     "occupation": null,
     "famc": [
