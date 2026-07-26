@@ -9,6 +9,7 @@ import { chronik as letzteJahrePechgruen } from "./letzte-jahre-pechgruen.astro"
 import { chronik as egerlaenderWoerterbuch } from "./egerlaenderwoerterbuch.astro";
 import { chronik as redelbachTeich } from "./redelbach-teich.astro";
 import { chronik as daDrrrn } from "./da-drrrn.astro";
+import { chronik as erichLill } from "./erich-lill.astro";
 
 export const chronik = {
   title: "Übersicht",
@@ -65,6 +66,13 @@ const entries = [
     tags: ["Teiche", "Jugend", "Alltag", "Natur", "Schwimmen"],
     suggestion:
       "Gut lesbar auch ohne Vorkenntnisse. Besonders wirkungsvoll, wenn man sich Zeit lässt und die Bilder als Teil des Erzählflusses betrachtet.",
+  },
+  {
+    ...erichLill,
+    note: "Historische Fotos, Karten und ergänzende Hintergrundinformationen begleiten die beiden Video-Interviews und ordnen sie in ihren zeitgeschichtlichen Zusammenhang ein.",
+    tags: ["Zeitzeuge", "Kösteldorf", "Pechgrün", "Krieg", "Vertreibung", "Erinnerungen"],
+    suggestion:
+      "Am besten in Ruhe ansehen – Karten und Fotos vertiefen die Eindrücke aus den beiden Video-Interviews.",
   },
 ];
 ---

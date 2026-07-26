@@ -1,0 +1,259 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Erich Lill erinnert sich",
+  subtitle:
+    "Ein Zeitzeuge erzählt von Kindheit, Krieg und Vertreibung",
+  date: "2026-07-26",
+  bereich: "Texte, Stimmen und Erinnerungen",
+  href: "/texte/erich-lill",
+  order: 1,
+};
+
+const videoId1 = "nV_Fy7ryYQc";
+const embedUrl1 = `https://www.youtube-nocookie.com/embed/${videoId1}?rel=0&modestbranding=1`;
+const videoId2 = "0DUlSq7jkuY";
+const embedUrl2 = `https://www.youtube-nocookie.com/embed/${videoId2}?rel=0&modestbranding=1`;
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+    </header>
+
+    <section class="content">
+      <figure class="figure-large">
+        <img
+          src="/images/erich-lill-luftbild.jpg"
+          alt="Erich Lill betrachtet historische Luftbilder seiner Heimat"
+        />
+        <figcaption>
+          Erich Lill verfolgt auf einer historischen Luftbildkarte den Weg, der
+          ihn als Kind täglich durch Pechgrün führte.
+        </figcaption>
+      </figure>
+
+      <p>
+        Als Erich Lill am 14. September 1927 im benachbarten Kösteldorf geboren
+        wurde, ahnte niemand, wie tiefgreifend sich seine Heimat in den
+        folgenden zwei Jahrzehnten verändern würde. Obwohl er nie in Pechgrün
+        wohnte, war das Dorf ein fester Bestandteil seines Alltags. Sein Vater
+        arbeitete im Kaolinbergwerk bei Poschetzau, und schon als Kind brachte
+        Erich ihm regelmäßig das Mittagessen. Später führte ihn sein täglicher
+        Schulweg durch Pechgrün zur Bürgerschule in Chodau
+      </p>
+
+      <p>
+        Die beiden im Jahr 2025 aufgezeichneten Video-Interviews bewahren die
+        Erinnerungen eines der letzten Zeitzeugen, die das Leben im westlichen
+        Egerland vor dem Ende des Zweiten Weltkriegs noch aus eigener Anschauung
+        schildern können. Diese Seite ordnet Erich Lills Erinnerungen in ihren
+        historischen Zusammenhang ein und ergänzt die beiden Gespräche durch
+        Karten, Fotografien und Hintergrundinformationen.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/erich-lill-karte.jpg"
+          alt="Die Wege der Kindheit von Erich Lill"
+        />
+        <figcaption>
+          Die wichtigsten Orte von Erich Lills Kindheit. Sein täglicher Weg
+          führte vom Geburtshaus in Kösteldorf zunächst zum Kaolinbergwerk bei
+          Poschetzau und später weiter zur Bürgerschule in Chodau.
+        </figcaption>
+      </figure>
+
+      <p>
+        Die Karte verdeutlicht, weshalb Pechgrün für Erich Lill weit mehr war
+        als ein Nachbarort. Sowohl der Weg zum Kaolinbergwerk bei Poschetzau, wo
+        sein Vater arbeitete, als auch sein späterer Schulweg zur Bürgerschule
+        in Chodau führten ihn täglich durch Pechgrün. Über viele Jahre gehörte
+        das Dorf so ganz selbstverständlich zu seinem Alltag.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/erich-lill-geburtshaus.jpg"
+          alt="Geburtshaus von Erich Lill"
+        />
+        <figcaption>
+          Das ehemalige Wohnhaus der Familie Lill in Kösteldorf Nr. 6. Hier
+          wurde Erich Lill am 14. September 1927 geboren.
+        </figcaption>
+      </figure>
+
+      <p>
+        Erich Lill wuchs auf einem kleinen landwirtschaftlichen Anwesen auf.
+        Seine Eltern Josef und Maria bewirtschafteten den rund fünf Hektar
+        großen Hof, auf dem neben Feldarbeit auch die Imkerei eine wichtige
+        Rolle spielte. Während der Vater ab 1940 Wehrdienst leisten musste,
+        trugen Mutter und Sohn gemeinsam die Verantwortung für Hof und
+        Bienenvölker. Schon als Jugendlicher lernte Erich, Verantwortung zu
+        übernehmen – eine Erfahrung, die seinen weiteren Lebensweg prägen
+        sollte.
+      </p>
+
+      <p>
+        Im Juli 1943 begann Erich Lill seine Forstlehre im Raum Tetschen. Nur
+        wenige Monate später wurde auch seine Ausbildung zunehmend vom Krieg
+        überschattet. Auf den Einsatz als Forstlehrling folgten Arbeitsdienst,
+        Flakdienst und schließlich die letzten Kriegswochen, bis er 1946
+        zusammen mit seiner Familie aus seiner Heimat vertrieben wurde.
+      </p>
+
+      <p>
+        Im ersten Video berichtet Erich Lill über seine Kindheit in Kösteldorf,
+        den Schulweg nach Chodau, seine Forstlehre sowie seine Erlebnisse
+        während des Krieges. Historische Familienfotos ergänzen seine
+        persönlichen Erinnerungen.
+      </p>
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe
+            src={embedUrl1}
+            title="Vertrieben - Erinnerungen von Erich Lill - Teil 1"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        <figcaption>
+          Historische Familienfotos und persönliche Erinnerungen vermitteln ein
+          eindrucksvolles Bild des Lebens im westlichen Egerland vor dem Ende
+          des Zweiten Weltkriegs.
+        </figcaption>
+      </figure>
+
+      <p>
+        Der zweite Teil setzt mit der Vertreibung der Familie Lill im Jahr 1946
+        ein. Er schildert den schwierigen Weg in eine ungewisse Zukunft und den
+        mühevollen Aufbau einer neuen Existenz in Deutschland. Zugleich wird
+        deutlich, wie eng Erich Lill seiner alten Heimat auch Jahrzehnte später
+        verbunden geblieben ist.
+      </p>
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe
+            src={embedUrl2}
+            title="Vertrieben - Erinnerungen von Erich Lill - Teil 2"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        <figcaption>
+          Im zweiten Teil berichtet Erich Lill über die Vertreibung aus dem
+          Egerland, den Neubeginn in Deutschland und seinen weiteren Lebensweg.
+        </figcaption>
+      </figure>
+
+      <p>
+        Die beiden Gespräche wurden 2025 aufgezeichnet. Sie bewahren die
+        Erinnerungen eines der letzten Zeitzeugen, deren Kindheit eng mit der
+        Landschaft zwischen Kösteldorf, Pechgrün und Chodau verbunden war.
+        Gemeinsam mit Karten, Fotografien und schriftlichen Quellen tragen sie
+        dazu bei, die Geschichte dieser heute weitgehend verschwundenen
+        Kulturlandschaft lebendig zu erhalten.
+      </p>
+
+      <h2>Zur Entstehung dieser Seite</h2>
+
+      <p>
+        Diese Seite ist das Ergebnis mehrerer Begegnungen, die zunächst nichts
+        miteinander zu tun hatten.
+      </p>
+
+      <p>
+        Claus Kircheiss kennt Erich Lill seit vielen Jahren und besucht ihn
+        regelmäßig auf seinen Fahrten nach Belgien. Gemeinsam erinnern sie sich
+        anhand historischer Karten und Luftbilder an die Landschaft zwischen
+        Kösteldorf und Pechgrün.
+      </p>
+
+      <p>
+        Auch der heutige Bewohner von Erich Lills Geburtshaus in Kösteldorf,
+        Herr Hlaváč, wurde für Claus zu einem wichtigen Ansprechpartner. Trotz
+        der Sprachbarriere entwickelte sich zwischen beiden ein
+        freundschaftlicher Kontakt. Hlaváč half Claus bei der Suche nach dem
+        verschwundenen Affenfelsen und nach weiteren Spuren der früheren
+        Landschaft. Nach meiner Erinnerung war er außerdem an der Beschaffung
+        der drei Pechgrün-Bände beteiligt, die zu einer wichtigen Grundlage für
+        die weiteren Recherchen und schließlich auch für diese Website wurden.
+      </p>
+
+      <p>
+        Unabhängig davon standen auch Kurt Bauer und seine Tochter Martina
+        Billmeier bereits seit Jahren mit Erich Lill in Kontakt. Weder sie noch
+        Claus Kircheiss wussten zunächst voneinander – beide hatten Erich Lill
+        auf ganz unterschiedlichen Wegen kennengelernt. Erst bei einem
+        persönlichen Treffen im Jahr 2026 wurde deutlich, dass sich diese
+        zunächst voneinander unabhängigen Kontakte in Erich Lill kreuzten. Dabei
+        wurden auch die beiden Video-Interviews und sein autobiographischer
+        Bericht bekannt, die schließlich den Anstoß zu dieser Seite gaben.
+      </p>
+
+      <p>
+        Rückblickend erscheint es fast wie eine glückliche Fügung, dass sich
+        diese verschiedenen Kontakte und Recherchen schließlich zusammenfanden.
+        Sie machen deutlich, dass die Geschichte Pechgrüns nicht nur in Büchern
+        und Archiven weiterlebt, sondern auch Menschen miteinander verbindet.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .video-frame {
+    width: 100%;
+    max-width: 750px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video {
+    margin: 2rem 0;
+  }
+
+  .video figcaption {
+    max-width: 450px;
+  }
+
+  .figure-small {
+    max-width: 450px;
+    margin: 2rem 0;
+  }
+
+  .figure-large {
+    max-width: 750px;
+    margin: 2rem 0;
+  }
+
+  figure img {
+    width: 100%;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+</style>
