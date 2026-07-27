@@ -47,6 +47,8 @@ import { chronik as woerterbuch } from "./texte/egerlaenderwoerterbuch.astro";
 import { chronik as wicknSeff } from "./texte/da-wickn-seff.astro";
 import { chronik as daDrrrn } from "./texte/da-drrrn.astro";
 import { chronik as erichLill } from "./texte/erich-lill.astro";
+import { chronik as josefModer } from "./texte/josef-moder.astro";
+
 
 // Redelbach
 import { chronik as redelbachIndex } from "./redelbach/index.astro";
@@ -413,7 +415,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
       <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
-          <span class="acc-meta">8 Einträge</span>
+          <span class="acc-meta">10 Einträge</span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
       </button>
@@ -475,6 +477,10 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           <li>
             <a href={erichLill.href}>{erichLill.title}</a>
             {erichLill.subtitle ? <span> — {erichLill.subtitle}</span> : null}
+          </li>
+          <li>
+            <a href={josefModer.href}>{josefModer.title}</a>
+            {josefModer.subtitle ? <span> — {josefModer.subtitle}</span> : null}
           </li>
         </ul>
       </div>
