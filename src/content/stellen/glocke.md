@@ -43,7 +43,7 @@ Nach dem Gespräch wurde die Originalglocke der ehemaligen Pechgrüner Kapelle a
   </figcaption>
 </figure>
 
-Die Originalglocke der Pechgrüner Kapelle wurde 1827 in Eger gegossen und blieb erhalten, obwohl die Kapelle und später das gesamte Dorf verschwanden. Heute wird sie im Rathaus von Chodov auf einem eigens angefertigten Holzgestell aufbewahrt und kann noch immer geläutet werden. Fast 120 Jahre lang gehörte die Glocke zum Alltag der Pechgrüner Bewohner. Heute zählt sie zu den wenigen erhaltenen Zeugnissen des verschwundenen Dorfes. Die Glocke aus nächster Nähe betrachten zu dürfen, war für uns ein besonderer Moment.
+Die Originalglocke der Pechgrüner Kapelle wurde 1827 in Eger gegossen. Fast 140 Jahre lang gehörte sie zum Alltag der Pechgrüner Bewohner. Als Pechgrün 1968 der Braunkohlenförderung weichen musste, rettete Jiří Troup die Glocke in letzter Minute vor der Zerstörung und brachte sie nach Chodov. Heute wird sie im Rathaus von Chodov auf einem eigens angefertigten Holzgestell aufbewahrt und kann noch immer geläutet werden. Zu den jährlichen Gedenkfeiern an der Bílá Voda wird sie an den Erinnerungsort zurückgebracht, wo ihr Klang bis heute an das verschwundene Dorf erinnert. Die Glocke zählt zu den wenigen erhaltenen Zeugnissen des ehemaligen Pechgrün. Sie aus nächster Nähe betrachten und läuten zu dürfen, war für uns ein besonderer Moment.
 
 <figure class="media" style="margin-bottom: 1.0rem;">
   <div style="padding:56.25% 0 0 0;position:relative;">
