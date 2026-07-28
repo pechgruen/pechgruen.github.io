@@ -95,3 +95,26 @@ Zum Abschluss unseres Besuchs überreichte uns Luděk Soukup mehrere Bücher und
 </figure>
 
 Unser besonderer Dank gilt Jaroslav Karban, der dieses Treffen organisiert und den Kontakt zur Stadt Chodov hergestellt hat. Ohne sein Engagement wäre dieser Besuch nicht möglich gewesen. Die Gastfreundschaft, die wir im Rathaus von Chodov erleben durften, wird uns noch lange in Erinnerung bleiben.
+
+## Die Glocke erklingt weiter
+
+Seit 2019 hängt an der Gedenkstätte an der Bílá Voda dauerhaft eine Replik der Pechgrüner Glocke. Die Originalglocke wird im Rathaus von Chodov aufbewahrt und zu den jährlichen Gedenkfeiern an den Erinnerungsort gebracht. Dort können die Teilnehmer sie auf einem mobilen Glockenstuhl selbst läuten. So erklingt bis heute jedes Jahr wieder die Originalglocke des untergegangenen Dorfes.
+
+<figure style="margin: 1.2rem 0;">
+  <img
+    src="/images/gedenkfeier-2021.jpg"
+    alt="Der Zweite Bürgermeister überreicht Geschenke"
+    style="display:block; max-width:980px; width:100%; height:auto;"
+  >
+  <figcaption style="max-width:980px; margin: .4rem 0 0; font-size: .95rem; line-height: 1.35;">
+    Bei den jährlichen Gedenkfeiern an der Bílá Voda kommen beide Glocken zum Einsatz: Die Replik hängt dauerhaft an der Gedenkstätte, während die Originalglocke aus Chodov an den Erinnerungsort gebracht und dort auf ihrem mobilen Glockenstuhl geläutet wird.
+  </figcaption>
+</figure>
+
+## Fotoalben der Gedenkfeiern
+
+Die Facebook-Seite **Chodauer – z dějin města Chodova** dokumentiert mehrere Gedenkfeiern an der Gedenkstätte Bílá Voda. Die folgenden Fotoalben zeigen unter anderem die Originalglocke, ihre Replik sowie Eindrücke von den Gedenkfeiern und ihren Teilnehmern.
+
+- <a href="https://www.facebook.com/media/set/?set=a.2162901757324403&type=3" target="_blank" rel="noopener noreferrer">Gedenkfeier 2018</a>
+- <a href="https://www.facebook.com/media/set/?set=a.2398105473804029&type=3" target="_blank" rel="noopener noreferrer">Gedenkfeier 2019</a>
+- <a href="https://www.facebook.com/media/set/?set=a.3022842081330362&type=3" target="_blank" rel="noopener noreferrer">Gedenkfeier 2021</a>
