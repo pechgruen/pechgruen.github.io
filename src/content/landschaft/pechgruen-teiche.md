@@ -118,12 +118,12 @@ Dämme, Wege, alte Bäume und Wasserflächen prägten diesen Dorfrand. Erst nach
 
 ## Benennung und Vermessung – 1842
 
-Erst im 19. Jahrhundert werden die Pechgrüner Teiche nicht nur dargestellt, sondern auch namentlich erfasst. Der stabile Kataster von 1842 zeigt die Teiche präzise vermessen und einzeln bezeichnet. Zu dieser Zeit gehörten sie noch zur Gemeinde Ober-Chodau.
+Erst im 19. Jahrhundert werden die Pechgrüner Teiche nicht nur dargestellt, sondern auch namentlich erfasst. Der stabile Kataster von 1842 zeigt die Teiche erstmals präzise vermessen und namentlich erfasst. Sie gehörten zu dieser Zeit zum Gut Ober-Chodau.
 
 <figure class="media">
   <img src="/images/pechgruen-teiche-1842.jpg" alt="Die Pechgrüner Teiche im stabilen Kataster von 1842">
   <figcaption>
-    Stabilisierter Kataster von 1842. Die Teiche sind exakt vermessen und erstmals verbindlich benannt; sie gehören zu diesem Zeitpunkt noch zu Ober-Chodau.
+    Die Teichlandschaft südlich von Pechgrün mit den erstmals eingetragenen Teichnamen.
   </figcaption>
 </figure>
 
