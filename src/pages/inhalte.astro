@@ -49,6 +49,7 @@ import { chronik as daDrrrn } from "./texte/da-drrrn.astro";
 import { chronik as erichLill } from "./texte/erich-lill.astro";
 import { chronik as josefModer } from "./texte/josef-moder.astro";
 import { chronik as rudolfWildner } from "./texte/rudolf-wildner.astro";
+import { chronik as zeitreise } from "./texte/zeitreise.astro";
 
 // Redelbach
 import { chronik as redelbachIndex } from "./redelbach/index.astro";
@@ -429,7 +430,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
       <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
-          <span class="acc-meta">10 Einträge</span>
+          <span class="acc-meta">11 Einträge</span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
       </button>
@@ -443,6 +444,18 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
                 <span> — {texteUebersicht.subtitle}</span>
               ) : null
             }
+          </li>
+          <li>
+            <a href={zeitreise.href}>{zeitreise.title}</a>
+            {
+              zeitreise.subtitle ? (
+                <span> — {zeitreise.subtitle}</span>
+              ) : null
+            }
+          </li>
+          <li>
+            <a href={aHooch.href}>{aHooch.title}</a>
+            {aHooch.subtitle ? <span> — {aHooch.subtitle}</span> : null}
           </li>
           <li>
             <a href={egerlaenderMundart.href}>{egerlaenderMundart.title}</a>
@@ -469,10 +482,6 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
             }
           </li>
           <li>
-            <a href={aHooch.href}>{aHooch.title}</a>
-            {aHooch.subtitle ? <span> — {aHooch.subtitle}</span> : null}
-          </li>
-          <li>
             <a href={wicknSeff.href}>{wicknSeff.title}</a>
             {wicknSeff.subtitle ? <span> — {wicknSeff.subtitle}</span> : null}
           </li>
@@ -493,12 +502,12 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
             {erichLill.subtitle ? <span> — {erichLill.subtitle}</span> : null}
           </li>
           <li>
-            <a href={josefModer.href}>{josefModer.title}</a>
-            {josefModer.subtitle ? <span> — {josefModer.subtitle}</span> : null}
-          </li>
-          <li>
             <a href={rudolfWildner.href}>{rudolfWildner.title}</a>
             {rudolfWildner.subtitle ? <span> — {rudolfWildner.subtitle}</span> : null}
+          </li>
+          <li>
+            <a href={josefModer.href}>{josefModer.title}</a>
+            {josefModer.subtitle ? <span> — {josefModer.subtitle}</span> : null}
           </li>
         </ul>
       </div>

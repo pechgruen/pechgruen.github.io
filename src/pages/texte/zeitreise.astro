@@ -1,0 +1,613 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+import leinberg from "../../assets/zeitreise/zeitreise-blick-vom-leinberg.jpg";
+import kastenteich from "../../assets/zeitreise/zeitreise-kastenteich.jpg";
+import luft from "../../assets/zeitreise/zeitreise-blick-von-der-luft.jpg";
+import ortseingang from "../../assets/zeitreise/zeitreise-ortseingang-mit-pappel.jpg";
+import unteresDorf from "../../assets/zeitreise/zeitreise-unteres-dorf.jpg";
+import frankSchneider from "../../assets/zeitreise/zeitreise-frankschneider-haus.jpg";
+import mittleresDorf from "../../assets/zeitreise/zeitreise-mittleres-dorf.jpg";
+import kinderStrasse from "../../assets/zeitreise/zeitreise-mittleres-dorf-kinder-auf-der-strasse.jpg";
+import fellner from "../../assets/zeitreise/zeitreise-fellner-laden.jpg";
+import kapelle from "../../assets/zeitreise/zeitreise-kapelle.jpg";
+import kreuzer from "../../assets/zeitreise/zeitreise-kreuzer-haus-nr-56.jpg";
+import brandner from "../../assets/zeitreise/zeitreise-brandner-haus.jpg";
+import kathrina from "../../assets/zeitreise/zeitreise-kathrina-haeusl.jpg";
+import kutscherWinter from "../../assets/zeitreise/zeitreise-kinder-vor-kutscherbauernhaus.jpg";
+import oberesDorf from "../../assets/zeitreise/zeitreise-oberes-dorf-little-joe.jpg";
+import woidichn from "../../assets/zeitreise/zeitreise-blick-vom-woidichn-ochsn.jpg";
+import vogelsang from "../../assets/zeitreise/zeitreise-vogelsang.jpg";
+import wehrmuehle from "../../assets/zeitreise/zeitreise-wehrmuehle.jpg";
+import matzlhof from "../../assets/zeitreise/zeitreise-matzlhof-und-drei-linden.jpg";
+import dorfmitteWinter from "../../assets/zeitreise/zeitreise-dorfmitte-winter.jpg";
+import meislberg from "../../assets/zeitreise/zeitreise-blick-vom-meislberg.jpg";
+
+export const chronik = {
+  title: "Zurück nach Pechgrün",
+  subtitle: "Eine imaginäre Zeitreise in das verschwundene Dorf",
+  date: "2026-09-14",
+  bereich: "Texte, Stimmen und Erinnerungen",
+  href: "/texte/zeitreise",
+  order: 1,
+};
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+    </header>
+
+    <section class="content">
+      <div class="intro">
+        <p>
+          Was wäre, wenn wir heute noch einmal nach Pechgrün fahren könnten?
+          Nicht zu der Abraumhalde, unter der das Dorf verschwunden ist, sondern
+          zurück in eine Zeit, als die Häuser noch standen, der Bach durch das
+          Dorf floss und die Wege zu den umliegenden Feldern, Teichen und
+          Wäldern führten.
+        </p>
+
+        <p>
+          Diese Zeitreise ist natürlich nicht möglich. Die Bilder auf dieser
+          Seite versuchen trotzdem, sie für einen Augenblick Wirklichkeit werden
+          zu lassen. Sie entstanden auf Grundlage historischer Fotografien und
+          anderer überlieferter Ansichten, die mit Hilfe künstlicher Intelligenz
+          in fotorealistische Bilder übertragen wurden.
+        </p>
+
+        <p>
+          Was wir dabei sehen, ist keine historische Dokumentation. Es ist eine
+          Vorstellung davon, wie Pechgrün ausgesehen haben könnte.
+        </p>
+      </div>
+
+      <!-- 1 – Blick vom Leinberg -->
+      <figure class="scene scene-full">
+        <Image
+          src={leinberg}
+          alt="Blick vom Leinberg auf Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="eager"
+        />
+      </figure>
+
+      <div class="narration opening">
+        <p>
+          Vor uns liegt Pechgrün. Die Häuser stehen, die Felder werden
+          bewirtschaftet, und ein Weg führt hinunter zum Dorf.
+        </p>
+      </div>
+
+      <!-- 2 – Kastenteich -->
+      <figure class="scene scene-large">
+        <Image
+          src={kastenteich}
+          alt="Am Kastenteich bei Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir folgen der Straße am Kastenteich. Noch liegt das eigentliche Dorf
+          ein Stück vor uns.
+        </p>
+      </div>
+
+      <!-- 3 – Luft -->
+      <figure class="scene scene-large">
+        <Image
+          src={luft}
+          alt="Blick vom Ortsteil Luft in Richtung Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir kommen durch die „Luft“, einen Pechgrün vorgelagerten Ortsteil.
+          Seinen Namen soll er dem Wind verdankt haben, der hier besonders
+          kräftig wehte. Vor uns rückt das Dorf immer näher.
+        </p>
+      </div>
+
+      <!-- 4 – Ortseingang -->
+      <figure class="scene scene-medium">
+        <Image
+          src={ortseingang}
+          alt="Ortseingang von Pechgrün mit großer Pappel"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Hinter der großen Pappel beginnt Pechgrün. Wir gehen zu Fuß weiter.
+        </p>
+      </div>
+
+      <!-- 5 – Unteres Dorf -->
+      <figure class="scene scene-large">
+        <Image
+          src={unteresDorf}
+          alt="Das untere Dorf von Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Die ersten Häuser begleiten die Straße. Gärten, Zäune, Obstbäume und
+          Wirtschaftsgebäude gehören ganz selbstverständlich zum Bild. Hinter
+          der Pappel erkennt man das Schulgebäude.
+        </p>
+      </div>
+
+      <!-- 6 – Frank-Schneider-Haus -->
+      <figure class="scene scene-portrait">
+        <Image
+          src={frankSchneider}
+          alt="Frank-Schneider-Haus in Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir gehen näher heran. Am Waldrand steht das alte „Hiacha-Haus“, das
+          Haus des Hegers.
+        </p>
+      </div>
+
+      <!-- 7 – Mittleres Dorf -->
+      <figure class="scene scene-full">
+        <Image
+          src={mittleresDorf}
+          alt="Das mittlere Dorf von Pechgrün mit Straße und Bach"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Jetzt sind wir mitten in Pechgrün. Straße und Bach ziehen gemeinsam
+          durch das Dorf. Links steht das Pleierwirtshaus, rechts das Wirtshaus
+          zum Grünen Baum. Kleine Brücken und Stege verbinden die Häuser und
+          Grundstücke auf beiden Seiten.
+        </p>
+      </div>
+
+      <!-- 8 – Kinder auf der Straße -->
+      <figure class="scene scene-large">
+        <Image
+          src={kinderStrasse}
+          alt="Kinder auf der Straße im mittleren Dorf von Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Und natürlich wären wir hier nicht allein. Auf der Straße begegnen uns
+          Menschen, die nicht wissen können, dass ihr Dorf für uns längst
+          Vergangenheit ist.
+        </p>
+      </div>
+
+      <!-- 9 – Fellner-Laden -->
+      <figure class="scene scene-full">
+        <Image
+          src={fellner}
+          alt="Fellners Kolonialwarenladen in der Dorfmitte von Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir erreichen Fellners Kolonialwarenladen. Für Erich Heinzel war hier
+          die eigentliche Dorfmitte – das kleine Plätzchen zwischen Straße und
+          Bach, an dem mehrere Wege zusammenliefen.
+        </p>
+      </div>
+
+      <!-- 10 – Kapelle -->
+      <figure class="scene scene-portrait">
+        <Image
+          src={kapelle}
+          alt="Die Kapelle von Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Ein Stück weiter steht die kleine Kapelle. Sie entstand im 18.
+          Jahrhundert und wurde von der Familie Haberditzl vom Bauernhof Nr. 7
+          errichtet und gepflegt, auf deren Grundstück sie sich befand. Vor der
+          Kapelle sehen wir einige Mitglieder der Familie.
+        </p>
+      </div>
+
+      <!-- 11 – Kreuzer-Haus -->
+      <figure class="scene scene-medium">
+        <Image
+          src={kreuzer}
+          alt="Kreuzer-Haus Nr. 56 in Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir lassen die Kapelle hinter uns und gehen am Kutscherberch weiter
+          hinauf zum Kreuzer-Haus Nr. 56.
+        </p>
+      </div>
+
+      <!-- 12 – Brandner-Haus -->
+      <figure class="scene scene-medium">
+        <Image
+          src={brandner}
+          alt="Brandner-Haus in Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration short">
+        <p>
+          Weiter geht es zum Brandner-Haus am Weg nach Kösteldorf. Wohnhaus,
+          Stall, Schuppen, Garten und Obstbäume gehörten hier ganz
+          selbstverständlich zusammen.
+        </p>
+      </div>
+
+      <!-- 13 – Kathrina-Häusl -->
+      <figure class="scene scene-medium">
+        <Image
+          src={kathrina}
+          alt="Kathrina-Häusl in Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration short">
+        <p>
+          Zu den schönen Fachwerkhäusern des Dorfes zählte auch das
+          Kåthrina-Häusl der Familie Kunzmann, Hausnummer 18.
+        </p>
+      </div>
+
+      <!-- 14 – Kutscherbauernhaus im Winter -->
+
+      <figure class="scene scene-large">
+        <Image
+          src={kutscherWinter}
+          alt="Kinder im Winter vor dem Kutscherbauernhaus in Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Unsere Zeitreise hält sich nicht an den Kalender. Schnee liegt vor dem
+          Kutscherbauernhaus, und für die Kinder ist die Straße zum Spielplatz
+          geworden.
+        </p>
+      </div>
+
+      <!-- 15 – Oberes Dorf / Junge mit Kamera -->
+      <figure class="scene scene-large">
+        <Image
+          src={oberesDorf}
+          alt="Junge mit Kamera im oberen Dorf von Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wieder eine andere Jahreszeit. Im oberen Dorf begegnet uns ein Junge
+          mit einer Kamera. Für einen Augenblick schaut nun jemand aus dieser
+          vergangenen Welt zurück auf uns.
+        </p>
+      </div>
+
+      <!-- 16 – Woidichn Ochs'n -->
+      <figure class="scene scene-full">
+        <Image
+          src={woidichn}
+          alt="Blick vom Woidichn Ochs'n über Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Wir steigen höher. Nach den engen Straßen und den einzelnen Häusern
+          öffnet sich der Blick wieder über Pechgrün und die Landschaft ringsum.
+        </p>
+      </div>
+
+      <!-- 17 – Vogelsang -->
+      <figure class="scene scene-large">
+        <Image
+          src={vogelsang}
+          alt="Der Ortsteil Vogelsang bei Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Am Vogelsang wird die Bebauung lockerer. Häuser, Wiesen, Felder und
+          Wald gehen fast unmerklich ineinander über.
+        </p>
+      </div>
+
+      <!-- 18 – Wehrmühle -->
+      <figure class="scene scene-large">
+        <Image
+          src={wehrmuehle}
+          alt="Die Wehrmühle bei Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Für einen kleinen Umweg verlassen wir den dichten Dorfkern und gehen
+          hinüber zur Wehrmühle.
+        </p>
+      </div>
+
+      <!-- 19 – Matzlhof -->
+      <figure class="scene scene-large">
+        <Image
+          src={matzlhof}
+          alt="Matzlhof und drei Linden bei Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Noch einmal ein Hof am Rand des Dorfes: der Matzlhof mit seinen drei
+          Linden. Unsere Reise nähert sich langsam ihrem Ende.
+        </p>
+      </div>
+
+      <!-- 20 – Dorfmitte im Winter -->
+
+      <figure class="scene scene-full">
+        <Image
+          src={dorfmitteWinter}
+          alt="Die Dorfmitte von Pechgrün im Winter"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Ein weiterer Zeitsprung bringt uns wieder mitten ins Dorf – diesmal im
+          Winter. Schnee liegt auf Straßen, Dächern und Gärten. Menschen sind
+          unterwegs, Kinder spielen draußen. Auch so wurde in Pechgrün gelebt.
+        </p>
+      </div>
+
+      <!-- 21 – Meislberg -->
+      <figure class="scene scene-full final-scene">
+        <Image
+          src={meislberg}
+          alt="Blick vom Meislberg auf Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration ending">
+        <p>Unsere Zeit in Pechgrün ist vorbei.</p>
+
+        <p>
+          Vom Meislberg schauen wir ein letztes Mal zurück auf die Häuser,
+          Gärten, Felder und Teiche. Für die Menschen dort ist all das
+          Gegenwart. Sie wissen nicht, was kommen wird.
+        </p>
+
+        <p class="last-line">Wir schon.</p>
+      </div>
+
+      <aside class="about-images">
+        <h2>Über diese Bilder</h2>
+
+        <p>
+          Diese Reise hat nie stattgefunden. Die Bilder auf dieser Seite sind
+          keine historischen Fotografien. Sie wurden mit Hilfe künstlicher
+          Intelligenz auf Grundlage historischer Fotografien und anderer
+          überlieferter Ansichten geschaffen.
+        </p>
+
+        <p>
+          Gebäude, Landschaft und räumliche Zusammenhänge orientieren sich
+          soweit wie möglich an diesen Vorlagen. Wo die historischen Bilder
+          keine eindeutigen Informationen liefern, mussten Einzelheiten ergänzt
+          oder interpretiert werden. Auch die dargestellten Personen dienen der
+          Veranschaulichung und zeigen keine bestimmten ehemaligen Bewohner
+          Pechgrüns.
+        </p>
+
+        <p>
+          Die Bilder erheben deshalb keinen Anspruch darauf, Pechgrün exakt zu
+          rekonstruieren. Sie versuchen vielmehr, eine Vorstellung davon zu
+          vermitteln, wie das verschwundene Dorf ausgesehen haben könnte.
+        </p>
+      </aside>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  /* ===== Kopf ===== */
+  .head {
+    margin-bottom: 1.6rem;
+  }
+
+  .subtitle {
+    margin: -0.35rem 0 0.9rem 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.72);
+  }
+
+  /*
+   * Die Seite selbst ist maximal 940 px breit.
+   * Unterschiedliche Bildbreiten erzeugen den Rhythmus der Zeitreise.
+   */
+
+  .content {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 0 0 3rem;
+  }
+
+  .scene {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .scene img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .scene-full {
+    width: 100%;
+    max-width: 940px;
+  }
+
+  .scene-large {
+    width: 100%;
+    max-width: 780px;
+  }
+
+  .scene-medium {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .scene-portrait {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .narration {
+    max-width: 700px;
+    margin: 0.8rem 0 3.25rem;
+  }
+
+  .narration.short {
+    max-width: 600px;
+  }
+
+  .narration p {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .opening {
+    margin-top: 1.25rem;
+    margin-bottom: 3.75rem;
+  }
+
+  .final-scene {
+    margin-top: 4.5rem;
+  }
+
+  .ending {
+    margin-top: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .last-line {
+    margin-top: 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .about-images {
+    max-width: 750px;
+    margin: 5rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .about-images h2 {
+    margin-top: 0;
+  }
+
+  @media (max-width: 700px) {
+    .scene,
+    .scene-full,
+    .scene-large,
+    .scene-medium {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .narration,
+    .intro,
+    .about-images {
+      max-width: 100%;
+    }
+
+  }
+</style>

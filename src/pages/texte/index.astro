@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 // Wir nutzen die vorhandenen chronik-Exports der Textseiten,
 // damit Titel/Untertitel/Href nicht doppelt gepflegt werden müssen.
+import { chronik as zeitreise } from "./zeitreise.astro";
 import { chronik as aHooch } from "./a-hooch-aaf-unna-dorf.astro";
 import { chronik as egerlaenderMundart } from "./egerlaendermundart.astro";
 import { chronik as letzteJahrePechgruen } from "./letzte-jahre-pechgruen.astro";
@@ -10,6 +11,7 @@ import { chronik as egerlaenderWoerterbuch } from "./egerlaenderwoerterbuch.astr
 import { chronik as redelbachTeich } from "./redelbach-teich.astro";
 import { chronik as daDrrrn } from "./da-drrrn.astro";
 import { chronik as erichLill } from "./erich-lill.astro";
+import { chronik as rudolfWildner } from "./rudolf-wildner.astro";
 import { chronik as josefModer } from "./josef-moder.astro";
 
 export const chronik = {
@@ -23,9 +25,16 @@ export const chronik = {
 };
 
 const intro =
-  "Hier sammeln wir veröffentlichte Texte aus den Pechgrüner Erinnerungsbänden – ergänzt um Stimmen und audiovisuelle Zeugnisse. Die Originale bleiben unverändert; die Hinweise hier dienen der Einordnung und als Lese- oder Hörhilfe.";
+  "Hier sammeln wir Texte, Stimmen, Bilder und Erinnerungen an Pechgrün – historische Zeugnisse ebenso wie heutige Formen der Annäherung. Kurze Kommentare stellen die einzelnen Beiträge vor und ordnen sie ein.";
 
 const entries = [
+  {
+    ...zeitreise,
+    note: "Eine bildliche Zeitreise durch das verschwundene Pechgrün. Aus alten Fotografien und historischen Vorlagen entstand eine Folge realistischer Bilder, die das Dorf mit seinen Häusern, Straßen, Gärten und Bewohnern wieder vorstellbar macht.",
+    tags: ["Bilder", "Zeitreise", "Dorfleben", "Rekonstruktion"],
+    suggestion:
+      "Am besten einfach Bild für Bild durch das Dorf gehen – wie bei einem Spaziergang durch ein Pechgrün, das es heute nicht mehr gibt.",
+  },
   {
     ...aHooch,
     note: "Ein stark innenperspektivischer Text: ein Feuerwerk an Namen, Hausnamen und persönlichen Zuordnungen – sehr wertvoll als Erinnerungsdokument und Personen-Porträt, für Außenstehende jedoch anspruchsvoll, wenn man die Figuren nicht bereits kennt.",
@@ -42,10 +51,10 @@ const entries = [
   },
   {
     ...letzteJahrePechgruen,
-    note: "Eine Annäherung an die letzten Jahre von Pechgrün: In den 1960er und 1970er Jahren lagen die Reste des verlassenen Dorfes noch offen in einer Landschaft, die bereits vom Braunkohlenabbau geprägt war. Skizzen, Zeichnungen und Luftbilder zeigen diese Übergangsphase zwischen Dorf und Halde.",
-    tags: ["Landschaft", "Halde", "Gleise", "Übergang", "1970er Jahre"],
+    note: "Die letzten Jahre von Pechgrün: von der Auflösung des Dorfes über Abriss und Verfall bis zu seinem vollständigen Verschwinden unter der Halde. Bilder und Erinnerungen zeigen, wie sich die vertraute Landschaft Schritt für Schritt in eine Industrielandschaft verwandelte.",
+    tags: ["Dorfende", "Braunkohle", "Halde", "Werkbahn", "Lanschaftswandel"],
     suggestion:
-      "Am besten in Ruhe betrachten und die Bilder miteinander vergleichen – der Eindruck entsteht aus dem Zusammenspiel von Skizzen, Zeichnungen und Luftaufnahme.",
+      "Besonders auf die Bilder achten: Sie zeigen verschiedene Stadien des Verschwindens – von den letzten Mauerresten bis zu einer Landschaft, in der vom Dorf nichts mehr zu sehen ist.",
   },
   {
     ...egerlaenderWoerterbuch,
@@ -71,18 +80,43 @@ const entries = [
   {
     ...erichLill,
     note: "Historische Fotos, Karten und ergänzende Hintergrundinformationen begleiten die beiden Video-Interviews und ordnen sie in ihren zeitgeschichtlichen Zusammenhang ein.",
-    tags: ["Zeitzeuge", "Kösteldorf", "Pechgrün", "Krieg", "Vertreibung", "Erinnerungen"],
+    tags: [
+      "Zeitzeuge",
+      "Kösteldorf",
+      "Pechgrün",
+      "Krieg",
+      "Vertreibung",
+      "Erinnerungen",
+    ],
     suggestion:
       "Am besten in Ruhe ansehen – Karten und Fotos vertiefen die Eindrücke aus den beiden Video-Interviews.",
   },
   {
+    ...rudolfWildner,
+    note: "Rudolf Wildner, der in Pechgrün aufwuchs, trägt Karl Redelbachs Gedicht „Winter in Pechgrün“ im Egerländer Dialekt vor. Das Gedicht führt durch einen Wintertag im Dorf – mit spielenden Kindern, Postler, Fuhrmann, Bergmann und vielen kleinen Beobachtungen aus dem Alltag.",
+    tags: [
+      "Video",
+      "Mundart",
+      "Gedicht",
+      "Dorfleben",
+      "Winter",
+    ],
+    suggestion:
+      "Am besten zuerst Rudolf Wildner zuhören und anschließend den Dialekttext mit der hochdeutschen Übertragung lesen.",
+  },
+  {
     ...josefModer,
     note: "Ein persönliches Porträt von Josef „Pepp“ Moder. Historische Fotos, ein Zeitzeugen-Interview und ergänzende Hintergrundinformationen zeichnen seinen Weg von der Kindheit in Ober-Chodau über die Aussiedlung nach Bayern bis zu seinem späteren Engagement für die Verständigung zwischen Deutschen und Tschechen nach.",
-    tags: ["Zeitzeuge", "Ober-Chodau", "Spätaussiedlung", "Verständigung", "Erinnerungen"],
+    tags: [
+      "Zeitzeuge",
+      "Ober-Chodau",
+      "Spätaussiedlung",
+      "Verständigung",
+      "Erinnerungen",
+    ],
     suggestion:
       "Besonders empfehlenswert für alle, die verstehen möchten, wie Sudetendeutsche, die nach 1945 in der Tschechoslowakei blieben, ihre Heimat und ihre Identität erlebten.",
   },
-
 ];
 ---
 
