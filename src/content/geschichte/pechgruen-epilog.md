@@ -1,6 +1,6 @@
 ---
-title: "Epilog: Das Ende von Pechgrün"
-subtitle: "1945–1980 – Nachzeichnung nach einem Text von Vladimír Vlasák"
+title: "Epilog: Das Ende von Pechgrün 1945-1980"
+subtitle: "Nachzeichnung nach einem Text von Vladimír Vlasák"
 date: 2026-01-01
 order: 13
 ---
