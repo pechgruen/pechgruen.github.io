@@ -8,6 +8,7 @@ import { defineCollection, z } from "astro:content";
 const base = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
+  description: z.string().optional(),
 
   date: z.coerce.date(),
   updated: z.coerce.date().optional(),

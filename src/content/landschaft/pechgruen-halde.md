@@ -1,6 +1,7 @@
 ---
 title: "Unter der Halde"
 subtitle: "Was vom Dorf geblieben ist – und was darüber liegt"
+description: "Die Smolnická výsypka bei Chodov: die Abraumhalde über dem verschwundenen Dorf Pechgrün (Smolnice) und die Geschichte ihrer Entstehung."
 date: 2025-12-17
 order: 2
 ---
