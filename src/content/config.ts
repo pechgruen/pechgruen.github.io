@@ -94,4 +94,10 @@ export const collections = {
     type: "content",
     schema: personen,
   }),
+
+  cesky: defineCollection({
+    type: "content",
+    schema: base,
+  }),
+
 };

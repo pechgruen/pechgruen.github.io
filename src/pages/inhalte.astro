@@ -9,6 +9,7 @@ const orte = await getCollection("stellen");
 const wege = await getCollection("wege");
 const ortschaften = await getCollection("ortschaften");
 const personen = await getCollection("personen");
+const ceskys = await getCollection("cesky");
 
 const wegeOrder = [
   "pechgruener-strasse",
@@ -100,6 +101,17 @@ const landschaftenSorted = [...landschaften].sort((a, b) => {
   return oa - ob;
 });
 
+// ---------- Česky: Sortierung ältester Eintrag oben ----------
+const ceskysSorted = [...ceskys].sort((a, b) => {
+  const da = toTime(a.data.date);
+  const db = toTime(b.data.date);
+  if (da !== db) return da - db;
+
+  const oa = Number(a.data.order ?? 0);
+  const ob = Number(b.data.order ?? 0);
+  return oa - ob;
+});
+
 // ---------- Geschichte: Sortierung ältester Eintrag oben ----------
 const geschichteSorted = [...geschichte].sort((a, b) => {
   const da = toTime(a.data.date);
@@ -158,6 +170,52 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     return (a.order ?? 0) - (b.order ?? 0);
   },
 );
+
+/* ------------------------------------------------------------------
+   ✅ Cesky soll auch Astro-Seiten enthalten
+   ------------------------------------------------------------------ */
+const ceskyPageModules = import.meta.glob("./cesky/*.astro", {
+  eager: true,
+}) as Record<string, any>;
+
+const ceskyPages = Object.entries(ceskyPageModules)
+  .map(([, mod]) => mod?.chronik)
+  .filter(Boolean)
+  .filter((c: any) => String(c.bereich ?? "") === "Česky")
+  .map((c: any) => {
+    const d = new Date(String(c.date));
+    const t = d.getTime();
+    return {
+      kind: "page" as const,
+      title: String(c.title ?? ""),
+      subtitle: String(c.subtitle ?? ""),
+      date: Number.isNaN(t) ? new Date(0) : d, // fallback
+      order: typeof c.order === "number" ? c.order : 0,
+      href: String(c.href ?? "#"),
+    };
+  })
+  .filter((x) => x.title && x.href);
+
+const ceskyContentItems = ceskysSorted.map((e) => {
+  const d = new Date(String(e.data.date));
+  const t = d.getTime();
+  return {
+    kind: "content" as const,
+    title: e.data.title as string,
+    subtitle: (e.data.subtitle as string | undefined) ?? "",
+    date: Number.isNaN(t) ? new Date(0) : d,
+    order: Number(e.data.order ?? 0),
+    href: `/cesky/${e.slug}`,
+  };
+});
+
+// Sortierung wie bisher: ältester oben
+const ceskyCombined = [...ceskyContentItems, ...ceskyPages].sort((a, b) => {
+  const da = a.date.getTime();
+  const db = b.date.getTime();
+  if (da !== db) return da - db;
+  return (a.order ?? 0) - (b.order ?? 0);
+});
 ---
 
 <BaseLayout title="Inhalt">
@@ -174,12 +232,18 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
     <p>
       Diese Seite bietet eine vollständige Übersicht über die Inhalte dieser
       Website. Sie führt zu Landschaften, Stellen und Gebäuden, historischen
-      Darstellungen, Texten, Stimmen, Bildern und Personen. Anders als der
-      <em>Rundgang</em> folgt diese Seite keiner empfohlenen Reihenfolge. Sie ist
-      als offener Zugang gedacht – zum gezielten Nachschlagen, zum Wiederfinden bestimmter
-      Themen oder zum freien Stöbern. Du kannst hier überall einsteigen, Abschnitte
-      auf- und zuklappen und jederzeit zurückkehren. Diese Seite ist ein Inhaltsverzeichnis
-      – kein vorgeschriebener Weg.
+      Darstellungen, Texten, Stimmen, Bildern und Personen. Ausgewählte Beiträge
+      sind auch in tschechischer Übersetzung verfügbar und im Bereich „Česky“ zu
+      finden.
+    </p>
+
+    <p>
+      Anders als der „Rundgang“ folgt diese Seite keiner empfohlenen
+      Reihenfolge. Sie ist als offener Zugang gedacht – zum gezielten
+      Nachschlagen, zum Wiederfinden bestimmter Themen oder zum freien Stöbern.
+      Du kannst hier überall einsteigen, Abschnitte auf- und zuklappen und
+      jederzeit zurückkehren. Diese Seite ist ein Inhaltsverzeichnis – kein
+      vorgeschriebener Weg.
     </p>
   </section>
 
@@ -448,11 +512,7 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           </li>
           <li>
             <a href={zeitreise.href}>{zeitreise.title}</a>
-            {
-              zeitreise.subtitle ? (
-                <span> — {zeitreise.subtitle}</span>
-              ) : null
-            }
+            {zeitreise.subtitle ? <span> — {zeitreise.subtitle}</span> : null}
           </li>
           <li>
             <a href={aHooch.href}>{aHooch.title}</a>
@@ -504,7 +564,11 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           </li>
           <li>
             <a href={rudolfWildner.href}>{rudolfWildner.title}</a>
-            {rudolfWildner.subtitle ? <span> — {rudolfWildner.subtitle}</span> : null}
+            {
+              rudolfWildner.subtitle ? (
+                <span> — {rudolfWildner.subtitle}</span>
+              ) : null
+            }
           </li>
           <li>
             <a href={josefModer.href}>{josefModer.title}</a>
@@ -512,7 +576,11 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
           </li>
           <li>
             <a href={woIstPechgruen.href}>{woIstPechgruen.title}</a>
-            {woIstPechgruen.subtitle ? <span> — {woIstPechgruen.subtitle}</span> : null}
+            {
+              woIstPechgruen.subtitle ? (
+                <span> — {woIstPechgruen.subtitle}</span>
+              ) : null
+            }
           </li>
         </ul>
       </div>
@@ -556,6 +624,32 @@ const landschaftCombined = [...landschaftContentItems, ...landschaftPages].sort(
         <ul>
           {
             mitmachenEntries.map((e) => (
+              <li>
+                <a href={e.href}>{e.title}</a>
+                {e.subtitle ? <span> — {e.subtitle}</span> : null}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Česky -->
+    <section class="acc" data-acc-id="cesky">
+      <button class="acc-head" type="button" aria-expanded="false">
+        <span class="acc-title">Česky</span>
+        <span class="acc-right">
+          <span class="acc-meta">
+            {ceskyCombined.length.toLocaleString("de-DE")} Einträge
+          </span>
+          <span class="acc-arrow" aria-hidden="true">▲</span>
+        </span>
+      </button>
+
+      <div class="acc-body">
+        <ul>
+          {
+            ceskyCombined.map((e) => (
               <li>
                 <a href={e.href}>{e.title}</a>
                 {e.subtitle ? <span> — {e.subtitle}</span> : null}

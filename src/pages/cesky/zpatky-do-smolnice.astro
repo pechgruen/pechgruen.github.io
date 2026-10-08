@@ -1,0 +1,644 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+import leinberg from "../../assets/zeitreise/zeitreise-blick-vom-leinberg.jpg";
+import kastenteich from "../../assets/zeitreise/zeitreise-kastenteich.jpg";
+import luft from "../../assets/zeitreise/zeitreise-blick-von-der-luft.jpg";
+import ortseingang from "../../assets/zeitreise/zeitreise-ortseingang-mit-pappel.jpg";
+import unteresDorf from "../../assets/zeitreise/zeitreise-unteres-dorf.jpg";
+import frankSchneider from "../../assets/zeitreise/zeitreise-frankschneider-haus.jpg";
+import mittleresDorf from "../../assets/zeitreise/zeitreise-mittleres-dorf.jpg";
+import kinderStrasse from "../../assets/zeitreise/zeitreise-mittleres-dorf-kinder-auf-der-strasse.jpg";
+import fellner from "../../assets/zeitreise/zeitreise-fellner-laden.jpg";
+import kapelle from "../../assets/zeitreise/zeitreise-kapelle.jpg";
+import kreuzer from "../../assets/zeitreise/zeitreise-kreuzer-haus-nr-56.jpg";
+import brandner from "../../assets/zeitreise/zeitreise-brandner-haus.jpg";
+import kathrina from "../../assets/zeitreise/zeitreise-kathrina-haeusl.jpg";
+import kutscherWinter from "../../assets/zeitreise/zeitreise-kinder-vor-kutscherbauernhaus.jpg";
+import oberesDorf from "../../assets/zeitreise/zeitreise-oberes-dorf-little-joe.jpg";
+import woidichn from "../../assets/zeitreise/zeitreise-blick-vom-woidichn-ochsn.jpg";
+import vogelsang from "../../assets/zeitreise/zeitreise-vogelsang.jpg";
+import wehrmuehle from "../../assets/zeitreise/zeitreise-wehrmuehle.jpg";
+import matzlhof from "../../assets/zeitreise/zeitreise-matzlhof-und-drei-linden.jpg";
+import dorfmitteWinter from "../../assets/zeitreise/zeitreise-dorfmitte-winter.jpg";
+import meislberg from "../../assets/zeitreise/zeitreise-blick-vom-meislberg.jpg";
+
+export const chronik = {
+  title: "Zpátky do Smolnice",
+  subtitle: "Pomyslná cesta časem do zaniklé vesnice",
+  date: "2026-09-14",
+  bereich: "Česky",
+  href: "/cesky/zpatky-do-smolnice",
+  order: 2,
+};
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+    </header>
+
+    <section class="content">
+      <div class="intro">
+        <p>
+          Co kdybychom se dnes mohli ještě jednou vydat do Smolnice, která se do
+          roku 1945 jmenovala Pechgrün? Ne na výsypku, pod níž vesnice zmizela,
+          ale zpátky do doby, kdy ještě stály domy, vesnicí protékal potok a
+          cesty vedly k okolním polím, rybníkům a lesům.
+        </p>
+
+        <p>
+          Taková cesta časem samozřejmě není možná. Obrázky na těchto stránkách
+          se ji přesto pokoušejí alespoň na okamžik proměnit ve skutečnost.
+          Vytvořil jsem je pomocí umělé inteligence na základě historických
+          fotografií a dalších dochovaných vyobrazení a snažil jsem se přitom co
+          nejvěrněji držet historických předloh.
+        </p>
+
+        <p>
+          Sám jsem Pechgrün nikdy nepoznal. Moje představa o vesnici vznikla ze
+          starých fotografií, vyprávění a knih a také z intenzivního studia
+          historie obce Pechgrün v posledních měsících. Myslím, že se nám
+          prostřednictvím těchto obrázků podařilo skutečnosti překvapivě
+          přiblížit.
+        </p>
+      </div>
+
+      <!-- 1 – Blick vom Leinberg -->
+      <figure class="scene scene-full">
+        <Image
+          src={leinberg}
+          alt="Pohled z návrší „Leinberg“ na Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="eager"
+        />
+      </figure>
+
+      <div class="narration opening">
+        <p>
+          Před námi leží Pechgrün. Domy stojí, pole se obdělávají a cesta vede
+          dolů do vesnice.
+        </p>
+      </div>
+
+      <!-- 2 – Kastenteich -->
+      <figure class="scene scene-large">
+        <Image
+          src={kastenteich}
+          alt="U rybníka „Kastenteich“ poblíž Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Pokračujeme po silnici kolem rybníka „Kastenteich“. Samotná vesnice je
+          ještě kus před námi.
+        </p>
+      </div>
+
+      <!-- 3 – Luft -->
+      <figure class="scene scene-large">
+        <Image
+          src={luft}
+          alt="Pohled z místní části „Luft“ směrem na Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Procházíme částí obce „Luft“, která ležela před vlastní vesnicí
+          Pechgrün. Své jméno prý dostala podle větru, který zde foukal obzvlášť
+          silně. Před námi se vesnice stále více přibližuje.
+        </p>
+      </div>
+
+      <!-- 4 – Ortseingang -->
+      <figure class="scene scene-medium">
+        <Image
+          src={ortseingang}
+          alt="Vjezd do obce Pechgrün s velkým topolem"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>Za velkým topolem začíná Pechgrün. Dál pokračujeme pěšky.</p>
+      </div>
+
+      <!-- 5 – Unteres Dorf -->
+      <figure class="scene scene-large">
+        <Image
+          src={unteresDorf}
+          alt="Dolní část obce Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Podél silnice stojí první domy. Zahrady, ploty, ovocné stromy a
+          hospodářské budovy jsou přirozenou součástí obrazu vesnice. Za topolem
+          rozeznáváme budovu školy.
+        </p>
+      </div>
+
+      <!-- 6 – Mittleres Dorf -->
+      <figure class="scene scene-full">
+        <Image
+          src={mittleresDorf}
+          alt="Střední část obce Pechgrün se silnicí a potokem"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Teď jsme přímo uprostřed obce Pechgrün. Silnice a potok společně
+          procházejí vesnicí. Vlevo stojí hostinec Pleier, vpravo hostinec Zum
+          Grünen Baum („U Zeleného stromu“). Malé mosty a lávky spojují domy a
+          pozemky na obou stranách.
+        </p>
+      </div>
+
+      <!-- 7 – Kinder auf der Straße -->
+      <figure class="scene scene-large">
+        <Image
+          src={kinderStrasse}
+          alt="Děti na ulici ve střední části obce Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          A samozřejmě bychom tu nebyli sami. Na silnici potkáváme lidi, kteří
+          nemohou tušit, že jejich vesnice je pro nás už dávnou minulostí.
+        </p>
+      </div>
+
+      <!-- 8 – Fellner-Laden -->
+      <figure class="scene scene-full">
+        <Image
+          src={fellner}
+          alt="Obchod se smíšeným zbožím rodiny Fellner v centru obce Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Přicházíme k obchodu se smíšeným zbožím rodiny Fellner. Právě toto
+          místo považoval Erich Heinzl za skutečný střed vesnice – malé
+          prostranství mezi silnicí a potokem, kde se sbíhalo několik cest.
+        </p>
+      </div>
+
+      <!-- 9 – Kapelle -->
+      <figure class="scene scene-portrait">
+        <Image
+          src={kapelle}
+          alt="Kaple v obci Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          O kousek dál stojí malá kaple. Vznikla v 18. století a postavila ji a
+          udržovala rodina Haberditzl ze statku čp. 7, na jejímž pozemku kaple
+          stála. Před kaplí vidíme několik členů rodiny.
+        </p>
+      </div>
+
+      <!-- 10 – Kreuzer-Haus -->
+      <figure class="scene scene-medium">
+        <Image
+          src={kreuzer}
+          alt="Dům č. 56 rodiny Ignaz Roßmeisl v obci Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Necháváme kapli za sebou a pokračujeme vzhůru podél návrší
+          „Kutscherberg“ k domu č. 56, který postavil Ignaz Roßmeisl.
+        </p>
+      </div>
+
+      <!-- 11 – Brandner-Haus -->
+      <figure class="scene scene-medium">
+        <Image
+          src={brandner}
+          alt="Dům rodiny Brandner v obci Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration short">
+        <p>
+          Pokračujeme k domu rodiny Brandner u cesty vedoucí směrem k obci
+          Rájec. Obytný dům, stáj, kůlna, zahrada a ovocné stromy zde tvořily
+          přirozený celek.
+        </p>
+      </div>
+
+      <!-- 12 – Kathrina-Häusl -->
+      <figure class="scene scene-medium">
+        <Image
+          src={kathrina}
+          alt="Dům „Kåthrina“ v obci Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration short">
+        <p>
+          K pěkným hrázděným domům ve vesnici patřil také dům „Kåthrina“ rodiny
+          Kunzmann, č. 18.
+        </p>
+      </div>
+
+      <!-- 13 – Kutscherbauernhaus im Winter -->
+
+      <figure class="scene scene-large">
+        <Image
+          src={kutscherWinter}
+          alt="Děti v zimě před selským statkem „Kutscher“ v obci Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Naše cesta časem se neřídí kalendářem. Před selským statkem „Kutscher“
+          leží sníh a pro děti se silnice proměnila v hřiště.
+        </p>
+      </div>
+
+      <!-- 14 – Oberes Dorf / Junge mit Kamera -->
+      <figure class="scene scene-large">
+        <Image
+          src={oberesDorf}
+          alt="Chlapec s fotoaparátem v horní části obce Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          A zase jiné roční období. V horní části vesnice potkáváme chlapce s
+          fotoaparátem. Na okamžik se teď někdo z tohoto zaniklého světa dívá
+          zpátky na nás.
+        </p>
+      </div>
+
+      <!-- 15 – Woidichn Ochs'n -->
+      <figure class="scene scene-full">
+        <Image
+          src={woidichn}
+          alt="Pohled z návrší „Woidichn Ochsn“ na obec Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Stoupáme výš. Po úzkých cestách a jednotlivých domech se před námi
+          znovu otevírá pohled na Pechgrün a okolní krajinu.
+        </p>
+      </div>
+
+      <!-- 16 – Vogelsang -->
+      <figure class="scene scene-large">
+        <Image
+          src={vogelsang}
+          alt="Místní část „Vogelsang“ v obci Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          V místní části „Vogelsang“ je zástavba řidší. Domy, louky, pole a les
+          zde téměř nepozorovaně přecházejí jeden v druhý.
+        </p>
+      </div>
+
+      <!-- 17 – Matzlhof -->
+      <figure class="scene scene-large">
+        <Image
+          src={matzlhof}
+          alt="Statek „Matzlhof“ a tři lípy v obci Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Na okraji vesnice se nachází starý statek rodiny Matzl se třemi
+          lípami, které zde stály již od třicetileté války.
+        </p>
+      </div>
+
+      <!-- 18 – Hiacha-Haus -->
+      <figure class="scene scene-portrait">
+        <Image
+          src={frankSchneider}
+          alt="Dům rodiny „Frank-Schneider“ v obci Pechgrün"
+          widths={[620, 1240]}
+          sizes="(max-width: 620px) 100vw, 620px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Odtud vede cesta k „Wehrmühle“ (Mlýn na Hrázi) kolem starého
+          „Hiacha-Haus“ (dům hajného).
+        </p>
+      </div>
+
+      <!-- 19 – Wehrmühle -->
+      <figure class="scene scene-large">
+        <Image
+          src={wehrmuehle}
+          alt="„Wehrmühle“ (Mlýn na Hrázi) v obci Pechgrün"
+          widths={[780, 1560]}
+          sizes="(max-width: 780px) 100vw, 780px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Pokračujeme dál. Na lesní mýtině nakonec dorazíme k „Wehrmühle“ (Mlýn
+          na Hrázi).
+        </p>
+      </div>
+
+      <!-- 20 – Dorfmitte im Winter -->
+      <figure class="scene scene-full">
+        <Image
+          src={dorfmitteWinter}
+          alt="Střed obce Pechgrün v zimě"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration">
+        <p>
+          Další skok v čase nás přivádí zpátky doprostřed vesnice – tentokrát v
+          zimě. Sníh leží na cestách, střechách a zahradách. Lidé jsou venku,
+          děti si hrají.
+        </p>
+      </div>
+
+      <!-- 21 – Meislberg -->
+      <figure class="scene scene-full final-scene">
+        <Image
+          src={meislberg}
+          alt="Pohled z návrší „Meislberg“ na obec Pechgrün"
+          widths={[940, 1880]}
+          sizes="(max-width: 940px) 100vw, 940px"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="narration ending">
+        <p>Náš čas v obci Pechgrün končí.</p>
+
+        <p>
+          Z návrší „Meislberg“ se naposledy ohlížíme na domy, zahrady, pole a
+          rybníky. Pro lidi, kteří tam žijí, je to všechno stále přítomnost.
+          Netuší, co je čeká.
+        </p>
+
+        <p class="last-line">My ano.</p>
+      </div>
+
+      <aside class="about-images">
+        <h2>O těchto obrázcích</h2>
+
+        <p>
+          Tato cesta se nikdy neuskutečnila. Obrázky na těchto stránkách nejsou
+          historické fotografie. Byly vytvořeny pomocí umělé inteligence na
+          základě historických fotografií a dalších dochovaných vyobrazení.
+        </p>
+
+        <p>
+          Zvláštní důraz byl kladen na co nejpřesnější zachování historických
+          předloh. Budovy, cesty, krajina a jejich vzájemné prostorové vztahy se
+          co nejvíce řídí tím, co lze rozeznat na původních snímcích. Také
+          některé ze zobrazených osob vycházejí přímo z lidí zachycených na
+          historických fotografiích.
+        </p>
+
+        <p>
+          Tam, kde předlohy neposkytují jednoznačné informace, bylo nutné
+          některé detaily doplnit nebo interpretovat. Jiné zobrazené osoby byly
+          přidány, aby bylo možné přiblížit tehdejší život ve vesnici.
+        </p>
+
+        <p>
+          Obrázky proto nejsou historickými dokumenty v pravém slova smyslu.
+          Jsou pokusem znovu co nejvěrněji oživit Pechgrün na základě
+          dochovaných obrazových svědectví.
+        </p>
+      </aside>
+
+      <aside class="about-images">
+        <h2>Můj sen</h2>
+
+        <p>
+          Mým přáním je jednou prostorově zrekonstruovat celou zaniklou krajinu
+          kolem Pechgrün. K tomu by bylo nejprve nutné vytvořit ze starých
+          topografických map a dalších historických pramenů digitální 3D model –
+          tedy soubor dat, který prostorově zachycuje tehdejší podobu terénu,
+          cesty, vodní toky a plochy a pokud možno i polohu budov. Takové 3D
+          modely tvoří také základ trojrozměrného zobrazení krajiny, jaké známe
+          například z Google Earth.
+        </p>
+
+        <p>
+          Na tento model by bylo možné promítnout historické mapy a letecké
+          snímky. Návštěvníci by se pak mohli virtuálně pohybovat tehdejší
+          krajinou a libovolně měnit své stanoviště, směr pohledu i výšku. Takto
+          vytvořené pohledy by zase mohly sloužit jako geometrický podklad pro
+          tvorbu realistických obrazů pomocí umělé inteligence – podobných těm
+          na této stránce, ale již bez omezení na několik málo úhlů pohledu, z
+          nichž se dochovaly historické fotografie.
+        </p>
+
+        <p>
+          Tento sen zatím nemohu uskutečnit. Chybějí mi znalosti a technické
+          možnosti potřebné k vytvoření takového 3D modelu ze starých, ručně
+          kreslených topografických map. Obrázky na této stránce jsou proto mým
+          pokusem přiblížit se tomuto cíli alespoň o krok pomocí prostředků,
+          které mám dnes k dispozici.
+        </p>
+      </aside>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  /* ===== Kopf ===== */
+  .head {
+    margin-bottom: 1.6rem;
+  }
+
+  .subtitle {
+    margin: -0.35rem 0 0.9rem 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.72);
+  }
+
+  /*
+   * Die Seite selbst ist maximal 940 px breit.
+   * Unterschiedliche Bildbreiten erzeugen den Rhythmus der Zeitreise.
+   */
+
+  .content {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 0 0 3rem;
+  }
+
+  .scene {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .scene img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .scene-full {
+    width: 100%;
+    max-width: 940px;
+  }
+
+  .scene-large {
+    width: 100%;
+    max-width: 780px;
+  }
+
+  .scene-medium {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .scene-portrait {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .narration {
+    max-width: 700px;
+    margin: 0.8rem 0 3.25rem;
+  }
+
+  .narration.short {
+    max-width: 600px;
+  }
+
+  .narration p {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .opening {
+    margin-top: 1.25rem;
+    margin-bottom: 3.75rem;
+  }
+
+  .final-scene {
+    margin-top: 4.5rem;
+  }
+
+  .ending {
+    margin-top: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .last-line {
+    margin-top: 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .about-images {
+    max-width: 750px;
+    margin: 5rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .about-images h2 {
+    margin-top: 0;
+  }
+
+  @media (max-width: 700px) {
+    .scene,
+    .scene-full,
+    .scene-large,
+    .scene-medium {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .narration,
+    .intro,
+    .about-images {
+      max-width: 100%;
+    }
+  }
+</style>

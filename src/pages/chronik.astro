@@ -114,7 +114,25 @@ const personenItems = entriesPersonen.map((e) => {
 });
 
 /* ================================================================
-   6) Astro-Seiten mit export const chronik = { ... }
+   6) Česky
+   ================================================================ */
+const entriesCesky = await getCollection("cesky");
+const ceskyItems = entriesCesky.map((e) => {
+  const d = (e.data.updated ?? e.data.date) as Date;
+  return {
+    kind: "content" as const,
+    title: e.data.title as string,
+    subtitle: (e.data.subtitle as string | undefined) ?? "",
+    date: d,
+    isUpdated: Boolean(e.data.updated),
+    bereich: "Česky",
+    href: `/cesky/${e.slug}`,
+    order: typeof e.data.order === "number" ? e.data.order : 0,
+  };
+});
+
+/* ================================================================
+   7) Astro-Seiten mit export const chronik = { ... }
    ================================================================ */
 const pageModules = import.meta.glob("./**/*.astro", { eager: true }) as Record<
   string,
@@ -149,7 +167,7 @@ const astroItems = Object.entries(pageModules)
   );
 
 /* ================================================================
-   7) Merge + Sort
+   8) Merge + Sort
    - neueste Einträge oben
    - bei gleichem Datum: höhere order = neuer
    ================================================================ */
@@ -160,6 +178,7 @@ const items = [
   ...ortschaftenItems,
   ...geschichteItems,
   ...personenItems,
+  ...ceskyItems,
   ...astroItems,
 ]
   .slice()
@@ -286,7 +305,7 @@ const items = [
           setClearVisible();
         };
 
-        let timerId;
+        let timerId: number | undefined;
 
         const schedule = () => {
           if (timerId !== undefined) window.clearTimeout(timerId);

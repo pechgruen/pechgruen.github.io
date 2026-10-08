@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("cesky");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const displayDate = (data.updated ?? data.date)!;
+const displayDateText = (displayDate instanceof Date)
+  ? displayDate.toISOString().slice(0, 10)
+  : String(displayDate);
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article>
+    <header>
+      <h1>{data.title}</h1>
+
+      {data.subtitle && (
+        <p class="subtitle">{data.subtitle}</p>
+      )}
+
+      <p class="meta">{displayDateText}</p>
+    </header>
+
+    <Content />
+  </article>
+</BaseLayout>
+
+<style>
+header {
+  margin-bottom: 1.6rem;
+}
+
+header h1 {
+  margin-bottom: 0.25rem;   /* enger an den Subtitle */
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 1.05rem;
+}
+
+  .meta {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.45);
+  }
+</style>
