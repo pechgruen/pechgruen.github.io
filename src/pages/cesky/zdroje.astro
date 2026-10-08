@@ -1,0 +1,217 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Zdroje",
+  subtitle: "Historické prameny, vzpomínky a vlastní výzkum",
+  description:
+    "Prameny k historii obce Pechgrün (Smolnice): vzpomínkové knihy, obecní kronika, rodinné vzpomínky, matriky, archivy, historické mapy a vlastní výzkum.",
+  date: "2025-12-15",
+  bereich: "Česky",
+  href: "/cesky/zdroje",
+  order: 3,
+};
+---
+
+<BaseLayout title={chronik.title} description={chronik.description}>
+  <article class="content">
+    <style>
+      .source-split {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 1.25rem;
+        margin: 2rem 0;
+        align-items: start;
+      }
+
+      /* Bildcontainer links */
+      .source-image {
+        max-width: 400px;
+      }
+
+      .source-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Echte Bildunterschrift: kleiner, grauer, enger */
+      .source-caption {
+        margin-top: 0.4rem;
+        font-size: 0.8em;
+        line-height: 1.25;
+        color: #777;
+      }
+
+      /* Rechte Spalte: normaler Flow (für mehrere Absätze) */
+      .source-meta {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Falls globales CSS mit "flow spacing" arbeitet: im rechten Block definieren wir sauber */
+      .source-meta p {
+        margin: 0 0 0.9rem 0;
+      }
+
+      .source-meta p:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 700px) {
+        .source-split {
+          grid-template-columns: 1fr;
+        }
+
+        .source-image {
+          max-width: 100%;
+        }
+      }
+    </style>
+
+    <h1>Zdroje</h1>
+
+    <p>
+      Tyto webové stránky vycházejí z mnoha různých pramenů. Nevznikly na základě
+      jediného projektu ani jediné publikace, ale z množství vzpomínek, dokumentů,
+      obrazových materiálů a vlastního výzkumu, které se shromažďovaly po mnoho let.
+    </p>
+
+    <p>
+      Cílem této stránky je tyto základy přehledně představit a zároveň ukázat,
+      na čí práci a úsilí tyto webové stránky navazují.
+    </p>
+
+    <h2>Vzpomínkové svazky „Pechgrün – Geschichte und Erinnerungen“</h2>
+
+    <p>
+      Jedním z hlavních pramenů jsou tři vzpomínkové svazky
+      <em>„Pechgrün – Geschichte und Erinnerungen. Pechgrün am Fuße des Erzgebirges, ein verschüttetes Dorf“</em>,
+      vydané v letech 1989, 1993 a 1998.
+    </p>
+
+    <p>
+      V těchto svazcích byly poprvé ve větším rozsahu zaznamenány dějiny obce
+      Pechgrün, jejích domů, obyvatel a společenského života. Mnohé texty,
+      informace, vyobrazení a souvislosti, které tyto stránky přebírají a dále
+      rozvíjejí, pocházejí přímo z těchto publikací.
+    </p>
+
+    <div class="source-split">
+      <div class="source-image">
+        <img
+          src="/images/autoren-pechgruen-buecher.jpg"
+          alt="Autoři a vydavatelé vzpomínkových svazků o Pechgrün: Erich Heinzl, Karl Redelbach, Anton Strunz a Franz Dengler"
+        />
+        <div class="source-caption">
+          Autoři a vydavatelé vzpomínkových svazků „Pechgrün – Geschichte und Erinnerungen“ (1989–1998).
+        </div>
+      </div>
+
+      <div class="source-meta">
+        <p>
+          Zleva doprava: Erich Heinzl, Karl Redelbach, Anton Strunz a Franz Dengler.
+        </p>
+        <p>
+          Erich Heinzl, Karl Redelbach a Anton Strunz se významně podíleli na
+          koncepci, redakci a obsahové podobě svazků o obci Pechgrün;
+          Anton Strunz byl iniciátorem celého projektu.
+        </p>
+        <p>
+          Franz Dengler pocházel ze sousední vesnice a patřil ke komunitě lidí
+          z Egerland, z níž tato vzpomínková práce vzešla. Projekt podporoval
+          díky osobním vazbám. Fotografie pochází pravděpodobně z konce 90. let.
+        </p>
+      </div>
+    </div>
+
+    <h2>„Gedenkbuch der Gemeinde Pechgrün“ – pamětní kniha obce</h2>
+
+    <div class="source-split">
+      <div class="source-image">
+        <img
+          src="/images/quelle-gedenkbuch.jpg"
+          alt="Titulní strana pamětní knihy „Gedenkbuch der Gemeinde Pechgrün“"
+        />
+        <div class="source-caption">
+          Titulní strana pamětní knihy „Gedenkbuch der Gemeinde Pechgrün“, vzniklé ve 20. letech 20. století.
+        </div>
+      </div>
+
+      <div class="source-meta">
+        <p>
+          Dalším důležitým pramenem je <em>Gedenkbuch der Gemeinde Pechgrün</em>,
+          pamětní kniha vzniklá ve 20. letech 20. století. Tato ručně psaná kniha
+          představuje jeden z nejstarších systematických přehledů dějin obce.
+          Vznikala v době, kdy mnozí zmiňovaní lidé a události ještě byli součástí
+          živé paměti.
+        </p>
+        <p>
+          Pamětní kniha obsahuje mimo jiné informace o vývoji obce, domech,
+          majetkových poměrech i o osobách a rodinách významných pro Pechgrün.
+          Zachycuje tak dobový pohled na vesnici a její dějiny, dávno před vznikem
+          pozdějších vzpomínkových svazků.
+        </p>
+        <p>
+          Kniha byla vedena jako interní obecní kronika a dokumentace a dnes ji
+          digitálně zpřístupňuje Státní oblastní archiv v Litoměřicích
+          prostřednictvím Porta Fontium. Jde o raný, časově blízký pramen, o který
+          se pozdější vzpomínkové práce mohly částečně opírat, aniž by jej plně
+          nahrazovaly. Vyobrazení a informace z této knihy použité na webu slouží
+          k historickému zasazení do souvislostí a k doplnění dalších pramenů.
+        </p>
+      </div>
+    </div>
+
+    <h2>Ústní podání a rodinné vzpomínky</h2>
+
+    <p>
+      Dalším důležitým zdrojem jsou ústně předávané vzpomínky v rodině i v širším
+      okruhu vysídlených obyvatel. Vyprávění rodičů, prarodičů, příbuzných a
+      známých z Egerland od raného věku utvářela mou představu o Pechgrün a
+      tvoří důležité pozadí mnoha zde uvedených informací.
+    </p>
+
+    <h2>Církevní matriky, archivy a genealogický výzkum</h2>
+
+    <p>
+      Tyto vzpomínky doplňuje rozsáhlý genealogický výzkum, zejména v církevních
+      matrikách farního obvodu Chodau a v dalších archivech. Tyto prameny pomáhají
+      objasňovat totožnost osob, rodinné vazby a časové souvislosti.
+    </p>
+
+    <h2>Vlastní výzkum, fotografie a dokumentace</h2>
+
+    <p>
+      Další podklady pocházejí z vlastního terénního výzkumu, fotografování,
+      studia map a leteckých snímků i z dokumentace pořízené při cestách,
+      procházkách krajinou a pátrání po dochovaných stopách obce Pechgrün.
+    </p>
+
+    <p>
+      Část těchto prací jsem zachytil také ve vlastních fotoknihách a dokumentacích,
+      které jsou dalším podkladem pro obsah těchto webových stránek.
+    </p>
+
+    <h2>Mapy a mapové služby</h2>
+
+    <p>
+      Na různých místech těchto stránek jsou použity výřezy map, topografické
+      mapy, satelitní snímky a letecké fotografie z veřejných mapových služeb
+      a úředních archivů. Patří mezi ně zejména podklady z Mapy.cz a Google Maps
+      a také topografické mapy, ortofotomapy a letecké snímky z archivu Českého
+      úřadu zeměměřického a katastrálního (ČÚZK). Mapy a snímky slouží k orientaci,
+      historickému zasazení do souvislostí a znázornění prostorových vztahů
+      (například hranic obce, cest a terénních útvarů). Některé výřezy byly
+      oříznuty, opatřeny vlastními značkami nebo graficky zvýrazněny.
+    </p>
+
+    <h2>Poznámka k průběžnému doplňování</h2>
+
+    <p>
+      Tento přehled pramenů si neklade nárok na úplnost. Podle potřeby bude
+      doplňován a upřesňován, zejména pokud se objeví další materiály,
+      informace nebo příspěvky.
+    </p>
+  </article>
+</BaseLayout>

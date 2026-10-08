@@ -1,0 +1,203 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "O těchto stránkách",
+  subtitle: "Osobní příběh vzniku webu o Pechgrün",
+  description: "Udo Dengler o vzniku svých webových stránek věnovaných historii zaniklé vesnice Pechgrün (Smolnice), rodinným vzpomínkám, genealogickému výzkumu a historickému bádání.",
+  date: "2025-12-15",
+  bereich: "Česky",
+  href: "/cesky/o-techto-strankach",
+  order: 2,
+};
+---
+
+<BaseLayout title={chronik.title} description={chronik.description}>
+  <article class="content">
+    <style>
+      .impressum-split {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 1.25rem;
+        align-items: start;
+        margin: 1.5rem 0 0 0;
+      }
+      .impressum-figure {
+        margin: 0;
+        align-self: start;
+        padding-top: 0.5rem;
+      }
+      .impressum-figure img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .impressum-figure figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.85em;
+        color: #666;
+      }
+      .impressum-text {
+        margin: 0;
+        padding: 0;
+        align-self: start;
+      }
+      .impressum-text > p:first-child {
+        margin-top: 0 !important;
+        margin-block-start: 0 !important;
+      }
+      @media (max-width: 700px) {
+        .impressum-split {
+          grid-template-columns: 1fr;
+        }
+        .impressum-figure {
+          padding-top: 0;
+        }
+      }
+    </style>
+
+    <h1>O těchto stránkách</h1>
+
+    <p>Tyto webové stránky vznikly na základě dlouhého osobního příběhu.</p>
+
+    <p>
+      Jsem potomkem vysídlených Němců. Moji rodiče, prarodiče a mnoho příbuzných
+      pocházejí z Chebska, z okolí vesnice Pechgrün. Rodný kraj mé rodiny byl
+      součástí mého života už od dětství – ne jako místo, kde jsem sám žil,
+      ale jako místo, o kterém se vyprávělo. V rozhovorech mých rodičů,
+      prarodičů, strýce Erich a mnoha dalších lidí z prostředí vysídlenců
+      byl Pechgrün stále přítomen: jako vzpomínka, ztráta i místo, k němuž
+      se vztahovali.
+    </p>
+
+    <p>
+      Vyrůstal jsem ve Württembersku, v prostředí, kde se po vysídlení znovu
+      sdružovalo mnoho lidí pocházejících z Chebska. „Starý domov“ tam nebyl
+      abstraktní minulostí, ale součástí každodenního života. Když se ohlédnu
+      zpět, nikdy jsem se necítil být úplně Švábem, ale vždy také člověkem,
+      jehož kořeny sahají do jiného, ztraceného domova.
+    </p>
+
+    <p>
+      Důležitým zlomem pro mě bylo seznámení s pamětními knihami o Pechgrün.
+      Na jejich vzniku se zásadně podílel můj strýc Erich. V těchto svazcích
+      bylo poprvé písemně zachyceno to, co jsem do té doby znal jen z vyprávění:
+      historie vesnice, jejích domů, obyvatel a okolí. Dnes jsou tyto knihy
+      rozebrané a jen obtížně dostupné – a právě to ve mně posílilo přání,
+      aby tyto znalosti nezmizely.
+    </p>
+
+    <p>
+      Současně jsem se začal intenzivněji věnovat genealogii. Z rodinných
+      poznámek a později také z genealogického výzkumu v matrikách a archivech
+      postupně během let vznikl velmi rozsáhlý rodokmen. Přitom jsem si stále
+      více uvědomoval, kolik znalostí se může nashromáždit – a jak snadno
+      se mohou znovu ztratit, pokud je nikdo nepředá dál.
+    </p>
+
+    <p>
+      Přibyly vlastní badatelské cesty, fotografie, rozhovory, kontakty
+      s historiky i práce na fotografických knihách a dokumentaci. Zvlášť
+      důležité pro mě bylo také studium obrazových pramenů: starých fotografií,
+      map, leteckých snímků a akvarelů, jejichž autorem je Karl Redelbach
+      a které bylo možné poprvé znovu zdokumentovat v barvě.
+    </p>
+
+    <p>
+      Tyto webové stránky jsou pokusem vše propojit. Ne jako uzavřené dílo
+      ani jako vědeckou studii, ale jako otevřený prostor pro vzpomínky.
+    </p>
+
+    <div class="impressum-split">
+      <figure class="impressum-figure">
+        <img
+          src="/images/impressum-udo.jpg"
+          alt="Udo Dengler na výsypce nad někdejší obcí Pechgrün u pamětní tabule připomínající rodný dům jeho matky"
+        />
+        <figcaption>
+          Na výsypce nad někdejší obcí Pechgrün, u pamětní tabule připomínající
+          rodný dům mé matky.
+        </figcaption>
+      </figure>
+
+      <div class="impressum-text">
+        <p>
+          Cílem stránek je ukázat, jaký Pechgrün kdysi byl, jak vypadal,
+          kdo v něm žil – a jak se vzpomínka na něj předávala z generace
+          na generaci. Web přitom chápu jako doplněk existujících pamětních
+          knih, nikoli jako jejich náhradu. Nové technické možnosti dovolují
+          propojovat texty, obrázky, mapy a vlastní výzkum a zpřístupňovat
+          je ostatním.
+        </p>
+
+        <p>
+          Svou roli hraje i další, zcela osobní stránka věci: radost
+          z hledání, uspořádávání a vyprávění. Podobné projekty dávají životu
+          strukturu, smysl a hloubku – zvláště tehdy, když už některé jeho
+          etapy skončily. To, co zde vzniká, proto není jen ohlédnutím
+          do minulosti, ale také součástí přítomnosti.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      Na těchto stránkách se opakovaně objevuje jedno jméno: Claus Kircheiß.
+      Není to náhoda. S Claus jsme se seznámili před více než rokem a půl
+      v souvislosti s místem zvaným Affenfelsen. On toto místo hledal,
+      já jsem k němu měl obrazové materiály, a z prvního kontaktu se rychle
+      vyvinulo blízké přátelství.
+    </p>
+
+    <p>
+      Během našich rozhovorů a výzkumu se ukázalo, že jsme vzdálení příbuzní.
+      Rodinné linie nás obou vedou zpět do Pechgrün, malé vesnice, kde se
+      během generací vytvořilo mnoho příbuzenských vazeb. V květnu tohoto
+      roku jsme společně navštívili místo někdejší vesnice, umístili na výsypce
+      pamětní tabule a prošli okolní krajinu. Tyto dny ještě více prohloubily
+      náš zájem o místo a jeho historii.
+    </p>
+
+    <p>
+      Tyto webové stránky nepovažuji za uzavřený výklad historie. Uvítám
+      upozornění, doplnění, opravy i otázky. Vítané jsou rovněž příspěvky
+      dalších lidí – například vzpomínky, dokumenty, fotografie či informace,
+      které mohou přispět k poznání historie Pechgrün a okolí. Stránky by se
+      měly postupně rozvíjet také díky různým pohledům a dalším svědectvím.
+    </p>
+
+    <h2>Poznámka k pracovnímu postupu</h2>
+
+    <p>
+      Obsah těchto stránek vychází ze soukromého bádání, genealogického
+      výzkumu, dobových pramenů, vzpomínek a vzájemného porovnávání různých
+      materiálů.
+    </p>
+
+    <p>
+      I přes pečlivou práci mohou být některé údaje neúplné, rozporné nebo
+      chybné. Při genealogickém výzkumu a práci s historickými prameny
+      každodenního života se nejistotám nelze vždy vyhnout.
+    </p>
+
+    <p>Opravy, doplnění a další informace jsou výslovně vítány.</p>
+
+    <h2>Poděkování</h2>
+
+    <p>
+      Při navrhování a vytváření těchto webových stránek jsem využíval
+      digitální pomoc. Zvláštní poděkování patří <strong>Emil</strong>,
+      který mi pomáhá přemýšlet, a <strong>Otto</strong>, který umí dobře
+      naslouchat a vždy pilně zapisuje.
+    </p>
+
+    <hr />
+
+    <h2>Upozornění</h2>
+
+    <p>
+      Za obsah těchto webových stránek odpovídá Udo Dengler, Toronto (Kanada).
+    </p>
+
+    <p>Kontakt: pechgruen.website [at] gmail [dot] com</p>
+  </article>
+</BaseLayout>

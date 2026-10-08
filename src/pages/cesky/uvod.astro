@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Pechgrün – Úvod",
+  subtitle: "Krajina · stopy · proti zapomnění",
+  description:
+    "Pechgrün (Smolnice) u Chodov – historie zaniklé vesnice, jejích obyvatel a krajiny zasypané výsypkou Smolnická výsypka v sokolovském hnědouhelném revíru. Vlastivědný web Udo Dengler.",
+  date: "2025-12-15",
+  bereich: "Česky",
+  href: "/cesky/uvod",
+  order: 1,
+};
+---
+
+<BaseLayout title={chronik.title} description={chronik.description}>
+  <!-- Úvodní panorama -->
+  <section class="hero">
+    <h1 class="hero-title" translate="no">Pechgrün (Smolnice)</h1>
+    <p class="hero-subtitle">Krajina · stopy · proti zapomnění</p>
+    <img
+      src="/images/redelbach-meiselberg.jpg"
+      alt="Pechgrün – pohled z návrší Meißlberg na střed vesnice a Leitn. Akvarel Karl Redelbach."
+      class="hero-image"
+    />
+  </section>
+
+  <section class="pechgruen-invite">
+    <p><strong>Máte nějakou vazbu k vesnici Pechgrün (Smolnice)?</strong></p>
+    <p>
+      Tyto stránky shromažďují stopy zaniklé vesnice – možná k nim patří i vaše
+      vzpomínky, fotografie nebo rodinné příběhy.
+    </p>
+    <p>I drobné informace mohou pomoci doplnit celkový obraz.</p>
+    <p>
+      → Budu rád za každou zprávu:
+      <a href="mailto:pechgruen.website@gmail.com">pechgruen.website@gmail.com</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <p>
+      Smolnice, do roku 1945 známá pod německým názvem Pechgrün, je vesnice,
+      která už neexistuje. Domy zmizely, cesty překryla výsypka a krajina
+      v místech někdejší vesnice dostala novou podobu. Zůstaly vzpomínky –
+      a i ty jsou dnes stále vzácnější.
+    </p>
+
+    <p>
+      Generace, která Pechgrün ještě zažila, už z velké části odešla. Její děti
+      zestárly a jejich hlasy postupně slábnou. Lidé, pro které byla tato
+      vesnice kdysi domovem, by z takových stránek možná měli radost – možná by
+      je dokonce potřebovali. Jenže tehdy nic takového neexistovalo. Nebyly
+      technické možnosti ani nástroje, které by dovolovaly spojit fotografie,
+      texty, mapy a vzpomínky tak, jak je to možné dnes.
+    </p>
+
+    <p>
+      Tyto stránky vznikají pozdě, ale ne příliš pozdě. Nejsou už určeny
+      především přímým pamětníkům, nýbrž následujícím generacím – dětem a
+      vnoučatům, které vesnici neznají, ale možná se jednou začnou ptát, odkud
+      pocházejí. Jsou určeny také lidem bez rodinných vazeb k tomuto místu,
+      kteří chtějí pochopit, co znamená, když vesnice zmizí – nikoli v důsledku
+      války, ale na základě plánovaného rozhodnutí.
+    </p>
+
+    <p>
+      Cílem těchto stránek není Pechgrün rekonstruovat ani idealizovat. Nechtějí
+      ztracenou vesnici znovu vystavět. Shromažďují stopy: fotografie, texty,
+      kresby, mapy a vzpomínky. Zpřístupňují to, co by jinak zůstalo pouze v
+      knihách, soukromých archivech nebo v paměti jednotlivých lidí.
+    </p>
+
+    <p>
+      Tato práce není projektem zaměřeným na co největší návštěvnost ani nabídkou
+      rychlé spotřeby informací. Je způsobem, jak předávat minulost dál.
+      Uchovává něco pro chvíli, kdy někdo začne pátrat – třeba náhodou, třeba
+      pozdě, možná až ve chvíli, kdy už nebude koho se zeptat. V tomto smyslu
+      jsou tyto stránky méně pomníkem než otevřeným archivem: klidným,
+      fragmentárním a vědomě neúplným. Neuchovávají samotné místo, ale postoj
+      k zapomínání.
+    </p>
+
+    <p class="leiser-hinweis">
+      <em>
+        Pokud jste na těchto stránkách poprvé, doporučuji začít prohlídkou
+        vesnice. Úplný přehled všech stránek najdete v sekci Obsah.
+      </em>
+    </p>
+
+    <div class="jazykovy-hinweis">
+      <h2>O jazykových verzích</h2>
+      <p>
+        Většina příspěvků na těchto stránkách je v němčině. Vybrané texty jsou
+        však dostupné také v češtině. Jejich přehled najdete v sekci „Česky“.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 0px 0 28px;
+  }
+  .hero-title {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .hero-subtitle {
+    margin: 10px 0 22px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  .hero-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .section {
+    padding: 10px 0;
+  }
+  .leiser-hinweis {
+    margin-top: 2.2rem;
+    border-left: 3px solid rgba(0, 0, 0, 0.18);
+    padding-left: 1.6rem;
+    margin-left: 0.4rem;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  .leiser-hinweis em {
+    font-style: italic;
+  }
+  .pechgruen-invite {
+    border-left: 2px solid #ccc;
+    background: #f0f0f0;
+    padding: 16px 14px 14px 18px;
+    margin: 12px 0;
+  }
+  .pechgruen-invite p:last-child {
+    margin-bottom: 0;
+  }
+  .jazykovy-hinweis {
+    margin-top: 3rem;
+  }
+  .jazykovy-hinweis h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+</style>
