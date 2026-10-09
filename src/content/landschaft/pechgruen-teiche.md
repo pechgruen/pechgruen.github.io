@@ -1,6 +1,7 @@
 ---
 title: "Die Pechgrüner Teiche"
 subtitle: "Eine verschwundene Teichlandschaft am Rand des Dorfes"
+description: "Die Pechgrüner Teiche: Historische Karten von 1765 und 1842 sowie Erinnerungen von Erich Heinzl zeigen die Entstehung, Lage und Namen der durch die Pechgrüner Abraumhalde (Smolnická výsypka) verschütteten Teichlandschaft bei Pechgrün (Smolnice)."
 date: 2025-12-30
 order: 1
 ---

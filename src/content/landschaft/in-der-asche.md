@@ -1,6 +1,7 @@
 ---
 title: "In der Asche"
 subtitle: "Die verborgenen Rohstoffe der Absetzbecken bei Vřesová"
+description: "In den Asche- und Absetzbecken bei Vřesová (früher Doglasgrün) lagern strategische Rohstoffe wie Germanium, Gallium und Seltene Erden. Tschechische Regierungsdokumente zeigen das Potenzial der Lagerstätte U21 neben der Smolnická výsypka."
 date: 2026-05-23
 order: 3
 ---

@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+// Für die deutsche Inhaltsübersicht (src/pages/inhalte.astro).
+export const chronik = {
+  bereich: "Česky",
+  title: "Přehled článků přeložených do češtiny",
+  subtitle: "S krátkými popisy jednotlivých článků",
+  description:
+    "Chronologický přehled českých článků o historii, krajině a obyvatelích vesnice Pechgrün.",
+  date: "2025-01-01",
+  order: 0,
+  href: "/cesky/",
+};
+
+// Dieselbe Erfassung wie in src/pages/inhalte.astro – eigenständig,
+// ohne Änderungen an anderen Projektdateien.
+const ceskys = await getCollection("cesky");
+
+const toTime = (value: unknown): number => {
+  const time = new Date(String(value)).getTime();
+  return Number.isNaN(time) ? 0 : time;
+};
+
+const ceskyContentItems = ceskys.map((entry) => ({
+  title: String(entry.data.title ?? ""),
+  subtitle: String(entry.data.subtitle ?? ""),
+  description: String(entry.data.description ?? ""),
+  date: toTime(entry.data.date),
+  order: Number(entry.data.order ?? 0),
+  href: `/cesky/${entry.slug}`,
+}));
+
+const ceskyPageModules = import.meta.glob("./*.astro", {
+  eager: true,
+}) as Record<string, any>;
+
+const ceskyPages = Object.entries(ceskyPageModules)
+  .filter(([path]) => !path.endsWith("/index.astro"))
+  .map(([, mod]) => mod?.chronik)
+  .filter(Boolean)
+  .filter((c: any) => String(c.bereich ?? "") === "Česky")
+  .map((c: any) => ({
+    title: String(c.title ?? ""),
+    subtitle: String(c.subtitle ?? ""),
+    description: String(c.description ?? ""),
+    date: toTime(c.date),
+    order: Number(c.order ?? 0),
+    href: String(c.href ?? ""),
+  }));
+
+const entries = [...ceskyContentItems, ...ceskyPages]
+  .filter(
+    (entry) =>
+      entry.title && entry.href && !["/cesky", "/cesky/"].includes(entry.href),
+  )
+  .sort((a, b) => a.date - b.date || a.order - b.order);
+---
+
+<BaseLayout
+  title={chronik.title}
+  description={chronik.description}
+>
+  <h1>{chronik.title}</h1>
+  <p class="intro">{chronik.subtitle}</p>
+
+  <div class="index-list">
+    {
+      entries.map((entry) => (
+        <article class="index-entry">
+          <h2>
+            <a href={entry.href}>{entry.title}</a>
+          </h2>
+          {entry.subtitle && <p class="subtitle">{entry.subtitle}</p>}
+          {entry.description && <p class="description">{entry.description}</p>}
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: 2rem;
+  }
+  .index-entry {
+    margin: 0 0 2rem;
+  }
+  .index-entry h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+  }
+  .subtitle {
+    margin: 0 0 0.35rem;
+    font-weight: 500;
+  }
+  .description {
+    margin: 0;
+    line-height: 1.55;
+    color: #555;
+  }
+</style>

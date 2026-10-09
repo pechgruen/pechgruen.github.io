@@ -1,6 +1,7 @@
 ---
 title: "Das Ende des Stahlriesen von Pechgrün"
 subtitle: "Die letzten Monate des Absetzers ZD 2100/11 auf der Smolnicer Halde"
+description: "Das Ende des Stahlriesen von Pechgrün: Historische Fotos und Videos dokumentieren die letzten Monate, die Sprengung und die Zerlegung des riesigen Abraumverteilers ZD 2100/11 auf der Pechgrüner Abraumhalde (Smolnická výsypka) im Jahr 2019."
 date: 2026-05-22
 order: 3
 ---

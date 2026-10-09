@@ -1,6 +1,7 @@
 ---
 title: "Das Halden-Abenteuer"
-subtitle: "Zwei Männer, sechs Tafeln, ein Felsen – und ein Name aus dem Jahr 1938"
+subtitle: "Mit GPS und Gedenktafeln auf den Spuren des verschütteten Dorfes Pechgrün"
+description: "Ein Abenteuer von Udo Dengler und Claus Kircheiss: Mit GPS suchen sie auf der riesigen Abraumhalde nach den früheren Standorten des verschütteten Dorfes Pechgrün (Smolnice) und stellen sechs Gedenktafeln auf. Sie erinnern an die Dorfkapelle, die Geburtshäuser ihrer Mütter, das Haus von Claus’ Großeltern, den Affenfelsen und die Wehrmühle."
 date: 2025-12-17
 updated: 2026-01-02
 order: 5

@@ -1,8 +1,9 @@
 ---
 title: "Pechgrüner Abraumhalde und Badesee Bílá Voda"
 subtitle: "Drohnenflug über der ehemaligen „Leitn“ bei Chodau"
+description: "Drohnenflug über den Badesee Bílá Voda und die Pechgrüner Abraumhalde (Smolnická výsypka) bei Chodau (Chodov). Luftaufnahmen zeigen die veränderte Landschaft rund um die ehemalige Leitn (Smolnický kopec)."
 date: 2025-12-26
-order: 3
+order: 1
 ---
 
 <style>
