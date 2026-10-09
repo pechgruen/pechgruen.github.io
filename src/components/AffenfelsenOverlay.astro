@@ -1,52 +1,55 @@
 ---
 const {
+  lang = "de",
   topoToday = "/images/affenfelsen-topo-heute.jpg",
   aerial1950 = "/images/affenfelsen-luftbild-1950.jpg",
   topo1964 = "/images/affenfelsen-topo-1964.webp",
   aspectW = 1792,
   aspectH = 1120,
 } = Astro.props;
+
+const cs = lang === "cs";
 ---
 
-<section class="af-section" aria-label="Kartenüberlagerung Affenfelsen">
-  <h2 class="af-title">Karten-Overlay</h2>
+<section class="af-section" aria-label={cs ? "Překryv map – Affenfelsen (Opičí skála)" : "Kartenüberlagerung Affenfelsen"}>
+  <h2 class="af-title">{cs ? "Překryv map" : "Karten-Overlay"}</h2>
 
   <div class="af-stack" style={`aspect-ratio:${aspectW} / ${aspectH}; width:100%;`}>
     <img
       id="af-base-topo"
       class="af-hidden"
       src={topoToday}
-      alt="Basiskarte: Topografische Karte heute"
+      alt={cs ? "Podkladová mapa: současná topografická mapa" : "Basiskarte: Topografische Karte heute"}
     />
 
     <img
       id="af-base-air"
       src={aerial1950}
-      alt="Basiskarte: Luftbild 1950"
+      alt={cs ? "Podkladová mapa: letecký snímek z roku 1950" : "Basiskarte: Luftbild 1950"}
     />
 
     <img
       id="af-overlay"
       class="af-overlay"
       src={topo1964}
-      alt="Overlay: Topografische Karte 1964"
+      alt={cs ? "Překryvná vrstva: topografická mapa z roku 1964" : "Overlay: Topografische Karte 1964"}
       style="opacity:0"
     />
   </div>
 
   <div class="af-controls">
     <!-- Text-Toggle -->
-    <div class="af-toggle" role="group" aria-label="Basiskarte umschalten">
+    <div class="af-toggle" role="group" aria-label={cs ? "Přepnout podkladovou mapu" : "Basiskarte umschalten"}>
       <span id="af-btn-air" role="button" tabindex="0" aria-pressed="true">
-        Luftbild 1950
+        {cs ? "Letecký snímek 1950" : "Luftbild 1950"}
       </span>
       <span class="af-sep" aria-hidden="true">|</span>
       <span id="af-btn-topo" role="button" tabindex="0" aria-pressed="false">
-        Topo heute
+        {cs ? "Topografická mapa dnes" : "Topo heute"}
       </span>
     </div>
 
-    <label for="af-opacity">Topo 1964</label>
+    <label for="af-opacity">{cs ? "Topografická mapa 1964" : "Topo 1964"}</label>
     <input id="af-opacity" type="range" min="0" max="100" value="0" />
     <div class="af-val" id="af-val">0%</div>
   </div>
