@@ -1,6 +1,7 @@
 ---
 title: "Pechgrün – Lage und Umgebung"
 subtitle: "Pechgrün zwischen Höhenzügen, Wegen und Tälern"
+description: "Die Landschaft rund um das verschwundene Dorf Pechgrün (Smolnice) im Egerland: historische Ortsbeschreibungen, Erzgebirge, Kaiserwald, alte Flurnamen und Bilder."
 date: 2025-12-17
 order: 0
 ---
@@ -136,13 +137,22 @@ und prägen seinen nördlichen Horizont.
 ## Erinnerung und Struktur
 
 <figure class="narrow">
-  <img
-    src="/images/redelbach-meiselberg-beschriftet.jpg"
-    alt="Aquarell mit Ergänzungen: Hausnummern und Hausnamen im Dorf Pechgrün."
-  />
+  <a
+    href="/images/redelbach-meiselberg-beschriftet.jpg"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Bild in voller Größe in einem neuen Tab öffnen"
+  >
+    <img
+      src="/images/redelbach-meiselberg-beschriftet.jpg"
+      alt="Aquarell mit Ergänzungen: Hausnummern und Hausnamen im Dorf Pechgrün."
+      style="cursor: zoom-in;"
+    />
+  </a>
   <figcaption>
     Dasselbe Aquarell, ergänzt um Hausnummern und Hausnamen.
     Es verbindet die persönliche Erinnerung mit der konkreten Dorfstruktur.
+    <em>Zum Vergrößern auf das Bild klicken.</em>
   </figcaption>
 </figure>
 
