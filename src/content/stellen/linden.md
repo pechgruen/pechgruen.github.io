@@ -1,6 +1,7 @@
 ---
 title: "Die Pechgrüner Linden"
 subtitle: "Drei Linden am Weg nach Köstldorf – ein verschwundenes Wahrzeichen"
+description: "Die Pechgrüner Linden waren drei mächtige, rund 300 Jahre alte Bäume am Weg nach Kösteldorf (Rájec). Historische Fotografien und Aufzeichnungen dokumentieren das einstige Wahrzeichen des Dorfes Pechgrün (Smolnice) und seine Fällung am 12. Februar 1976."
 date: 2025-12-30
 order: 20
 

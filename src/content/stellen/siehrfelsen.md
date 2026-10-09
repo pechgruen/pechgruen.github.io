@@ -1,6 +1,7 @@
 ---
 title: "Siehrfelsen"
 subtitle: "Ein Findling mit eingraviertem Namen – ein Ort der Erinnerung"
+description: "Am Siehrfelsen bei Pechgrün (Smolnice), oberhalb des Wolfsschlagbachs (Vlčí potok), meißelte Heinrich Siehr während seines letzten Heimaturlaubs im Zweiten Weltkrieg seinen Namen in den Felsen. Die bis heute erhaltene Inschrift inspirierte Claus Kircheiss und Udo Dengler dazu, ihre Initialen in den nahegelegenen Affenfelsen einzuritzen."
 date: 2026-01-02
 order: 2
 

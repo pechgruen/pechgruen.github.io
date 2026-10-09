@@ -1,29 +1,29 @@
 ---
-title: "Die Lange Wiese"
-subtitle: "Fotografische Beobachtungen 2019–2022"
-description: "Die Lange Wiese (Dlouhá louka) bei Pechgrün (Smolnice) wurde durch die Aufschüttung der Pechgrüner Halde (Smolnická výsypka) zu einem Teich. Eine Fotoserie von Jaroslav Karban aus den Jahren 2019 bis 2022 dokumentiert den Wandel der Landschaft im Wechsel der Jahreszeiten."
+title: "Lange Wiese (Dlouhá louka)"
+subtitle: "Fotografická pozorování v letech 2019–2022"
+description: "Lange Wiese (Dlouhá louka) u Pechgrün (Smolnice) se v důsledku navršení Pechgrüner Halde (Smolnická výsypka) proměnila v jezírko. Série fotografií Jaroslav Karban z let 2019–2022 zachycuje proměny krajiny během ročních období."
 date: 2026-06-02
-order: 2
+order: 3
 
 label: "LW"
 x: 3977
 y: 2166
 ---
 
-Auf dem Weg von der **Wehrmühle** zum **Siehr-Felsen** kommt man an der sogenannten **Langen Wiese** vorbei, die etwas oberhalb von Pechgrün am Weg nach Kösteldorf lag. Die Wiese ist in Karl Redelsbachs handgezeichnetem Ortsplan eingezeichnet und wird auch in den Pechgrüner Heimatbüchern mehrfach erwähnt.
+Na cestě od **Wehrmühle (Mlýn na Hrázi)** k **Siehrfelsen (Siehrův kámen)** míjíme místo zvané **Lange Wiese (Dlouhá louka)**. Tato louka ležela kousek nad Pechgrün (Smolnice), při cestě do Kösteldorf (Rájec). Je zakreslena v ručně kresleném plánu obce od Karl Redelsbach a několikrát se o ní zmiňují také vlastivědné knihy o Pechgrün (Smolnice).
 
-Heute erinnert nur noch wenig an die einstige Bergwiese. Durch die Aufschüttung der Pechgrüner Halde kann das Wasser nicht mehr wie früher in den Schwarzebach abfließen. Aus der Langen Wiese ist im Laufe der Jahre ein kleiner Teich geworden, umgeben von Birken, Weiden und dichtem Bewuchs.
+Někdejší horskou louku dnes připomíná už jen máloco. Kvůli navršení **Pechgrüner Halde (Smolnická výsypka)** nemůže voda odtékat do **Schwarzebach (Černý potok)** jako dříve. Z Lange Wiese (Dlouhá louka) se tak během let stalo malé jezírko obklopené břízami, vrbami a hustou vegetací.
 
-Bei unserem Besuch im Mai 2025 konnten Claus und ich diesen Ort nur als Momentaufnahme erleben. Umso bemerkenswerter ist die Fotoserie von **Jaroslav Karban**, der die Lange Wiese zwischen 2019 und 2022 immer wieder vom nahezu gleichen Standort aus fotografiert hat. Die Aufnahmen zeigen nicht nur den Wechsel der Jahreszeiten, sondern auch die unterschiedlichen Stimmungen des Ortes – vom frischen Grün des Frühlings über sommerliche Spiegelungen bis hin zu Schnee, Eis und winterlicher Stille.
+Když jsme toto místo v květnu 2025 navštívili s Claus, viděli jsme je pouze v jediném okamžiku. O to pozoruhodnější je fotografická série **Jaroslav Karban**, který Lange Wiese (Dlouhá louka) v letech 2019 až 2022 opakovaně fotografoval téměř ze stejného místa. Snímky zachycují nejen střídání ročních období, ale také proměnlivou atmosféru místa – od svěží jarní zeleně přes letní odrazy na vodní hladině až po sníh, led a zimní ticho.
 
 <blockquote style="margin:1.2rem 0; padding:.9rem 1rem; border-left:4px solid #bbb; background:#f7f7f7;">
   <p style="margin:0;">
-    „Dieser Ort hat mir auch nach all den Veränderungen immer gefallen, deshalb habe ich ihn in den Jahren 2019 bis 2022 immer wieder einmal zu verschiedenen Jahreszeiten fotografiert.“
+    „Tohle místo se mi i přes všechny změny vždycky líbilo. Proto jsem ho v letech 2019 až 2022 čas od času fotografoval v různých ročních obdobích.“
   </p>
   <cite>— Jaroslav Karban</cite>
 </blockquote>
 
-Die folgenden Bilder sind chronologisch angeordnet. Zusammen ergeben sie eine ungewöhnliche fotografische Langzeitbeobachtung eines Ortes, der einst Teil der Landschaft von Pechgrün war und heute ein anderes Gesicht erhalten hat.
+Následující fotografie jsou seřazeny chronologicky. Společně tvoří neobvyklý dlouhodobý fotografický záznam místa, které kdysi patřilo ke krajině Pechgrün (Smolnice) a dnes má zcela jinou podobu.
 
 <figure style="margin: 1.2rem 0;">
   <img
