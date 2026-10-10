@@ -1,6 +1,7 @@
 ---
 title: "Pechgrüner Glocke"
 subtitle: "Und sie läutet immer noch"
+description: "Die 1827 in Eger (Cheb) gegossene Glocke der Dorfkapelle von Pechgrün (Smolnice) wurde 1968 von Jiří Troup vor der Zerstörung gerettet. Heute wird sie im Rathaus von Chodov aufbewahrt und bei jährlichen Gedenkfeiern wieder geläutet. Jaroslav Karban ermöglichte Claus Kircheiss und Udo Dengler einen Besuch bei Bürgermeister-Stellvertreter Luděk Soukup, bei dem sie die historische Glocke selbst läuten durften."
 date: 2026-07-28
 order: 1
 

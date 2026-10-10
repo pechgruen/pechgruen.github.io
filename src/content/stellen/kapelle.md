@@ -1,6 +1,7 @@
 ---
 title: "Kapelle"
 subtitle: "Pechgrüner Dorfkapelle"
+description: "Die Dorfkapelle von Pechgrün (Smolnice) wurde im 18. Jahrhundert von der Familie Haberditzl auf Hof Nr. 7 errichtet. Heute liegt sie tief unter der Pechgrüner Halde (Smolnická výsypka). Ein von Claus Kircheiss und Udo Dengler aufgestelltes kleines Gedenkkreuz markiert ihren einstigen Standort."
 date: 2025-12-19
 order: 1
 
