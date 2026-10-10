@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const chronik = {
+  title: "Poslední léta Pechgrün (Smolnice)",
+  subtitle: "Koleje, výsypky a poslední viditelné stopy vesnice",
+  description: "Po odsunu německého obyvatelstva zůstala vesnice Pechgrün (Smolnice) ještě obydlená. V 60. letech byla postupně vysídlena a nakonec pohřbena pod haldou Smolnická výsypka, vzniklou při těžbě hnědého uhlí na Sokolovsku. Historické letecké snímky, kresby a obrázky vytvořené pomocí AI zachycují poslední stopy vesnice a proměnu krajiny v průmyslovou oblast.",
+  date: "2026-04-20",
+  bereich: "Česky",
+  href: "/cesky/pechgruen-posledni-leta",
+  order: 8,
+};
+
+const videoId = "N1tC-B353TY";
+const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+---
+
+<BaseLayout title={chronik.title}>
+  <article class="text-ort">
+    <header class="head">
+      <h1>{chronik.title}</h1>
+      <p class="subtitle">{chronik.subtitle}</p>
+      <p class="intro">
+        Po odsunu německého obyvatelstva po roce 1945 existovala vesnice Pechgrün (Smolnice) ještě přibližně dvě desetiletí a nadále byla obydlená, i když v pozměněné podobě. V 60. letech byla postupně rušena. Obyvatelé byli postupně přestěhováni, především do Chodau (Chodov). Kolem let 1967–1968 už ve vesnici nikdo nebydlel. Krátce nato byly domy zbořeny a zničeny: zmizely střechy i vnitřní vybavení a zůstaly jen zbytky zdí a otevřené sklepy.
+      </p>
+    </header>
+
+    <section class="content">
+      <p>
+        Územím začaly procházet nové koleje průmyslové železnice, výsypka se přibližovala a vzhled krajiny stále více určovaly stroje. Po určitou dobu se zde prolínaly dvě skutečnosti: poslední viditelné pozůstatky vesnice a nová průmyslová krajina spojená s těžbou hnědého uhlí.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/halden-skizze-zug.png"
+          alt="Průmyslový vlak na okraji výsypky, zobrazení podle dobových předloh"
+        />
+        <figcaption>
+          Vlak průmyslové železnice na okraji výsypky: skrývka z hnědouhelných dolů na Sokolovsku se sem dopravovala po železnici – obrázek vytvořený pomocí AI podle dobových předloh.
+        </figcaption>
+      </figure>
+
+      <p>
+        S postupující povrchovou těžbou v sokolovské hnědouhelné pánvi se území Pechgrün (Smolnice) stále více využívalo k ukládání skrývky. Koleje průmyslové železnice, rozdělovací zařízení a buldozery utvářely krajinu, v níž někdejší vesnice přežívala už jen v podobě zbytků.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/halden-skizze-verteiler.png"
+          alt="Ukládání skrývky v oblasti pozdější haldy Smolnická výsypka podle dobových předloh"
+        />
+        <figcaption>
+          Rozdělovací zařízení pro ukládání skrývky: materiál se zde rozděloval a následně urovnával pásovými stroji – obrázek vytvořený pomocí AI podle dobových předloh.
+        </figcaption>
+      </figure>
+
+      <p>
+        Také dobové kresby a vzpomínky zachycují Pechgrün (Smolnice) v tomto přechodném období: už ne jako skutečnou vesnici, ale ještě ne zcela zmizelou.
+      </p>
+
+      <figure class="figure-small">
+        <img
+          src="/images/redelbach-ruinen-skizze.png"
+          alt="Kresba Karl Redelbach zachycující ruiny Pechgrün (Smolnice) a blízkou výsypku"
+        />
+        <figcaption>
+          Kresba, jejímž autorem je Karl Redelbach: ruiny Pechgrün (Smolnice) s již blízkou výsypkou. V popředí lidé, kteří mezi pozůstatky vesnice hledají ještě použitelné předměty.
+        </figcaption>
+      </figure>
+
+      <p>
+        Letecký snímek z roku 1974 ukazuje, že pozůstatky vesnice byly tehdy ještě rozeznatelné, zatímco výsypka už postoupila až do jejich bezprostřední blízkosti.
+      </p>
+
+      <figure class="figure-large">
+        <img
+          src="/images/luftbild-1974.png"
+          alt="Letecký snímek Pechgrün (Smolnice) z roku 1974"
+        />
+        <figcaption>
+          Letecký snímek z roku 1974: poslední stopy vesnice před jejím úplným překrytím výsypkou.
+        </figcaption>
+      </figure>
+
+      <p>
+        Z této doby pochází také známá píseň „Rosa na kolejích“ od Wabi Daněk. Vypráví o putování podél železničních kolejí. V jednom
+        <a
+          href="http://www.horydoly.cz/vypsat.php?id=7071"
+          target="_blank"
+          rel="noopener">českém článku</a
+        >
+        se zmiňuje souvislost s pobyty trampů v okolí tehdy již opuštěné vesnice Pechgrün (Smolnice). Přímý důkaz této souvislosti však neexistuje.
+      </p>
+
+      <figure class="video">
+        <div class="video-frame">
+          <iframe
+            src={embedUrl}
+            title="Rosa na kolejích – Wabi Daněk"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        <figcaption>
+          Wabi Daněk: „Rosa na kolejích“. Píseň zde působí spíše jako ozvěna této krajiny než jako spolehlivé svědectví o konkrétním místě.
+        </figcaption>
+      </figure>
+
+      <p>
+        Krátce nato Pechgrün (Smolnice) zcela zmizela pod výsypkou. Zůstalo jen několik fotografií, vzpomínky – a možná také jedna píseň.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .video-frame {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video {
+    margin: 2rem 0;
+  }
+
+  .video figcaption {
+    max-width: 450px;
+  }
+
+  .figure-small {
+    max-width: 450px;
+    margin: 2rem 0;
+  }
+
+  .figure-large {
+    max-width: 750px;
+    margin: 2rem 0;
+  }
+
+  figure img {
+    width: 100%;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+</style>
