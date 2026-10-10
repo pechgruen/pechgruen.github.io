@@ -1,6 +1,7 @@
 ---
 title: "Der Chodaublick"
 subtitle: "Auf der Suche nach dem verschwundenen Pechgrün"
+description: "Der Chodaublick auf dem Föllerberg bei Dotterwies war einst ein beliebter Aussichtspunkt über das Chodauer Tal bis nach Falkenau. Heute verdecken Bäume große Teile der Aussicht. Fotos von Jaroslav Karban zeigen, wo das nur zwei Kilometer entfernte Pechgrün unter der Abraumhalde verschwunden ist."
 date: 2026-06-03
 order: 10
 

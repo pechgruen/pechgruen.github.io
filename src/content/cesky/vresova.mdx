@@ -1,0 +1,138 @@
+---
+title: "Vřesová"
+subtitle: "Průmysl místo vesnice"
+description: "Doglasgrün (Vřesová) ve Falkenauské pánvi, v okolí Falkenau (Sokolov), po druhé světové válce ustoupil rozsáhlému průmyslovému komplexu na zpracování hnědého uhlí a výrobu energie. Historickou mapu z roku 1842 a letecký snímek z roku 1956 lze překrývat se současnou topografickou mapou a sledovat tak proměnu někdejší vesnice v průmyslový areál."
+date: 2026-01-16
+order: 21
+
+label: "Dg"
+x: 1189
+y: 3722
+---
+
+import DoglasgruenOverlay from "../../components/DoglasgruenOverlay.astro";
+
+<style></style>
+
+<div class="gemeinde-page">
+
+<p>
+  Doglasgrün (Vřesová) není zaniklou obcí v obvyklém smyslu slova.
+  Vesnice nebyla pouze opuštěna a zbořena, ale její území zcela přetvořil
+  rozsáhlý průmyslový komplex, který od 60. let 20. století utváří krajinu
+  v oblasti Falkenau (Sokolov).
+</p>
+
+<p>
+  Současná topografická podkladová mapa ukazuje dnešní stav: území dominují
+  elektrárenská zařízení, chladicí věže, nádrže, potrubí a dopravní plochy.
+  Někdejší vesnice se nacházela právě zde – dnes již není vidět, ale její
+  původní poloha zůstává v prostoru určitelná.
+</p>
+
+{" "}
+
+<DoglasgruenOverlay
+  lang="cs"
+  base="/images/doglasgruen-2025.jpg"
+  overlayA="/images/doglasgruen-1842.jpg"
+  overlayB="/images/doglasgruen-1956.jpg"
+  labelBase="Současná topografická mapa"
+  labelA="Mapa z roku 1842"
+  labelB="Letecký snímek z roku 1956"
+  initial={0}
+  initialLayer={0}
+/>
+
+<p>
+  Po druhé světové válce začala oblast kolem Falkenau (Sokolov) procházet
+  zásadní proměnou. S přechodem od hlubinné těžby k velkoplošné povrchové
+  těžbě hnědého uhlí vznikla potřeba zpracovávat vytěžené uhlí přímo na místě.
+  V Doglasgrün (Vřesová) se od 50. let budoval rozsáhlý komplex na zpracování
+  a zplyňování uhlí, který byl v 60. letech uveden do plného provozu.
+</p>
+
+<p>
+  V počátečním období byl provoz spojen se značnými emisemi. Zplyňování uhlí
+  způsobovalo silný zápach a znečištění životního prostředí, které bylo za
+  určitých povětrnostních podmínek patrné daleko za hranicemi bezprostředního
+  okolí – až ve Vogtlandu, Sasku a Horních Francích. Dobové zprávy hovoří
+  o poškození lesů a trvale zhoršené kvalitě ovzduší.
+</p>
+
+<figure>
+  <img
+    src="/images/doglasgruen-kraftwerk.jpg"
+    alt="Průmyslový komplex Vřesová – elektrárenská zařízení a chladicí věž"
+  />
+  <figcaption>
+    Průmyslový komplex Vřesová: pohled na paroplynovou elektrárnu s chladicí
+    věží a komíny. Snímek pořízený ze silnice v červnu 2023.
+  </figcaption>
+</figure>
+
+<p>
+  V následujících desetiletích prošel průmyslový komplex technickou modernizací.
+  Filtrační zařízení snížila emise, aniž by se však změnil základní charakter
+  lokality jako centra těžkého průmyslu.
+</p>
+
+<p>
+  Od počátku 21. století prošel areál další zásadní přestavbou. Původní
+  zplyňování uhlí bylo postupně ukončováno a nahrazeno moderní paroplynovou
+  elektrárnou, která je dnes provozována na zemní plyn. Rozsáhlé investice
+  od té doby směřují k dalšímu snižování emisí škodlivin a CO₂. Průmyslový
+  charakter místa však zůstává určující.
+</p>
+
+<figure>
+  <img
+    src="/images/doglasgruen-halde.jpg"
+    alt="Pohled ze Smolnické výsypky u Pechgrün (Smolnice) na průmyslový komplex Vřesová"
+  />
+  <figcaption>
+    Pohled na elektrárnu Vřesová ze Smolnické výsypky, pod níž leží pohřbená
+    vesnice Pechgrün (Smolnice). Snímek z května 2025.
+  </figcaption>
+</figure>
+
+<p>
+  Překrývání historických mapových podkladů ukazuje, jaká sídelní struktura
+  zde kdysi existovala. Současná topografická podkladová mapa naproti tomu
+  ukazuje, jak úplně tuto strukturu nahradilo průmyslové využití území.
+</p>
+
+<p>
+  Doglasgrün (Vřesová) již jako vesnice neexistuje, přetrvává však jako
+  historická vrstva pod technicky přetvořenou krajinou, jejíž měřítko a funkce
+  trvale změnily celý region.
+</p>
+
+</div>
+
+<style>{`
+  .gemeinde-page figure {
+    max-width: 780px;
+    margin: 1.4rem 0 1.6rem 0;
+  }
+
+  .gemeinde-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gemeinde-page figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: #666;
+    font-style: normal;
+  }
+
+  .gemeinde-page figure + p {
+    margin-top: 0.9rem;
+  }
+`}</style>
+
+<script src="/js/overlay-opacity.js"></script>

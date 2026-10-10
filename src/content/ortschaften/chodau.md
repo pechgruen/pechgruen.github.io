@@ -1,6 +1,7 @@
 ---
 title: "Chodau"
 subtitle: "Ein fotografischer Stadtbummel"
+description: "Ein fotografischer Rundgang durch Chodau (Chodov) im Jahr 2023. Historische Gebäude, Kirchen, Schulen und Straßen erzählen von der Entwicklung der Stadt und ihren engen Verbindungen zu Pechgrün – auch in der Geschichte von Udo Denglers Eltern."
 date: 2026-01-17
 order: 10
 
@@ -62,7 +63,7 @@ Die **katholische Pfarrkirche St. Laurentius** (Kostel svatého Vavřince) präg
   <img src="/images/chodau-kirchturm-blick.jpg" alt="Blick vom Turm der katholischen Kirche über Chodau">
 </figure>
 
-Blick vom Turm der katholischen Kirche über Chodau. Von der früheren Altstadt rund um den Marktplatz und die ehemalige Hauptstraße (heute Staroměstská) ist nur wenig erhalten geblieben. Das Stadtbild wird heute vor allem von Plattenbauten aus den 1960er- und 1970er-Jahren geprägt. Rechts im Bild sind die evangelische Kirche sowie – am Bildrand angeschnitten – die ehemalige Bürgerschule zu erkennen. Der Fabrikschornstein in der Bildmitte ist ein Überrest der Porzellanfabrik Haas & Cžjžek („Alte Fabrik“), die zeitweise mehrere hundert Arbeiter aus Chodau und der Umgebung beschäftigte und bis in die Zeit nach 2000 in Betrieb war.
+Blick vom Turm der katholischen Kirche über Chodau. Von der früheren Altstadt rund um den Marktplatz und die ehemalige Hauptstraße (heute Staroměstská) ist nur wenig erhalten geblieben. Das Stadtbild wird heute vor allem von Plattenbauten aus den 1960er- und 1970er-Jahren geprägt. Rechts im Bild sind die evangelische Kirche sowie – am Bildrand angeschnitten – die ehemalige Bürgerschule zu erkennen. Der Fabrikschornstein in der Bildmitte ist ein Überrest der Porzellanfabrik Haas & Czjzek („Alte Fabrik“), die zeitweise mehrere hundert Arbeiter aus Chodau und der Umgebung beschäftigte und bis in die Zeit nach 2000 in Betrieb war.
 
 <figure class="media" style="max-width:520px;">
   <img src="/images/chodau-friedhof.jpg" alt="Chodauer Friedhof hinter der Laurentiuskirche">
@@ -104,7 +105,7 @@ Vor dem ehemaligen Haus der Familie Kronberger erinnern **Stolpersteine** an jü
   <img src="/images/chodau-pechgruener-strasse.jpg" alt="Straße entlang des Chodauer Baches Richtung Pechgrün">
 </figure>
 
-Straße entlang des Chodauer Baches. Dieser Weg führte früher über die „Leitn“ nach Pechgrün, dem Heimatort meiner Mutter. Heute gelangt man hier zum Badesee Bílá voda. Für meine Mutter und ihre Geschwister war dies der rund vier Kilometer lange Schulweg und kam in ihren Erzählungen oft vor. Die frühere Landschaft mit steilem Hang, Wiesen und Fischteichen existiert heute nicht mehr. Pechgrün liegt unter einer massiven, stellenweise bis zu 180 Meter hohen Abraumhalde begraben. Der Ort ist vollständig verschwunden. An seine Stelle ist die Halde getreten.
+Straße entlang des Chodauer Baches. Dieser Weg führte früher über die „Leitn“ nach Pechgrün, dem Heimatort meiner Mutter. Heute gelangt man hier zum Badesee Bílá voda. Für meine Mutter und ihre Geschwister war dies der rund vier Kilometer lange Schulweg und kam in ihren Erzählungen oft vor. Die frühere Landschaft mit steilem Hang, Wiesen und Fischteichen existiert heute nicht mehr. Pechgrün liegt heute unter der 616 Hektar großen Abraumhalde Smolnická výsypka begraben. Ihr höchster Punkt liegt auf 555 Metern über dem Meeresspiegel, die maximale Mächtigkeit der Aufschüttung beträgt 102,5 Meter. Der Ort ist vollständig verschwunden. An seine Stelle ist die Halde getreten.
 
 
 </div>

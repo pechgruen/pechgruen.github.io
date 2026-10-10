@@ -1,6 +1,7 @@
 ---
 title: "Braunsdorf"
 subtitle: "Ein Ort, der geblieben ist"
+description: "Braunsdorf (Stará Chodovská, früher Nová Chodovská) liegt am Rand der Pechgrüner Halde (Smolnická výsypka). Während Pechgrün (Smolnice) von der Halde überdeckt wurde, wurde Stelzengrün (Stará Chodovská) im Zuge ihrer Errichtung aufgegeben und abgerissen. Braunsdorf dagegen blieb bestehen – als einer der wenigen erhaltenen Orte dieser stark veränderten Landschaft und als Heimat einer Familie, deren Geschichte bis heute mit dem Ort verbunden ist."
 date: 2026-01-05
 order: 30
 
@@ -44,7 +45,7 @@ y: 4382
   </figcaption>
 </figure>
 
-Braunsdorf liegt südöstlich des verschwundenen Pechgrün. Heute grenzt der Ort an die Braunkohle-Abraumhalde, die Pechgrün vollständig überdeckt, und an das Areal des Kraftwerks Vřesová, wo sich früher der Ort Douglasgrün befunden hat. Verwaltungsmäßig ist Braunsdorf heute ein Ortsteil von Chodov (früher Chodau). Unter seinem heutigen Namen Stará Chodovská liegt es am Rand der Stadt – ohne eigenes Zentrum, ohne klare Dorfstruktur. Nach 1946 wurde Braunsdorf zunächst Nová Chodovská genannt. Der Name Stará Chodovská war zu diesem Zeitpunkt dem Ort Stelzengrün zugewiesen. Als Stelzengrün später wie Pechgrün vollständig von der Halde überdeckt und aufgegeben wurde, übertrug man den Namen Stará Chodovská auf Braunsdorf. Der Name blieb – der ursprüngliche Ort verschwand.
+Braunsdorf liegt südöstlich des verschwundenen Pechgrün. Heute grenzt der Ort an die Braunkohle-Abraumhalde, die Pechgrün vollständig überdeckt, und an das Areal des Kraftwerks Vřesová, wo sich früher der Ort Doglasgrün befunden hat. Verwaltungsmäßig ist Braunsdorf heute ein Ortsteil von Chodov (früher Chodau). Unter seinem heutigen Namen Stará Chodovská liegt es am Rand der Stadt – ohne eigenes Zentrum, ohne klare Dorfstruktur. Nach 1946 wurde Braunsdorf zunächst Nová Chodovská genannt. Der Name Stará Chodovská war zu diesem Zeitpunkt dem Ort Stelzengrün zugewiesen. Im Zuge der Errichtung der Pechgrüner Halde wurde Stelzengrün später vollständig aufgegeben und abgerissen. Das ehemalige Dorfgebiet wurde durch die umfangreichen Eingriffe in die Landschaft stark verändert. Der Name Stará Chodovská wurde schließlich auf Braunsdorf übertragen. Der Name blieb – der ursprüngliche Ort verschwand.
 
 Braunsdorf besitzt keine Kirche, keinen historischen Ortskern und keinen eigentlichen Dorfplatz. Die Bebauung wirkt locker und uneinheitlich, eher wie eine Siedlung als wie ein gewachsenes Dorf. Schon früher war Braunsdorf eher ein Randfleck ohne eigene Infrastruktur – kein Ziel, sondern eine beiläufige Siedlung in der Nähe der größeren Orte.
 

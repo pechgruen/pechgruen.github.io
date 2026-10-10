@@ -1,5 +1,6 @@
 ---
 const {
+  lang = "de",
   base1956 = "/images/stelzengruen-1956.jpg",
   aerial2025 = "/images/stelzengruen-2025.jpg",
   label1956 = "Orthofoto ca. 1956",
@@ -8,18 +9,20 @@ const {
   aspectH = 1062,
   initial = 0, // START: 0% Overlay
 } = Astro.props;
+
+const cs = lang === "cs";
 ---
 
-<section class="sg-section" aria-label="Kartenüberlagerung Stelzengrün" data-sg-initial={String(initial)}>
-  <h2 class="sg-title">Karten-Overlay</h2>
+<section class="sg-section" aria-label={cs ? "Překryv map – Stelzengrün (Stará Chodovská)" : "Kartenüberlagerung Stelzengrün"} data-sg-initial={String(initial)}>
+  <h2 class="sg-title">{cs ? "Překryv map" : "Karten-Overlay"}</h2>
 
   <div class="sg-stack" style={`aspect-ratio:${aspectW} / ${aspectH}; width:100%;`}>
-    <img class="sg-base" src={base1956} alt={`Basis: ${label1956}`} />
-    <img class="sg-overlay" src={aerial2025} alt={`Overlay: ${label2025}`} style={`opacity:${initial / 100}`} />
+    <img class="sg-base" src={base1956} alt={`${cs ? "Podkladová mapa" : "Basis"}: ${label1956}`} />
+    <img class="sg-overlay" src={aerial2025} alt={`${cs ? "Překryvná vrstva" : "Overlay"}: ${label2025}`} style={`opacity:${initial / 100}`} />
   </div>
 
   <div class="sg-controls">
-    <div class="sg-toggle" role="group" aria-label="Ansicht umschalten">
+    <div class="sg-toggle" role="group" aria-label={cs ? "Přepnout zobrazení" : "Ansicht umschalten"}>
       <span class="sg-btn" role="button" tabindex="0" aria-pressed={initial === 0 ? "true" : "false"} data-sg-set="0">
         {label1956}
       </span>
@@ -29,7 +32,7 @@ const {
       </span>
     </div>
 
-    <label class="sg-label">Überblendung</label>
+    <label class="sg-label">{cs ? "Prolínání" : "Überblendung"}</label>
     <input class="sg-range" type="range" min="0" max="100" value={initial} />
     <div class="sg-val">0%</div>
   </div>

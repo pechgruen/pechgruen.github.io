@@ -1,36 +1,42 @@
 ---
 const {
+  lang = "de",
   base = "/images/doglasgruen-2025.jpg",
   overlayA = "/images/doglasgruen-1842.jpg",
   overlayB = "/images/doglasgruen-1956.jpg",
-  labelBase = "Luftbild 2025",
-  labelA = "Karte 1842",
-  labelB = "Orthofoto ca. 1956",
+  labelBase,
+  labelA,
+  labelB,
   aspectW = 1600,
   aspectH = 1145,
   initial = 0, // 0..100 (Opacity des aktiven Overlays)
   initialLayer = 0, // 0 = overlayA, 1 = overlayB
-} = Astro.props;
+ } = Astro.props;
+
+const cs = lang === "cs";
+const baseText = labelBase ?? (cs ? "Letecký snímek 2025" : "Luftbild 2025");
+const layerAText = labelA ?? (cs ? "Mapa z roku 1842" : "Karte 1842");
+const layerBText = labelB ?? (cs ? "Ortofoto kolem roku 1956" : "Orthofoto ca. 1956");
 ---
 
 <section
   class="sg-section"
-  aria-label="Kartenüberlagerung Doglasgrün"
+  aria-label={cs ? "Překryv map – Doglasgrün (Vřesová)" : "Kartenüberlagerung Doglasgrün"}
   data-sg-initial={String(initial)}
   data-sg-layer-initial={String(initialLayer)}
 >
-  <h2 class="sg-title">Karten-Overlay</h2>
+  <h2 class="sg-title">{cs ? "Překryv map" : "Karten-Overlay"}</h2>
 
   <div class="sg-stack" style={`aspect-ratio:${aspectW} / ${aspectH}; width:100%;`}>
-    <img class="sg-base" src={base} alt={`Basis: ${labelBase}`} />
+    <img class="sg-base" src={base} alt={`Basis: ${baseText}`} />
 
     {/* Zwei alternative Overlays. JS sorgt dafür, dass nur das aktive eine Opacity > 0 hat. */}
-    <img class="sg-overlay" data-sg-layer="0" src={overlayA} alt={`Overlay: ${labelA}`} style={`opacity:${initialLayer === 0 ? initial / 100 : 0}`} />
-    <img class="sg-overlay" data-sg-layer="1" src={overlayB} alt={`Overlay: ${labelB}`} style={`opacity:${initialLayer === 1 ? initial / 100 : 0}`} />
+    <img class="sg-overlay" data-sg-layer="0" src={overlayA} alt={`Overlay: ${layerAText}`} style={`opacity:${initialLayer === 0 ? initial / 100 : 0}`} />
+    <img class="sg-overlay" data-sg-layer="1" src={overlayB} alt={`Overlay: ${layerBText}`} style={`opacity:${initialLayer === 1 ? initial / 100 : 0}`} />
   </div>
 
   <div class="sg-controls">
-    <div class="sg-toggle" role="group" aria-label="Overlay auswählen">
+    <div class="sg-toggle" role="group" aria-label={cs ? "Vybrat překryvnou vrstvu" : "Overlay auswählen"}>
       <span
         class="sg-btn"
         role="button"
@@ -38,7 +44,7 @@ const {
         aria-pressed={initialLayer === 0 ? "true" : "false"}
         data-sg-layer-set="0"
       >
-        {labelA}
+        {layerAText}
       </span>
       <span class="sg-sep" aria-hidden="true">|</span>
       <span
@@ -48,11 +54,11 @@ const {
         aria-pressed={initialLayer === 1 ? "true" : "false"}
         data-sg-layer-set="1"
       >
-        {labelB}
+        {layerBText}
       </span>
     </div>
 
-    <label class="sg-label">Überblendung</label>
+    <label class="sg-label">{cs ? "Prolínání" : "Überblendung"}</label>
     <input class="sg-range" type="range" min="0" max="100" value={initial} />
     <div class="sg-val">0%</div>
   </div>
