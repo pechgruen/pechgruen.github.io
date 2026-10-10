@@ -13,6 +13,8 @@ import { chronik as daDrrrn } from "./da-drrrn.astro";
 import { chronik as erichLill } from "./erich-lill.astro";
 import { chronik as rudolfWildner } from "./rudolf-wildner.astro";
 import { chronik as josefModer } from "./josef-moder.astro";
+import { chronik as woIstPechgruen } from "./wo-ist-pechgruen.astro";
+import { chronik as osmose } from "./osmose.astro";
 
 export const chronik = {
   title: "Übersicht",
@@ -94,13 +96,7 @@ const entries = [
   {
     ...rudolfWildner,
     note: "Rudolf Wildner, der in Pechgrün aufwuchs, trägt Karl Redelbachs Gedicht „Winter in Pechgrün“ im Egerländer Dialekt vor. Das Gedicht führt durch einen Wintertag im Dorf – mit spielenden Kindern, Postler, Fuhrmann, Bergmann und vielen kleinen Beobachtungen aus dem Alltag.",
-    tags: [
-      "Video",
-      "Mundart",
-      "Gedicht",
-      "Dorfleben",
-      "Winter",
-    ],
+    tags: ["Video", "Mundart", "Gedicht", "Dorfleben", "Winter"],
     suggestion:
       "Am besten zuerst Rudolf Wildner zuhören und anschließend den Dialekttext mit der hochdeutschen Übertragung lesen.",
   },
@@ -116,6 +112,34 @@ const entries = [
     ],
     suggestion:
       "Besonders empfehlenswert für alle, die verstehen möchten, wie Sudetendeutsche, die nach 1945 in der Tschechoslowakei blieben, ihre Heimat und ihre Identität erlebten.",
+  },
+  {
+    ...woIstPechgruen,
+    note: "1999 kehrt Rudolf Wildner erstmals nach 53 Jahren in seine alte Heimat zurück. Von Chodau aus sucht er nach Pechgrün, dem Dorf seiner Kindheit, das inzwischen unter einer gewaltigen Abraumhalde verschwunden ist. Sein persönlicher Bericht schildert den Weg durch eine tiefgreifend veränderte Landschaft, die Erinnerungen an vertraute Orte und die Begegnung mit einem alten Schulfreund. Aktuelle Fotografien dokumentieren die beschriebenen Schauplätze. Ergänzt wird der Bericht durch Wildners Gedicht „Schicksal eines Dorfes“.",
+    tags: [
+      "Rudolf Wildner",
+      "Pechgrün",
+      "Heimkehr",
+      "Vertreibung",
+      "Halde",
+      "Erinnerungen",
+    ],
+    suggestion:
+      "Besonders auf die Fotografien achten: Sie zeigen die Orte, die Rudolf Wildner 1999 nach mehr als fünf Jahrzehnten wieder aufsuchte.",
+  },
+  {
+    ...osmose,
+    note: "Die Osmose, das Kaolinbergwerk und die Schlämmerei bei Poschetzau (Božičany), war über Jahrzehnte ein wichtiger Arbeitsplatz für die Bewohner von Pechgrün. Historische Fotografien und die Erinnerungen von Erich Lill und Rudolf Wildner erzählen vom Arbeitsalltag der Bergleute und der Frauen, die während des Ersten Weltkriegs in den Schlämmereien arbeiteten. Ein Besuch des heutigen Kaolintagebaus im Sommer 2026 führt auf die Spuren dieser Vergangenheit.",
+    tags: [
+      "Kaolin",
+      "Bergbau",
+      "Schlämmerei",
+      "Poschetzau",
+      "Arbeitswelt",
+      "Erinnerungen",
+    ],
+    suggestion:
+      "Besonders auf die Fotos aus dem heutigen Tagebau achten. Sie vermitteln einen Eindruck von den gewaltigen Dimensionen des Kaolinabbaus.",
   },
 ];
 ---
