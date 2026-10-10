@@ -1,6 +1,7 @@
 ---
 title: "Wolfsberg"
 subtitle: "Der verschwundene Berg"
+description: "Auf der Rückseite eines historischen Fotos, das die Mutter von Claus Kircheiss auf einem großen freistehenden Felsen zeigt, steht „Wölfling“. Claus versuchte herauszufinden, ob damit der Wolfsberg bei Pechgrün gemeint sein könnte. Historische Luftbilder und eine alte topografische Karte zeigen jedoch, dass der Wolfsberg ursprünglich vollständig bewaldet war und in den letzten Jahren der Aufschüttung größtenteils unter der Pechgrüner Abraumhalde verschwand. Damit konnte der Wolfsberg als Aufnahmeort ausgeschlossen werden. Die Luftbilder zeigen außerdem, wie die Abraumhalde bis unmittelbar an den Affenfelsen vordrang, ohne ihn vollständig zu verschütten, wodurch dieser als möglicher Aufnahmeort in den Fokus rückte."
 date: 2025-12-27
 order: 400
 
@@ -9,11 +10,7 @@ x: 8257
 y: 4202
 ---
 
-## Wolfsberg
-
-Der **Wolfsberg** war eine bewaldete Erhebung nordwestlich von Pechgrün. Er lag im Bereich der späteren Abraumhalde und ist heute im Gelände nicht mehr sichtbar. In den Erinnerungen ehemaliger Bewohner erscheint der Wolfsberg als benannter Geländepunkt, nicht jedoch als Ort mit markanten Felsformationen.
-
-Heute ist der Wolfsberg im Gelände nicht mehr als eigenständiger Berg erkennbar. Er wurde im Zuge der Abraumaufschüttungen großteils überdeckt und verschwand damit aus dem sichtbaren Landschaftsbild.
+Der **Wolfsberg** war eine bewaldete Erhebung nordwestlich von Pechgrün. Er lag im Bereich der späteren Abraumhalde und ist heute im Gelände nicht mehr sichtbar. Er wurde im Zuge der Abraumaufschüttungen großteils überdeckt und verschwand damit aus dem sichtbaren Landschaftsbild. In den Erinnerungen ehemaliger Bewohner erscheint der Wolfsberg als benannter Geländepunkt, nicht jedoch als Ort mit markanten Felsformationen.
 
 ## Ausgangspunkt der Suche
 
