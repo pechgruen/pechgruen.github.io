@@ -1,6 +1,7 @@
 ---
 title: "Kösteldorf"
 subtitle: "Nachbarort von Pechgrün"
+description: "Kösteldorf (Rájec) liegt auf der Hochfläche nördlich des verschwundenen Pechgrün (Smolnice). Historische Wege über die „Spitzeich“ und die Wehrmühle (Mlýn na Hrázi) verbanden die beiden Orte. Eine Karte und Fotografien von 2023 und 2025 zeigen die Landschaft, den bewaldeten Spitzberg (Rájecký Špičák) und das bis heute erhaltene Dorf mit seinen Häusern, Gärten und dem örtlichen Gasthaus."
 date: 2026-01-17
 order: 90
 
@@ -53,7 +54,7 @@ y: 2280
 </p>
 
 <p>
-  Der eine Weg führte von Pechgrün über die sogenannte Spitzeiche und verlief als direkter Hauptweg über den Rücken des Spitzbergs. Der zweite Weg führte über die Wehrmühle, vorbei an den drei Linden, und folgte weiter dem Schwarzebach in Richtung Kösteldorf. Beide Wege nutzten unterschiedliche Geländestrukturen, verbanden jedoch dasselbe Ziel: den Übergang von Pechgrün auf die Hochfläche bei Kösteldorf.
+  Der eine Weg führte von Pechgrün über die „Spitzeich“, einen Eichenwald am Osthang des Spitzbergs (Rájecký Špičák). Der zweite Weg führte über die Wehrmühle, vorbei an den drei Linden, und folgte weiter dem Schwarzebach. Beide Wege nutzten unterschiedliche Geländestrukturen, verbanden jedoch dasselbe Ziel: den Übergang von Pechgrün auf die Hochfläche bei Kösteldorf.
 </p>
 
 <p>

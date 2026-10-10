@@ -1,6 +1,7 @@
 ---
 title: "Kofl"
 subtitle: "Eine Streusiedlung auf der Hochfläche"
+description: "Kofl (Kobelec) ist eine Streusiedlung auf der Hochfläche nördlich von Pechgrün (Smolnice). Historisch mit Kösteldorf (Rájec) verbunden, gehört der Ort heute zu Schwarzenbach (Černava). Fotografien und Karten zeigen die verstreuten Häuser, den Ortsteich und den Wolfschlagbach (Vlčí potok), der nach Neurohlau (Nová Role) hinabfließt. Persönliche Familienerinnerungen an Karl und Traudl Forster ergänzen die Ortsgeschichte."
 date: 2026-01-17
 order: 80
 
@@ -38,18 +39,18 @@ y: 2181
 <div class="gemeinde-page">
 
 <p>
-  Kofl ist ein kleiner Nachbarort von Pechgrün auf einer Hochfläche rund 650 Meter oberhalb des ehemaligen Dorfes. Heute gehört Kofl gemeinsam mit Köstldorf zur Gemeinde Schwarzenbach. Anders als diese Orte besitzt Kofl keinen geschlossenen Ortskern: Die Häuser liegen locker verstreut über die Hochfläche, verbunden durch wenige Wege und die gemeinsame Landschaft.
+  Kofl ist ein kleiner Nachbarort von Pechgrün auf einer Hochfläche rund 650 Meter oberhalb des ehemaligen Dorfes. Heute gehört Kofl gemeinsam mit Kösteldorf zur Gemeinde Schwarzenbach. Anders als diese Orte besitzt Kofl keinen geschlossenen Ortskern: Die Häuser liegen locker verstreut über die Hochfläche, verbunden durch wenige Wege und die gemeinsame Landschaft.
 </p>
 
 <figure class="media">
   <img src="/images/schwarzenbach-vogelperspektive.jpg" alt="Schwarzenbach und Umgebung in der Vogelperspektive">
   <figcaption>
-    Topografische Vogelperspektive auf das Gebiet nördlich von Pechgrün: die Hochlage mit Schwarzenbach, Köstldorf und Kofl sowie der markante Geländesprung hinab ins Tal Richtung Pechgrün.
+    Topografische Vogelperspektive auf das Gebiet nördlich von Pechgrün: die Hochlage mit Schwarzenbach, Kösteldorf und Kofl sowie der markante Geländesprung hinab ins Tal Richtung Pechgrün.
   </figcaption>
 </figure>
 
 <p>
-  Historisch war Kofl wohl nie ein eigenständiger Ort im verwaltungstechnischen Sinn. Es gehörte bereits im 19. Jahrhundert zu Köstldorf, wie ein Ortsplan von 1842 im Rahmen des Franziszeischen Katasters zeigt. In den Kirchenbüchern der Pfarrei Dotterwies wurde Kofl jedoch als eigener Ort geführt. Seit dem Zweiten Weltkrieg gehört Kofl gemeinsam mit Köstldorf zur Gemeinde Schwarzenbach.
+  Historisch war Kofl wohl nie ein eigenständiger Ort im verwaltungstechnischen Sinn. Es gehörte bereits im 19. Jahrhundert zu Kösteldorf, wie ein Ortsplan von 1842 im Rahmen des Franziszeischen Katasters zeigt. In den Kirchenbüchern der Pfarrei Dotterwies wurde Kofl jedoch als eigener Ort geführt. Seit dem Zweiten Weltkrieg gehört Kofl gemeinsam mit Kösteldorf zur Gemeinde Schwarzenbach.
 </p>
 
 <figure class="media" style="max-width:780px;">

@@ -1,6 +1,7 @@
 ---
 title: "Steinberg"
 subtitle: "Der „Vulkankegel“ am Horizont"
+description: "Der Steinberg (Hutnický vrch) bei Voigtsgrün (Fojtov) war einst ein markanter, unbewaldeter Vulkankegel und ein Orientierungspunkt für die Bewohner von Pechgrün (Smolnice). Historische Karten, Luftbilder und geologische Untersuchungen zeigen seine vulkanische Herkunft und die frühere Kegelform. Durch den Steinbruch ist der Berg heute weitgehend verschwunden. Fotografien dokumentieren die Veränderung der Landschaft."
 date: 2025-12-26
 order: 50
 

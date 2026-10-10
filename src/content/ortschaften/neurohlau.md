@@ -1,6 +1,7 @@
 ---
 title: "Neurohlau"
 subtitle: "Geschichte zwischen Bahn, Porzellan und Landschaft"
+description: "Neurohlau (Nová Role) im Egerland blickt auf eine Geschichte bis ins 13. Jahrhundert zurück. Eisenbahn, Kaolinabbau und Porzellanindustrie prägten die Entwicklung des Ortes. Historische Hintergründe und Fotografien von 2023 zeigen den Bahnhof, den Rohlau-Teich (Novorolský rybník), die Porzellanfabrik und die Michaelskirche. Persönliche Familienbezüge reichen bis zur Geburt des Vaters von Udo Dengler im Jahr 1921 zurück."
 date: 2026-01-17
 order: 30
 
@@ -53,7 +54,7 @@ Im Verlauf des Spätmittelalters und der frühen Neuzeit war der Ort Teil einer 
 </p>
 
 <p>
-Einen entscheidenden Entwicklungsschub erlebte der Ort im 19. Jahrhundert mit dem Anschluss an das Eisenbahnnetz. Die Strecke von Karlsbad über Neurohlau nach Neudek und Joachimsthal verband das Gebiet mit den Industrie- und Absatzräumen Böhmens und Sachsens. In Verbindung mit der wachsenden Porzellanindustrie wandelte sich Neurohlau vom langsam wachsenden Dorf zu einem industriell geprägten Ort. Die Gründung einer großen Porzellanfabrik im Jahr 1921 markierte dabei einen wichtigen Einschnitt; sie wurde rasch zu einem der bedeutendsten Betriebe der Region.
+Einen entscheidenden Entwicklungsschub erlebte der Ort im 19. Jahrhundert mit dem Anschluss an das Eisenbahnnetz. Die Strecke von Karlsbad über Neurohlau nach Neudek und Johanngeorgenstadt verband das Gebiet mit den Industrie- und Absatzräumen Böhmens und Sachsens. In Verbindung mit der wachsenden Porzellanindustrie wandelte sich Neurohlau vom langsam wachsenden Dorf zu einem industriell geprägten Ort. Die Gründung einer großen Porzellanfabrik im Jahr 1921 markierte dabei einen wichtigen Einschnitt; sie wurde rasch zu einem der bedeutendsten Betriebe der Region.
 </p>
 
 <p>

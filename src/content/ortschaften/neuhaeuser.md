@@ -1,6 +1,7 @@
 ---
 title: "Neuhäuser"
 subtitle: "ab 1924 Ortsteil von Pechgrün"
+description: "Neuhäuser (Nové Chalupy) wurde 1924 als Ortsteil nach Pechgrün (Smolnice) eingemeindet. Historische Fotografien, ein handgezeichneter Ortsplan und die Erinnerungen von Franz Grünes erzählen vom dörflichen Alltag, den Häusern und ihren Bewohnern. Der größte Teil der einstigen Siedlung verschwand durch den Braunkohlebergbau und die Aufschüttung der Halden. Nur ein kleiner Rest von Neuhäuser ist bis heute erhalten geblieben."
 date: 2025-12-20
 order: 2
 
@@ -27,13 +28,13 @@ Die Häuser lagen nicht dicht gedrängt, sondern eingebettet in ihre Wirtschafts
 
 Damit der Ort nicht anonym bleibt, helfen einige konkrete Beispiele – nicht als vollständige Aufzählung, sondern als typische Ankerpunkte, wie sie in den Erinnerungen beschrieben werden:
 
-- **Haus Nr. 6 – Gasthaus „Zum Schwammerstiel“ (Familie Möckl):** ein sozialer Mittelpunkt und Treffpunkt, weit über Neuhäuser hinaus bekannt.  
+- **Haus Nr. 6 – Gasthaus „Zum Schwammerlstiel“ (Familie Möckl):** ein sozialer Mittelpunkt und Treffpunkt, weit über Neuhäuser hinaus bekannt.  
 - **Haus Nr. 14 (Familie Grünes):** zeitweise mit einem kleinen Laden, wichtig für den Alltag, auch für Dinge wie Petroleum zur Beleuchtung.  
 - **Haus Nr. 17 (Familie Dutz):** ein Anwesen an einer Wegkreuzung, typisch für die Orientierung im Ort.  
 - **Haus Nr. 18 (Familie Ernst Neudert):** eines der später erbauten Häuser und ein Zeichen dafür, dass Neuhäuser kein statischer Ort war.  
 - **Haus Nr. 5:** ein Beispiel für die typische Bau- und Nutzungsform mit Wohn- und Wirtschaftsbereichen unter einem Dach.
 
-![Gasthaus „Zum Schwammerstiel“, Haus Nr. 6 – Fam. Möckl](/images/neuhaeuser-gasthaus.jpg)
+![Gasthaus „Zum Schwammerlstiel“, Haus Nr. 6 – Fam. Möckl](/images/neuhaeuser-gasthaus.jpg)
 
 ![Haus Nr. 5 in Neuhäuser](/images/neuhaeuser-haus-5.jpg)
 
@@ -65,7 +66,7 @@ Die Erinnerungen erzählen deshalb weniger von einzelnen Ereignissen als davon, 
 
 ## Was blieb – und was verschwand
 
-Neuhäuser existiert bis heute. Es führt noch ein Weg dorthin, und es leben weiterhin Menschen an diesem Ort. Doch Neuhäuser ist nicht mehr vollständig. Ein Teil der früheren Häuser und Flächen ist im Laufe der Zeit durch Halden und Abraumlandschaften verloren gegangen. Der Ort wurde dadurch gewissermaßen „angeschnitten“.
+Neuhäuser existiert bis heute. Es führt noch ein Weg dorthin, und es leben weiterhin Menschen an diesem Ort. Doch von der einstigen Siedlung ist nur ein kleiner Rest erhalten geblieben. Der größte Teil der früheren Häuser und Flächen verschwand im Zuge des Braunkohlebergbaus und der Aufschüttung der Halden.
 
 Umso wichtiger sind Karten, Fotos und Erinnerungen. Sie halten fest, wie Neuhäuser als Ganzes gedacht und gelebt wurde – als Nachbarort von Pechgrün, eigenständig, klein und geprägt von den Menschen, die dort lebten.
 
