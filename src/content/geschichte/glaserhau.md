@@ -1,6 +1,7 @@
 ---
 title: "Flüchtlinge aus Glaserhau"
 subtitle: "Ein fast vergessenes Kapitel der Pechgrüner Geschichte"
+description: "Nach dem Massaker von Glaserhau (Sklené) 1944, bei dem 187 deutsche Männer ermordet wurden, flohen Karpatendeutsche aus der Slowakei nach Pechgrün (Smolnice) im Egerland. Zeitzeugenberichte von Rudolf Wildner und Erich Lill dokumentieren den Flüchtlingstreck und das Schicksal der Familien im Zweiten Weltkrieg."
 date: 2026-09-30
 order: 11
 ---

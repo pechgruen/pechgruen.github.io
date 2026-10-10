@@ -1,6 +1,7 @@
 ---
 title: "Vom Untertan zum freien Bauern"
 subtitle: "Fronarbeit, Herrschaft und Grundentlastung in Pechgrün (bis 1848)"
+description: "Fronarbeit, Robot und Grundherrschaft in Pechgrün (Smolnice) im Egerland: Wie die Revolution von 1848 und die Grundentlastung das Leben der Bauern veränderten."
 date: 2026-01-01
 order: 8
 ---
