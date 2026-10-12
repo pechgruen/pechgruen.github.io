@@ -1,5 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const ceskyEntries = await getCollection("cesky");
+const ceskyPageModules = import.meta.glob("./cesky/*.astro", { eager: true }) as Record<string, any>;
+const ceskyPages = Object.values(ceskyPageModules)
+  .map((mod) => mod?.chronik)
+  .filter(Boolean)
+  .filter((c: any) => String(c.bereich ?? "") === "Česky")
+  .filter((c: any) => c.title && c.href);
+const ceskyCount = ceskyEntries.length + ceskyPages.length;
 
 const siteTitle = "Smolnice (Pechgrün)";
 const description =
@@ -79,37 +89,29 @@ const description =
       fragmentárním a vědomě neúplným.
     </p>
 
-    <p>
-      Většina obsahu tohoto webu je napsána německy. Stránky si však můžete ve
-      svém prohlížeči snadno automaticky přeložit do češtiny.
-    </p>
   </section>
 
-  <!-- ÜBERSETZUNGSHINWEIS -->
+  <!-- TSCHECHISCHE SEITENÜBERSICHT -->
+  <section class="cesky-overview">
+    <h2>Prozkoumejte Pechgrün</h2>
+    <p>
+      Na tomto webu je nyní k dispozici {ceskyCount} stránek v češtině.
+      Objevte historii zaniklé vesnice Pechgrün, její obyvatele,
+      krajinu a její proměny v průběhu času.
+    </p>
+    <a class="cesky-link" href="/cesky/">
+      Přehled všech stránek v češtině <span aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <!-- WEITERE DEUTSCHE INHALTE -->
   <section class="translation-box">
+    <h2>Další obsah v němčině</h2>
     <p>
-      V prohlížečích jako Chrome nebo Edge stačí kliknout pravým tlačítkem myši
-      na stránku a zvolit „Přeložit do češtiny“. Překlad lze také spustit pomocí
-      ikony v adresním řádku.
-    </p>
-
-    <p>
-      Na zařízeních Apple (Safari) klikněte v adresním řádku na „aA“ a zvolte
-      „Přeložit web“ (pokud je tato možnost dostupná).
-    </p>
-
-    <p>
-      Automatický překlad není vždy přesný, ale pro základní orientaci na celém
-      webu obvykle postačí.
-    </p>
-  </section>
-  <!-- HINWEIS -->
-  <section class="section">
-    <p class="leiser-hinweis">
-      <em>
-        Pokud jste zde poprvé, doporučuje se začít částí „Rundgang“. Úplný
-        přehled všech částí webu najdete pod „Inhalt“.
-      </em>
+      Většina ostatních příspěvků na tomto webu je v němčině. Pokud vás
+      zajímají i tyto stránky, můžete si je nechat automaticky přeložit
+      do češtiny přímo ve svém prohlížeči. Automatický překlad však nemusí
+      vždy správně zachytit historické místní názvy a odborné výrazy.
     </p>
   </section>
 </BaseLayout>
@@ -143,16 +145,38 @@ const description =
     padding: 10px 0;
   }
 
-  .leiser-hinweis {
-    margin-top: 2.2rem;
-    border-left: 3px solid rgba(0, 0, 0, 0.18);
-    padding-left: 1.6rem;
-    margin-left: 0.4rem;
-    color: rgba(0, 0, 0, 0.65);
+  .cesky-overview {
+    margin: 2rem 0 4rem;
+    padding: 1.5rem;
+    background: #f4f6f3;
+    border-left: 4px solid #496b50;
+    border-radius: 8px;
   }
 
-  .leiser-hinweis em {
-    font-style: italic;
+  .cesky-overview h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.5rem;
+  }
+
+  .cesky-overview p {
+    margin: 0 0 1.25rem;
+  }
+
+  .cesky-link {
+    display: inline-block;
+    padding: 0.85rem 1.15rem;
+    background: #315c3c;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .cesky-link:hover,
+  .cesky-link:focus-visible {
+    background: #23462c;
+    color: white;
+    text-decoration: underline;
   }
 
   .pechgruen-invite {
@@ -171,6 +195,11 @@ const description =
     background: #f7f7f7;
     padding: 16px 14px 14px 18px;
     margin: 0 0 0;
+  }
+
+  .translation-box h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
   }
 
   .translation-box p:last-child {
