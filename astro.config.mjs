@@ -13,8 +13,10 @@ export default defineConfig({
     },
   },
 
-  integrations: [
-    mdx(),
-    sitemap(),
-  ],
+integrations: [
+  mdx(),
+  sitemap({
+    filenameBase: "pechgruen",
+  }),
+],
 });
