@@ -38,8 +38,6 @@ order: 11
   }
 </style>
 
-Dise Seite wird zu Testzwecken schritweise aufgebaut.
-
 In den letzten Monaten des Zweiten Weltkriegs kamen Menschen aus einem mehr als 400 Kilometer entfernten, überwiegend deutschsprachigen Dorf in der Slowakei nach Pechgrün. Sie kamen mit Pferdefuhrwerken, brachten mit, was sie auf den Wagen unterbringen konnten, und wurden bei Familien im Dorf einquartiert.
 
 In den Pechgrüner Erinnerungsbüchern findet sich über diese Flüchtlinge nichts. Überliefert ist ihre Geschichte jedoch in den Kindheitserinnerungen von Rudolf Wildner. Eine zweite, unabhängig entstandene Erinnerung von Erich Lill aus dem benachbarten Kösteldorf zeigt, dass Flüchtlinge aus Glaserhau tatsächlich in diese Gegend gelangten.
@@ -148,3 +146,23 @@ Wie der von Rudolf Wildner beschriebene Pferdetreck nach Pechgrün kam und wesha
 Rudolf Wildner bewahrte die Erinnerung an den Treck und an die Menschen, die in Pechgrün Aufnahme fanden. Erich Lill berichtete von einer anderen Flüchtlingsfamilie im benachbarten Kösteldorf. Ottilie Pittner und andere Glaserhauer Zeitzeugen überlieferten das Massaker, die Angst der zurückgebliebenen Familien und die späteren Evakuierungen. Silvester Stric dokumentierte schließlich die Verbindung zwischen Glaserhau und Chodau.
 
 Zusammengenommen erzählen diese Berichte von Menschen, die innerhalb weniger Monate mehrfach ihre Heimat oder ihren Zufluchtsort verloren. Pechgrün, Kösteldorf und Chodau waren für sie nur Stationen auf einem Weg, dessen Ende sie beim Aufbruch aus Glaserhau nicht kennen konnten.
+
+## Quellen
+
+**Tomáš Klubert:** „21. september 1944. Masaker v Sklenom“, historische Darstellung zum Massaker vom 21. September 1944. \
+[PDF ansehen](/quellen/tomas-klubert.pdf)
+
+**Ottilie Pittner / Anita Schwarz:** *Glaserhau – Erinnerungen für die Ewigkeit*, 2018. \
+[PDF ansehen](/quellen/glaserhau-erinnerungen-fuer-die-ewigkeit.pdf)
+
+**Anita Schwarz:** *Verbrannte Erde – verbrannte Seelen*, Erinnerungen und Dokumente zur Geschichte Glaserhaus. \
+[PDF ansehen](/quellen/glaserhau-verbrannte-erde-verbrannte-seelen.pdf)
+
+**Rudolf Wildner:** „Der Flüchtlingstreck“, aus den Kindheitserinnerungen <em>Fast wie im richtigen Leben</em>. \
+[PDF ansehen](/quellen/rudolf-wildner-der-fluechtlingstreck.pdf)
+
+**Erich Lill:** „Kriegsende und Vertreibung aus dem Sudetenland“, Zeitzeugenbericht. \
+[PDF ansehen](/quellen/erich-lill-kriegsende-und-vertreibung.pdf)
+
+**Silvester Stric:** „Das Kriegsende 1945 in Glaserhau“, *Karpatenblatt*, 1998. \
+[PDF ansehen](/quellen/silvester-stric.pdf)
