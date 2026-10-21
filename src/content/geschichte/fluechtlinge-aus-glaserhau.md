@@ -2,7 +2,7 @@
 title: "Flüchtlinge aus Glaserhau"
 subtitle: "Ein fast vergessenes Kapitel der Pechgrüner Geschichte"
 description: "Nach dem Massaker von Glaserhau (Sklené) 1944, bei dem 187 deutsche Männer ermordet wurden, flohen Karpatendeutsche aus der Slowakei nach Pechgrün (Smolnice) im Egerland. Zeitzeugenberichte von Rudolf Wildner und Erich Lill dokumentieren den Flüchtlingstreck und das Schicksal der Familien im Zweiten Weltkrieg."
-date: 2026-09-30
+date: 2026-10-30
 order: 11
 ---
 
@@ -147,22 +147,3 @@ Rudolf Wildner bewahrte die Erinnerung an den Treck und an die Menschen, die in 
 
 Zusammengenommen erzählen diese Berichte von Menschen, die innerhalb weniger Monate mehrfach ihre Heimat oder ihren Zufluchtsort verloren. Pechgrün, Kösteldorf und Chodau waren für sie nur Stationen auf einem Weg, dessen Ende sie beim Aufbruch aus Glaserhau nicht kennen konnten.
 
-## Quellen
-
-**Tomáš Klubert:** „21. september 1944. Masaker v Sklenom“, historische Darstellung zum Massaker vom 21. September 1944. \
-[PDF ansehen](/quellen/tomas-klubert.pdf)
-
-**Ottilie Pittner / Anita Schwarz:** *Glaserhau – Erinnerungen für die Ewigkeit*, 2018. \
-[PDF ansehen](/quellen/glaserhau-erinnerungen-fuer-die-ewigkeit.pdf)
-
-**Anita Schwarz:** *Verbrannte Erde – verbrannte Seelen*, Erinnerungen und Dokumente zur Geschichte Glaserhaus. \
-[PDF ansehen](/quellen/glaserhau-verbrannte-erde-verbrannte-seelen.pdf)
-
-**Rudolf Wildner:** „Der Flüchtlingstreck“, aus den Kindheitserinnerungen <em>Fast wie im richtigen Leben</em>. \
-[PDF ansehen](/quellen/rudolf-wildner-der-fluechtlingstreck.pdf)
-
-**Erich Lill:** „Kriegsende und Vertreibung aus dem Sudetenland“, Zeitzeugenbericht. \
-[PDF ansehen](/quellen/erich-lill-kriegsende-und-vertreibung.pdf)
-
-**Silvester Stric:** „Das Kriegsende 1945 in Glaserhau“, *Karpatenblatt*, 1998. \
-[PDF ansehen](/quellen/silvester-stric.pdf)
