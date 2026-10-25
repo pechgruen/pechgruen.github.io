@@ -6430,16 +6430,16 @@
     "id": "I500772",
     "name": {
       "given": "Ferdinand",
-      "surname": "Lutz",
-      "display": "Ferdinand Lutz",
+      "surname": "Schindler leg. Lutz",
+      "display": "Ferdinand Schindler leg. Lutz",
       "legitimized": false,
-      "surnameRaw": "Lutz"
+      "surnameRaw": "Schindler leg. Lutz"
     },
     "sex": "M",
     "birth": {
-      "date": "ca. 1860",
+      "date": "02.12.1866",
       "place": "Pechgrün #22 (Smolnice, CZ)",
-      "year": 1860
+      "year": 1866
     },
     "death": {
       "date": null,
@@ -6447,7 +6447,7 @@
       "year": null,
       "known": true
     },
-    "occupation": null,
+    "occupation": "Porzellandreher",
     "famc": [
       "F500279"
     ],
@@ -6463,12 +6463,14 @@
       "given": "Franz Wenzl",
       "surname": "Lutz",
       "display": "Franz Wenzl Lutz",
-      "legitimized": false,
-      "surnameRaw": "Lutz"
+      "legitimized": true,
+      "legBirthSurname": "Rudert",
+      "legNewSurname": "Lutz",
+      "surnameRaw": "Rudert, leg. Lutz"
     },
     "sex": "M",
     "birth": {
-      "date": "ca. 1821",
+      "date": "20.01.1821",
       "place": "Sponsl #10 (Spomyšl, CZ)",
       "year": 1821
     },
@@ -6479,7 +6481,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526527"
+    ],
     "fams": [
       "F500279"
     ],
@@ -6529,9 +6533,9 @@
     },
     "sex": "F",
     "birth": {
-      "date": "ca. 1865",
+      "date": "26.04.1871",
       "place": "Pechgrün #16 (Smolnice, CZ)",
-      "year": 1865
+      "year": 1871
     },
     "death": {
       "date": null,
@@ -6596,9 +6600,9 @@
       "year": 1842
     },
     "death": {
-      "date": null,
+      "date": "ca. 1944",
       "place": null,
-      "year": null,
+      "year": 1944,
       "known": true
     },
     "occupation": null,
@@ -15587,7 +15591,9 @@
     "famc": [
       "F500150"
     ],
-    "fams": [],
+    "fams": [
+      "F500478"
+    ],
     "nickname": null,
     "houseNames": []
   },
@@ -16299,7 +16305,6 @@
       "F500139"
     ],
     "fams": [
-      "F500478",
       "F500481"
     ],
     "nickname": null,
@@ -26503,7 +26508,7 @@
     "sex": "F",
     "birth": {
       "date": "02.05.1765",
-      "place": "Mühlberg (Lesík, CZ)",
+      "place": "Mühlberg #19 (Lesík, CZ)",
       "year": 1765
     },
     "death": {
@@ -26513,9 +26518,12 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526670"
+    ],
     "fams": [
-      "F500577"
+      "F500577",
+      "F526667"
     ],
     "nickname": null,
     "houseNames": []
@@ -26994,9 +27002,9 @@
       "year": 1921
     },
     "death": {
-      "date": null,
+      "date": "2010",
       "place": "Stuttgart (D)",
-      "year": null,
+      "year": 2010,
       "known": true
     },
     "occupation": "Kunstmaler",
@@ -30904,10 +30912,11 @@
     },
     "occupation": null,
     "famc": [
-      "F501760"
+      "F526527"
     ],
     "fams": [
-      "F500617"
+      "F500617",
+      "F526533"
     ],
     "nickname": null,
     "houseNames": []
@@ -32183,7 +32192,7 @@
     "sex": "F",
     "birth": {
       "date": "ca. 1785",
-      "place": "Grasset #28 (Jehličná, CZ)",
+      "place": "Grasseth #28 (Jehličná, CZ)",
       "year": 1785
     },
     "death": {
@@ -33556,9 +33565,9 @@
       "year": 1920
     },
     "death": {
-      "date": null,
+      "date": "13.11.2000",
       "place": null,
-      "year": null,
+      "year": 2000,
       "known": true
     },
     "occupation": "Maschinenschlosser",
@@ -39383,10 +39392,10 @@
       "year": 1932
     },
     "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": false
+      "date": "06.06.2020",
+      "place": "Ortenburg, Passau, Niederbayern (D)",
+      "year": 2020,
+      "known": true
     },
     "occupation": null,
     "famc": [
@@ -41594,7 +41603,7 @@
     "sex": "F",
     "birth": {
       "date": "22.04.1883",
-      "place": "Kofel (Kobelec, CZ)",
+      "place": "Kofel #46 (Kobelec, CZ)",
       "year": 1883
     },
     "death": {
@@ -41607,7 +41616,9 @@
     "famc": [
       "F501002"
     ],
-    "fams": [],
+    "fams": [
+      "F526586"
+    ],
     "nickname": null,
     "houseNames": []
   },
@@ -46779,16 +46790,18 @@
       "year": 1933
     },
     "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": false
+      "date": "23.02.2024",
+      "place": "Wenzenbach, Regensburg, Bayern, Germany",
+      "year": 2024,
+      "known": true
     },
     "occupation": null,
     "famc": [
       "F500581"
     ],
-    "fams": [],
+    "fams": [
+      "F526795"
+    ],
     "nickname": "Pepperl",
     "houseNames": []
   },
@@ -49385,9 +49398,9 @@
       "year": 1883
     },
     "death": {
-      "date": null,
-      "place": null,
-      "year": null,
+      "date": "14.09.1956",
+      "place": "Heppenheim, Bergstrasse, Hessen (D)",
+      "year": 1956,
       "known": true
     },
     "occupation": null,
@@ -57870,7 +57883,7 @@
     "sex": "M",
     "birth": {
       "date": "ca. 1760",
-      "place": "Grasset #16 (Jehličná, CZ)",
+      "place": "Grasseth #16 (Jehličná, CZ)",
       "year": 1760
     },
     "death": {
@@ -57891,15 +57904,15 @@
     "id": "I503911",
     "name": {
       "given": "Maria Anna",
-      "surname": "Möschl",
-      "display": "Maria Anna Möschl",
+      "surname": "... m. Möschl",
+      "display": "Maria Anna ... m. Möschl",
       "legitimized": false,
-      "surnameRaw": "Möschl"
+      "surnameRaw": "... m. Möschl"
     },
     "sex": "F",
     "birth": {
       "date": "ca. 1765",
-      "place": "Grasset #19 (Jehličná, CZ)",
+      "place": "Grasseth #19 (Jehličná, CZ)",
       "year": 1765
     },
     "death": {
@@ -62952,7 +62965,7 @@
     "sex": "F",
     "birth": {
       "date": "07.05.1854",
-      "place": "Grasset #14 (Jehličná, CZ)",
+      "place": "Grasseth #14 (Jehličná, CZ)",
       "year": 1854
     },
     "death": {
@@ -70060,7 +70073,9 @@
       "known": true
     },
     "occupation": "Rauchfangkehrer",
-    "famc": [],
+    "famc": [
+      "F526803"
+    ],
     "fams": [
       "F501592"
     ],
@@ -70070,9 +70085,9 @@
   "I504496": {
     "id": "I504496",
     "name": {
-      "given": "Anna",
+      "given": "Maria Anna",
       "surname": "Kunzmann",
-      "display": "Anna Kunzmann",
+      "display": "Maria Anna Kunzmann",
       "legitimized": false,
       "surnameRaw": "Kunzmann"
     },
@@ -70089,7 +70104,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526804"
+    ],
     "fams": [
       "F501592"
     ],
@@ -70223,9 +70240,9 @@
   "I504501": {
     "id": "I504501",
     "name": {
-      "given": "Albert",
+      "given": "Albrecht",
       "surname": "Kunzmann",
-      "display": "Albert Kunzmann",
+      "display": "Albrecht Kunzmann",
       "legitimized": false,
       "surnameRaw": "Kunzmann"
     },
@@ -70245,8 +70262,10 @@
     "famc": [
       "F501593"
     ],
-    "fams": [],
-    "nickname": null,
+    "fams": [
+      "F526807"
+    ],
+    "nickname": "Albert",
     "houseNames": [
       "Kåthrina"
     ]
@@ -71625,8 +71644,8 @@
     },
     "sex": "M",
     "birth": {
-      "date": "10.04.1904",
-      "place": null,
+      "date": "28.04.1904",
+      "place": "Chodau #169 (Chodov, CZ)",
       "year": 1904
     },
     "death": {
@@ -71636,7 +71655,9 @@
       "known": true
     },
     "occupation": "Kunstpfeifer",
-    "famc": [],
+    "famc": [
+      "F526796"
+    ],
     "fams": [
       "F501609"
     ],
@@ -71655,7 +71676,7 @@
     "sex": "F",
     "birth": {
       "date": "21.09.1930",
-      "place": "Pechgrün #26 (Smolnice, CZ)",
+      "place": "Chodau #169 (Chodov, CZ)",
       "year": 1930
     },
     "death": {
@@ -71684,7 +71705,7 @@
     "sex": "M",
     "birth": {
       "date": "17.06.1934",
-      "place": "Pechgrün #26 (Smolnice, CZ)",
+      "place": "Chodau #169 (Chodov, CZ)",
       "year": 1934
     },
     "death": {
@@ -73547,7 +73568,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526572"
+    ],
     "fams": [
       "F501647"
     ],
@@ -73576,7 +73599,9 @@
       "known": true
     },
     "occupation": null,
-    "famc": [],
+    "famc": [
+      "F526570"
+    ],
     "fams": [
       "F501647"
     ],
@@ -75201,7 +75226,7 @@
     },
     "death": {
       "date": "16.01.1985",
-      "place": "Heufurt-Fladungen",
+      "place": "Heufurt-Fladungen, Unterfranken (D)",
       "year": 1985,
       "known": true
     },
@@ -75261,7 +75286,7 @@
     },
     "death": {
       "date": "22.06.2026",
-      "place": "Bad Neustadt an der Saale",
+      "place": "Bad Neustadt a.d. Saale, Unterfranken (D)",
       "year": 2026,
       "known": true
     },
@@ -78857,7 +78882,9 @@
     "famc": [
       "F501744"
     ],
-    "fams": [],
+    "fams": [
+      "F526794"
+    ],
     "nickname": "Anna(r)l",
     "houseNames": []
   },
@@ -79734,64 +79761,6 @@
     ],
     "fams": [
       "F501758"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I504920": {
-    "id": "I504920",
-    "name": {
-      "given": "Lorenz",
-      "surname": "Lutz",
-      "display": "Lorenz Lutz",
-      "legitimized": false,
-      "surnameRaw": "Lutz"
-    },
-    "sex": "M",
-    "birth": {
-      "date": "ca. 1795",
-      "place": "Doglasgrün #45 (Vřesová, CZ)",
-      "year": 1795
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501760"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I504921": {
-    "id": "I504921",
-    "name": {
-      "given": "Anna Katharina",
-      "surname": "Rudert",
-      "display": "Anna Katharina Rudert",
-      "legitimized": false,
-      "surnameRaw": "Rudert"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "15.11.1796",
-      "place": "Sponsl #10 (Spomyšl, CZ)",
-      "year": 1796
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501760"
     ],
     "nickname": null,
     "houseNames": []
@@ -87108,16 +87077,16 @@
   "I505242": {
     "id": "I505242",
     "name": {
-      "given": "Johann",
+      "given": "Johann Anton",
       "surname": "Pecher",
-      "display": "Johann Pecher",
+      "display": "Johann Anton Pecher",
       "legitimized": false,
       "surnameRaw": "Pecher"
     },
     "sex": "M",
     "birth": {
       "date": "09.09.1810",
-      "place": "Mühlberg #6 (Lesík, CZ)",
+      "place": "Oedt #4 (Poušť, CZ)",
       "year": 1810
     },
     "death": {
@@ -88124,96 +88093,7 @@
       "F501908"
     ],
     "fams": [
-      "F501909"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I505299": {
-    "id": "I505299",
-    "name": {
-      "given": "Ferdinand",
-      "surname": "Lutz",
-      "display": "Ferdinand Lutz",
-      "legitimized": false,
-      "surnameRaw": "Lutz"
-    },
-    "sex": "M",
-    "birth": {
-      "date": "ca. 1830",
-      "place": "Sponsl #10 (Spomyšl, CZ)",
-      "year": 1830
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [
-      "F501910"
-    ],
-    "fams": [
-      "F501909"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I505300": {
-    "id": "I505300",
-    "name": {
-      "given": "Laurenz",
-      "surname": "Lutz",
-      "display": "Laurenz Lutz",
-      "legitimized": false,
-      "surnameRaw": "Lutz"
-    },
-    "sex": "M",
-    "birth": {
-      "date": "ca. 1800",
-      "place": "Doglasgrün (Vřesová, CZ)",
-      "year": 1800
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501910"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I505301": {
-    "id": "I505301",
-    "name": {
-      "given": "Katharina",
-      "surname": "Rudert",
-      "display": "Katharina Rudert",
-      "legitimized": false,
-      "surnameRaw": "Rudert"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "ca. 1805",
-      "place": "Sponsl #10 (Spomyšl, CZ)",
-      "year": 1805
-    },
-    "death": {
-      "date": null,
-      "place": null,
-      "year": null,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [],
-    "fams": [
-      "F501910"
+      "F526533"
     ],
     "nickname": null,
     "houseNames": []
@@ -93410,7 +93290,7 @@
     "sex": "F",
     "birth": {
       "date": "10.12.1862",
-      "place": "Chranišov ( Granesau )",
+      "place": "Granesau (Chranišov, CZ)",
       "year": 1862
     },
     "death": {
@@ -112321,7 +112201,7 @@
     "sex": "F",
     "birth": {
       "date": "26.01.1818",
-      "place": "Grasset #25 (Jehličná, CZ)",
+      "place": "Grasseth #25 (Jehličná, CZ)",
       "year": 1818
     },
     "death": {
@@ -112381,7 +112261,7 @@
     "sex": "F",
     "birth": {
       "date": "23.05.1826",
-      "place": "Grasset #25 (Jehličná, CZ)",
+      "place": "Grasseth #25 (Jehličná, CZ)",
       "year": 1826
     },
     "death": {
@@ -112415,7 +112295,7 @@
     },
     "death": {
       "date": "18.07.1829",
-      "place": "Grasset #25 (Jehličná, CZ)",
+      "place": "Grasseth #25 (Jehličná, CZ)",
       "year": 1829,
       "known": true
     },
@@ -112444,7 +112324,7 @@
     },
     "death": {
       "date": "08.04.1833",
-      "place": "Grasset #25 (Jehličná, CZ)",
+      "place": "Grasseth #25 (Jehličná, CZ)",
       "year": 1833,
       "known": true
     },
@@ -144014,9 +143894,9 @@
   "I566255": {
     "id": "I566255",
     "name": {
-      "given": "Magdalena",
+      "given": "Catharina",
       "surname": "Dörfler",
-      "display": "Magdalena Dörfler",
+      "display": "Catharina Dörfler",
       "legitimized": false,
       "surnameRaw": "Dörfler"
     },
@@ -144111,7 +143991,7 @@
     },
     "sex": "M",
     "birth": {
-      "date": "21.10.1942",
+      "date": "31.10.1942",
       "place": "Pechgrün #24 (Smolnice, CZ)",
       "year": 1942
     },
@@ -144666,9 +144546,9 @@
   "I573271": {
     "id": "I573271",
     "name": {
-      "given": "Claus",
+      "given": "Johannes \"Klaus\"",
       "surname": "Kircheiß",
-      "display": "Claus Kircheiß",
+      "display": "Johannes \"Klaus\" Kircheiß",
       "legitimized": false,
       "surnameRaw": "Kircheiß"
     },
@@ -157832,9 +157712,9 @@
     },
     "sex": "M",
     "birth": {
-      "date": "ca. 1825",
+      "date": "ca. 1925",
       "place": "Waldsassen, Bayern (D)",
-      "year": 1825
+      "year": 1925
     },
     "death": {
       "date": null,
@@ -159460,7 +159340,7 @@
     },
     "occupation": "Musiker, Sologeiger beim Regensburger Stadttheater",
     "famc": [
-      "F501432"
+      "F501649"
     ],
     "fams": [],
     "nickname": "Rudi",
@@ -159734,66 +159614,6 @@
     "famc": [],
     "fams": [
       "F526354"
-    ],
-    "nickname": null,
-    "houseNames": []
-  },
-  "I579261": {
-    "id": "I579261",
-    "name": {
-      "given": "Leopoldine Eleonore Josefine",
-      "surname": "Haberditzl",
-      "display": "Leopoldine Eleonore Josefine Haberditzl",
-      "legitimized": false,
-      "surnameRaw": "Haberditzl"
-    },
-    "sex": "F",
-    "birth": {
-      "date": "05.10.1921",
-      "place": "Budweis (České Budějovice, CZ)",
-      "year": 1921
-    },
-    "death": {
-      "date": "14.07.1996",
-      "place": "Herrenberg, Baden-Württemberg (D)",
-      "year": 1996,
-      "known": true
-    },
-    "occupation": null,
-    "famc": [
-      "F501539"
-    ],
-    "fams": [
-      "F526355"
-    ],
-    "nickname": "Poldi",
-    "houseNames": []
-  },
-  "I579262": {
-    "id": "I579262",
-    "name": {
-      "given": "Wolfgang Karl Egon",
-      "surname": "Obst",
-      "display": "Wolfgang Karl Egon Obst",
-      "legitimized": false,
-      "surnameRaw": "Obst"
-    },
-    "sex": "M",
-    "birth": {
-      "date": "19.08.1921",
-      "place": "Coburg",
-      "year": 1921
-    },
-    "death": {
-      "date": "22.01.1981",
-      "place": "Nufringen",
-      "year": 1981,
-      "known": true
-    },
-    "occupation": "Arzt",
-    "famc": [],
-    "fams": [
-      "F526355"
     ],
     "nickname": null,
     "houseNames": []
@@ -162340,5 +162160,1363 @@
     "houseNames": [
       "Euin"
     ]
+  },
+  "I579558": {
+    "id": "I579558",
+    "name": {
+      "given": "Liselotte",
+      "surname": "Bauer",
+      "display": "Liselotte Bauer",
+      "legitimized": false,
+      "surnameRaw": "Bauer"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "24.12.1947",
+      "place": "Waldsassen, Bayern (D)",
+      "year": 1947
+    },
+    "death": {
+      "date": "04.01.2004",
+      "place": "München, Bayern (D)",
+      "year": 2004,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501197"
+    ],
+    "fams": [],
+    "nickname": "Sissi",
+    "houseNames": []
+  },
+  "I579642": {
+    "id": "I579642",
+    "name": {
+      "given": "Wenzl",
+      "surname": "Lutz",
+      "display": "Wenzl Lutz",
+      "legitimized": true,
+      "legBirthSurname": "Schürer",
+      "legNewSurname": "Lutz",
+      "surnameRaw": "Schürer, leg. Lutz"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "22.09.1889",
+      "place": "Pechgrün #36 (Smolnice, CZ)",
+      "year": 1889
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F500278"
+    ],
+    "fams": [
+      "F526513"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579643": {
+    "id": "I579643",
+    "name": {
+      "given": "Anna",
+      "surname": "Mörtl",
+      "display": "Anna Mörtl",
+      "legitimized": true,
+      "legBirthSurname": "Wölfl",
+      "legNewSurname": "Mörtl",
+      "surnameRaw": "Wölfl, leg. Mörtl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "21.03.1892",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1892
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526513"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579644": {
+    "id": "I579644",
+    "name": {
+      "given": "Franz Karl",
+      "surname": "Mörtl",
+      "display": "Franz Karl Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "05.06.1871",
+      "place": "Schwarzenbach #26 (Černava, CZ)",
+      "year": 1871
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": "horník/ Bergmann",
+    "famc": [
+      "F526515"
+    ],
+    "fams": [
+      "F526514"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579647": {
+    "id": "I579647",
+    "name": {
+      "given": "Eisabeth",
+      "surname": "Wölfl",
+      "display": "Eisabeth Wölfl",
+      "legitimized": false,
+      "surnameRaw": "Wölfl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "13.09.1870",
+      "place": "Littmitz #32 (Lipnice. CZ)",
+      "year": 1870
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526516"
+    ],
+    "fams": [
+      "F526514"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579648": {
+    "id": "I579648",
+    "name": {
+      "given": "Maria",
+      "surname": "Mörtl",
+      "display": "Maria Mörtl",
+      "legitimized": true,
+      "legBirthSurname": "Wölfl",
+      "legNewSurname": "Mörtl",
+      "surnameRaw": "Wölfl, leg. Mörtl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "22.03.1894",
+      "place": "Littmitz #100 (Lipnice, CZ)",
+      "year": 1894
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526517"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579649": {
+    "id": "I579649",
+    "name": {
+      "given": "Anton",
+      "surname": "Mörtl",
+      "display": "Anton Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "26.08.1895",
+      "place": "Littmitz #57 (Lipnice, CZ)",
+      "year": 1895
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526519"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579650": {
+    "id": "I579650",
+    "name": {
+      "given": "Josef",
+      "surname": "Mörtl",
+      "display": "Josef Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "07.08.1896",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1896
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": "horník/ Bergmann",
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526520"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579651": {
+    "id": "I579651",
+    "name": {
+      "given": "Franz",
+      "surname": "Mörtl",
+      "display": "Franz Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "04.10.1897",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1897
+    },
+    "death": {
+      "date": "05.10.1897",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1897,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579652": {
+    "id": "I579652",
+    "name": {
+      "given": "Franz Xaver Ferdinand",
+      "surname": "Mörtl",
+      "display": "Franz Xaver Ferdinand Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "26.10.1898",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1898
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": "horník/ Bergmann",
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526522"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579653": {
+    "id": "I579653",
+    "name": {
+      "given": "Aloisia",
+      "surname": "Mörtl",
+      "display": "Aloisia Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "13.12.1900",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1900
+    },
+    "death": {
+      "date": "06.02.1917",
+      "place": null,
+      "year": 1917,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579654": {
+    "id": "I579654",
+    "name": {
+      "given": "Robert",
+      "surname": "Mörtl",
+      "display": "Robert Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "06.02.1902",
+      "place": "Littmitz #13 (Lipnice, CZ)",
+      "year": 1902
+    },
+    "death": {
+      "date": "28.02.1902",
+      "place": "Littmitz #13 (Lipnice, CZ)",
+      "year": 1902,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579655": {
+    "id": "I579655",
+    "name": {
+      "given": "Margareta",
+      "surname": "Mörtl",
+      "display": "Margareta Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "08.07.1903",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1903
+    },
+    "death": {
+      "date": "23.07.1903",
+      "place": "Littmitz #32 (Lipnice, CZ)",
+      "year": 1903,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579656": {
+    "id": "I579656",
+    "name": {
+      "given": "Rudolf",
+      "surname": "Mörtl",
+      "display": "Rudolf Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "01.12.1904",
+      "place": "Littmitz #88 (Lipnice, CZ)",
+      "year": 1904
+    },
+    "death": {
+      "date": "27.12.1904",
+      "place": "Littmitz #88 (Lipnice, CZ)",
+      "year": 1904,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579657": {
+    "id": "I579657",
+    "name": {
+      "given": "Ferdinand",
+      "surname": "Mörtl",
+      "display": "Ferdinand Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "30.03.1907",
+      "place": "Littmitz #75 (Lipnice, CZ)",
+      "year": 1907
+    },
+    "death": {
+      "date": "06.05.1907",
+      "place": "Littmitz #75 (Lipnice, CZ)",
+      "year": 1907,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579658": {
+    "id": "I579658",
+    "name": {
+      "given": "Pauline",
+      "surname": "Mörtl",
+      "display": "Pauline Mörtl",
+      "legitimized": false,
+      "surnameRaw": "Mörtl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "11.08.1908",
+      "place": "Littmitz #60 (Lipnice, CZ)",
+      "year": 1908
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526514"
+    ],
+    "fams": [
+      "F526523"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579675": {
+    "id": "I579675",
+    "name": {
+      "given": "Berta",
+      "surname": "Lutz",
+      "display": "Berta Lutz",
+      "legitimized": false,
+      "surnameRaw": "Lutz"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "ca. 1925",
+      "place": null,
+      "year": 1925
+    },
+    "death": {
+      "date": "ca. 1961",
+      "place": null,
+      "year": 1961,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526513"
+    ],
+    "fams": [
+      "F526525"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579678": {
+    "id": "I579678",
+    "name": {
+      "given": "Anna",
+      "surname": "Lutz",
+      "display": "Anna Lutz",
+      "legitimized": true,
+      "legBirthSurname": "Schürer",
+      "legNewSurname": "Lutz",
+      "surnameRaw": "Schürer, leg. Lutz"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "03.10.1892",
+      "place": "Pechgrün #38 (Smolnice, CZ)",
+      "year": 1892
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F500278"
+    ],
+    "fams": [
+      "F526526"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579679": {
+    "id": "I579679",
+    "name": {
+      "given": "Wenzel",
+      "surname": "Forster",
+      "display": "Wenzel Forster",
+      "legitimized": false,
+      "surnameRaw": "Forster"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "ca. 1890",
+      "place": null,
+      "year": 1890
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526526"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579680": {
+    "id": "I579680",
+    "name": {
+      "given": "Lorenz",
+      "surname": "Lutz",
+      "display": "Lorenz Lutz",
+      "legitimized": false,
+      "surnameRaw": "Lutz"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "1790",
+      "place": "Doglasgrün #45 (Vřesová, CZ)",
+      "year": 1790
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526530"
+    ],
+    "fams": [
+      "F526527"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I579681": {
+    "id": "I579681",
+    "name": {
+      "given": "Anna Katharina",
+      "surname": "Rudert",
+      "display": "Anna Katharina Rudert",
+      "legitimized": false,
+      "surnameRaw": "Rudert"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "15.11.1796",
+      "place": "Sponsl #7 (Spomyšl, CZ)",
+      "year": 1796
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526528"
+    ],
+    "fams": [
+      "F526527"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580056": {
+    "id": "I580056",
+    "name": {
+      "given": "Joseph",
+      "surname": "Sandner",
+      "display": "Joseph Sandner",
+      "legitimized": false,
+      "surnameRaw": "Sandner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "1799",
+      "place": "Mühlberg #26 (Lesík, CZ)",
+      "year": 1799
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526667"
+    ],
+    "fams": [
+      "F526665"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580060": {
+    "id": "I580060",
+    "name": {
+      "given": "Joseph",
+      "surname": "Sandner",
+      "display": "Joseph Sandner",
+      "legitimized": false,
+      "surnameRaw": "Sandner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "1764",
+      "place": "Mühlberg #26 (Lesík, CZ)",
+      "year": 1764
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526668"
+    ],
+    "fams": [
+      "F526667"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580064": {
+    "id": "I580064",
+    "name": {
+      "given": "Maria Theresia",
+      "surname": "Liehl",
+      "display": "Maria Theresia Liehl",
+      "legitimized": false,
+      "surnameRaw": "Liehl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "13.07.1804",
+      "place": "Mühlberg, Graslitz, Bohemia, Austria",
+      "year": 1804
+    },
+    "death": {
+      "date": "31.12.1804",
+      "place": "Mühlberg, Graslitz, Bohemia, Austria",
+      "year": 1804,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F500577"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580197": {
+    "id": "I580197",
+    "name": {
+      "given": "Bruno Franz",
+      "surname": "Seidl",
+      "display": "Bruno Franz Seidl",
+      "legitimized": false,
+      "surnameRaw": "Seidl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "23.03.1915",
+      "place": "Pechgrün (Smolnice), Böhmen, Tschechien",
+      "year": 1915
+    },
+    "death": {
+      "date": "20.11.1941",
+      "place": "Dedilowo, Tula Oblast, Central Russia",
+      "year": 1941,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501473"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580198": {
+    "id": "I580198",
+    "name": {
+      "given": "Franz",
+      "surname": "Seidl",
+      "display": "Franz Seidl",
+      "legitimized": false,
+      "surnameRaw": "Seidl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "31.03.1911",
+      "place": null,
+      "year": 1911
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501473"
+    ],
+    "fams": [
+      "F526723"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580199": {
+    "id": "I580199",
+    "name": {
+      "given": "Karl Egon",
+      "surname": "Seidl",
+      "display": "Karl Egon Seidl",
+      "legitimized": false,
+      "surnameRaw": "Seidl"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "04.12.1918",
+      "place": null,
+      "year": 1918
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501473"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580371": {
+    "id": "I580371",
+    "name": {
+      "given": "Maria Anna",
+      "surname": "Stutzig",
+      "display": "Maria Anna Stutzig",
+      "legitimized": false,
+      "surnameRaw": "Stutzig"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "1816",
+      "place": "Hochofen #39 (Vysoká Pec, CZ)",
+      "year": 1816
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F501151"
+    ],
+    "fams": [
+      "F526788",
+      "F526789"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580400": {
+    "id": "I580400",
+    "name": {
+      "given": "Gertrud",
+      "surname": "Pichl",
+      "display": "Gertrud Pichl",
+      "legitimized": false,
+      "surnameRaw": "Pichl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "11.04.1931",
+      "place": "Zwodau, Löwenhof, Czech",
+      "year": 1931
+    },
+    "death": {
+      "date": "02.08.2019",
+      "place": "Wenzenbach, Regensburg, Bayern, Germany",
+      "year": 2019,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526795"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580401": {
+    "id": "I580401",
+    "name": {
+      "given": "Ferdinand",
+      "surname": "Wildner",
+      "display": "Ferdinand Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "18.07.1866",
+      "place": "Königsberg an der Eger #319 (Kynšperk nad Ohří, CZ)",
+      "year": 1866
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": "Gürtler",
+    "famc": [
+      "F526797"
+    ],
+    "fams": [
+      "F526796"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580404": {
+    "id": "I580404",
+    "name": {
+      "given": "Pauline",
+      "surname": "Kamenik",
+      "display": "Pauline Kamenik",
+      "legitimized": false,
+      "surnameRaw": "Kamenik"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "07.11.1866",
+      "place": "Mostau #1 (Mostov, CZ)",
+      "year": 1866
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526799"
+    ],
+    "fams": [
+      "F526796"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580407": {
+    "id": "I580407",
+    "name": {
+      "given": "Leopold",
+      "surname": "Wildner",
+      "display": "Leopold Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "04.03.1906",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1906
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580408": {
+    "id": "I580408",
+    "name": {
+      "given": "Katharina",
+      "surname": "Wildner",
+      "display": "Katharina Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "18.08.1902",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1902
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580409": {
+    "id": "I580409",
+    "name": {
+      "given": "Hermine",
+      "surname": "Wildner",
+      "display": "Hermine Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "14.05.1901",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1901
+    },
+    "death": {
+      "date": "15.05.1901",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1901,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580410": {
+    "id": "I580410",
+    "name": {
+      "given": "Julia",
+      "surname": "Wildner",
+      "display": "Julia Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "06.04.1900",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1900
+    },
+    "death": {
+      "date": "28.08.1901",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1901,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580411": {
+    "id": "I580411",
+    "name": {
+      "given": "Ferdinand",
+      "surname": "Wildner",
+      "display": "Ferdinand Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "13.01.1899",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1899
+    },
+    "death": {
+      "date": "03.04.1899",
+      "place": "Chodau #169 (Chodov, CZ)",
+      "year": 1899,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580412": {
+    "id": "I580412",
+    "name": {
+      "given": "Karl",
+      "surname": "Wildner",
+      "display": "Karl Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "18.06.1897",
+      "place": "Chodau #196 (Chodov, CZ)",
+      "year": 1897
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [
+      "F526800"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580414": {
+    "id": "I580414",
+    "name": {
+      "given": "Emma",
+      "surname": "Wildner",
+      "display": "Emma Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "09.02.1895",
+      "place": "Chodau #163 (Chodov, CZ)",
+      "year": 1895
+    },
+    "death": {
+      "date": "15.10.1897",
+      "place": "Chodau (Chodov, CZ)",
+      "year": 1897,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580415": {
+    "id": "I580415",
+    "name": {
+      "given": "Anna",
+      "surname": "Wildner",
+      "display": "Anna Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "21.07.1893",
+      "place": "Chodau #163 (Chodov, CZ)",
+      "year": 1893
+    },
+    "death": {
+      "date": "10.02.1896",
+      "place": "Chodau #163 (Chodov, CZ)",
+      "year": 1896,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580416": {
+    "id": "I580416",
+    "name": {
+      "given": "Paulina Maria",
+      "surname": "Wildner",
+      "display": "Paulina Maria Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "10.11.1891",
+      "place": "Chodau #228 (Chodov, CZ)",
+      "year": 1891
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580417": {
+    "id": "I580417",
+    "name": {
+      "given": "Anna",
+      "surname": "Wildner",
+      "display": "Anna Wildner",
+      "legitimized": false,
+      "surnameRaw": "Wildner"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "24.11.1890",
+      "place": "Chodau #228 (Chodov, CZ)",
+      "year": 1890
+    },
+    "death": {
+      "date": "21.12.1890",
+      "place": "Chodau #228 (Chodov, CZ)",
+      "year": 1890,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526796"
+    ],
+    "fams": [],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580430": {
+    "id": "I580430",
+    "name": {
+      "given": "Anna",
+      "surname": "Friedl",
+      "display": "Anna Friedl",
+      "legitimized": false,
+      "surnameRaw": "Friedl"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "20.05.1920",
+      "place": "Neudek (Nejdek, CZ)",
+      "year": 1920
+    },
+    "death": {
+      "date": "2007",
+      "place": "Eidengesäß, Main-Kinzig-Kreis, Hessen (D)",
+      "year": 2007,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [
+      "F526808"
+    ],
+    "fams": [
+      "F526807"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580431": {
+    "id": "I580431",
+    "name": {
+      "given": "Emil",
+      "surname": "Friedel",
+      "display": "Emil Friedel",
+      "legitimized": false,
+      "surnameRaw": "Friedel"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "1891",
+      "place": null,
+      "year": 1891
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526808"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580432": {
+    "id": "I580432",
+    "name": {
+      "given": "Anna",
+      "surname": "Pecher",
+      "display": "Anna Pecher",
+      "legitimized": false,
+      "surnameRaw": "Pecher"
+    },
+    "sex": "F",
+    "birth": {
+      "date": "1888",
+      "place": null,
+      "year": 1888
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": true
+    },
+    "occupation": null,
+    "famc": [],
+    "fams": [
+      "F526808"
+    ],
+    "nickname": null,
+    "houseNames": []
+  },
+  "I580433": {
+    "id": "I580433",
+    "name": {
+      "given": "Albrecht",
+      "surname": "Kunzmann",
+      "display": "Albrecht Kunzmann",
+      "legitimized": false,
+      "surnameRaw": "Kunzmann"
+    },
+    "sex": "M",
+    "birth": {
+      "date": "27.08.1940",
+      "place": "Neudek (Nejdek, CZ)",
+      "year": 1940
+    },
+    "death": {
+      "date": null,
+      "place": null,
+      "year": null,
+      "known": false
+    },
+    "occupation": null,
+    "famc": [
+      "F526807"
+    ],
+    "fams": [
+      "F526809"
+    ],
+    "nickname": null,
+    "houseNames": []
   }
 }

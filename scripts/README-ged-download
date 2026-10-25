@@ -1,0 +1,24 @@
+1. Export MyHeritage data
+2. Download created ged Familie (into ~/Downloads)
+3. Rename ged file to MyHeritage.ged
+4. Open terminal window
+5. Go to project directory: cd ~/Doc*/pec*/pec*
+6. Filter die fuer pechgruen Website relevant data: 
+   python3 scripts/mh-filter-subset.py ~/Downloads/MyHeritage.ged ~/Downloads/Pechgruen.ged
+7. Transform Pechgruen.ged into necessary JSON files for "Familiennamensliste":
+   node scripts/ged-to-json.mjs ~/Downloads/Pechgruen.ged public/data/ged
+8. Update .csv file for "Genealogische Liste":
+   python3 scripts/ged_to_pechgruen_csv.py --in ~/Downloads/MyHeritage.ged --out public/data/pechgruen-ged.csv --sort
+9. git push
+
+Background:
+
+Die Pechgrün-Website enthält drei unterschiedliche Personenanzeigen, die auf zwei verschiedenen Datenquellen beruhen: dem historischen Einwohnermeldebuch und meinem genealogischen Stammbaum auf MyHeritage.
+
+Die erste Anzeige basiert auf einem transkribierten Einwohnermeldebuch aus der Zeit um 1945. Die darin erfassten Personen werden in einer Tabelle dargestellt, die nach Hausnummer, Familienname, Vorname, Geburtsort und weiteren Kriterien gefiltert werden kann. Mithilfe der Datei Häuser.csv werden den Hausnummern die historischen Hausnamen zugeordnet, beispielsweise P024 = Bahnfeld. Sowohl das Einwohnermeldebuch als auch die Hausnamen sind statische Datenbestände, die nicht regelmäßig aktualisiert werden müssen.
+
+Die zweite Anzeige, die genealogische Liste, funktioniert ähnlich wie das Einwohnermeldebuch und bietet ebenfalls eine filterbare Personentabelle. Ihre Daten stammen jedoch aus meinem aktuellen MyHeritage-Stammbaum. Aufgenommen werden alle Personen, die in Pechgrün oder Neuhäuser geboren oder gestorben sind, sowie deren Ehepartner, unabhängig von deren Geburts- oder Sterbeort. Die Hausnummer wird nach Möglichkeit aus dem Geburtsort, andernfalls aus dem Sterbeort oder ersatzweise aus den Angaben zum Ehepartner abgeleitet. Diese Zuordnung muss daher nicht unbedingt dem tatsächlichen Wohnsitz entsprechen. Die Daten werden mit dem Skript ged_to_pechgruen_csv.py direkt aus dem vollständigen MyHeritage-Export erzeugt und in der Datei public/data/pechgruen-ged.csv gespeichert.
+
+Die dritte Anzeige ist die Familiennamensliste mit einem erweiterten genealogischen Personenbrowser. Sie basiert ebenfalls auf MyHeritage, enthält aber einen wesentlich größeren Personenkreis. Ausgangspunkt sind Personen, die in Pechgrün oder Neuhäuser geboren oder gestorben sind, sowie Personen, die im Stammbaum ausdrücklich mit einem Bookmark gekennzeichnet wurden. Zusätzlich werden nach bestimmten Regeln Eltern, Geschwister, Ehepartner, Kinder und weitere unmittelbar verbundene Familienangehörige berücksichtigt, auch wenn sie selbst keinen direkten Bezug zu Pechgrün haben. Die Auswahl ist auf Personen mit einem bekannten Geburtsjahr zwischen 1500 und 1948 beschränkt. Anders als bei den beiden Tabellen erfolgt die Darstellung hier als navigierbarer Stammbaum in Textform. Man kann alphabetisch nach Familiennamen suchen, alle Personen eines Familiennamens anzeigen und anschließend einzelne Personen mit ihren Lebensdaten sowie den Beziehungen zu Eltern, Ehepartnern und Kindern aufrufen. Für diese Anzeige wird zunächst mit dem Skript mh-filter-subset.py aus dem vollständigen MyHeritage-Export die reduzierte Datei Pechgruen.ged erzeugt. Anschließend wandelt das Skript ged-to-json.mjs diese Datei in mehrere JSON-Dateien im Verzeichnis public/data/ged um.
+
+Während das historische Einwohnermeldebuch unverändert bleibt, müssen die Daten der beiden genealogischen Anzeigen gelegentlich aktualisiert werden, da mein MyHeritage-Stammbaum laufend ergänzt und korrigiert wird. Dazu wird ein neuer GEDCOM-Export aus MyHeritage heruntergeladen und anschließend werden die drei Skripte erneut ausgeführt. Die aktualisierten CSV- und JSON-Dateien werden danach zusammen mit der Website auf GitHub veröffentlicht.
