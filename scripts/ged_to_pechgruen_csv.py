@@ -40,7 +40,7 @@ Date formatting:
   - otherwise keep as-is
 
 Usage:
-  python3 scripts/ged_to_pechgruen_csv.py --in ~/desktop/test.ged --out public/data/pechgruen-ged.csv --sort
+  python3 scripts/ged_to_pechgruen_csv.py --in ~/Downloads/MyHeritage.ged --out public/data/pechgruen-ged.csv --sort
 """
 
 import argparse

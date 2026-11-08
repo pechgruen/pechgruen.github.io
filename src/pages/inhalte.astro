@@ -52,6 +52,7 @@ import { chronik as josefModer } from "./texte/josef-moder.astro";
 import { chronik as rudolfWildner } from "./texte/rudolf-wildner.astro";
 import { chronik as zeitreise } from "./texte/zeitreise.astro";
 import { chronik as woIstPechgruen } from "./texte/wo-ist-pechgruen.astro";
+import { chronik as echalandrasch } from "./texte/echalandrasch.astro";
 
 // Redelbach
 import { chronik as redelbachIndex } from "./redelbach/index.astro";
@@ -495,7 +496,7 @@ const ceskyCombined = [...ceskyContentItems, ...ceskyPages].sort((a, b) => {
       <button class="acc-head" type="button" aria-expanded="false">
         <span class="acc-title">Texte, Stimmen und Erinnerungen</span>
         <span class="acc-right">
-          <span class="acc-meta">13 Einträge</span>
+          <span class="acc-meta">14 Einträge</span>
           <span class="acc-arrow" aria-hidden="true">▲</span>
         </span>
       </button>
@@ -581,6 +582,10 @@ const ceskyCombined = [...ceskyContentItems, ...ceskyPages].sort((a, b) => {
                 <span> — {woIstPechgruen.subtitle}</span>
               ) : null
             }
+          </li>
+          <li>
+            <a href={echalandrasch.href}>{echalandrasch.title}</a>
+            {echalandrasch.subtitle ? <span> — {echalandrasch.subtitle}</span> : null}
           </li>
         </ul>
       </div>
